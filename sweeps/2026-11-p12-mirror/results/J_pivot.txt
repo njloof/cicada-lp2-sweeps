@@ -1,0 +1,4 @@
+anti-diagonal const 177 -> pivot rune 88.5 of 261
+raw offsets: rune#88@118, rune#89@119
+nearest marks: [('/', 113, -5), ('.', 111, -7), ('.', 139, 21)]
+context: ...ᚢᛒ-ᛉ.ᚱᚣᚾ-ᛁᛠ-ᛚᚹᛋ-ᚠᚦᚪᛠ-ᛈᚷ.ᛏ/\nᚷᛡᛟᛠᛡᛒ-ᛉᛄᛒ-ᛖᚾ-ᛞᚠᛠᛗ-ᚦᚪᛗᚠᚪ./\nᚻᛡ-ᛗᛁᛏᛟ...

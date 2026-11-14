@@ -101,16 +101,22 @@ def main():
             print(f"I f={fr}: chi2 med {np.median(chis):.1f} (obs {obs_chi2:.1f}), "
                   f"frac med {np.median(fracs):.3f} (obs {obs_frac:.3f})", flush=True)
 
-    # ---- J(a): pivot mapping into raw transcription ----
-    raw = open(f"{DATA}/pages/lp2_12.txt").read()
+    # ---- J(a): pivot mapping into raw transcription (krisyotam canonical, % segs) ----
+    raw = open(f"{ROOT}/sources/dukotah/liber-primus/data/krisyotam_runes.txt").read().split("%")[12]
     rune_pos = [k for k, ch in enumerate(raw) if ch in R2I]
+    assert len(rune_pos) == len(A12), f"stream/page length mismatch {len(rune_pos)} vs {len(A12)}"
     pivot = 177 / 2                                        # i + j' = 177 -> pivot 88.5
     lo, hi = int(np.floor(pivot)), int(np.ceil(pivot))
     k_lo, k_hi = rune_pos[lo], rune_pos[hi]
-    ctx = raw[max(0, k_lo - 25):k_hi + 25].replace("\n", "\\n")
+    ctx = raw[max(0, k_lo - 30):k_hi + 30].replace("\n", "\\n")
+    # nearest structural markers to the pivot (line '/' or section/page marks)
+    marks = [(k, ch) for k, ch in enumerate(raw) if ch in "/.&$§"]
+    near = sorted(marks, key=lambda m: abs(m[0] - k_lo))[:3]
     with open(f"{HERE}/results/J_pivot.txt", "w") as f:
         f.write(f"anti-diagonal const 177 -> pivot rune {pivot} of {len(rune_pos)}\n"
-                f"raw offsets: rune#{lo}@{k_lo}, rune#{hi}@{k_hi}\ncontext: ...{ctx}...\n")
+                f"raw offsets: rune#{lo}@{k_lo}, rune#{hi}@{k_hi}\n"
+                f"nearest marks: {[(ch, k, k - k_lo) for k, ch in near]}\n"
+                f"context: ...{ctx}...\n")
     print(open(f"{HERE}/results/J_pivot.txt").read().strip())
 
     # ---- J(b): |d|=1 run structure vs null (seed 20261118) ----

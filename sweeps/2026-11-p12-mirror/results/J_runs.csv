@@ -1,0 +1,3 @@
+stat,observed,null_median,null_p95,null_max,p_exceed
+max_run,2,1.0,2.0,4,0.3993
+runs_ge3,0,0.0,0.0,4,1.0000
