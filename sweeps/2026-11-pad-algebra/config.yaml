@@ -1,0 +1,13 @@
+# Campaign config — 2026-11-pad-algebra (Phase 3; see PREREG.md)
+families:
+  D_mult:   {stat: "(C_M - k*C_N) mod 29", k: [2, 27], orientations: [fwd, rev],
+             note: "k=0 trivial, k=1 campaign#1, k=28=campaign#2-A by collapse"}
+  E_stride: {pads: "C_N[g*t] and C_N[n-1-g*t]", g: [2, 3], stat: diff}
+  F_outlier: {scope: "all 55 pages", null: "max page ratio across 20 shuffled replicates (max-vs-max)"}
+targets: LP2 0-54
+masking: {primary: tgt, sensitivity: both}
+min_len: 50
+floor: 40.0
+null: {method: "20x in-page shuffle, per family", seed: 20261115, resumable: true}
+decision_rule: "max > 1.1 x family MC max AND survives mask=both AND English cribs (D,E); ratio > null max ratio (F)"
+status: PREREGISTERED-NOT-RUN

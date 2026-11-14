@@ -24,3 +24,4 @@ coverage caveats | link. This is what the community should reuse, not the raw CS
 - [Page 55](PAGE55.md) — missing from every lineage; untranscribable from published images.
 - PARABLE pos-80 adjudication (ᚣ Y over scream314's ᛖ E) — data/SOURCES.md.
 - Doublet count reproduced exactly: 86 across LP2 0–54.
+| 3 | registered 2026-11-14 | pad algebra: multiplicative scaling k·C_N (k∈2..27), stride/skip pads (skip_by_two analog), calibrated page-mirror-outlier audit | per PREREG (D ≈ 26× campaign #1 fwd+rev; E, F minutes-scale) | 20× per-family MC, seed 20261115 | **PREREGISTERED — NOT YET RUN** | see PREREG; collapses (k=0/1/28, sign symmetry) declared up front | [PREREG](../sweeps/2026-11-pad-algebra/PREREG.md) |
