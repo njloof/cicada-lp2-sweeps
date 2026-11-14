@@ -1,0 +1,10 @@
+# Campaign config — 2026-11-p12-mirror (Phase 4 confirmation; see PREREG.md)
+tests:
+  G_null:  {stat: "campaign #3 F ratio (mirror_max / own-diff p99), max across 55 pages",
+            null: "1000 in-page shuffles, max-vs-max", seed: 20261116}
+  H_shift: {stat: "max over rev alignments of (h[1]+h[28])/n, max across 55 pages",
+            null: "same 1000 shuffles, max-vs-max", seed: 20261116}
+  I_noise: {corrupt: "f of non-F runes -> uniform 1..28", f: [0.02, 0.05, 0.10], reps: 200, seed: 20261117}
+  J_structure: {pivot: raw-marker mapping, runs: "2000 shuffles seed 20261118", controls: [ANEND56, PARABLE57]}
+decision: "CONFIRMED iff G p<=0.01 and H p<=0.01; SUPPORTED iff one; else dissolved"
+status: PREREGISTERED-NOT-RUN
