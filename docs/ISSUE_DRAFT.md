@@ -1,9 +1,10 @@
 # Outreach texts
 
 Issue filed 2026-11-14 → https://github.com/Dukotah/cicada3301/issues/13
-Wiki note below: pending (needs a Fandom account; paste into the LP2 analysis
-section at https://uncovering-cicada.fandom.com — no bot-accessible edit API
-from this environment).
+Wiki note posted 2026-11-14 → https://uncovering-cicada.fandom.com/wiki/Frequency_Analysis_(Liber_Primus)
+(rev 44645, section "Cross-page running-pad hypothesis (2026)" placed above the
+page categories; the canonical "Liber Primus Unsolved Pages" page is
+sysop-protected, so the note landed on the unprotected Frequency Analysis page).
 
 **Title:** Cross-page running-pad sweeps on LP2: ~74.5M alignments, MC-calibrated,
 language-agnostic — 3 clean negatives + 1 public retraction (repo live)
@@ -65,9 +66,9 @@ position-dependent pad derivations (digit/ornament channels), LP1-as-pad.
 — njloof
 
 ---
-# Draft note → Uncovering Cicada wiki (LP2 analysis page; review before editing)
+# Note → Uncovering Cicada wiki (posted 2026-11-14, rev 44645 on "Frequency Analysis (Liber Primus)")
 
-Add a "Cross-page running-pad hypothesis (2026)" section:
+"Cross-page running-pad hypothesis (2026)" section as posted:
 
 > Systematic elimination sweeps (2026-11, [njloof/cicada-lp2-sweeps](https://github.com/njloof/cicada-lp2-sweeps))
 > tested whether unsolved LP2 pages were encrypted using other LP2 pages'
