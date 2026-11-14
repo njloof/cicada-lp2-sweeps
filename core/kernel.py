@@ -38,16 +38,22 @@ def load_pages():
             pages[n] = np.array([int(x) for ln in open(p) for x in ln.split()], dtype=np.int8)
     return pages
 
-def pair_scan(A, B, mask="tgt", min_len=MIN_LEN, straddle=None):
+def pair_scan(A, B, mask="tgt", min_len=MIN_LEN, straddle=None, stat="diff"):
     """All-offset scan of target A (len m) vs pad B (len n).
     Yields (offset, n_valid, chi2, ioc, hist) for every window with >= min_len valid positions.
     Vectorized: full m x n difference matrix; offset = i - j diagonal.
+    stat: "diff" -> (A - B) mod 29   (running-pad / campaign #1 family)
+          "sum"  -> (A + B) mod 29   (campaign #2 family A: covers subtractive pad,
+                   atbash pad and target-atbash variants by constant-shift collapse)
     straddle: if given, keep only windows whose pad span [jmin, jmax] crosses the
     junction index (used for mirror pads so windows lying wholly in one half — which
     duplicate the plain fwd/rev scans — are not counted twice)."""
     m, n = len(A), len(B)
     Af, Bf = A.astype(np.int16), B.astype(np.int16)
-    Diff = (Af[:, None] - Bf[None, :]) % Q                      # m x n
+    if stat == "sum":
+        Diff = (Af[:, None] + Bf[None, :]) % Q                  # m x n
+    else:
+        Diff = (Af[:, None] - Bf[None, :]) % Q                  # m x n
     if mask == "both":
         Valid = (A[:, None] != 0) & (Bf[None, :] != 0)
     else:  # "tgt"
