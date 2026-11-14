@@ -3,9 +3,14 @@
 Cicada 3301 **Liber Primus Part 2** cryptanalysis: pre-registered, MC-calibrated
 elimination sweeps with a reproducible corpus pipeline and a public ledger.
 
-**Headline so far:** the cross-page running-pad hypothesis (an unsolved LP2 page
-encrypted with another page's ciphertext as a running pad) is **clean-negative** —
-3,798,361 alignments swept, nothing above the Monte-Carlo null. See
+**Headline so far:** four campaigns, ~74.5M swept alignments, three clean
+negatives and one self-correction. The cross-page running-pad hypothesis
+(an unsolved LP2 page encrypted with another page's ciphertext as a running
+pad) is dead across its full known algebra: differences (#1), sums/weaves
+(#2), all 26 multiplicative scalings + stride/skip consumption (#3). A
+page-12 mirror outlier flagged by #3's registered test was **publicly
+retracted** when campaign #4's 1000-draw confirmation null put it at p = 0.099
+— the flag was a 20-draw tail-resolution artifact. See
 [docs/LEDGER.md](docs/LEDGER.md).
 
 ## Why the instrument is trustworthy
@@ -15,8 +20,12 @@ encrypted with another page's ciphertext as a running pad) is **clean-negative**
   mode documented in [Dukotah/cicada3301](https://github.com/Dukotah/cicada3301)
   Round 18).
 - **MC null of the max** — every verdict is calibrated by re-running the *identical*
-  sweep on in-page-shuffled targets (20×), never a Bonferroni band (which is
-  anti-conservative for these correlated, overlapping windows).
+  sweep on in-page-shuffled targets, never a Bonferroni band (which is
+  anti-conservative for these correlated, overlapping windows). Two hard-earned
+  corollaries, both learned on this corpus: nulls are **family-specific**
+  (the sum statistic's null sits ~46 χ² above the difference's; a borrowed
+  threshold crowns false hits), and **20-draw flags are provisional** — #4 was
+  built solely to break #3's page-12 flag at 1000 draws, and succeeded.
 - **CI-enforced trust anchor** — every push reproduces all four known LP1/LP2
   decodes (atbash, Vigenère DIVINITY, φ(prime), transliteration) plus 11 tests,
   and gates that no campaign ships results without a PREREG.md.

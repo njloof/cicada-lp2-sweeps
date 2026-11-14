@@ -121,3 +121,10 @@ in page coordinates it compares `A[i]` vs `A[177−i]` (pivot ≈88.5).
    Phase 4 scoping.
 6. Transcription single-root caveat and page-55 exclusion carry over from
    campaigns #1/#2 unchanged.
+7. **Repo-copy truncation (disclosed 2026-11-14):** `sweep_D_mult.csv` ships as
+   the top 100,000 rows (χ²-sorted, 4.3 MB) to stay under GitHub's 100 MB file
+   limit. The full file is 4,015,413 rows, sha256
+   `6e1abb888c6a894be909ff3de35ea82071e209de4e18657ffa3cb119203affdb`,
+   regenerable deterministically in ~5 min with `python3
+   sweeps/2026-11-pad-algebra/run.py` (mask tgt). All reported statistics use
+   the full sweep, not the shipped truncation.
