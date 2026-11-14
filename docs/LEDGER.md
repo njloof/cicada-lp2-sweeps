@@ -6,6 +6,7 @@ coverage caveats | link. This is what the community should reuse, not the raw CS
 | # | date | hypothesis | space | null calibration | verdict | coverage / not covered | link |
 |---|------|-----------|-------|------------------|---------|------------------------|------|
 | 1 | 2026-11-13 | cross-page running pad: `C_M − C_N = P_M` at true (M,N,o) | 3,798,361 windows — 55 targets × 59 pads × {fwd,rev} + palindrome mirrors (straddling), all offsets, n≥50, ᚠ-masked | 20× in-page-shuffle MC of the global max: min 88.5 / med 99.0 / max 118.8 | **NEGATIVE** (obs max 111.6 self-mirror p≈0.10; best cross-page 86.4 < null median; decode non-English) | 55/56 unsolved pages (p55 untranscribable); single-2017-root transcription; NOT covered: pad transforms (atbash/shift of C_N), interleaved constructions, page 55 | [report](../sweeps/2026-11-crosspage-pad/REPORT.md) |
+| 2 | registered 2026-11-14 | pad transforms & constructions: sum family (covers subtractive/atbash pads), alternating weaves, self-matched mirror audit | per PREREG (≈campaign #1 scale + weaves) | 20× MC of full A+B space, per-family maxima | **PREREGISTERED — NOT YET RUN** | see PREREG; shifts pre-declared χ²-no-op collapses | [PREREG](../sweeps/2026-11-pad-transform/PREREG.md) |
 
 ## Instrument notes (load-bearing for reading the rows)
 
