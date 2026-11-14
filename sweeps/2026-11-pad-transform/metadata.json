@@ -1,0 +1,38 @@
+{
+ "campaign": "2026-11-pad-transform",
+ "run_dates": [
+  "2026-11-14"
+ ],
+ "prereg": "REGISTERED BEFORE OUTPUT (PREREG.md committed 5ed624a, pre-runs)",
+ "corpus_manifest_sha256": "4bbea5479117e62d1e33b36d22732c30783c133d607ddc1d8d1aa9d5127b7e7a",
+ "core_git_rev": "1ffaac8",
+ "seed": 20261114,
+ "python": "3.12.12",
+ "numpy": "2.4.4",
+ "windows": {
+  "A_sum": 3798416,
+  "B_weave": 3723716,
+  "total": 7522132
+ },
+ "null": {
+  "A": {
+   "min": 128.0,
+   "median": 145.2,
+   "max": 167.7
+  },
+  "B": {
+   "min": 82.7,
+   "median": 90.6,
+   "max": 122.0
+  }
+ },
+ "observed_max": {
+  "A": 147.21,
+  "B": 91.53
+ },
+ "audit_C": {
+  "flags": 0,
+  "note": "p99 prong vacuous (window-count asymmetry); global-null prong binding"
+ },
+ "verdict": "NEGATIVE"
+}

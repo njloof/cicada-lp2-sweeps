@@ -10,4 +10,4 @@ min_len: 50
 floor: 40.0
 null: {method: "20x in-page shuffle of full A+B space", seed: 20261114}
 decision_rule: "max > 1.1 x family MC max AND survives mask=both AND English cribs"
-status: PREREGISTERED-NOT-RUN
+status: RUN — NEGATIVE (see REPORT.md)
