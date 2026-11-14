@@ -1,0 +1,15 @@
+name: trust-anchor
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install numpy pytest
+      - run: ./fetch_sources.sh
+      - run: python3 -m core.build_corpus
+      - run: python3 -m core.validate          # smoke decodes: the trust anchor
+      - run: python3 -m pytest -q
+      - run: python3 scripts/check_prereg.py   # results require a PREREG.md

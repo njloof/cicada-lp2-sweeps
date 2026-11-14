@@ -1,0 +1,15 @@
+{
+ "campaign": "2026-11-crosspage-pad",
+ "run_dates": [
+  "2026-11-13",
+  "2026-11-14"
+ ],
+ "prereg": "RETROACTIVE (written 2026-11-14, disclosed in PREREG.md)",
+ "corpus_manifest_sha256": "4bbea5479117e62d1e33b36d22732c30783c133d607ddc1d8d1aa9d5127b7e7a",
+ "core_git_rev": "pre-git import \u2014 code identical to 2026-11-13/14 originals; first git history starts at the restructure commit",
+ "seed": 20261113,
+ "python": "3.12.12",
+ "numpy": "2.4.4",
+ "total_windows": 3798361,
+ "verdict": "NEGATIVE"
+}

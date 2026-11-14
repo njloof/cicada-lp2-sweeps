@@ -1,0 +1,28 @@
+# Campaign config — 2026-11-crosspage-pad (instrument parameters as actually run)
+hypothesis: >
+  Unsolved LP2 page M encrypted with another LP2 page N's ciphertext as a running
+  pad: C_M[t] = (P_M[t] + C_N[t-o]) mod 29. At true (M,N,o), D = C_M - C_N = P_M
+  shows non-uniform 29-symbol chi2.
+targets: LP2 0-54 (55 unsolved pages, 12956 runes)
+pads:
+  ciphertext: LP2 0-54 + 56 (AN END) + 57 (PARABLE)          # 57 streams
+  plaintext:  AN END, PARABLE (solved-page plaintexts)        # 2 streams
+orientations: [fwd, rev]          # complete direction space (target-reversal is a no-op)
+mirror_set: [fwdrev, revfwd]      # N||rev(N), rev(N)||N; junction-straddling windows only
+offsets: all with n_valid >= 50 after masking
+masking:
+  primary: tgt   # drop target-side F only (alignment-safe); keep pad-side F (valid D)
+  sensitivity: both   # handoff both-side masking; all top hits survive
+min_len: 50
+stats: [chi2_vs_uniform_29bin, ioc]
+floor: 40.0
+total_windows: 3798361
+null:
+  method: 20x in-page rune shuffle of every target, identical sweep, global max
+  seed: 20261113
+  result: {min: 88.5, median: 99.0, max: 118.8}
+decision_rule: >
+  GO iff observed max > 1.1 x MC null max AND top hit survives mask=both AND the
+  window decodes with English cribs. (Only the language-agnostic prong was binding;
+  all three failed.)
+verdict: NEGATIVE

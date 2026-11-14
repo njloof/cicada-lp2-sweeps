@@ -1,0 +1,10 @@
+# third-party clones — regenerate with ./fetch_sources.sh (pinned SHAs)
+sources/
+# working crops / scratch (regenerable by tools/p55_transcribe.py)
+work/
+# generated derived data (regenerate: python3 -m core.plaintexts)
+data/solved_plaintexts.json
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store

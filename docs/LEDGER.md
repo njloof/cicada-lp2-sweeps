@@ -1,0 +1,25 @@
+# LP2 elimination ledger
+
+One row per campaign. A row is the citable unit: hypothesis | space | null | verdict |
+coverage caveats | link. This is what the community should reuse, not the raw CSVs.
+
+| # | date | hypothesis | space | null calibration | verdict | coverage / not covered | link |
+|---|------|-----------|-------|------------------|---------|------------------------|------|
+| 1 | 2026-11-13 | cross-page running pad: `C_M − C_N = P_M` at true (M,N,o) | 3,798,361 windows — 55 targets × 59 pads × {fwd,rev} + palindrome mirrors (straddling), all offsets, n≥50, ᚠ-masked | 20× in-page-shuffle MC of the global max: min 88.5 / med 99.0 / max 118.8 | **NEGATIVE** (obs max 111.6 self-mirror p≈0.10; best cross-page 86.4 < null median; decode non-English) | 55/56 unsolved pages (p55 untranscribable); single-2017-root transcription; NOT covered: pad transforms (atbash/shift of C_N), interleaved constructions, page 55 | [report](../sweeps/2026-11-crosspage-pad/REPORT.md) |
+
+## Instrument notes (load-bearing for reading the rows)
+
+- The χ² statistic is **language-agnostic** (29-symbol non-uniformity, no English
+  adjudication) — deliberately, to avoid the English-only-negative failure mode
+  documented in Dukotah/cicada3301 Round 18.
+- Bonferroni bands are anti-conservative here (overlapping windows are correlated);
+  every verdict is decided against the **MC null of the max**, never a p-value band.
+- Corpus: 55 unsolved pages hash-anchored to published images; 4 smoke decodes
+  reproduced in CI (`python3 -m core.validate`).
+
+## Community findings alongside the negatives
+
+- [Numbering reconciliation](NUMBERING.md) — LP1 vs LP2 vs 2014 release filenames.
+- [Page 55](PAGE55.md) — missing from every lineage; untranscribable from published images.
+- PARABLE pos-80 adjudication (ᚣ Y over scream314's ᛖ E) — data/SOURCES.md.
+- Doublet count reproduced exactly: 86 across LP2 0–54.

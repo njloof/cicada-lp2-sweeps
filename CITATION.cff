@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this corpus, instrument or ledger, please cite."
+title: "Cicada LP2 cross-page pad sweeps: MC-calibrated instrument and elimination ledger"
+authors:
+  - name: "njloof"
+repository-code: "https://github.com/njloof/cicada-lp2-sweeps"
+license: MIT
+keywords: [cicada-3301, liber-primus, cryptanalysis, two-time-pad, monte-carlo-null]
