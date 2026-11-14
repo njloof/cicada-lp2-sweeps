@@ -1,0 +1,32 @@
+{
+ "campaign": "2026-11-product-spaces",
+ "date_run": "2026-11-14",
+ "prereg": "REGISTERED BEFORE OUTPUT (commit 1005c25; methodology commit dc4e327 = vectorized null max, statistic unchanged, self-checked)",
+ "corpus_manifest_sha256": "4bbea5479117e62d1e33b36d22732c30783c133d607ddc1d8d1aa9d5127b7e7a",
+ "core_git_rev": "dc4e327",
+ "seed": 20261119,
+ "null_draws": 20,
+ "windows": {"K": 10976270, "L": 110948708, "M": 39580268, "total": 161505246},
+ "rows_ge_floor_40": {"K": 720323, "L": 7229964, "M": 2645589},
+ "observed_max": {"K": 91.65, "L": 112.44, "M": 95.62},
+ "observed_top": {
+  "K": "8<-43:s2m smirror o=-62 n=205 chi2=91.65 (both 86.23)",
+  "L": "24<-39:s3 stride k=27 o=42 n=77 chi2=112.44 (both 112.44)",
+  "M": "42<-21:fwdrev mirror k=9 o=-241 n=258 chi2=95.62 (both 100.47)"
+ },
+ "null_summary": {
+  "K": {"min": 89.16, "median": 97.35, "p95": 104.19, "max": 106.96},
+  "L": {"min": 105.87, "median": 114.19, "p95": 123.89, "max": 126.45},
+  "M": {"min": 89.78, "median": 97.64, "p95": 108.11, "max": 109.10}
+ },
+ "p_values": {"K": 0.9524, "L": 0.6190, "M": 0.6667},
+ "go_threshold_1p1x_max": {"K": 117.66, "L": 139.10, "M": 120.01},
+ "escalation_triggered": {"K": false, "L": false, "M": false},
+ "verdict": "NEGATIVE (K, L, M)",
+ "full_csv_sha256": {
+  "K": "d7cf2a2647d553afdd0fc6cf7dbb689cf3de9492dde03de126d9b7e9738f2fff",
+  "L": "25cfe4f6f16dce4c00ad7db52433430744a13def98b7172cef28ccb22ec952b9",
+  "M": "6756165ac75622461b893d1c02d299ec89e9240ffa7e70dea02854926959ece9"
+ },
+ "regeneration": "python3 sweeps/2026-11-product-spaces/run.py (mask tgt; full CSVs to work/product-spaces/, ~65 min)"
+}
