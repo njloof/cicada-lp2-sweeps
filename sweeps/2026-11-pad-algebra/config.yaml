@@ -10,4 +10,4 @@ min_len: 50
 floor: 40.0
 null: {method: "20x in-page shuffle, per family", seed: 20261115, resumable: true}
 decision_rule: "max > 1.1 x family MC max AND survives mask=both AND English cribs (D,E); ratio > null max ratio (F)"
-status: PREREGISTERED-NOT-RUN
+status: RUN — NEGATIVE (D,E); F FLAG page 12 (structural)

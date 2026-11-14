@@ -1,0 +1,47 @@
+{
+ "campaign": "2026-11-pad-algebra",
+ "date_run": "2026-11-14",
+ "prereg": "REGISTERED BEFORE OUTPUT (commit 8db3b52)",
+ "corpus_manifest_sha256": "4bbea5479117e62d1e33b36d22732c30783c133d607ddc1d8d1aa9d5127b7e7a",
+ "core_git_rev": "2f64c00",
+ "notes_git": "kernel unchanged since campaign #2 (1ffaac8); 3dc51ec = campaign CLIs; 2f64c00 = counts bookkeeping fix, E+F re-run verified deterministic",
+ "seed": 20261115,
+ "mask": "tgt (primary), both (sensitivity)",
+ "windows": {
+  "D_mult": 60518822,
+  "E_stride": 2630440,
+  "E_pairs": 11110,
+  "total": 63149262
+ },
+ "observed": {
+  "D_max": 101.11,
+  "E_max": 93.09,
+  "F_ratio_top": {
+   "page": 12,
+   "ratio": 2.418,
+   "mirror_max": 111.56
+  }
+ },
+ "null_20x": {
+  "D": {
+   "min": 96.14,
+   "median": 102.54,
+   "max": 119.36
+  },
+  "E": {
+   "min": 86.75,
+   "median": 92.7,
+   "max": 121.21
+  },
+  "F_ratio": {
+   "min": 1.748,
+   "median": 2.056,
+   "max": 2.319
+  }
+ },
+ "verdict": {
+  "D": "NEGATIVE p~0.7",
+  "E": "NEGATIVE p~0.5",
+  "F": "FLAG page 12, 0/20, p<=0.048 (structural, not a solve)"
+ }
+}
