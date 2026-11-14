@@ -156,8 +156,11 @@ def main():
         print(f"F_outlier: {len(out)} pages, median ratio {med:.2f}, top: " +
               ", ".join(f"p{r['page']}={r['ratio']}" for r in out[:5]))
 
-    with open(f"{HERE}/results/window_counts.json", "w") as f:
-        json.dump(counts, f, indent=1)
+    wc = f"{HERE}/results/window_counts.json"
+    all_counts = json.load(open(wc)) if os.path.exists(wc) else {}   # merge: --skip runs don't clobber
+    all_counts.update(counts)
+    with open(wc, "w") as f:
+        json.dump(all_counts, f, indent=1)
 
 if __name__ == "__main__":
     main()
