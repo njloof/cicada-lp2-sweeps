@@ -1,9 +1,9 @@
 {
  "campaign": "2026-11-p12-mirror",
  "date_run": "2026-11-14",
- "prereg": "REGISTERED BEFORE OUTPUT (commit def247f)",
+ "prereg": "REGISTERED BEFORE OUTPUT (commit fea4796; re-pinned after unpushed-history rewrite \u2014 order/timestamps preserved)",
  "corpus_manifest_sha256": "4bbea5479117e62d1e33b36d22732c30783c133d607ddc1d8d1aa9d5127b7e7a",
- "core_git_rev": "1df1e57",
+ "core_git_rev": "38103cd",
  "seeds": {
   "GH": 20261116,
   "noise": 20261117,
@@ -47,5 +47,6 @@
   "H_p12_pairing": 0.999,
   "p12_chi2_single_page": 0.003
  },
- "verdict": "DISSOLVED per registered rule; #3 flag downgraded (20-draw resolution artifact)"
+ "verdict": "DISSOLVED per registered rule; #3 flag downgraded (20-draw resolution artifact)",
+ "note_history": "commit hashes re-pinned after 2026-11-14 unpushed-history rewrite removing a 173MB results blob (user-approved); order/messages/timestamps preserved"
 }

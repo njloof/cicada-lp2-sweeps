@@ -13,3 +13,4 @@ jobs:
       - run: python3 -m core.validate          # smoke decodes: the trust anchor
       - run: python3 -m pytest -q
       - run: python3 scripts/check_prereg.py   # results require a PREREG.md
+      - run: python3 scripts/check_repo_size.py  # no >50MB blobs (GitHub blocks >100MB)

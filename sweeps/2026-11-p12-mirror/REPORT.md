@@ -1,9 +1,9 @@
 # Campaign 2026-11-p12-mirror — REPORT
 
-Run 2026-11-14. **Pre-registered before output** (PREREG.md, committed `def247f`,
+Run 2026-11-14. **Pre-registered before output** (PREREG.md, committed `fea4796`,
 earlier than any campaign-#4 computation). Confirmation campaign for campaign
 #3's F flag (page 12). Instrument: `core/kernel.py` unchanged; campaign CLIs
-committed `61cfe55`/`1df1e57`. Seeds 20261116/17/18; corpus hash in metadata.json.
+committed `6e89deb`/`38103cd`. Seeds 20261116/17/18; corpus hash in metadata.json.
 
 **Standing caveat, registered up front:** #4 sharpens how extreme p12 is under
 the null; it cannot undo that the hypothesis was formed on this corpus. All
