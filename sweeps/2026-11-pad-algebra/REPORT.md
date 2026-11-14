@@ -1,5 +1,9 @@
 # Campaign 2026-11-pad-algebra — REPORT
 
+> **Addendum (same day, campaign #4):** the page-12 F flag below did not survive
+> a 1000-shuffle null (p=0.099; 20-draw max 2.32 vs 1000-draw max 3.57 — a
+> tail-resolution artifact). See `../2026-11-p12-mirror/REPORT.md`.
+
 Run 2026-11-14. **Pre-registered before output** (PREREG.md, committed `8db3b52`,
 earlier than any Phase 3 computation). Instrument: `core/kernel.py` **unchanged**
 (as preregistered) — scaled/strided pads are constructed in the campaign CLI

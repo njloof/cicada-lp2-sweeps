@@ -1,0 +1,51 @@
+{
+ "campaign": "2026-11-p12-mirror",
+ "date_run": "2026-11-14",
+ "prereg": "REGISTERED BEFORE OUTPUT (commit def247f)",
+ "corpus_manifest_sha256": "4bbea5479117e62d1e33b36d22732c30783c133d607ddc1d8d1aa9d5127b7e7a",
+ "core_git_rev": "1df1e57",
+ "seeds": {
+  "GH": 20261116,
+  "noise": 20261117,
+  "runs": 20261118
+ },
+ "nulls": {
+  "GH_shuffles": 1000,
+  "noise_reps": 600,
+  "run_shuffles": 2000
+ },
+ "observed": {
+  "G_ratio": 2.418,
+  "H_corpus_max": 0.2545,
+  "H_corpus_page": 47,
+  "H_p12": 0.2308,
+  "p12_rev_chi2": 111.56
+ },
+ "null_summary": {
+  "G": {
+   "min": 1.742,
+   "median": 2.093,
+   "p95": 2.591,
+   "max": 3.572
+  },
+  "H": {
+   "min": 0.228,
+   "median": 0.274,
+   "p95": 0.316,
+   "max": 0.385
+  },
+  "p12_chi2": {
+   "min": 53.85,
+   "median": 70.31,
+   "p95": 88.98,
+   "max": 126.67
+  }
+ },
+ "p_values": {
+  "G": 0.0989,
+  "H_registered": 0.8771,
+  "H_p12_pairing": 0.999,
+  "p12_chi2_single_page": 0.003
+ },
+ "verdict": "DISSOLVED per registered rule; #3 flag downgraded (20-draw resolution artifact)"
+}
