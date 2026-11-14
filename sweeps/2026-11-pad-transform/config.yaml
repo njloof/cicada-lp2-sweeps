@@ -1,0 +1,13 @@
+# Campaign config — 2026-11-pad-transform (Phase 2; see PREREG.md)
+# NOTE: instrument parameters are fixed by PREREG.md; this file mirrors them.
+families:
+  A_sum:        {stat: "(C_M + C_N) mod 29", orientations: [fwd, rev], mirror: straddling}
+  B_weave:      {pads: [interleave(C_N, rev), interleave(rev, C_N)], offsets: all}
+  C_audit:      {scope: "all pages 0-54", null: "own difference-family chi2 p99, self-matched"}
+targets: LP2 0-54
+masking: {primary: tgt, sensitivity: both}
+min_len: 50
+floor: 40.0
+null: {method: "20x in-page shuffle of full A+B space", seed: 20261114}
+decision_rule: "max > 1.1 x family MC max AND survives mask=both AND English cribs"
+status: PREREGISTERED-NOT-RUN
