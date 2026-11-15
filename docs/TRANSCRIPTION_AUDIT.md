@@ -1,6 +1,9 @@
 # Pending instrument audit: rune→index transcription fidelity
 
-**Status: noted 2026-11-14, not yet a campaign.** Raised when asked whether the
+**Status: harness live (2026-11-15) — `scripts/audit/make_checklist.py`;
+machine triage pass 1 done (structural only, work/audit/SUMMARY.md,
+30/55 row-count agreement, 25 pages ranked for the human visual pass);
+visual pass not yet run, not yet a campaign.** Raised when asked whether the
 visual-rune → ciphertext transcriptions our analyses run on need verification.
 Short answer: yes — it is the last unquantified systematic risk to all six
 campaign negatives.
