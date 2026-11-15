@@ -1,0 +1,75 @@
+{
+  "campaign": "2026-11-index-consumption",
+  "date_run": "2026-11-14",
+  "verdict": "P NEGATIVE; W registered FLAG->EXPLAINED (self-pair fixed-point degeneracy, GO prong 3 fails); W amended (self-pairs excluded) NEGATIVE",
+  "prereg_commits": {
+    "prereg_and_code": "3e1f64e",
+    "note": "sort-only CHI2_COL fix, --exclude-self geometry flag, supplementary power plant, and the labeled PREREG AMENDMENT ship in the results commit; the registered statistic and decision rule are unchanged"
+  },
+  "corpus": {
+    "sha256": "4bbea5479117e62d1e33b36d22732c30783c133d607ddc1d8d1aa9d5127b7e7a",
+    "core_git_rev": "3e1f64e",
+    "targets": 55,
+    "pad_sources": 59,
+    "notes": "single 2017-root transcription; page 55 absent; p57 stream == PARABLE57 plaintext (duplication visible in leaders, cannot inflate a max)"
+  },
+  "seeds": {"null": 20261120, "power_probe": 20261121},
+  "windows": {
+    "P_registered": 13460746,
+    "W_registered": 79771062,
+    "W_amended": 78048642,
+    "total_registered": 93231808,
+    "cumulative_all_campaigns": 329206809,
+    "rows_ge_floor": {"P": 877387, "W": 5227721}
+  },
+  "observed_max": {
+    "P": {"chi2": 94.95, "pair": "10<-27:d3.0r", "offset": 66, "n": 76},
+    "W_registered": {"chi2": 195.2, "pair": "49<-49:c23.3", "offset": 5, "n": 60},
+    "W_amended": {"chi2": 105.4, "pair": "32<-45:c23.0r", "offset": -153, "n": 113}
+  },
+  "null_20draws": {
+    "P": {"min": 95.41, "median": 101.84, "p95": 111.71, "max": 114.47},
+    "W_registered": {"min": 101.29, "median": 107.36, "p95": 117.26, "max": 118.87},
+    "W_amended": {"min": 101.29, "median": 107.36, "p95": 117.26, "max": 118.87,
+                  "note": "bit-identical to registered in all 20 draws (same seed): the null argmax never used the self-pair channel"}
+  },
+  "empirical_p": {"P": 1.0, "W_registered": 0.048, "W_amended": 0.5714},
+  "escalation_triggered": {"P": false, "W_registered": "obs >= median, but flag resolved mechanistically (fixed-point degeneracy; 200 draws of a blind null resolve nothing)", "W_amended": false},
+  "go_prongs_W_registered": {
+    "prong1_gt_1.1x_null_max": "PASS (195.2 > 130.76)",
+    "prong2_mask_both": "PASS (203.0)",
+    "prong3_english_cribs": "FAIL (decode starts with an every-other-rune ᚠ pileup)",
+    "verdict": "not a GO"
+  },
+  "degeneracy": {
+    "mechanism": "self-pair cyclic pad: D = A - A(pi), pi(i) = +/-a*i + delta mod L; pi fixes exactly gcd(a-/+1, L) positions -> guaranteed D=0 (ᚠ) pileup",
+    "census": "16/16 rows with chi2 > 130 are self-pairs, all with gcd(a±1,L) >= 22; D-zero fraction matches g/L + (1-g/L)*IoC within ~0.01 (page 49: g/L=1/3, zero 0.350, chi2 195.2)",
+    "null_blindness": "target-shuffle null shuffles target against the REAL pad, destroying exactly the self-agreement; amended null identical to registered"
+  },
+  "power": {
+    "registered_plant": {"P": "0/10", "W": "0/10", "note": "plant D = target's own near-uniform runes; W planted-corpus max 175.17 is the surviving page-7 degenerate self-pair window"},
+    "plaintext_plant_labeled_posthoc": {
+      "P": {"recovered": "3/10", "planted_window_chi2": 141.33, "family_null_max": 114.47},
+      "W": {"recovered": "7/10", "planted_window_chi2": 189.10, "family_null_max": 118.87}
+    }
+  },
+  "full_csv_sha256": {
+    "P": "5ff320e35e9e54a34d623a27eee94b5b78ed7ab0f08c7b0ed8a888a3da4e8b28",
+    "W": "3160c801d87d764ce51eae0821a09ff593a71553bab1ce3512570332c72368cf"
+  },
+  "tracked_truncation": "results/sweep_{P,W}.csv = top 100k rows by chi2 (full files in work/index-consumption/, sha256 above); regenerated deterministically after the sort-only fix",
+  "regen": {
+    "observed_registered": "python3 sweeps/2026-11-index-consumption/run.py (~50 min)",
+    "observed_amended_W": "python3 sweeps/2026-11-index-consumption/run.py --skip P --exclude-self",
+    "nulls": "python3 sweeps/2026-11-index-consumption/calibrate.py --family {P,W} [--exclude-self --obs 105.4]",
+    "power": "python3 sweeps/2026-11-index-consumption/power.py --family {P,W} --median <M> [--plant plaintext]"
+  },
+  "not_covered": [
+    "mid-range cyclic steps 29..L-29 (priced out; disclosed)",
+    "non-uniform interleavings of two pads",
+    "triple products (k x stride x index-permutation)",
+    "digit/ornament channels",
+    "page 55",
+    "LP1 material (out of scope by design)"
+  ]
+}

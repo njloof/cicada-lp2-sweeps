@@ -145,3 +145,48 @@ in metadata.json and a deterministic regeneration command), `REPORT.md`,
 Mid-range cyclic steps 29..L−29; non-uniform interleavings of two pads;
 triple products (k × stride × index-permutation); digit/ornament channels;
 page 55; LP1 material (out of scope by design).
+
+---
+
+## AMENDMENT — appended post-output, 2026-11-14 (clearly labeled per house rule)
+
+Two corrections after results existed. Neither touches the registered
+statistic or decision rule; both are disclosed in the REPORT.
+
+**A1. `CHI2_COL` off-by-one (sort-only bug).** `run.py` shipped with
+`CHI2_COL = 4` (copied from #5, where the `k` column pushed χ² to 6; this
+campaign dropped `k`, so χ² sits at 5). Effect: the tracked top-100k CSVs
+were *sorted by n_valid*. Heap membership, window counts, and `obs_max` all
+use the true χ² and were always correct. Fixed in code; tracked CSVs
+regenerated from the intact full `work/` files (deterministic re-sort, no
+rescan).
+
+**A2. Self-pair fixed-point degeneracy in family W (the 195.2 flag).**
+The registered W scan includes self-pair pads (pad source == target). For a
+self-pair cyclic read the difference is D = A − A∘π with π(i) = ±a·i + δ
+(mod L); π has exactly **gcd(a∓1, L) fixed points**, each a guaranteed
+D = 0 (ᚠ) — a χ² pileup manufactured by arithmetic, not content. All 16
+rows above χ² = 130 are self-pairs, every one with gcd(a±1, L) ≥ 22, and
+the observed zero fraction matches g/L + (1−g/L)·IoC to ~0.01 (e.g.
+page 49, a=23, L=66: g/L = 1/3, observed 0.350 at χ² = 195.2). The
+target-shuffle null is **structurally blind** to this: it shuffles the
+target against the *real* pad, destroying exactly the self-agreement the
+degeneracy exploits (pad ⊥ target is assumed by construction). Registered
+rule disposition: prong 1 passes (195.2 > 1.1 × 118.87) and mask=both
+survives (203.0), but the decode is `ᚠMFᚠCEᚠXVᚠKBᚠ…` — prong 3 (English
+cribs) fails, so **not a GO** under the registered rule, and the flag is
+fully explained. Escalating to 200 draws would be the wrong response: more
+draws of a null that cannot see the channel resolve nothing.
+**Amended geometry:** self-pair pads excluded (`--exclude-self`, both scan
+and null, null re-run with the same exclusion). Amended observed max
+105.4 (32←45:c23.0r, o=−153, n=113). Family P has no such degeneracy
+(no wrap ⇒ ≤1 fixed point; its observed max is non-self anyway).
+
+**A3. Supplementary power probe (post-hoc, labeled).** The registered plant
+`A′ = A + pad_window` makes D equal the target's own runes — LP2 ciphertext
+is near-uniform, so the registered probe measures power against a
+near-uniform stand-in (result: 0/10 at the median threshold, which is the
+correct answer to *that* question). A supplementary probe plants
+English-strength plaintext instead (`D′` = solved-plaintext stream over the
+window, IoC ≈ 0.066, χ² ≈ 0.91n + 28) to quantify the citable question:
+what window length could this instrument actually detect? Both reported.

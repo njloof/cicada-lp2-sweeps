@@ -30,6 +30,10 @@ def main():
     ap.add_argument("--median", type=float, default=None)
     ap.add_argument("--seed", type=int, default=20261121)
     ap.add_argument("--plants", type=int, default=10)
+    ap.add_argument("--plant", default="self", choices=["self", "plaintext"],
+                    help="'self' = registered plant (D = target's own runes, "
+                         "near-uniform); 'plaintext' = AMENDMENT A3 supplementary "
+                         "(D = solved-plaintext stream, English-strength IoC)")
     a = ap.parse_args()
     med = a.median
     nf = f"{HERE}/results/null_{a.family}.csv"
@@ -41,6 +45,8 @@ def main():
 
     pages, targets, sources = load_sources()
     pads = list(drop_pads(sources) if a.family == "P" else cyc_pads(sources))
+    epool = np.concatenate([s for k, s in sources.items() if isinstance(k, str)])
+    epool = epool[epool != 0]          # solved plaintext, English-strength (A3)
     rng = np.random.default_rng(a.seed)
     mods = dict(pages)
     chosen = rng.choice(targets, size=a.plants, replace=False)
@@ -55,8 +61,15 @@ def main():
                 if int((A[max(0, o):min(m, o + n)] != 0).sum()) >= kernel.MIN_LEN]
         o = offs[int(rng.integers(len(offs)))]
         i0, i1 = max(0, o), min(m, o + n)
+        wlen = i1 - i0
+        if a.plant == "plaintext":
+            st = int(rng.integers(len(epool)))
+            E = np.tile(epool, 2 + wlen // len(epool))
+            E = E[st:st + wlen]
+        else:
+            E = A[i0:i1].astype(np.int32)
         A2 = A.copy()
-        A2[i0:i1] = (A[i0:i1].astype(np.int32) + W[i0 - o:i1 - o].astype(np.int32)) % Q
+        A2[i0:i1] = (E.astype(np.int32) + W[i0 - o:i1 - o].astype(np.int32)) % Q
         mods[M] = A2
         plants.append((M, N, w, o, W))
 
@@ -69,8 +82,9 @@ def main():
             if c > fmax: fmax = c
 
     os.makedirs(f"{HERE}/results", exist_ok=True)
+    sfx = "" if a.plant == "self" else "_plaintext"
     nrec = 0
-    with open(f"{HERE}/results/power.csv", "w") as f:
+    with open(f"{HERE}/results/power_{a.family}{sfx}.csv", "w") as f:
         f.write("family,plant,target,source,pad,offset,n_valid,chi2_true_window,"
                 "null_median,recovered\n")
         for j, (M, N, w, o, W) in enumerate(plants):

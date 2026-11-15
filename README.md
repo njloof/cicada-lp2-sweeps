@@ -3,16 +3,22 @@
 Cicada 3301 **Liber Primus Part 2** cryptanalysis: pre-registered, MC-calibrated
 elimination sweeps with a reproducible corpus pipeline and a public ledger.
 
-**Headline so far:** five campaigns, ~236M swept alignments, four clean
-negatives and one self-correction. The cross-page running-pad hypothesis
+**Headline so far:** six campaigns, ~329M swept alignments, five clean
+negatives and two self-corrections. The cross-page running-pad hypothesis
 (an unsolved LP2 page encrypted with another page's ciphertext as a running
 pad) is dead across its full known algebra: differences (#1), sums/weaves
-(#2), all 26 multiplicative scalings + stride/skip consumption (#3), and the
+(#2), all 26 multiplicative scalings + stride/skip consumption (#3), the
 pairwise product spaces — stride extension/strided mirrors, scaling × stride,
-scaling × mirror junction (#5). A page-12 mirror outlier flagged by #3's
+scaling × mirror junction (#5) — and the index-consumption axis:
+all-phase drop-decimation and cyclic wrap reads with provably complete
+alignment coverage (#6). A page-12 mirror outlier flagged by #3's
 registered test was **publicly retracted** when campaign #4's 1000-draw
 confirmation null put it at p = 0.099 — the flag was a 20-draw tail-resolution
-artifact. See [docs/LEDGER.md](docs/LEDGER.md).
+artifact. #6's 195.2 cyclic flag was likewise caught before it could be
+claimed: all 16 extreme rows are self-pair permutation scans whose
+gcd(a±1,L) fixed points manufacture ᚠ pile-ups that target-shuffle nulls
+are structurally blind to (amended family: negative, p = 0.57).
+See [docs/LEDGER.md](docs/LEDGER.md).
 
 ## Why the instrument is trustworthy
 
@@ -22,15 +28,19 @@ artifact. See [docs/LEDGER.md](docs/LEDGER.md).
   Round 18).
 - **MC null of the max** — every verdict is calibrated by re-running the *identical*
   sweep on in-page-shuffled targets, never a Bonferroni band (which is
-  anti-conservative for these correlated, overlapping windows). Two hard-earned
-  corollaries, both learned on this corpus: nulls are **family-specific**
+  anti-conservative for these correlated, overlapping windows). Three hard-earned
+  corollaries, all learned on this corpus: nulls are **family-specific**
   (the sum statistic's null sits ~46 χ² above the difference's; a borrowed
   threshold crowns false hits — #5's L observed 112.4 would look "elevated"
   against #3's difference null but sits *below* its own strided-family median
-  of 114.2), and **20-draw flags are provisional** — #4 was built solely to
-  break #3's page-12 flag at 1000 draws, and succeeded. #5 added a
-  pre-declared **escalation rule**: any family whose observed max reaches its
-  20-draw null median is extended to ≥200 draws before a verdict ships.
+  of 114.2); **20-draw flags are provisional** — #4 was built solely to
+  break #3's page-12 flag at 1000 draws, and succeeded (with #5's
+  pre-declared **escalation rule**: any family reaching its 20-draw null
+  median extends to ≥200 draws before a verdict ships); and the null must
+  **match the scan's independence assumptions** — #6's 195.2 cyclic flag came
+  from self-pair permutation pads whose arithmetic fixed points manufacture
+  ᚠ pile-ups, a channel invisible to any target-shuffle null (self-pairs now
+  excluded and re-calibrated; verdict unchanged: negative).
 - **CI-enforced trust anchor** — every push reproduces all four known LP1/LP2
   decodes (atbash, Vigenère DIVINITY, φ(prime), transliteration) plus 11 tests,
   and gates that no campaign ships results without a PREREG.md.

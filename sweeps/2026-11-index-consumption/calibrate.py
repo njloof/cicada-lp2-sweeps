@@ -61,14 +61,17 @@ def selfcheck(pages, targets, sources):
     print("selfcheck: vectorized max == pair_scan loop path on real streams OK",
           flush=True)
 
-def family_max(fam, sh, pages, sources, targets):
-    """Global max chi2 for one family on (possibly shuffled) targets sh."""
+def family_max(fam, sh, pages, sources, targets, exclude_self=False):
+    """Global max chi2 for one family on (possibly shuffled) targets sh.
+    exclude_self: AMENDED geometry (self-pair cyclic pads carry gcd(a±1,L)
+    permutation fixed points -> un-calibratable D=0 pileups; PREREG AMENDMENT)."""
     mx = -1.0
     gen = drop_pads(sources) if fam == "P" else cyc_pads(sources)
     pads = list(gen)
     for M in targets:
         A = sh[M]
         for N, w, W in pads:
+            if exclude_self and N == M: continue
             c = scan_max(A, W)
             if c > mx: mx = c
     return mx
@@ -78,13 +81,20 @@ def main():
     ap.add_argument("--family", required=True, choices=["P", "W"])
     ap.add_argument("--n", type=int, default=20)
     ap.add_argument("--seed", type=int, default=20261120)
+    ap.add_argument("--exclude-self", action="store_true",
+                    help="AMENDED geometry: skip self-pair pads (matches run.py "
+                         "--exclude-self); writes null_<F>_noself.csv")
+    ap.add_argument("--obs", type=float, default=None,
+                    help="override observed max (use with --exclude-self: pass the "
+                         "max of the filtered full sweep CSV)")
     a = ap.parse_args()
     os.makedirs(f"{HERE}/results", exist_ok=True)
     pages, targets, sources = load_sources()
     selfcheck(pages, targets, sources)
     coverage_check(pages, targets, sources)
 
-    ckpt_f = f"{HERE}/results/null_{a.family}_checkpoint.json"
+    sfx = "_noself" if a.exclude_self else ""
+    ckpt_f = f"{HERE}/results/null_{a.family}{sfx}_checkpoint.json"
     start, rows = 0, []
     if os.path.exists(ckpt_f):
         ck = json.load(open(ckpt_f))
@@ -106,18 +116,19 @@ def main():
         sh = dict(pages)
         for M in targets:
             p = pages[M].copy(); rng.shuffle(p); sh[M] = p
-        mx = family_max(a.family, sh, pages, sources, targets)
+        mx = family_max(a.family, sh, pages, sources, targets,
+                        exclude_self=a.exclude_self)
         rows.append([it, round(mx, 2)])
         save()
-        print(f"[{a.family}] shuffle {it}: max={mx:.2f} ({time.time()-t0:.0f}s)", flush=True)
+        print(f"[{a.family}{sfx}] shuffle {it}: max={mx:.2f} ({time.time()-t0:.0f}s)", flush=True)
 
-    with open(f"{HERE}/results/null_{a.family}.csv", "w") as f:
+    with open(f"{HERE}/results/null_{a.family}{sfx}.csv", "w") as f:
         f.write("shuffle,max\n")
         for r in rows: f.write(f"{r[0]},{r[1]}\n")
     col = np.array([r[1] for r in rows], dtype=float)
-    obs = None
+    obs = a.obs
     om = f"{HERE}/results/obs_maxima.csv"
-    if os.path.exists(om):
+    if obs is None and os.path.exists(om):
         import csv
         obs = float([r for r in csv.DictReader(open(om)) if r["family"] == a.family][0]["obs_max"])
     med = float(np.median(col))

@@ -31,7 +31,11 @@ Q = 29
 TRACK_TOP = 100_000
 WORK = f"{ROOT}/work/index-consumption"
 HDR = "target,pad,orient,offset,n_valid,chi2,ioc,top_rune,top_frac"
-CHI2_COL = 4                     # index in the row tuple (== HDR order)
+CHI2_COL = 5                     # index in the row tuple (== HDR order)
+                                 # (fixed 2026-11-14: dropping the k column vs #5
+                                 # shifted chi2 from 6 to 5; first-draft kept #5's
+                                 # offset — heap membership was always correct, only
+                                 # the tracked-CSV sort order was affected)
 
 def load_sources():
     pages = kernel.load_pages()
@@ -166,6 +170,11 @@ def main():
     ap.add_argument("--mask", default="tgt", choices=["tgt", "both"])
     ap.add_argument("--floor", type=float, default=40.0)
     ap.add_argument("--skip", default="", help="comma list of families to skip")
+    ap.add_argument("--exclude-self", action="store_true",
+                    help="AMENDED geometry: drop self-pair pads (pad source == target). "
+                         "Self-pair cyclic scans have gcd(a±1,L) permutation fixed points "
+                         "that manufacture D=0 pileups the target-shuffle null cannot "
+                         "calibrate (see PREREG AMENDMENT).")
     a = ap.parse_args()
     skip = set(x for x in a.skip.split(",") if x)
 
@@ -186,6 +195,7 @@ def main():
         A = pages[M]
         if "P" not in skip:
             for N, w, W in drop_pads(sources):
+                if a.exclude_self and N == M: continue
                 for off, nn, chi2, ioc, h in kernel.pair_scan(A, W, mask=a.mask):
                     top = int(np.argmax(h))
                     record("P", chi2, (M, f"{N}:{w}", "drop", off, nn,
@@ -193,6 +203,7 @@ def main():
                             round(float(h[top]) / nn, 4)), M, f"{N}:{w}", "drop", off, W)
         if "W" not in skip:
             for N, w, W in cyc_pads(sources):
+                if a.exclude_self and N == M: continue
                 for off, nn, chi2, ioc, h in kernel.pair_scan(A, W, mask=a.mask):
                     top = int(np.argmax(h))
                     record("W", chi2, (M, f"{N}:{w}", "cyc", off, nn,
