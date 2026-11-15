@@ -101,6 +101,15 @@ registered criterion stands in this table; the diagnostic is labeled.
    the transcription audit is the dependency for anything finer).
 6. Full CSVs ship **complete** in `results/` (837 B / 187 KB / 291 KB —
    below the top-K truncation threshold; no split needed).
+7. **Post-report self-correction (2026-11-15, during the transcription
+   audit):** the "word boundaries unobservable" premise (PREREG hypothesis
+   + not-covered) is wrong at the stream level — the pinned krisyotam
+   source encodes word dividers `-` and sentence dots `.` alongside the
+   line marks `/`; our corpus tokenization drops them. The registered
+   LS test is untouched (lines were a legitimate registered choice —
+   divider *fidelity* is unverified single-root data), but the literal
+   word-sum U3 is unblocked for a future campaign once the visual pass
+   checks the dividers. Labeled amendment in PREREG.md; ledger footnote.
 
 ## Regeneration
 

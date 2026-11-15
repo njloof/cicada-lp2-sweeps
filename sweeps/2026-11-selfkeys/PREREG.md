@@ -120,6 +120,18 @@ self-keys are one pad per page per scheme, not 216-variant grids.
 
 ## Not covered (disclosed)
 
+> **Amendment (labeled, post-run, 2026-11-15):** the claim that word
+> boundaries are unobservable is **wrong at the stream level**. The pinned
+> krisyotam stream (`sources/dukotah/liber-primus/data/krisyotam_runes.txt`)
+> encodes word dividers `-`, sentence dots `.`, and line marks `/` (p4:
+> 56 dividers, 4 dots); our `build_corpus.py` tokenization drops `-`/`.`.
+> The registered LS test is unchanged — line-sums ran as registered and
+> the verdict stands — but the literal word-sum U3 is unblocked as a
+> future campaign, pending the transcription audit's verification of
+> divider fidelity (dividers are part of the same 2017 root; the visual
+> pass is the only independent check). Found during the audit when the
+> project owner reported missing medial dots in the checklist strips.
+
 Word-boundary schemes (unobservable segmentation); doublet/ornament
 channels (transcription-adjacent — after the audit); f=id self-lags and
 primer-autokey (covered by #1); cross-page self-keys (page N's sums as

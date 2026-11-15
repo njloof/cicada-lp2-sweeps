@@ -71,17 +71,36 @@ def valley_cuts(prof, H):
     return cuts
 
 
+KRIS = os.path.join(ROOT, "sources", "dukotah", "liber-primus", "data", "krisyotam_runes.txt")
+
+
 def page_lines(n):
     p = os.path.join(PAGES, f"lp2_{n:02d}.txt")
     return [[int(x) for x in ln.split()] for ln in open(p) if ln.strip()]
+
+
+def page_lines_with_seps(n):
+    """Raw krisyotam lines WITH word dividers '-' and sentence dots '.'
+    preserved (the community stream carries them; data/pages tokenization
+    drops them). The visual pass verifies divider fidelity — this is the
+    only independent check on them (single-root caveat applies)."""
+    seg = open(KRIS, encoding="utf-8").read().split("%")[n]
+    out = []
+    for ln in seg.split("/")[1:]:  # leading empty from %% boundary
+        s = ln.strip()
+        if not s:
+            continue
+        out.append("".join(c for c in s if not c.isspace()))
+    return out
 
 
 def do_page(n, pad=24):
     img_path = os.path.join(IMGS, f"{n + 17}.jpg")
     lines = page_lines(n)
     H = len(lines)
-    im = Image.open(img_path).convert("L")
-    a = np.asarray(im, dtype=np.float32)
+    im = Image.open(img_path)  # keep RGB: red-ink glyphs are an open
+    #  channel (dukotah 4/6) - strips must show color, profile uses L
+    a = np.asarray(im.convert("L"), dtype=np.float32)
     sha1 = hashlib.sha1(open(img_path, "rb").read()).hexdigest()[:12]
     d = os.path.join(OUT, f"page_{n:02d}")
     os.makedirs(d, exist_ok=True)
@@ -119,7 +138,9 @@ def do_page(n, pad=24):
                 f.write(f"![strip](strip_{s:02d}.png)\n\n")
                 f.write(f"recorded glyphs: ____________\n\n")
                 continue
-            txt = "".join(GLYPH[v] for v in ln)
+            seps = page_lines_with_seps(n)
+            txt = seps[s] if s < len(seps) else "".join(GLYPH[v] for v in ln)
+            nd = txt.count("-") + txt.count(".")
             ssum = sum(PRIME[v] for v in ln)
             f.write(f"## strip {s:02d} — positions {pos}–{pos + len(ln) - 1} "
                     f"(len {len(ln)}, sum {ssum}{' PRIME' if is_prime(ssum) else ''}) [{how}]\n\n")
