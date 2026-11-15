@@ -114,6 +114,42 @@ def page_lines_with_seps(n):
     return out
 
 
+# Mixed-content pages (verified by full-page inspection 2026-11-15): the FFT
+# pitch pairing above assumes the page is all rune lines - false on the tail,
+# where token tables interleave (owner's p51 pass caught this: transcriptions
+# were paired to token rows from the top while the real rune lines sat
+# unpaired at the bottom). Explicit per-row kinds, measured band-by-band.
+ROW_LAYOUT = {
+    49: ['rune'] * 3 + ['token'] * 10,          # 66.jpg: 3 rune lines, 10x8 table
+    51: ['token'] * 9 + ['rune'] * 4,           # 68.jpg: 9x8 table, 4 rune lines
+    55: ['rune'] * 4 + ['plate'],               # 72.jpg: 4 lines + matrix/tree/plate
+}
+KIND_NOTE = {'token': 'base-60 TOKEN row (pp49-51 payload; not in the rune stream)',
+             'plate': 'ornament/plate (red matrix, tree diagram, cicada art)'}
+VERIFIED = {  # book page -> note shown on every rune strip
+    51: "VERIFIED 2026-11-15 by owner's from-scratch read == stream, "
+        "92/92 runes + all dividers exact (work/audit/p51_runes/READ.md) "
+        "- no re-read needed",
+}
+
+
+def ink_bands(gray, x0=620, x1=1800, thr=8, min_h=35):
+    """Visible content row bands via horizontal-ink profile (central window)."""
+    px = (gray > 120)
+    ink = px[:, x0:x1:3].sum(axis=1)
+    bands, start = [], None
+    for y, s in enumerate(ink):
+        if s > thr and start is None:
+            start = y
+        elif s <= thr and start is not None:
+            if y - start > min_h:
+                bands.append((start, y))
+            start = None
+    if start is not None:
+        bands.append((start, len(ink)))
+    return bands
+
+
 def do_page(n, pad=24):
     img_path = os.path.join(IMGS, f"{n + 17}.jpg")
     lines = page_lines(n)
@@ -124,39 +160,66 @@ def do_page(n, pad=24):
     sha1 = hashlib.sha1(open(img_path, "rb").read()).hexdigest()[:12]
     d = os.path.join(OUT, f"page_{n:02d}")
     os.makedirs(d, exist_ok=True)
-    ink, y0c, y1c = ink_profile(a)
-    prof = ink[y0c:y1c + 1]
-    per = fft_period(prof)
-    step = (y1c - y0c) / H
-    ok = abs(per - step) / step < 0.05  # visible line pitch agrees with H
-    Hi = max(1, round((y1c - y0c) / per))  # visible line count
-    ns = H if ok else Hi  # cut by visible rows when they disagree
-    cuts = valley_cuts(prof, ns)
-    edges = [0] + cuts + [len(prof)]
     rows = []
-    for s in range(ns):
-        a0, a1 = y0c + edges[s], y0c + edges[s + 1]
-        im.crop((0, max(0, a0 - pad), a.shape[1], min(a.shape[0], a1 + pad))) \
-          .save(os.path.join(d, f"strip_{s:02d}.png"))
-        if s < H:
-            rows.append((s, lines[s], a1 - a0, "valley-cut"))
-        else:
-            rows.append((s, None, a1 - a0, "**NO TRANSCRIBED LINE — record glyphs**"))
+    if n in ROW_LAYOUT:  # explicit layout: pair only 'rune' rows with stream lines
+        bands = ink_bands(np.asarray(im.convert("L"), dtype=np.uint8))
+        kinds = ROW_LAYOUT[n]
+        if len(bands) != len(kinds):
+            raise RuntimeError(f"p{n}: measured {len(bands)} bands, layout says "
+                               f"{len(kinds)} - re-inspect the page before trusting this")
+        per = step = float('nan')
+        ok = True
+        li = 0
+        for s, ((a0, a1), kind) in enumerate(zip(bands, kinds)):
+            im.crop((0, max(0, a0 - pad), a.shape[1], min(a.shape[0], a1 + pad))) \
+              .save(os.path.join(d, f"strip_{s:02d}.png"))
+            if kind == 'rune':
+                rows.append((s, lines[li], a1 - a0, f"measured band; stream line {li + 1}"))
+                li += 1
+            else:
+                rows.append((s, None, a1 - a0, KIND_NOTE[kind]))
+        assert li == H, f"p{n}: {H} stream lines but {li} rune bands"
+    else:
+        ink, y0c, y1c = ink_profile(a)
+        prof = ink[y0c:y1c + 1]
+        per = fft_period(prof)
+        step = (y1c - y0c) / H
+        ok = abs(per - step) / step < 0.05  # visible line pitch agrees with H
+        Hi = max(1, round((y1c - y0c) / per))  # visible line count
+        ns = H if ok else Hi  # cut by visible rows when they disagree
+        cuts = valley_cuts(prof, ns)
+        edges = [0] + cuts + [len(prof)]
+        for s in range(ns):
+            a0, a1 = y0c + edges[s], y0c + edges[s + 1]
+            im.crop((0, max(0, a0 - pad), a.shape[1], min(a.shape[0], a1 + pad))) \
+              .save(os.path.join(d, f"strip_{s:02d}.png"))
+            if s < H:
+                rows.append((s, lines[s], a1 - a0, "valley-cut"))
+            else:
+                rows.append((s, None, a1 - a0, "**NO TRANSCRIBED LINE — record glyphs**"))
     with open(os.path.join(d, "checklist.md"), "w") as f:
         f.write(f"# Visual audit checklist — LP2 page {n}\n\n")
         f.write(f"Image: `{os.path.relpath(img_path, ROOT)}` (sha1 {sha1}…)\n\n")
-        f.write(f"Visible line pitch (FFT): **{per:.1f}px** vs content-height/{H} = "
-                f"**{step:.1f}px** → {'MATCH' if ok else f'**MISMATCH — visible rows ≈ {Hi}, transcribed {H}: top priority**'}\n\n")
+        if n in ROW_LAYOUT:
+            f.write(f"Layout: **explicit measured bands** (mixed-content page: "
+                    f"{ROW_LAYOUT[n].count('rune')} rune lines + non-rune rows; "
+                    f"FFT pitch pairing does not apply)\n\n")
+        else:
+            f.write(f"Visible line pitch (FFT): **{per:.1f}px** vs content-height/{H} = "
+                    f"**{step:.1f}px** → {'MATCH' if ok else f'**MISMATCH — visible rows ≈ {Hi}, transcribed {H}: top priority**'}\n\n")
         f.write(f"Runes: {sum(len(l) for l in lines)}; line sums primality: "
                 f"{sum(1 for l in lines if is_prime(sum(PRIME[v] for v in l)))}/{H} prime\n\n")
         f.write("For each strip: read the runes off the image, compare to the "
                 "transcription, mark OK or list (position, seen-vs-recorded).\n\n")
+        if n in VERIFIED:
+            f.write(f"> **{VERIFIED[n]}**\n\n")
         pos = 0
         for s, ln, bh, how in rows:
             if ln is None:
                 f.write(f"## strip {s:02d} — {how}\n\n")
                 f.write(f"![strip](strip_{s:02d}.png)\n\n")
-                f.write(f"recorded glyphs: ____________\n\n")
+                if "NO TRANSCRIBED LINE" in how:
+                    f.write(f"recorded glyphs: ____________\n\n")
                 continue
             seps = page_lines_with_seps(n)
             txt = seps[s] if s < len(seps) else "".join(GLYPH[v] for v in ln)

@@ -212,6 +212,25 @@ community's own problem statement violates is functionally a defect.
 `e21743ccd9a07f38…`, relikd `p40-53` `282ce106e92eb69a…`, relikd
 `p54-55` `f4a2f9dde276a0ff…`.)*
 
+## The red-ink channel (bigger than documented)
+
+Strict red-pixel census (R>150, R−max(G,B)>80, thumbnails of the published
+JPGs): **heavy red on p0, 3, 6, 7, 8, 15, 23, 27, 33, 39, 40, 53, 54, 56,
+57** (600×900-px counts ≈2.0k–8.3k), trace (57–378) on ~10 more. It is not
+only ornament:
+
+| p33 | p15 |
+|---|---|
+| ![red p33](img/red_p33.png) | ![red p15](img/red_p15.png) |
+| giant red ᚻ + red ᛁ in the same column as black ᛉ/ᚻ — mixed ink **within one line** | an entirely red line `ᚾᛗ-ᚱ`, word-divider dot included |
+
+The stream is colorless: every red rune above is transcribed identically to
+a black one. A per-rune red/black flag is an untranscribed binary channel
+(a glyph-level census mapped to stream positions is the proposed
+follow-up). Note the audit-harness strips rendered grayscale until commit
+`cef343d` — before that this channel was literally invisible in our
+checklists, which is why "some glyphs are red" needed demonstrating.
+
 ## What we are NOT claiming
 
 - Not that the rune stream is unreliable on pp0–48: p49's three rune
