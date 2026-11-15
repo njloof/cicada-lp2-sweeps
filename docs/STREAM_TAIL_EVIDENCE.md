@@ -212,24 +212,42 @@ community's own problem statement violates is functionally a defect.
 `e21743ccd9a07f38…`, relikd `p40-53` `282ce106e92eb69a…`, relikd
 `p54-55` `f4a2f9dde276a0ff…`.)*
 
-## The red-ink channel (bigger than documented)
+## The red-ink channel — adjudicated to rubrication; one new channel found
 
-Strict red-pixel census (R>150, R−max(G,B)>80, thumbnails of the published
-JPGs): **heavy red on p0, 3, 6, 7, 8, 15, 23, 27, 33, 39, 40, 53, 54, 56,
-57** (600×900-px counts ≈2.0k–8.3k), trace (57–378) on ~10 more. It is not
-only ornament:
+Strict red-pixel census (R>150, R−max(G,B)>80) on the published JPGs:
+**heavy red on book pp0, 3, 6, 7, 8, 15, 23, 27, 33, 39, 40, 53, 54, 56,
+57** (600×900-px counts ≈2.0k–8.3k), trace (57–378) on ~10 more.
 
-| p33 | p15 |
+*Correction 2026-11-15, same day:* an earlier draft of this section claimed
+"an entirely red rune line `ᚾᛗ-ᚱ` on p15" and "a red ᛁ beside black runes on
+p33". Both were misreads of stylized content by this auditor; line-by-line
+pixel adjudication at full resolution settles what red actually is:
+
+| p33 title band | p15 printed digits |
 |---|---|
 | ![red p33](img/red_p33.png) | ![red p15](img/red_p15.png) |
-| giant red ᚻ + red ᛁ in the same column as black ᛉ/ᚻ — mixed ink **within one line** | an entirely red line `ᚾᛗ-ᚱ`, word-divider dot included |
+| giant red drop-cap + the opening word(s) in red + a red dot-matrix ornament — and the rest of the **same line** black | `3278 3299 3298 2838` — the `3299` group is printed in red (p15 digits were not previously catalogued) |
 
-The stream is colorless: every red rune above is transcribed identically to
-a black one. A per-rune red/black flag is an untranscribed binary channel
-(a glyph-level census mapped to stream positions is the proposed
-follow-up). Note the audit-harness strips rendered grayscale until commit
-`cef343d` — before that this channel was literally invisible in our
-checklists, which is why "some glyphs are red" needed demonstrating.
+So dukotah's `armada_osint/redrune/` verdict — red = **rubrication of
+opening/section-initial words**, cryptographically null (English-only keytest,
+their doctrine L7-A) — is CONFIRMED on the canonical published images, and
+their two "scattered" pages (canon 3, 33) are exactly this title-band pattern,
+not the segmentation drift they invoked to dismiss them. Red dot-matrices also
+stand at mid-page section breaks (p33, line-end of the 5th text line) =
+positional markers.
+
+The genuinely new channel is the **printed digits** — catalogued only on
+pp10/36/37/38 (`-7-`, `1-`, `2-3-4-`, `5-`) — which also occur on p15, where
+one group is red. Proposed follow-up: full digit + red-matrix census mapped to
+stream positions.
+
+Notation adopted for the visual pass (no community convention exists — the
+stream is colorless and dukotah keeps only positional flags): append `*` to
+each red glyph, e.g. `ᚾ*ᛗ*-ᚱ*`.
+
+Note the audit-harness strips rendered grayscale until commit `cef343d` —
+before that this channel was literally invisible in our checklists, which is
+why "some glyphs are red" needed demonstrating.
 
 ## What we are NOT claiming
 
@@ -291,6 +309,33 @@ and only scream314's decimal column dissents): the two that live on p50
 (idx 175 `0I`, 182 `2l`) are now **confirmed by the same height
 measurements** — supporting `canon_256.bin` over the decimal-preferred
 variant. The remaining four (p49/p51) sit in unanimous cells.
+
+### Second calibration (p51, `68.jpg`) overturns the fifth split cell
+
+Same method on `68.jpg`/`66.jpg`, raw px relative to row band, signatures
+from *unanimous* witness cells:
+
+| glyph (source cell) | w | h | top | note |
+|---|---|---|---|---|
+| digit `1` (30+ cells) | 19 | 67 | 1 | foot flag |
+| cap `I` (p49 r4 `3I`, unanimous) | 8 | 67 | 1 | bare bar |
+| lower `l` (p49 r1 `2l`, p51 r2 `0l`, unanimous) | 8 | **74** | −6 | ascender bar |
+| lower `i` (p49 r10 `2i`, unanimous) | 7 | 42 | 26 | **+ separate dot w11×h11** |
+| lower `j` (p51 r2 `1j`, unanimous) | 7 | 51 | 26 | + dot |
+| cap `L` (p51 r1 `1L` etc., unanimous) | 26 | 67 | 1 | |
+| `0` vs `O` | 49 vs 70 | 69 | 0 | width split |
+
+**idx 246 (p51 r8c7)** — dukotah's fifth token-split cell: root+relikd
+`3i`, scream `3I`, resolved by decimal majority to `3i` (canonical 0xe0).
+The cell measures a bare bar w8×h67 top1 — the exact unanimous-`3I`
+signature, no dot, not `i` (h42+dot). We read **`3I`, i.e. canonical byte
+246 should be 0xc6, not 0xe0** — the only one of the five split cells the
+pixels overturn (45/50 confirmed the canonical `1l`/`0l`; 165/172 confirmed
+above). The owner's from-scratch read also wrote `3I`.
+
+Owner's Roman-token pass on p51 rows 5–9: **40/40 pixel-confirmed** except
+one case slip (`0m` → `0M` at r8c5: measured w76×h72 cap M; the `m`
+signature is w55×h43).
 
 All disagreements live in exactly one glyph class: sans-serif
 `1/l/0/O/I/S/s` — independent confirmation of the owner's visual-pass

@@ -31,6 +31,36 @@ OUT = os.path.join(ROOT, "work", "audit")
 CONFUSION = [("ᚦ", "ᛈ"), ("ᚫ", "ᚪ"), ("ᛖ", "ᚣ"), ("ᚻ", "ᛁ"), ("ᛞ", "ᛏ"), ("ᛗ", "ᛖ")]
 
 
+def _palette_block():
+    """29-glyph table, printed on EVERY checklist page (owner request
+    2026-11-15: no more scrolling to a separate doc mid-transcription)."""
+    items = [f"{g}={l}" for g, l, _ in GEMATRIA]
+    rows = "\n".join("  ".join(f"{s:<6}" for s in items[i:i + 7])
+                     for i in range(0, len(items), 7))
+    return ("**Rune palette — the only 29 glyphs on these pages** (glyph = Latin "
+            "value, per core/validate.py Gematria Primus):\n```\n" + rows + "\n```")
+
+
+PALETTE_MD = _palette_block()
+
+NOTATION_MD = (
+    "**Notation for your reading** (line text goes in the verdict line or READ.md):\n"
+    "- `-` = word divider (the interpunct printed on the page) · `.` = sentence "
+    "dot · one stream line per visual line — never merge or split lines.\n"
+    "- unknown glyph `?` · genuinely ambiguous pair `first|second` (better guess first).\n"
+    "- RED glyph: append `*` (e.g. `ᚾ*ᛗ*-ᚱ*`). Colour is a channel the stream does "
+    "not carry; no inline convention exists in any lineage (dukotah keeps only "
+    "positional flags, `armada_osint/redrune/result.json`), so `*` is ours by "
+    "proposal — flag whole-line red the same way, every glyph gets its `*`.\n"
+    "- confusion families (double-check): ᚦ/ᛈ ᚫ/ᚪ ᛖ/ᚣ ᚻ/ᛁ ᛞ/ᛏ ᛗ/ᛖ.\n"
+    "- token rows (pp49–51 only): base-60 pairs over `0-9 A-Z a-z` = 0..61 "
+    "(`f` never occurs); byte = d0·60+d1. Case matters — pixel signatures "
+    "measured on these very pages: `1` h67 w19 (foot flag) · `I` bare bar h67 · "
+    "`l` bare bar h74 · `i` stem h42 **plus a dot** · `j` stem h51 plus a dot · "
+    "`L` w26 h67 · `0` w49 vs `O` w70."
+)
+
+
 def is_prime(n):
     if n < 2:
         return False
@@ -134,8 +164,9 @@ VERIFIED = {  # book page -> note shown on every rune strip
 
 
 def ink_bands(gray, x0=620, x1=1800, thr=8, min_h=35):
-    """Visible content row bands via horizontal-ink profile (central window)."""
-    px = (gray > 120)
+    """Visible content row bands via horizontal-ink profile (central window).
+    gray = raw L array (NOT inverted): dark pixels are ink."""
+    px = (gray < 135)
     ink = px[:, x0:x1:3].sum(axis=1)
     bands, start = [], None
     for y, s in enumerate(ink):
@@ -211,6 +242,7 @@ def do_page(n, pad=24):
                 f"{sum(1 for l in lines if is_prime(sum(PRIME[v] for v in l)))}/{H} prime\n\n")
         f.write("For each strip: read the runes off the image, compare to the "
                 "transcription, mark OK or list (position, seen-vs-recorded).\n\n")
+        f.write(PALETTE_MD + "\n\n" + NOTATION_MD + "\n\n")
         if n in VERIFIED:
             f.write(f"> **{VERIFIED[n]}**\n\n")
         pos = 0
