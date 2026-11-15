@@ -239,12 +239,39 @@ canonical bytes on all unanimous cells):
 - **The 5 "token-split" cells (idx 45, 50, 165, 172, 246): the root sides
   with relikd on all 5** (1L/1l, 0L/0l, 0l/0I, 2s/2S, 3i/3I — all the
   sans-serif I/l/0/O class). dukotah broke those ties by scream314's
-  decimal majority, so the canonical currently follows scream314 at
-  **idx 165 (0I vs 0l) and 172 (2S vs 2s)**. With the root counted,
-  those two cells are 2-vs-2 (root+relikd vs scream-tokens+
-  scream-decimals — the latter not independent of the former).
-  **Two bytes of the canonical 256-byte pad may be wrong**; the master
-  images (p50 rows 11 and 12) can now settle them.
+  decimal majority, so the canonical follows scream314 at idx 165
+  (`0I` vs root/relikd `0l`) and 172 (`2S` vs `2s`) — with the root
+  counted, 2-vs-2. **Adjudicated from the master image (2026-11-15):
+  the canonical is correct at both, and the root/relikd reading is
+  wrong.**
+
+### Pixel adjudication: the p50 font distinguishes the class by height
+
+Stroke-height calibration from *unanimous* cells on the same page
+(`67.jpg`, connected-component bounding boxes, 3× zoom px):
+
+| glyph (source cell) | height | top |
+|---|---|---|
+| digits `0 2 4` (many) | 204–209 | ~71 |
+| uppercase `I` (idx 90 `3I`, idx 175 `0I`) | **200** | 75 |
+| uppercase `S` (idx 172, adjudicated) | 208 | 71 |
+| uppercase `L N T D` (idx 83, 100, 174, …) | 200–209 | ~71 |
+| lowercase `l` (idx 182 `2l`, unanimous) | **220** | 55 |
+| lowercase `s` (idx 173 area, unanimous) | 132 | 147 |
+| ascenders `b k` (idx 161, 178) | 222 | 55 |
+
+The contested bar at **idx 165 measures h=200, top=75 — `I`, not `l`**
+(220/55). The contested **idx 172 letter measures h=208 — cap-height `S`**,
+a lowercase `s` in the same row is 132. Both canonical bytes stand; the
+root's token table is **not** an independent witness for this glyph class
+(it agrees with relikd's errors, suggesting a shared source or a shared
+misreading for the tables even where the rune streams are independent).
+
+Consequence for the 6 "contested" cells (where all token witnesses agree
+and only scream314's decimal column dissents): the two that live on p50
+(idx 175 `0I`, 182 `2l`) are now **confirmed by the same height
+measurements** — supporting `canon_256.bin` over the decimal-preferred
+variant. The remaining four (p49/p51) sit in unanimous cells.
 
 All disagreements live in exactly one glyph class: sans-serif
 `1/l/0/O/I/S/s` — independent confirmation of the owner's visual-pass
