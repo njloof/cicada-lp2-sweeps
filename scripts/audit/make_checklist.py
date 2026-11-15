@@ -23,7 +23,7 @@ from core.kernel import Q as _Q  # noqa: E402,F401
 
 GLYPH = [g[0] for g in GEMATRIA]
 PRIME = [g[2] for g in GEMATRIA]
-PAGES = os.path.join(ROOT, "data", "pages")
+GEMATRIA_D = set(GLYPH)
 IMGS = os.path.join(ROOT, "sources", "ibotpeaches", "liber_primus")
 OUT = os.path.join(ROOT, "work", "audit")
 
@@ -74,9 +74,28 @@ def valley_cuts(prof, H):
 KRIS = os.path.join(ROOT, "sources", "dukotah", "liber-primus", "data", "krisyotam_runes.txt")
 
 
+def seg_for_page(n):
+    """Book page -> stream segment index. Confirmed 2026-11-15 (owner's p51
+    read, exact pairing): the runes-only extraction into krisyotam dropped
+    the root's empty-of-runes p50 slot (the rtkd master HAS a slot 50 -
+    the token table, 0 runes), so segments 50-56 are book pages 51-57.
+    Book p50 itself has no segment in the rune stream."""
+    if n == 50:
+        raise ValueError("book p50 has no stream segment (runeless token "
+                         "page; its empty slot was dropped in extraction - "
+                         "the +1 tail shift)")
+    return n if n <= 49 else n - 1
+
+
 def page_lines(n):
-    p = os.path.join(PAGES, f"lp2_{n:02d}.txt")
-    return [[int(x) for x in ln.split()] for ln in open(p) if ln.strip()]
+    """Rune indices per line for BOOK page n, read straight from the pinned
+    krisyotam stream (data/pages/ names are off by one on the tail - the
+    relabel there is a separate pending decision; the stream + seg_for_page
+    is the authoritative book->segment map)."""
+    seg = open(KRIS, encoding="utf-8").read().split("%")[seg_for_page(n)]
+    idx = {g: i for i, (g, _, _) in enumerate(GEMATRIA)}
+    return [[idx[c] for c in ln if c in idx]
+            for ln in seg.split("/") if any(c in idx for c in ln)]
 
 
 def page_lines_with_seps(n):
@@ -84,13 +103,14 @@ def page_lines_with_seps(n):
     preserved (the community stream carries them; data/pages tokenization
     drops them). The visual pass verifies divider fidelity — this is the
     only independent check on them (single-root caveat applies)."""
-    seg = open(KRIS, encoding="utf-8").read().split("%")[n]
+    seg = open(KRIS, encoding="utf-8").read().split("%")[seg_for_page(n)]
     out = []
-    for ln in seg.split("/")[1:]:  # leading empty from %% boundary
-        s = ln.strip()
-        if not s:
-            continue
-        out.append("".join(c for c in s if not c.isspace()))
+    for ln in seg.split("/"):  # NB: split("/")[0] IS line 1 - a [1:] here
+        #  silently paired every strip with the next line's separators (found
+        #  2026-11-15 by owner's p51 read; every page was off by one line)
+        s = "".join(c for c in ln.strip() if not c.isspace())
+        if any(c in GEMATRIA_D for c in s):  # keep in lockstep with page_lines
+            out.append(s)
     return out
 
 

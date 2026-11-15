@@ -33,27 +33,40 @@ Consequences:
    and **57 (PARABLE)**. (Confirmed by dukotah `docs/SOLVED-PAGES-AND-INTERRUPTERS.md` and
    ibotpeaches `markdown/73.md`/`74.md`.)
 2. The handoff's "pages 0–55, ≈12,956 runes" is really **LP2 0–54 = 12,956 runes** (55 pages);
-   page 55 is the missing one (below).
+   page 55 is the missing one (below). ~~the missing one~~ SUPERSEDED 2026-11-15:
+   p55 = segment 54; the 55 unsolved rune pages are book 0–49 + 51–55.
 3. Dukotah's `dataset/liber_primus.json` zips the krisyotam stream positionally to images:
    its entries 55/56 carry **AN END/PARABLE runes under image-55/56 labels** (off-by-one at
    the tail). Image hashes themselves are correct per label; we relabel to true LP2 numbers.
 
 ## Corpus
 
-- **LP2 0–54** (unsolved targets): krisyotam `%`-segments 0–54, 12,956 runes, 55 pages.
+- **LP2 0–54** (unsolved targets; NB 2026-11-15: these are *book* pages
+  0–49 + 51–55 — labels ≥50 off by one, see LP2 55 entry below): krisyotam
+  `%`-segments 0–54, 12,956 runes, 55 pages.
   Each page's published image SHA-1 re-verified against `sources/ibotpeaches` bytes
   (56/56 pass, incl. page 56). Line structure preserved from the stream.
 - **LP2 56 AN END** (85 runes) — solved, φ(prime) shift-down keystream; used as smoke test + pad candidate.
 - **LP2 57 PARABLE** (95 runes) — solved, direct transliteration; smoke test + pad candidate.
-- **LP2 55 — MISSING FROM ALL LINEAGES.** Image exists (`72.jpg`, sha1 `4f3d2d52…` published;
-  4 lines ≈ 70 runes + cicada art) but krisyotam, relikd and scream314 all jump 54→56.
-  Excluded from the sweep; disclosed in the report. Transcription attempt (2026-11-13,
-  `p55_transcribe.py`): glyph templates built from the 55 verified pages (1,149 reconciled
-  glyphs), held-out accuracy **46%** — below any usable bar. Root cause diagnosed from the
-  page-0 band: the decorative font interpenetrates (X-shaped runes touch neighbours, every
-  connected component is band-height) and word separators are dot-matrix ornaments, so
-  component segmentation is structurally impossible. Confirms dukotah's glyph-reader
-  failure (0.145) was fundamental, not effort. Page 55 remains untranscribed.
+- **LP2 55 — ~~MISSING FROM ALL LINEAGES~~ SUPERSEDED 2026-11-15: it is stream
+  segment 54.** The owner's from-scratch visual read of book p51 matched
+  segment 50 at 92/92 runes incl. every word divider (docs/STREAM_TAIL_EVIDENCE.md):
+  the runes-only extraction dropped the root's empty-of-runes p50 slot, so
+  segments 50–56 are book pages
+  51–57. LP2 55 = seg 54 (4 lines, 76 runes, short 8-rune finale matching
+  `72.jpg`); LP2 50 has no segment (zero runes — the 13×8 token table).
+  The earlier claim "krisyotam, relikd and scream314 all jump 54→56" is
+  **FALSE — verified 2026-11-15 against the upstream files**
+  (`fetch_sources.py`): the rtkd root has a slot for every book page
+  (slot 50 = the p50 token table, 0 runes), and relikd's chunk
+  boundaries match true book pages (`p40-53` = 3,008 runes = segs 40–52;
+  `p54-55` = 308 = segs 53–54). The +1 shift was introduced by the
+  runes-only extraction into krisyotam (empty slot dropped), and
+  dukotah's `crossdiff.py` discarded relikd's correct boundaries by
+  concatenation. Sweep impact: p55's *content* was in every sweep
+  all along (as "54"); only the name and the "page 55 not covered" caveat
+  were wrong. The p55_transcribe.py attempt (46% held-out) was therefore
+  solving an already-transcribed page — its failure says nothing new.
 - Non-rune channel: printed digits inline on pages 10, 36, 37, 38 (`-7-`, `1-`, `2-3-4-`, `5-`)
   and markers `&` (section), `$` (page-end), `§` (EOF) — excluded from index streams, consistent
   with all community analysis.

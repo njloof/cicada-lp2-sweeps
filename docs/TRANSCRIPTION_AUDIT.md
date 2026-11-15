@@ -92,6 +92,42 @@ not covered" is false (it is our "54"); the stream's tail dividers are
 unreliable. **Decider: transcribe p51's 4 rune lines (crops ready at
 work/audit/p51_runes/rune_0..3.png) and pair against segs 50/51.**
 
+## Amendment — tail verdict: CLEAN +1 SHIFT (2026-11-15, supersedes parts of the section above)
+
+The owner's from-scratch read of book p51 (work/audit/p51_runes/READ.md)
+paired **character-for-character** with stream seg 50 on **all four
+lines: 92/92 runes, every word divider reproduced**. Corrections
+to the tail-findings section above, which was written before the pairing:
+
+- **Auditor bug disclosed:** my segment scans (and `make_checklist.py`
+  `page_lines_with_seps`) used `split("/")[1:]`, assuming a leading `/` —
+  segments start with line 1, so **every line was dropped by one**. That
+  bug produced both the "89 runes/3 lines" count (true: **4 lines /
+  92 runes** [24,21,23,24]) and the "seg 50 L1 does not match p51 L1"
+  mismatch (it was comparing p51's line 1 against the stream's line 2).
+  Fixed; all 55 checklists regenerated. `core/build_corpus.py` was
+  checked and is correct (no skip) — `data/pages/` line structure is
+  sound, campaigns unaffected. Secondary bug: a `[^ᚠ-ᛠ]` counting regex
+  excluded ᛡ (U+16E1), undercounting runes on every page (p49: 62 → true
+  66); the "seg 49 = 62 runes" above should read 66.
+- **Verdict: hypothesis 1 (clean shift), not corruption.** segs 50–54 =
+  book pp51–55. Corroboration: seg 54 = 4 rune lines [24,22,22,8] with
+  the short 8-rune finale visible on p55 (72.jpg). The
+  "shift-with-corruption" wording above was an artifact of the bug.
+- Consequences stand and are now confirmed: page labels ≥50 off by one
+  (ours and dukotah's; content statistics unaffected); "page 55 not
+  covered" is FALSE (it is our "54").
+- Bonus: the exact pairing (92/92 glyphs incl. every divider) is the
+  **first independent corroboration of divider fidelity** in the stream —
+  relevant to the #9 word-sum candidate.
+- Evidence pack for upstream: docs/STREAM_TAIL_EVIDENCE.md (pending owner
+  approval to commit/post). Corroboration of segs 51–53 vs images
+  69–71.jpg continues in the visual pass; verdict already closed.
+- Audit harness hardened: checklists now read the pinned stream directly
+  with the book→segment map (decoupled from the mislabeled data/pages/
+  names); all 54 transcribed pages regenerated. p51/p55 FFT "mismatches"
+  are the known token-table/diagram detector artifacts, not new defects.
+
 **Ornaments = pre-declared untested channel (ours: not-covered list;
 dukotah round43 lead 8: "p32/p55 tree anomalies cross-mirror diff (low
 prior)", lead 6: "dot constellations census" — both never run).** The
