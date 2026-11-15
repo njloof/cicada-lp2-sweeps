@@ -1,0 +1,11 @@
+plant,target,tag,offset,coverage,fam_chi2,argmax_tag,argmax_off,hit
+0,53,cf:pre,0,1.0,180.79,cf:pre,0,True
+1,27,cf:pre,0,1.0,256.73,cf:pre,0,True
+2,50,cf:pre,0,1.0,73.33,cf:pre,0,True
+3,21,cf:pre,0,1.0,268.59,cf:pre,0,True
+4,30,cf:pre,0,1.0,260.49,cf:pre,0,True
+5,49,cf:pre,0,1.0,86.25,cf:pre,0,True
+6,29,cf:pre,0,1.0,169.65,cf:pre,0,True
+7,8,cf:pre,0,1.0,305.17,cf:pre,0,True
+8,3,cf:pre,0,1.0,167.72,cf:pre,0,True
+9,23,cf:pre,0,1.0,194.07,cf:pre,0,True

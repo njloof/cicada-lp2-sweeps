@@ -112,6 +112,12 @@ Observed sweep < 2 min local; nulls via scripts/studio.sh on 28 cores
 (minutes); escalation 200 draws < 10 min. All cheap by construction —
 self-keys are one pad per page per scheme, not 216-variant grids.
 
+> **Amendment (post-run, labeled per house rules, 2026-11-15):** measured
+> on 8-core laptop: observed sweep 2 s; 20-draw null 11 s; 200-draw VT
+> escalation 34 s. The <2 min estimate priced a per-position loop;
+> pair_scan is vectorized per offset, so the null needed no studio
+> offload. Registered statistic, null design, and decision rule unchanged.
+
 ## Not covered (disclosed)
 
 Word-boundary schemes (unobservable segmentation); doublet/ornament

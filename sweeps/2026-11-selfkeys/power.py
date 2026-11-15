@@ -24,8 +24,7 @@ RES = os.path.join(HERE, "results")
 
 
 def epool():
-    from core.validate import R2I
-    from core.plaintexts import phi_prime_stream
+    from core.validate import R2I, phi_prime_stream
     md = open(os.path.join(HERE, "..", "..", "sources", "scream314", "liber_primus.md"),
               encoding="utf-8").read()
     def sr(label):

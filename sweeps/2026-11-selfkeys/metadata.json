@@ -1,0 +1,83 @@
+{
+  "campaign": "2026-11-selfkeys",
+  "date_run": "2026-11-15",
+  "verdict": "NEGATIVE all families (LS, VT, CF); VT escalation rule fired mechanically on a proven degenerate scheme and verdict held (p=1.0)",
+  "prereg_commits": {
+    "prereg_and_code": "3e1cd82",
+    "note": "results commit ships pre-report fixes: sweep CSV family-column misalignment (maxima unaffected, in-memory), power.py import path; registered statistic, null design, and decision rule unchanged"
+  },
+  "corpus": {
+    "sha256": "4bbea5479117e62d1e33b36d22732c30783c133d607ddc1d8d1aa9d5127b7e7a",
+    "core_git_rev": "3e1cd82",
+    "targets": 55,
+    "schemes": {"LS": 12, "VT": 4, "CF": 8},
+    "notes": "single 2017-root transcription; LS segmentation = pinned data/pages line structure (lengths held fixed under shuffle, values re-derived)"
+  },
+  "seeds": {"null": 20261124, "power_probe": 20261125},
+  "windows": {
+    "positions": {"LS": 149976, "VT": 12386792, "CF": 24773584, "total": 37310352},
+    "rows_ge_floor": {"LS": 31, "VT": 6707, "CF": 10562},
+    "cumulative_all_campaigns": 390545356,
+    "note": "positions = PREREG semantics; rows = one per (page, pad, offset) window"
+  },
+  "observed_max": {
+    "LS": {"chi2": 55.2640, "target": 22, "key": "ls:i-", "offset": 0, "n": 125},
+    "VT": {"chi2": 2351.1461, "target": 35, "key": "vt:ds", "offset": 0, "n": 267,
+           "note": "proven algebraic artifact: D=(v-digitsum(v))%29 in {0,9,18}; elementwise, shuffle-invariant at o=0"},
+    "CF": {"chi2": 76.5670, "target": 30, "key": "cf:w3r", "offset": -62, "n": 194}
+  },
+  "null_20draws": {
+    "LS": {"min": 51.60, "median": 60.00, "p95": 66.58, "max": 71.55},
+    "VT": {"min": 2351.15, "median": 2351.15, "p95": 2351.15, "max": 2351.15},
+    "CF": {"min": 70.50, "median": 79.13, "p95": 88.35, "max": 101.11},
+    "note": "derive-from-shuffled: all self-keys re-derived from each shuffled target; seed 20261124 sequential stream"
+  },
+  "null_200draws_escalation": {
+    "VT": {"min": 2351.1461, "median": 2351.1461, "p95": 2351.1461, "max": 2351.1461,
+           "draws_1_20": "bit-identical to 20-draw run (verified)",
+           "note": "escalation fired on exact tie at degenerate value; all 200 draws identical, confirming shuffle-invariance of the o=0 artifact; rule honored, not waived"},
+    "LS_CF": "no escalation (obs below medians)"
+  },
+  "empirical_p": {"LS": 0.8095, "VT": 1.0, "CF": 0.8095,
+                  "VT_offsets_ge_1_disclosed_diagnostic": 0.8095},
+  "vt_degeneracy": {
+    "scheme": "vt:ds at offset 0",
+    "mechanism": "v - digitsum(v) mod 29 supported on {0,9,18} (v = digitsum(v) mod 9)",
+    "zero_check_flag_fraction": "~0.31 on all 55 pages (baseline 1/29)",
+    "o_ge_1_diagnostic": {"obs": 81.1538, "target": 30, "key": "vt:dsr", "offset": 156,
+                          "null_min": 74.63, "null_med": 86.04, "null_max": 103.90, "p": 0.8095,
+                          "status": "disclosed secondary, not registered"}
+  },
+  "go_prongs": {
+    "prong3_decode": "FAIL for all 60 leaders (top-20 x 3 families, forward AND reversed, 25 cribs, 0 hits)",
+    "verdict": "no GO"
+  },
+  "power": {
+    "LS": {"argmax": "10/10", "ge_median": "9/10"},
+    "VT": {"argmax": "0/10", "ge_median": "0/10",
+           "note": "registered criterion dominated by o=0 artifact on every planted page; disclosed o>=1 criterion: 10/10 argmax, 10/10 >= 86.04, planted chi2 203-320"},
+    "CF": {"argmax": "10/10", "ge_median": "9/10"}
+  },
+  "full_csv_sha256": {
+    "LS": "d33bc1ce6d0fffcf74f6f915ef91d4cc10a4e0fe78a96b5b639a32259e0c01aa",
+    "VT": "1a96ef6ac37e57783fc81f9f4a93ada050f98fa6f86550126c91110fa59e0464",
+    "CF": "4197ce51eaa3c506f8429073f3020133c8ac2b7e4aba58623d8eb90199341eb8"
+  },
+  "tracked_truncation": "none needed - all three sweep CSVs ship complete in results/ (max 291 KB)",
+  "runtime_measured": {"observed_s": 2, "null_20_s": 11, "null_VT_200_s": 34,
+                       "note": "PREREG cost section amended with labeled measured values; studio offload prepared, not needed"},
+  "regen": {
+    "observed": "python3 sweeps/2026-11-selfkeys/run.py",
+    "nulls_20": "python3 sweeps/2026-11-selfkeys/run_par.py",
+    "nulls_escalation": "python3 sweeps/2026-11-selfkeys/run_par.py --fams VT --draws 200",
+    "power": "python3 sweeps/2026-11-selfkeys/power.py --med LS=60.0,VT=2351.15,CF=79.13"
+  },
+  "not_covered": [
+    "word-boundary schemes (segmentation unobservable on unsolved pages)",
+    "doublet/ornament channels (post transcription audit)",
+    "f=id self-lags and primer-autokey (covered by campaign #1)",
+    "cross-page self-keys (page N sums as keys for page M; transformed cross-page pads deferred, low prior)",
+    "page 55; LP1-as-target",
+    "prime-sum recognizer (dukotah U4; different statistic family)"
+  ]
+}

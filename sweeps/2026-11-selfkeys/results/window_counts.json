@@ -1,0 +1,14 @@
+{
+  "LS": {
+    "windows": 660,
+    "rows_ge_floor": 31
+  },
+  "VT": {
+    "windows": 81080,
+    "rows_ge_floor": 6707
+  },
+  "CF": {
+    "windows": 162160,
+    "rows_ge_floor": 10562
+  }
+}

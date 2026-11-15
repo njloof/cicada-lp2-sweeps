@@ -23,6 +23,7 @@ class Sink:
         self.path = os.path.join(WORK, f"sweep_{fam}.csv")
         self.f = open(self.path, "w")
         self.f.write(HDR + "\n")
+        self.fam = fam
         self.sha = hashlib.sha256((HDR + "\n").encode())
         self.heap, self.floor, self.rows, self.windows = [], floor, 0, 0
         self.max = (-1.0, None)
@@ -32,7 +33,7 @@ class Sink:
         if c2 < self.floor:
             return
         self.rows += 1
-        s = f"{target},{key},{off},{nn},{c2:.4f}\n"
+        s = f"{self.fam},{target},{key},{off},{nn},{c2:.4f}\n"
         self.f.write(s)
         self.sha.update(s.encode())
         item = (c2, target, key, off, nn)

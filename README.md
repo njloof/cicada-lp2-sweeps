@@ -3,7 +3,7 @@
 Cicada 3301 **Liber Primus Part 2** cryptanalysis: pre-registered, MC-calibrated
 elimination sweeps with a reproducible corpus pipeline and a public ledger.
 
-**Headline so far:** seven campaigns, ~353M swept alignments, six clean
+**Headline so far:** eight campaigns, ~391M swept alignments, seven clean
 negatives and two self-corrections. The cross-page running-pad hypothesis
 (an unsolved LP2 page encrypted with another page's ciphertext as a running
 pad) is dead across its full known algebra: differences (#1), sums/weaves
