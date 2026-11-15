@@ -26,11 +26,15 @@ per item so we inherit rather than duplicate.
 4. **LP1 A WARNING plaintext** carries deliberate-looking letter play:
    W-drops (`AWARNNG`, `CNOW`, `CNOWLEDGE`), K→C (`BOOC`), V→U (`BELIEUE`).
    The W-drop is specific to this page (DEEPWEB/WITHIN spell fine in LP2 56/57).
-   Not reproducible-as-intended check: A WARNING's *line* prime-sums
-   (757*/1009*/691/353*/769* claimed) do **not** reproduce from the md's
-   line-wrapping (we get 758 on the last line — off-by-one); the true page
-   line structure (image) is needed before trusting either direction.
-   dukotah claims 9/9 prime — unresolved discrepancy, flagged.
+   **A WARNING prime line-sums VERIFIED (2026-11-15, campaign #7 code build):**
+   the claimed sums are **plaintext-side**, and the md wrapping reproduces
+   them exactly. Plaintext line sums, all 10 md lines:
+   `[332, 757*, 1009*, 691*, 353*, 769*, 911*, 1051*, 859*, 677*]` —
+   lines 2–10 are **9/9 prime** (dukotah's claim, confirmed; line 1 = 332 is
+   the title line). P(9 primes by chance at ~0.14 each) ≈ 1e-8: designed.
+   The earlier "757 vs 758" mismatch was ciphertext-side only — the design
+   lives on the plaintext side, consistent with "either the words or their
+   numbers".
 
 ## Negative results of this census
 
