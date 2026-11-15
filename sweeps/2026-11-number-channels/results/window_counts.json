@@ -1,0 +1,18 @@
+{
+  "Vp": {
+    "windows": 85800,
+    "rows_ge_floor": 7408
+  },
+  "Vs": {
+    "windows": 7450320,
+    "rows_ge_floor": 625021
+  },
+  "R": {
+    "windows": 16459240,
+    "rows_ge_floor": 1113745
+  },
+  "D": {
+    "windows": 32835,
+    "rows_ge_floor": 8415
+  }
+}

@@ -8,3 +8,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .DS_Store
+
+# Claude Code personal settings (never committed; git permissions rules etc.)
+.claude/settings.local.json

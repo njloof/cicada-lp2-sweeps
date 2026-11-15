@@ -1,0 +1,11 @@
+plant,target,key,offset,planted_chi2,family_max,max_target,max_key,max_offset,argmax_hit
+0,50,v:WE5:vr,8,109.74,109.74,50,v:WE5:vr,8,True
+1,28,v:PTAW:pc,9,236.09,236.09,28,v:PTAW:pc,9,True
+2,38,v:SW5:d,0,202.78,202.78,38,v:SW5:d,0,True
+3,23,v:D1033:pc,3,169.03,169.03,23,v:D1033:pc,3,True
+4,45,v:D1033:pr,0,267.25,267.25,45,v:D1033:pr,0,True
+5,49,v:D3301:pc,0,84.46,87.14,49,v:D1033:p,3,False
+6,1,v:AWp:vc,2,305.45,305.45,1,v:AWp:vc,2,True
+7,15,v:PTAW:v,2,216.8,216.8,15,v:PTAW:v,2,True
+8,39,v:SW5:dc,2,230.11,230.11,39,v:SW5:dc,2,True
+9,23,v:WE5:p,0,247.92,247.92,23,v:WE5:p,0,True

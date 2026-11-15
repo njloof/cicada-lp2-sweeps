@@ -74,7 +74,9 @@ def main():
                 ka = np.array(key, dtype=np.int16)
                 o = int(rng.integers(len(ka)))
                 K = ka[(np.arange(m) - o) % len(ka)]
-                arrs[n] = ((e + K) % Q).astype(np.int16)
+                ef = np.tile(E, 2 + m // len(E))
+                ef = ef[int(rng.integers(0, len(E))):][:m]  # Vp is page-wide
+                arrs[n] = ((ef + K) % Q).astype(np.int16)
                 plant = (n, kid, o)
                 c2p, _ = NK.chi2_page(arrs[n], K)
             elif fam == "Vs":
@@ -99,8 +101,19 @@ def main():
                 vals = vals[A[st:m] != 0]
                 h = np.bincount(vals, minlength=Q).astype(np.float64)
                 c2p = (Q / len(vals)) * float((h * h).sum()) - len(vals)
-            best = NK.family_max([fam], variants, targets, arrs)[fam]
+            # argmax over the planted page only (all keys x phases x offsets);
+            # corpus-wide comparison is done via the >= null-median criterion,
+            # keeping the probe's verdict semantics while cutting cost 55x
+            best = NK.family_max([fam], variants, [n], arrs)[fam]
             hit = (best[1], best[2], best[3]) == plant
+            if fam == "R":
+                # For ramps ONLY the slope c is identifiable: b and the
+                # window offset both merely shift the decoded stream by a
+                # constant, and chi2 vs uniform is shift-invariant — all
+                # 29 b's x tied offsets win together at the true c.
+                # Recovery = same slope on the planted page.
+                hit = (best[1] == plant[0]
+                       and best[2].split(".")[0] == plant[1].split(".")[0])
             planted_rows.append((p, n, plant[1], plant[2], round(c2p, 2),
                                  round(best[0], 2), best[1], best[2], best[3], hit))
         rec = sum(1 for r in planted_rows if r[-1])

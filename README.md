@@ -3,7 +3,7 @@
 Cicada 3301 **Liber Primus Part 2** cryptanalysis: pre-registered, MC-calibrated
 elimination sweeps with a reproducible corpus pipeline and a public ledger.
 
-**Headline so far:** six campaigns, ~329M swept alignments, five clean
+**Headline so far:** seven campaigns, ~353M swept alignments, six clean
 negatives and two self-corrections. The cross-page running-pad hypothesis
 (an unsolved LP2 page encrypted with another page's ciphertext as a running
 pad) is dead across its full known algebra: differences (#1), sums/weaves
@@ -11,13 +11,17 @@ pad) is dead across its full known algebra: differences (#1), sums/weaves
 pairwise product spaces — stride extension/strided mirrors, scaling × stride,
 scaling × mirror junction (#5) — and the index-consumption axis:
 all-phase drop-decimation and cyclic wrap reads with provably complete
-alignment coverage (#6). A page-12 mirror outlier flagged by #3's
-registered test was **publicly retracted** when campaign #4's 1000-draw
-confirmation null put it at p = 0.099 — the flag was a 20-draw tail-resolution
-artifact. #6's 195.2 cyclic flag was likewise caught before it could be
-claimed: all 16 extreme rows are self-pair permutation scans whose
-gcd(a±1,L) fixed points manufacture ᚠ pile-ups that target-shuffle nulls
-are structurally blind to (amended family: negative, p = 0.57).
+alignment coverage (#6). #7 closed the number channel: 216 designed
+value-sequence keys (LP1 line sums — including the **newly verified
+9/9-prime A WARNING plaintext line sums**), page-number ramps, and printed
+digits, all negative (p = 0.18–0.81, escalation rule exercised and held).
+A page-12 mirror outlier flagged by #3's registered test was **publicly
+retracted** when campaign #4's 1000-draw confirmation null put it at
+p = 0.099 — the flag was a 20-draw tail-resolution artifact. #6's 195.2
+cyclic flag was likewise caught before it could be claimed: all 16 extreme
+rows are self-pair permutation scans whose gcd(a±1,L) fixed points
+manufacture ᚠ pile-ups that target-shuffle nulls are structurally blind to
+(amended family: negative, p = 0.57).
 See [docs/LEDGER.md](docs/LEDGER.md).
 
 ## Why the instrument is trustworthy
