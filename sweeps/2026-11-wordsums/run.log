@@ -1,0 +1,15 @@
+kill gates PASS: {'runes': 12956, 'seps': {'-': 2729, '.': 173}, 'words': 2928, 'mean_len': 4.4249}
+obs WS1: chi2=47.67 page=27
+obs WS2: chi2=47.70 page=11
+obs WS3: chi2=51.63 page=22
+obs WS4: chi2=46.94 page=8
+escalation fires: ['WS1', 'WS3', 'WS4']
+WS1: obs 47.67 vs null med 48.12 max 72.37  p=0.5373134328358209  (D=200)
+WS2: obs 47.70 vs null med 49.10 max 62.36  p=0.6666666666666666  (D=20)
+WS3: obs 51.63 vs null med 46.49 max 64.98  p=0.16417910447761194  (D=200)
+WS4: obs 46.94 vs null med 46.42 max 65.97  p=0.4577114427860697  (D=200)
+power WS1: 0.0
+power WS2: 0.0
+power WS3: 0.0
+power WS4: 0.0
+wrote /Users/njloof/src/cicada/sweeps/2026-11-wordsums/results/ws_results.json 3.0 s

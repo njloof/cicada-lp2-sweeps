@@ -1,0 +1,45 @@
+{
+  "campaign": "2026-11-wordsums",
+  "date_run": "2026-11-16",
+  "verdict": "NEGATIVE all families (MC p 0.16-0.67, obs ~ null medians) - WEAKLY-POWERED: 0/10 plants in all families; page-marginal chi2 is structurally blind to localized plants under value-dependent self-derived keys (key propagation rotates downstream decodes); negative must be read with the power sentence",
+  "prereg_commits": { "prereg": "955c597" },
+  "corpus": {
+    "sha256": "9f5f14d434fd8e03442d33c8b6f935602f1798779b55aef415bc49588802483e",
+    "object": "unsolved stream book 0-49+51-55, L=12956; word geometry from krisyotam segs 0-54 (tail +1 shift), separators '-'=2729 '.'=173, 2928 words mean 4.4249",
+    "premise_crosscheck": "per-page values BIT-IDENTICAL to data/pages on all 55 pages (kill gate G1)",
+    "divider_fidelity": "single-root (krisyotam); relikd agrees on runes (dukotah P3 Step-1) not separators; owner p51 corroborates one page"
+  },
+  "seeds": { "null": 20261130, "stream": "default_rng([seed, crc32(tag)%100000, draw])", "tags": ["WS1", "WS2", "WS3", "WS4", "plant-WS*"] },
+  "statistics": {
+    "per_page_chi2_max_over_55_pages": {
+      "WS1": { "obs": 47.67, "page_book": 27, "p": 0.537, "D": 200 },
+      "WS2": { "obs": 47.70, "page_book": 11, "p": 0.667, "D": 20 },
+      "WS3": { "obs": 51.63, "page_book": 22, "p": 0.164, "D": 200 },
+      "WS4": { "obs": 46.94, "page_book": 8, "p": 0.458, "D": 200 }
+    }
+  },
+  "nulls": {
+    "method": "derive-from-shuffled: page values permuted, self-derived keys re-derived per draw (word geometry fixed)",
+    "seed": 20261130,
+    "escalation": "fired WS1/WS3/WS4 (obs >= null median), honored at 200 draws on disjoint streams; WS2 stayed at 20",
+    "note": "null medians ~47 >> iid chi2 expectation ~28: derive-from-shuffled correctly absorbs the pages' marginal value non-uniformity"
+  },
+  "power": {
+    "plants": "English-strength (p56/p57 value distribution) 8-word windows, forward pass, 10/family",
+    "result": "0/10 ALL families - planted chi2 means 29-33 vs null p95 54-59; MECHANISM: under value-dependent self-derived keys a local edit rotates downstream decodes via key propagation and washes out the page marginal; page-marginal statistic is structurally blind to local plants",
+    "verdict_modifier": "WEAKLY-POWERED negative; powered re-run would need word-window statistic (new registration); not recommended given LOW prior (separators=typography R11-S2+P3) and #8 line-sum negative at power 10/10"
+  },
+  "dup_check": {
+    "covered_before": ["LP2 word sums as cleartext stream (dukotah R10-L2, R37-C3)", "LP1 sums as keystream (R37-C1-U2)", "separator identity/shape (R11-S2, R44-P3)"],
+    "niche": "LP2 own word sums as self-key schedule - open in both ledgers before this campaign"
+  },
+  "runtime_measured": { "total_s": 3.0, "prereg_estimate": "<60s", "held": true },
+  "disclosed_reruns": [],
+  "disclosed_notes": ["first execution crashed at import (TRANS key error) before any output; no statistical parameter changed post-registration"],
+  "regen": "python3 sweeps/2026-11-wordsums/ws.py",
+  "not_covered": [
+    "word-window statistic (see power)", "Beaufort sign", "mod 28", "cross-page keys",
+    "/-delimited segmentation", "digitsum/prime-sum key transforms", "separator identity (theirs)",
+    "word semantics", "decoded-layer boundaries", "non-English registers", "p50"
+  ]
+}
