@@ -95,3 +95,63 @@ p49 / p51 / p55 strip checklists are ready in `work/audit/page_49|51|55/`
 (same format as the strip above: read off the image, mark OK or list
 diffs). p51 is now correctly labelled book p51 post-relabel. These feed
 divider-fidelity for campaign #11 (word-sums).
+
+---
+
+# Follow-up round #2 (2026-11-16) — answers to your answers
+
+Thank you — everything you confirmed is banked. Four follow-ups below;
+fill the ☐ boxes in place. **One honest correction first:**
+
+> **p27 correction.** Your Task-5 "U" was asked against a crop that was
+> **off by one line** — on p27 the top band is the mayfly-wing ornament and
+> the second band holds three stream lines (line 1 in red + two black), so
+> our band→line mapping was shifted and the old crop showed line 5, not
+> line 4. We re-anchored by matching separator-dot patterns against the
+> transcription; the crops below are cluster-anchored (verified against the
+> dot pattern, not proportional spacing).
+
+## F1 — p27:93, the real target + same-page references
+
+![marked](img/oracle/p27_line04_marked.png)
+![compare](img/oracle/p27_glyph_compare.png)
+
+The ticked glyph is position 93 (between the dots after `ᛏᚱ`, before the
+pair before `ᛞ`). The compare sheet puts it against its own page-mates:
+three glyphs our corpus records with the **same value as the target**
+(@22/@25/@30 — all "arch": two staves joined at the top by a diagonal —
+note our round-#1 shape chart said ᚢ joins at the *bottom*; that describes
+the classic rune, not this angular font), plus the ᛒ candidates (@26/@31,
+clear two-bulge) and ᛈ (@36, diamond). **Our read now: the target matches
+the three arch references — ᚢ confirmed.** Your call:
+☐ agree ᚢ ☐ disagree: __
+☐ the tick points at the right glyph ☐ wrong glyph: __
+
+## F2 — your "10 dots in red on L10" — found it
+
+That is a red **10-dot diamond lattice in the LEFT margin** of line 10
+(centre column of 4 + 3 each side) — machine-verified: exactly 10 red
+connected components, RGB ≈ (175,5,5). Same motif as the p49 lattice you
+counted (10 dots):
+
+![dots](img/oracle/p38_l10_red_dots_v2.png) ![p49](img/oracle/p49_lattice_v2.png)
+![full](img/oracle/p38_full_marked.png)
+
+Red box = the 10-dot lattice; blue box = your confirmed `5*` (L4). The
+dark marks at the RIGHT edge of L10 are black, not red
+([zoom](img/oracle/p38_l10_rightedge_v2.png)).
+☐ the red box is what you saw ☐ no, I meant something else: __
+
+## F3 — wedge vs printed digits, examples as requested
+
+![sheet](img/oracle/digit_style_sheet.png)
+
+Top: the pp36–38 margin digits. Middle: p10/p15 printed digits. Bottom:
+**drawn schematic** (not a scan) of Babylonian wedge forms for 1–5 and 10.
+☐ margin digits look wedge ☐ printed ☐ neither/unclear: __
+
+## F4 — p53 lines 7–9, full width this time
+
+Twelve full-width bands (band 0 is ornament; stream lines follow — map
+them yourself): `img/oracle/p53_band00_full.png` … `p53_band09_full.png`.
+Which stream lines are entirely red? lines: __
