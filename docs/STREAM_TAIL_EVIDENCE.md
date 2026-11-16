@@ -1,9 +1,8 @@
 # The krisyotam stream's tail is shifted +1 relative to the book
 
 _2026-11-15 · found during our transcription audit
-([TRANSCRIPTION_AUDIT.md](TRANSCRIPTION_AUDIT.md)) · evidence doc, prepared
-for upstream posting (dukotah / community) — publication pending owner
-approval._
+([TRANSCRIPTION_AUDIT.md](TRANSCRIPTION_AUDIT.md)) · posted upstream as
+[Dukotah/cicada3301#14](https://github.com/Dukotah/cicada3301/issues/14)._
 
 **Claim.** The canonical rune stream (`krisyotam_runes.txt`, and every
 machine-readable transcription derived from the same 2017 root) attributes
