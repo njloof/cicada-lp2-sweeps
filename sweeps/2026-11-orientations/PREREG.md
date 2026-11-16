@@ -36,13 +36,21 @@ Pairing the 16 combos:
 **16 → 8 orientation classes** (canonical reps: (id,id), (id,rl), (id,rg),
 (id,r180), (rl,id), (rl,rl), (rl,rg), (rg,id)).
 `rl` is NOT a flat reversal when line lengths differ — genuinely new; `rg`
-likewise. For **sum** (commutative) additionally (o_M,o_N) ≡ (o_N,o_M);
-for **diff** both operand orders are kept (D and −D have different χ²).
+likewise. For **diff** both operand orders are kept (D and −D have different
+χ²). For **sum** the naive commutative collapse (o_M,o_N) ≡ (o_N,o_M) is
+**invalid under the house tgt mask**: the mask drops target-side F positions,
+so swapping operands changes the masked set. (Registered correction: the
+first draft of this PREREG claimed the collapse; the registration-time pilot
+on real pages falsified it — maxima differ at 23/24 real-pair checks. Sum is
+therefore scanned in BOTH operand orders everywhere.)
 Registration-time verification: all identities checked on synthetic
 unequal-length line grids (seed 1) through the exact window/χ² semantics —
 all hold; two implementation traps found doing it (rl must slice lines with
 the ORIGINAL length list then reverse the list; the offset range is
-[MINL−m, n−MINL], a transposed range silently breaks the identity).
+[MINL−m, n−MINL], a transposed range silently breaks the identity). The
+synthetic check ran UNMASKED, which is why it passed the sum-commute claim
+the real-pilot then killed — lesson: pilot against the actual masked
+instrument, not a toy.
 **Pre-output verification (mandatory, output-blocking):** on a 3-pair pilot
 of the REAL corpus, confirm each declared identity's family max matches to
 the last bit; any mismatch means the space is re-declared before the sweep
@@ -54,30 +62,37 @@ counts.
    {0–49, 51–55}; mirror pairing (k, 55−k) → 28 nominal pairs, minus
    (5, 50) since p50 is runeless → **27 pairs**, no self-mirror (55 odd,
    27.5 not a page). Per pair: 8 orientation classes × {diff (M,N), diff
-   (N,M), sum} = 24 directed scans. Instrument unchanged: core.kernel
+   (N,M), sum (M,N), sum (N,M)} = 32 directed scans (sum both orders per
+   the mask correction above). Instrument unchanged: core.kernel
    pair_scan semantics, MIN_LEN 50, record floor 40, tgt mask primary /
    both for confirmation, all offsets both directions.
 2. **O2 — all ordered pairs, id-only (CONTROL arm).** 55×54 ordered diff +
-   1485 sum = the #1/#2 space re-run as a positive control: it must
-   reproduce their maxima (same corpus modulo relabel labels). If it
-   doesn't, the harness changed and O1 results are void. Declared: O2 is
-   calibration, not a second fishing license; its flags are reported but
-   carry no new-hypothesis claim.
+   55×54 ordered sum = the #1/#2 space re-run as a positive control (sum
+   ordered per the mask correction — a superset of #2's coverage): it must
+   REACH their maxima (same corpus modulo relabel labels). If it doesn't,
+   the harness changed and O1 results are void. Declared: O2 is calibration,
+   not a second fishing license; its flags are reported but carry no
+   new-hypothesis claim.
 3. **T1 — token↔token mirror.** p49 (80 tokens) and p51 (72) base-60
-   tables as byte streams (canonical bytes, incl. the #14/idx-246 pending
-   0xc6 adjudication — BOTH variants scanned, flagged in CSV, no cherry-
-   pick), mod 29 into the 29-bin space; p50's 104 tokens as pad candidate
-   against both; diff both orders + sum; orientation classes on the token
-   grids (8 rows/cols structure: rl = row order, rg = within row).
-   MIN_LEN 50 bytes.
+   tables as byte streams (canonical bytes — at the split cell idx 246 the
+   shipped `canon_256.bin` reads **0xc6** (3I), matching our pixel
+   adjudication and the owner read; the CAMPAIGN-VII doc hex and
+   `canon_256_superseded.bin` carry the old 0xe0 (3i, root+relikd), and
+   re-running canonicalize.py on the pinned witness lineage also yields
+   0xe0 — dukotah doc/bin drift, disclosed. BOTH variants scanned
+   (`canon` = shipped bin, `e0` = dissenting-witness reading), flagged in
+   CSV, no cherry-pick), mod 29 into the 29-bin space; p50's 104 tokens as
+   pad candidate against both; diff both orders + sum; orientation classes
+   on the token grids (8 rows/cols structure: rl = row order, rg = within
+   row). MIN_LEN 50 bytes.
 4. **T2 — token→rune affine bridge.** T1 bytes as pads for every unsolved
    rune page: D = A − (a·(T mod 29) + b) mod 29; b is constant → excluded
    by shift-invariance (declared); a ∈ 2..28 (a=1 = direct bridge; a=0
    constant → excluded). All offsets; id orientation only (pads are flat
    byte streams; token-grid orientations live in T1).
 
-Windows ≈ 0.31M (O1: 27 pairs × 24 directed scans × ~470 offsets) +
-~2.1M (O2) + <0.05M (T1/T2) ≈ **2.5M windows** — exact counts reported.
+Windows ≈ 0.36M (O1: 27 pairs × 32 directed scans × ~420 offsets) +
+~2.5M (O2) + <0.1M (T1/T2) ≈ **3M windows** — exact counts reported.
 (The design doc's 2×10⁷ estimate predated the collapse declarations and
 the mirror restriction.)
 
