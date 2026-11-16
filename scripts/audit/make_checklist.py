@@ -119,9 +119,9 @@ def seg_for_page(n):
 
 def page_lines(n):
     """Rune indices per line for BOOK page n, read straight from the pinned
-    krisyotam stream (data/pages/ names are off by one on the tail - the
-    relabel there is a separate pending decision; the stream + seg_for_page
-    is the authoritative book->segment map)."""
+    krisyotam stream (data/pages/ relabeled to book numbers 2026-11-15, so
+    file names now agree with seg_for_page; stream + seg_for_page remain
+    authoritative)."""
     seg = open(KRIS, encoding="utf-8").read().split("%")[seg_for_page(n)]
     idx = {g: i for i, (g, _, _) in enumerate(GEMATRIA)}
     return [[idx[c] for c in ln if c in idx]

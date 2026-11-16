@@ -549,60 +549,60 @@
   "runes_sha1": "bc067b7afd313104d59eb46b651f0c8806258571",
   "published_image_sha1": "f67c79019c1530dfebad0df8a7761e8ff93e927d"
  },
- "50": {
-  "file": "pages/lp2_50.txt",
-  "onion7": "50.jpg",
-  "ibotpeaches": "67.jpg",
+ "51": {
+  "file": "pages/lp2_51.txt",
+  "onion7": "51.jpg",
+  "ibotpeaches": "68.jpg",
   "n_runes": 92,
   "n_lines": 4,
   "n_f": 4,
   "status": "unsolved",
   "runes_sha1": "4521f9fc7ce91c7aff349de9ff952e96ee1e1999",
-  "published_image_sha1": "57a2e175515a32e32c3f36992dea3d9796460836"
- },
- "51": {
-  "file": "pages/lp2_51.txt",
-  "onion7": "51.jpg",
-  "ibotpeaches": "68.jpg",
-  "n_runes": 263,
-  "n_lines": 12,
-  "n_f": 10,
-  "status": "unsolved",
-  "runes_sha1": "c9e2680aea3ad048505e7a97fb6180263ee6709c",
   "published_image_sha1": "885108c54a97373ee9881b3b412e4cd3bddb4375"
  },
  "52": {
   "file": "pages/lp2_52.txt",
   "onion7": "52.jpg",
   "ibotpeaches": "69.jpg",
-  "n_runes": 179,
-  "n_lines": 9,
-  "n_f": 5,
+  "n_runes": 263,
+  "n_lines": 12,
+  "n_f": 10,
   "status": "unsolved",
-  "runes_sha1": "5d222b426125ed59efd51b6e02c1831f3702ab97",
+  "runes_sha1": "c9e2680aea3ad048505e7a97fb6180263ee6709c",
   "published_image_sha1": "0d2253b312e6c7024f48ffd02446e647e38361ae"
  },
  "53": {
   "file": "pages/lp2_53.txt",
   "onion7": "53.jpg",
   "ibotpeaches": "70.jpg",
-  "n_runes": 232,
-  "n_lines": 11,
-  "n_f": 3,
+  "n_runes": 179,
+  "n_lines": 9,
+  "n_f": 5,
   "status": "unsolved",
-  "runes_sha1": "165967054c0347509245b751bf6e630879968de7",
+  "runes_sha1": "5d222b426125ed59efd51b6e02c1831f3702ab97",
   "published_image_sha1": "9573f8e79e4dc37078943a067ff2401091123bb5"
  },
  "54": {
   "file": "pages/lp2_54.txt",
   "onion7": "54.jpg",
   "ibotpeaches": "71.jpg",
+  "n_runes": 232,
+  "n_lines": 11,
+  "n_f": 3,
+  "status": "unsolved",
+  "runes_sha1": "165967054c0347509245b751bf6e630879968de7",
+  "published_image_sha1": "20e52d4839ea75b094a5b188b5aa880c7f7947bb"
+ },
+ "55": {
+  "file": "pages/lp2_55.txt",
+  "onion7": "55.jpg",
+  "ibotpeaches": "72.jpg",
   "n_runes": 76,
   "n_lines": 4,
   "n_f": 3,
   "status": "unsolved",
   "runes_sha1": "74ccf21abf65b117383bdb636ab4077223d1d130",
-  "published_image_sha1": "20e52d4839ea75b094a5b188b5aa880c7f7947bb"
+  "published_image_sha1": "7470b215fc0b66c02512c109a0613ada2b881f81"
  },
  "56": {
   "file": "pages/lp2_56.txt",
@@ -626,19 +626,20 @@
   "runes_sha1": "fd2d4284365ce2a107190a676891d3bcbe3b7d91",
   "published_image_sha1": null
  },
- "55": {
+ "50": {
   "file": null,
-  "onion7": "55.jpg",
-  "ibotpeaches": "72.jpg",
-  "n_runes": null,
-  "n_lines": 4,
+  "onion7": "50.jpg",
+  "ibotpeaches": "67.jpg",
+  "n_runes": 0,
+  "n_lines": 0,
   "n_f": null,
-  "status": "unsolved_UNTRANSCRIBED",
-  "note": "Image exists and is ~70 runes, but this page is absent from krisyotam, scream314 and relikd lineages (all jump 54->56). Excluded from sweep.",
-  "published_image_sha1": "7470b215fc0b66c02512c109a0613ada2b881f81"
+  "status": "no_runes_token_page",
+  "note": "Book p50 = 13x8 base-60 token table (with pp49/51 the 256-token 2048-bit pad candidate), zero runes. The rtkd root has a slot for it; the runes-only extraction into krisyotam dropped the empty slot, causing the tail +1 shift (Dukotah/cicada3301#14). Excluded from rune sweeps; token payload under visual audit.",
+  "published_image_sha1": "57a2e175515a32e32c3f36992dea3d9796460836"
  },
  "_corpus": {
-  "unsolved_total_runes_0_54": 12956,
+  "unsolved_total_runes": 12956,
+  "relabel_2026_11_15": "stream segs 50-54 relabeled to book pages 51-55 (tail +1 shift proven in docs/STREAM_TAIL_EVIDENCE.md, posted as Dukotah/cicada3301#14); old labels lp2_50..54 = book lp2_51..55; pre-relabel result CSVs need -0/+1 on ids 50-54 when citing book pages",
   "gematria": [
    {
     "index": 0,

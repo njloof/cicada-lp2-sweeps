@@ -25,10 +25,24 @@ coverage caveats | link. This is what the community should reuse, not the raw CS
   every verdict is decided against the **MC null of the max**, never a p-value band.
 - Corpus: 55 unsolved pages hash-anchored to published images; 4 smoke decodes
   reproduced in CI (`python3 -m core.validate`).
+- **Corpus relabel (2026-11-15, post-campaigns #1–#8):** page labels ≥50 were
+  off by one — the tail +1 shift (runes-only extraction dropped the root's
+  empty p50 slot); proof + upstream report
+  ([STREAM_TAIL_EVIDENCE.md](STREAM_TAIL_EVIDENCE.md),
+  [Dukotah/cicada3301#14](https://github.com/Dukotah/cicada3301/issues/14)).
+  The corpus now uses **book numbers**: unsolved = 0–49 + 51–55; p50 =
+  runeless token page (no segment). When citing book pages, rows with ids
+  50–54 in the #1–#8 CSVs are book pages 51–55, and every "page 55 not
+  covered" caveat in the rows above is dissolved (that content was scanned
+  all along under old id 54). No content-based result changes — labels only.
+  New `manifest.json` sha256 `09fa7e03…`; closed-campaign metadata pins are
+  kept as historical run-state, not re-pinned.
 
 ## Community findings alongside the negatives
 
 - [Numbering reconciliation](NUMBERING.md) — LP1 vs LP2 vs 2014 release filenames.
-- [Page 55](PAGE55.md) — missing from every lineage; untranscribable from published images.
+- [Page 55](PAGE55.md) — ~~missing from every lineage~~ **SUPERSEDED
+  2026-11-15: the "missing page" was the tail +1 shift; book p55 = seg 54,
+  transcribed all along.**
 - PARABLE pos-80 adjudication (ᚣ Y over scream314's ᛖ E) — data/SOURCES.md.
 - Doublet count reproduced exactly: 86 across LP2 0–54.

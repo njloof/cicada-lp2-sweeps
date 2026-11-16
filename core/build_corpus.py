@@ -8,12 +8,15 @@ Sources (fetched 2026-11-13, see data/SOURCES.md):
   - iBotPeaches/cicada_3301  liber_primus/markdown/74.md (PARABLE, independent transcription)
   - scream314/cicada3301  liber_primus.md           (solved-page ciphertexts + plaintexts)
 
-Numbering (reconciled — see SOURCES.md):
-  LP2 page N = onion7 file N.jpg = ibotpeaches file (N+17).jpg.
-  LP2 0-54   = krisyotam stream segments 0-54   (12,956 runes, unsolved)
-  LP2 55     = MISSING from every community transcription (image exists: 72.jpg)
-  LP2 56     = AN END   (krisyotam segment 55; SOLVED, phi(prime) keystream)
-  LP2 57     = PARABLE  (krisyotam segment 56; SOLVED, direct transliteration)
+Numbering (reconciled — see SOURCES.md; TAIL RELABELED 2026-11-15,
+upstream Dukotah/cicada3301#14 — see docs/STREAM_TAIL_EVIDENCE.md):
+  LP2 book page N = onion7 file N.jpg = ibotpeaches file (N+17).jpg.
+  Stream segment -> book page: 0-49 identity; 50-54 -> 51-55 (the tail +1
+  shift: the runes-only extraction dropped the root's empty-of-runes p50
+  slot and renumbered the tail); 55 -> 56 (AN END), 56 -> 57 (PARABLE).
+  Book p50 has NO segment — zero runes; it is the 13x8 base-60 token table
+  (67.jpg), part of the pp49-51 pad candidate.
+  Unsolved rune corpus: book 0-49 + 51-55 = 12,956 runes, 55 pages.
 
 Output: data/pages/lp2_NN.txt  (rune indices, space-separated, one transcription line per line)
         data/manifest.json     (per-page metadata + hashes)
@@ -62,8 +65,9 @@ def main():
     os.makedirs(f"{OUT}/pages", exist_ok=True)
     manifest = {}
     for i, seg in enumerate(segs):
-        # map stream segment -> LP2 page: 0-54 identity; 55->56 (AN END), 56->57 (PARABLE)
-        lp2 = i if i <= 54 else i + 1
+        # map stream segment -> BOOK page (relabeled 2026-11-15): identity to 49,
+        # then +1 throughout: segs 50-54 -> 51-55 (tail shift), 55->56, 56->57.
+        lp2 = i if i <= 49 else i + 1
         lines = []
         for ln in seg.split("/"):
             idxs = [rune_to_idx[c] for c in ln if c in RUNE_CHARS]
@@ -72,9 +76,10 @@ def main():
         name = f"lp2_{lp2:02d}.txt"
         with open(f"{OUT}/pages/{name}", "w") as f:
             f.write("\n".join(" ".join(map(str, ln)) for ln in lines) + "\n")
-        status = "unsolved" if lp2 <= 54 else "solved"
-        # published image hash by TRUE lp2 number: dataset entry N carries image N.jpg's
-        # published hash (entry labels are correct for images; only the runes pairing was off)
+        status = "unsolved" if i <= 54 else "solved"
+        # published image hash by TRUE book number: dataset entry N carries image
+        # N.jpg's published hash (entry labels were always correct for images;
+        # pre-relabel, only the runes pairing was off). Now content matches label.
         manifest[lp2] = {
             "file": f"pages/{name}",
             "onion7": f"{lp2}.jpg",
@@ -86,25 +91,34 @@ def main():
             "runes_sha1": sha1("".join(map(str, flat)).encode()),
             "published_image_sha1": ds["pages"][lp2]["image"].get("published_sha1") if lp2 <= 56 else None,
         }
-    manifest[55] = {  # the hole
-        "file": None, "onion7": "55.jpg", "ibotpeaches": "72.jpg",
-        "n_runes": None, "n_lines": 4, "n_f": None,
-        "status": "unsolved_UNTRANSCRIBED",
-        "note": "Image exists and is ~70 runes, but this page is absent from krisyotam, "
-                "scream314 and relikd lineages (all jump 54->56). Excluded from sweep.",
-        "published_image_sha1": ds["pages"][55]["image"].get("published_sha1"),
+    manifest[50] = {  # the real hole: a book page with zero runes
+        "file": None, "onion7": "50.jpg", "ibotpeaches": "67.jpg",
+        "n_runes": 0, "n_lines": 0, "n_f": None,
+        "status": "no_runes_token_page",
+        "note": "Book p50 = 13x8 base-60 token table (with pp49/51 the 256-token "
+                "2048-bit pad candidate), zero runes. The rtkd root has a slot for "
+                "it; the runes-only extraction into krisyotam dropped the empty "
+                "slot, causing the tail +1 shift (Dukotah/cicada3301#14). "
+                "Excluded from rune sweeps; token payload under visual audit.",
+        "published_image_sha1": ds["pages"][50]["image"].get("published_sha1"),
     }
-    total = sum(m["n_runes"] for k, m in manifest.items() if k <= 54 and m["n_runes"])
+    total = sum(m["n_runes"] for k, m in manifest.items() if k <= 55 and m["n_runes"])
     manifest["_corpus"] = {
-        "unsolved_total_runes_0_54": total,
+        "unsolved_total_runes": total,  # book pages 0-49 + 51-55
+        "relabel_2026_11_15": "stream segs 50-54 relabeled to book pages 51-55 "
+                              "(tail +1 shift proven in docs/STREAM_TAIL_EVIDENCE.md, "
+                              "posted as Dukotah/cicada3301#14); old labels lp2_50..54 "
+                              "= book lp2_51..55; pre-relabel result CSVs need -0/+1 "
+                              "on ids 50-54 when citing book pages",
         "gematria": [{"index": i, "rune": r, "prime": e["prime"]}
                      for i, (r, e) in enumerate(zip(GEMATRIA_RUNES, ds["gematria"]))],
         "interrupter": "ᚠ",
     }
     with open(f"{OUT}/manifest.json", "w") as f:
         json.dump(manifest, f, indent=1)
-    print(f"corpus written: {total} runes across pages 0-54; "
-          f"AN END={manifest[56]['n_runes']} PARABLE={manifest[57]['n_runes']}; page 55 missing")
+    print(f"corpus written: {total} runes across book pages 0-49 + 51-55; "
+          f"AN END={manifest[56]['n_runes']} PARABLE={manifest[57]['n_runes']}; "
+          f"p50 = runeless token page")
 
 if __name__ == "__main__":
     main()

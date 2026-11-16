@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
 """Phase 0 validation gates — the sweep runs only if every gate passes.
 
+Page labels are BOOK pages (relabeled 2026-11-15; Dukotah/cicada3301#14):
+book p50 exists but has zero runes (token table), so it carries no page file;
+the unsolved rune corpus is book 0-49 + 51-55.
+
 Gates:
   1. Corpus integrity: pages parse, no stray chars, image provenance re-verified
-     (sha1 of ibotpeaches image == published hash) for LP2 0-56.
-  2. Total unsolved rune count (LP2 0-54) == 12,956 (dukotah ledger figure).
+     (sha1 of ibotpeaches image == published hash) for book 0-56 incl. p50.
+  2. Total unsolved rune count (book 0-49 + 51-55) == 12,956 (dukotah figure).
   3. Duplicate trap: no page is a prefix/substring of another (the page_27/page_44
      phantom-key-reuse trap that burned the community).
-  4. Doublet count across LP2 0-54 ~= 86 (order-of-magnitude anti-doublet leak).
+  4. Doublet count across the unsolved corpus ~= 86 (anti-doublet leak check).
   5. Smoke decodes (the rig must reproduce known text):
        A WARNING (LP1)  atbash                       -> BELIEVE/FROM THIS/TRUE
        WELCOME  (LP1)   Vigenere DIVINITY, subtract  -> WELCOME/PILGRIM/JOURNEY
@@ -116,17 +120,19 @@ def main():
     # ---- Gate 1: integrity + image provenance ----
     for n in range(58):
         m = man[str(n)]
-        if m["file"] is None: continue
-        lines = load_page(n)
-        allidx = [i for ln in lines for i in ln]
-        assert all(0 <= i < N for i in allidx), f"page {n} bad index"
-        assert len(allidx) == m["n_runes"], f"page {n} count drift"
+        # image provenance is checked even for the runeless p50 (file is None):
+        # the image is the evidence that page exists and is what we say it is
         if m.get("published_image_sha1"):
             img = f"{SRC}/ibotpeaches/liber_primus/{n+17:02d}.jpg"
             got = hashlib.sha1(open(img, "rb").read()).hexdigest()
             ok = got == m["published_image_sha1"]
             print(f"{'PASS' if ok else 'FAIL'}  image provenance lp2_{n:02d} <- {os.path.basename(img)}")
             if not ok: fails.append(f"image {n}")
+        if m["file"] is None: continue
+        lines = load_page(n)
+        allidx = [i for ln in lines for i in ln]
+        assert all(0 <= i < N for i in allidx), f"page {n} bad index"
+        assert len(allidx) == m["n_runes"], f"page {n} count drift"
     # stray-character audit of the raw canonical stream
     raw = open(f"{SRC}/dukotah/liber-primus/data/krisyotam_runes.txt", encoding="utf-8").read()
     stray = set(raw) - ALLOWED
@@ -134,9 +140,9 @@ def main():
     if stray: fails.append("charset")
 
     # ---- Gate 2: total ----
-    total = sum(man[str(n)]["n_runes"] or 0 for n in range(55))
+    total = sum(man[str(n)]["n_runes"] or 0 for n in range(56))  # book 0-55 (p50: 0)
     ok = total == 12956
-    print(f"{'PASS' if ok else 'FAIL'}  unsolved total (LP2 0-54) = {total} (expect 12,956)")
+    print(f"{'PASS' if ok else 'FAIL'}  unsolved total (book 0-49 + 51-55) = {total} (expect 12,956)")
     if not ok: fails.append("total")
 
     # ---- Gate 3: duplicate / prefix trap ----
@@ -157,7 +163,7 @@ def main():
 
     # ---- Gate 4: doublet count (adjacent identical RUNE INDICES, within pages) ----
     dbl = sum(sum(1 for x, y in zip(p, p[1:]) if x == y)
-              for p in map(flat, [n for n in streams if n <= 54]))
+              for p in map(flat, [n for n in streams if n <= 55]))  # unsolved book pages
     ok = 60 <= dbl <= 120
     print(f"{'PASS' if ok else 'FAIL'}  doublets = {dbl} (expect ~86, accept 60-120)")
     if not ok: fails.append("doublets")

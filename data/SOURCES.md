@@ -41,15 +41,19 @@ Consequences:
 
 ## Corpus
 
-- **LP2 0–54** (unsolved targets; NB 2026-11-15: these are *book* pages
-  0–49 + 51–55 — labels ≥50 off by one, see LP2 55 entry below): krisyotam
-  `%`-segments 0–54, 12,956 runes, 55 pages.
-  Each page's published image SHA-1 re-verified against `sources/ibotpeaches` bytes
-  (56/56 pass, incl. page 56). Line structure preserved from the stream.
+- **LP2 unsolved corpus = book pages 0–49 + 51–55** (RELABELED 2026-11-15,
+  upstream [Dukotah/cicada3301#14](https://github.com/Dukotah/cicada3301/issues/14);
+  was labels `lp2_00..54`): stream segs 0–49 → book 0–49, segs 50–54 →
+  book 51–55 (tail +1 shift, docs/STREAM_TAIL_EVIDENCE.md). 12,956 runes,
+  55 pages. Each page's published image SHA-1 re-verified against
+  `sources/ibotpeaches` bytes (57/57 pass, incl. the runeless p50 and p56).
+  Line structure preserved from the stream. Pre-relabel result CSVs: ids
+  50–54 mean book pages 51–55.
 - **LP2 56 AN END** (85 runes) — solved, φ(prime) shift-down keystream; used as smoke test + pad candidate.
 - **LP2 57 PARABLE** (95 runes) — solved, direct transliteration; smoke test + pad candidate.
 - **LP2 55 — ~~MISSING FROM ALL LINEAGES~~ SUPERSEDED 2026-11-15: it is stream
-  segment 54.** The owner's from-scratch visual read of book p51 matched
+  segment 54. RELABEL APPLIED in-corpus 2026-11-15: files/manifest now use book
+  numbers; the "hole" moved to p50 (runeless token page, no segment).** The owner's from-scratch visual read of book p51 matched
   segment 50 at 92/92 runes incl. every word divider (docs/STREAM_TAIL_EVIDENCE.md):
   the runes-only extraction dropped the root's empty-of-runes p50 slot, so
   segments 50–56 are book pages

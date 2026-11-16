@@ -1,6 +1,17 @@
 # LP2 page 55 — the missing page
 
-**Status: untranscribed in every community lineage; untranscribable from published
+> **SUPERSEDED 2026-11-15.** There was never a missing page. "Page 55" was
+> the tail +1 shift: the runes-only extraction dropped the root's
+> empty-of-runes p50 slot, so stream segs 50–56 are book pages 51–57.
+> This page (72.jpg) = **book p55 = stream seg 54**, fully transcribed
+> (4 lines, 76 runes, line signature [24,22,22,8] matches the image), and
+> owner-adjacent p51 pairing closed 92/92. Proof:
+> [STREAM_TAIL_EVIDENCE.md](STREAM_TAIL_EVIDENCE.md) · posted as
+> [Dukotah/cicada3301#14](https://github.com/Dukotah/cicada3301/issues/14).
+> Corpus relabeled to book numbers 2026-11-15. Text below retained as the
+> historical record.
+
+**Status (historical): untranscribed in every community lineage; untranscribable from published
 images with current methods.** Excluded from all sweeps in this repo (coverage is
 therefore 55/56 unsolved pages).
 

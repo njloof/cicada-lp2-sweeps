@@ -13,8 +13,10 @@ Consequences:
 1. "A WARNING", "WELCOME PILGRIM", "SOME WISDOM", "A KOAN", "CIRCUMFERENCE" are
    **LP1** pages (release 01–16). The only solved LP2 pages are **56 (AN END**,
    φ(prime) keystream**)** and **57 (PARABLE**, direct transliteration**)**.
-2. LP2 0–55 (files 17.jpg–72.jpg) are unsolved — but see [PAGE55.md](PAGE55.md):
-   page 55 has no machine-readable transcription anywhere.
+2. LP2 0–55 (files 17.jpg–72.jpg) are unsolved; book p50 carries **no runes**
+   (13×8 base-60 token table). The 55 unsolved *rune* pages are book 0–49 +
+   51–55 — [PAGE55.md](PAGE55.md)'s "missing page" was superseded 2026-11-15
+   (tail +1 shift, [Dukotah/cicada3301#14](https://github.com/Dukotah/cicada3301/issues/14)).
 3. Dukotah's `dataset/liber_primus.json` zips the krisyotam stream positionally to
    image labels, so its entries 55/56 carry AN END/PARABLE *runes* under image-55/56
    labels (tail off-by-one; image hashes per label are correct).
