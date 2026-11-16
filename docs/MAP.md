@@ -209,11 +209,12 @@ F3/F4/F6/F10/F15 demoted by community coverage.
 
 | id | frontier | first cheap test | prior | power | cost | blocker | dup | status |
 |----|----------|------------------|-------|-------|------|---------|-----|--------|
-| **F5** | **T7 replication — doublet slip-rate non-stationarity** (dukotah's ONLY live anomaly, p≈0.001, `measured` never certified; their R45 target). Independent check with OUR run-structure nulls (#4's 2000-rep machinery) on the 86 doublet sites — no oracle, no English, independent lineages | ordering-sensitive statistic (their gap-permutation null + lag-1 gap autocorr, target +0.380) vs. our own gap-permutation runs; **register the smooth-heterogeneity plant they say is missing** (their C5 shows per-page tests are blind — plant must be block-scale); then localize | **high** (their stats discipline + it's their one open door; independent replication is the community contribution) | good (descriptive/structural, no max-scan) | low | none — **their doublet-site list format** (read `W2-B3-doublet-sites/`) | none (independence IS the value) | **READY — recommend as next campaign (#10) or alongside F1** |
-| F1 | **Word-sum self-keys (U3)** — literal word-boundary sums via dividers (LP1 line-sum design's LP2 analog; #8 tested LINE sums) | LS variant with divider-delimited words on p51 (divider-fidelity-verified page) first, then corpus | med-high (house style A2) — **downgraded: their R11-S2 found separators `/.-` are typography, not designed marks**; LP1 line sums are *plaintext*-side anyway | good (long windows) | low | divider-fidelity beyond p51; re-read their separator finding before registering | med (their pad-restoration oracle, 1,800 generators — check word-sums specifically) | READY — currently booked #10, **reconsider vs F5** |
+| **F5** | **T7 replication — doublet slip-rate non-stationarity** (dukotah's ONLY live anomaly, p≈0.001, `measured` never certified; their R45 target). Independent check with OUR run-structure nulls (#4's 2000-rep machinery) on the 86 doublet sites — no oracle, no English, independent lineages | ordering-sensitive statistic (their gap-permutation null + lag-1 gap autocorr, target +0.380) vs. our own gap-permutation runs; **register the smooth-heterogeneity plant they say is missing** (their C5 shows per-page tests are blind — plant must be block-scale); then localize | **high** (their stats discipline + it's their one open door; independent replication is the community contribution) | good (descriptive/structural, no max-scan) | low | none — **their doublet-site list format** (read `W2-B3-doublet-sites/`) | none (independence IS the value) | **READY — queue slot 1, campaign #10 (owner-agreed 2026-11-16)** |
+| F1 | **Word-sum self-keys (U3)** — literal word-boundary sums via dividers (LP1 line-sum design's LP2 analog; #8 tested LINE sums) | LS variant with divider-delimited words on p51 (divider-fidelity-verified page) first, then corpus | med-high (house style A2) — **downgraded: their R11-S2 found separators `/.-` are typography, not designed marks**; LP1 line sums are *plaintext*-side anyway | good (long windows) | low | divider-fidelity beyond p51; re-read their separator finding before registering | med (their pad-restoration oracle, 1,800 generators — check word-sums specifically) | READY — **queue slot 3 (#11)** |
 | F2 | **Red selection channel** — digits 1–5 (red, pp36–38) + p15 red 3299 + p53 arrow as *selectors* (pick line/word/position); also the red-dot **30-bit stream** (dukotah measured it but it's below THEIR L<13 recognizer floor — untested by anyone) | owner double-check crops (RED_CENSUS queue) → then design: digit d at line L selects position/direction | high (red = deliberate; LP1 loves emphasis; 14 red section-head pages per their census) | TBD by design; 30-bit stream is below ANY windowed statistic — descriptive/oracle only | low | **owner eyes** (queue exists) | census dup w/ their R44-P1 (213 runes) — our selection TESTING is not dup | **GATED(owner)** |
 | F7 | **Ornament bands / dot-lattices as data** — 35 lattices (3 dot-counts) + their 74 ornament bands, which they tested only with an **English-underpowered register and explicitly re-listed** | language-agnostic structural test: lattice/band (page, position, count) triplets vs. run-structure nulls — our complement niche | med-high (their own reopen list) | good (structural, language-free — exactly our instrument's edge) | low | none | low (they re-listed it BECAUSE underpowered) | **READY — promoted by digest** |
-| F17 | **Base-60 sexagesimal margin digits pp34–39** (their enumeration; never tested as data) | census the sexagesimal groups; arithmetic relations to page structure / token table base-60 (same base as pp49–51!) | med (base-60 recurs — token tables are base-60 too) | n/a (descriptive first) | low | none | low (enumerated, not tested) | **READY — new from digest** |
+| F17 | **Base-60 sexagesimal margin digits pp34–39** (their enumeration; never tested as data) | census the sexagesimal groups; arithmetic relations to page structure / token table base-60 (same base as pp49–51!) | med-high (owner's form-distinction reading + base-60 recurs) | n/a (descriptive first) | low | none | low (enumerated, not tested) | **READY — queue #4 (with F18)** |
+| F18 | **In-document OTP** (owner thesis 2026-11-16: objects formally distinguished FROM THE TEXT serve as keys/selectors for other parts). Coverage matrix — page→page: **closed** (theirs C2 all-pairs ±/shift/offsets, 6.4M; ours #1–#9, ~370M, incl. multiplicative+orientations); token-table→page additive: **closed** (their C2 canon-as-key); token→page affine a≠1: only our T2, **weakly powered**; solved-plaintext→page: **closed** (their R44-R1 roster incl. solved-derived streams); **base-60 margin digits as VALUES: OPEN** — they tested only instruction/size-match readings (LP2-H1 T3: first-digit 0–4 can't index 13–14 sections; count≠table dims), never as keystream/pad/selector; **page→token-blob (reverse direction): OPEN**; margin-art set-partition (sexagesimal 34–39 / mayfly 24–26,57,14 / dendrites 8–14,32,55) as a per-set cipher-variation axis: THEIR OWN unfired suggestion ("faint open thread, low EV") | F17 census first; then: sexagesimal values as pad over set-pages (long-range, set-local), as selectors; page→blob reverse scan | med-high | pad-over-page good (targets long); selector TBD | low-med | F17 census; owner Task-1 digit-style answer | low (their T3 ≠ value consumption) | **READY — queue #4** |
 | F3 | **Token-table residual semantics** — most readings killed by dukotah (key/text/container/hash/QR/index; "OTP-class blob"). Residual: **affine canon-as-key a≠1** (their 6.4M canon-as-key sweep — verify a∈2..28 was covered; our T2 says no signal at planted strength anyway) and coordinate/pair-split readings | check their CAMPAIGN-IX config list for affine coverage; if a≠1 uncovered, one small preregistered family | low-med post-digest (was med-high) | fixable (shrink family, F13 note) | low | dup-verify | **high** | GATED(dup-check) — demoted |
 | F4 | **Columnar / transposed / boustrophedon reads** | their transposition-only elimination + English-only boustrophedon red_team largely cover this; our edge is only the language-agnostic angle on transposition | low (post-digest) | med | low | none | high | DEPRIORITIZED (demoted by digest) |
 | F6 | **LP1→LP2 key continuity** | their ~200 keytexts incl. Cicada prose very likely cover DIVINITY/atbash-as-pad on LP2 | low post-digest | good | low | none | **very high** | DEPRIORITIZED (demoted by digest) |
@@ -264,23 +265,39 @@ F3/F4/F6/F10/F15 demoted by community coverage.
    12-register panel. Two honest teams, same discipline, different
    instruments — that complement is the map's main asset.
 
-## F. Current standing order (as of 2026-11-16, post-digest)
+## F. Standing principle
 
-1. **F16/F2 owner queue** — the only hard blocker; crops are cut and waiting
-   (bonus: their ledger also wants a human eye on p27:93 U-vs-B).
-2. **#10 decision pending owner pick:** F5 (T7 replication — now our
-   highest-prior unblocked idea: independent check of the community's only
-   live anomaly, cheap, in our complement niche) vs F1 (word-sum, booked,
-   but downgraded by their separator-is-typography finding). My recommendation:
-   **F5 first**, F1 second — and a T7 replication result is shareable
-   upstream (public action → needs owner approval each time).
-3. Cheap descriptive between campaigns: F7 ornaments, F17 sexagesimal
-   margins, F13/F3 dup-checks against their config listings (read-only
-   repo work; no PREREG gate — censuses, not hypothesis tests; a flag
-   promotes to a preregistered campaign).
-4. Dup-check debts from the digest: did their canon-as-key cover affine
-   a≠1 (F3)? did their 1,800-generator oracle cover word-sums (F1)? did
-   their keytext list include DIVINITY-on-LP2 (F6 — probably yes)?
-5. Watch Dukotah #13/#14 for replies (none as of 2026-11-16); their Round 45
-   will likely hit T7 — our independent replication is time-sensitive to be
-   complementary rather than redundant.
+The queue below (§G) is the ordering; this section records *why* the top
+slot is what it is: F5 is time-sensitive (their Round 45 targets T7 — an
+independent replication is worth most *before* their certification, and a
+GO-adjacent result is shareable upstream, owner-approval each time), cheap,
+and squarely in our complement niche (language-agnostic, independent nulls,
+#4's structural-null machinery already built).
+
+## G. The explicit queue (agreed 2026-11-16)
+
+**Revision rule (owner's):** the queue is revised when NEW INFORMATION
+arrives — dukotah replies/Round-45 results, oracle-queue answers, a GO flag,
+a new high-prior idea that earns its §D row. Between revisions we proceed
+strictly in order; no following of footsteps as they appear.
+
+| slot | task | depends on |
+|------|------|-----------|
+| **1** | **Campaign #10 = F5 (T7 replication)** — PREREG next (ordering-sensitive statistic, gap-permutation nulls, smooth-heterogeneity plant per their stated R45 need) | nothing — start now |
+| **2** | **Oracle queue #1** — `docs/ORACLE_QUEUE.md` (red digits, p10/p15 digits, p53, lattices, p27:93 ᚢ/ᛒ). Runs in PARALLEL with everything; each answered item unblocks F2/F8/F9 and feeds slot 4 | owner time |
+| **3** | **Campaign #11 = F1 (word-sums)** — after the dup-check against their 1,800-generator oracle; PREREG addresses the separator-is-typography caveat head-on | slot-2 divider spot-checks welcome; dup-check (cheap, ours) |
+| **4** | **Campaign #12 = F17+F18 (sexagesimal census → in-document-OTP consumption)** — census first (descriptive, no gate), then preregistered pad/selector tests incl. page→blob reverse scan | slot-2 Task-1 digit-style answer sharpens it |
+| **5** | Campaign #13 = F7 (ornament bands, language-agnostic structural test — their listed reopen) | none |
+| **6** | Campaign #14 = F13 (page→blob + T2 shrunk-family re-power) | F18 overlap check first |
+| **7** | F2/F9 red-selection tests — slot-forward the moment oracle Task 1/2 confirms | slot 2 |
+| tail | F14 LP1-as-target · F10 mid-range cyclic (studio; only if worth closing a thin slice) · F3 affine-coverage dup-check | — |
+| deprioritized | F4 · F6 · F11 · F12 · F15 (community coverage) | — |
+
+Dup-check debts (cheap read-only, fold into whichever slot is running):
+their canon-as-key transform set = ±/shift/offsets only (verified in
+`W2-C2-page-pairs/PREREG.md` §0 — affine a≠1 NOT covered → our T2/T13
+niche confirmed); did their 1,800-generator oracle include word-boundary
+sums (F1)? their keytext roster vs DIVINITY-on-LP2 (F6 — probably covered).
+
+Watch: Dukotah #13/#14 replies (none as of 2026-11-16); their Round 45
+(T7 lane) — slot 1 is deliberately first to stay complementary.
