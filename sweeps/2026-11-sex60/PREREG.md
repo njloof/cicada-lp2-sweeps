@@ -1,5 +1,10 @@
 # Campaign #12 / F18 — in-document OTP consumption tests — PREREG
 
+> **SUPERSEDED-BEFORE-RUN (same day, zero output produced):** the v1 PB1
+> statistic + registered null is provably degenerate — see `PREREG2.md` for
+> the proof and the amended registration. §4 is replaced; §0–3 and §5–7
+> (premises, kill gates, enumerations, deferrals, cost) stand unchanged.
+
 _Dated 2026-11-16, committed BEFORE any campaign output exists (CI gate).
 Queue slot 4 part 2; F17 census = `CENSUS.md` (c44081c), descriptive, no
 gate._
