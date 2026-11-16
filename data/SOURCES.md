@@ -72,6 +72,8 @@ Consequences:
   were wrong. The p55_transcribe.py attempt (46% held-out) was therefore
   solving an already-transcribed page — its failure says nothing new.
 - Non-rune channel: printed digits inline on pages 10, 36, 37, 38 (`-7-`, `1-`, `2-3-4-`, `5-`)
+  — colour census 2026-11-15: the five digits on pp36–38 (1,2,3,4,5) are printed in
+  **red**, p10's `7` black; plus p15 digit lines with one red group (`3299`) — docs/RED_CENSUS.md
   and markers `&` (section), `$` (page-end), `§` (EOF) — excluded from index streams, consistent
   with all community analysis.
 
