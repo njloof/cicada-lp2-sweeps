@@ -1,0 +1,74 @@
+{
+ "seed": 20261201,
+ "offsets": 228,
+ "obs": {
+  "chi2": 253.19998168945312,
+  "page_book": 35,
+  "s": 26,
+  "win": 210
+ },
+ "null": {
+  "D": 20,
+  "median": 280.267,
+  "p95": 304.24,
+  "max": 318.933,
+  "p": 1.0
+ },
+ "power_plants_vs_p95": 0.0,
+ "E1_lines": {
+  "p10L8": {
+   "n": 21,
+   "first": "Y",
+   "nlines_page": 13
+  },
+  "p36L6": {
+   "n": 25,
+   "first": "T",
+   "nlines_page": 12
+  },
+  "p37L1": {
+   "n": 23,
+   "first": "J",
+   "nlines_page": 12
+  },
+  "p37L5": {
+   "n": 20,
+   "first": "J",
+   "nlines_page": 12
+  },
+  "p37L10": {
+   "n": 19,
+   "first": "EA",
+   "nlines_page": 12
+  },
+  "p38L4": {
+   "n": 23,
+   "first": "H",
+   "nlines_page": 12
+  }
+ },
+ "E2_placement": {
+  "bracket": [
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   39
+  ],
+  "header": [
+   34,
+   35,
+   36,
+   37,
+   38,
+   39
+  ],
+  "footer": [
+   33
+  ],
+  "constant_per_page": true
+ },
+ "runtime_s": 0.23
+}

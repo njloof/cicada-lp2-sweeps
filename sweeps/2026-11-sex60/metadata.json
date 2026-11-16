@@ -1,0 +1,61 @@
+{
+  "campaign": "2026-11-sex60",
+  "date_run": "2026-11-16",
+  "verdict": "F17 census MEASURED (premise correction: pp34-39 'sexagesimal digits' = one pixel-identical black stamp x6 + p33 footer + red printed digits 1-5 pp36-38); F18 PB1 page->blob reverse scan NEGATIVE (p=1.0, obs below null median) - WEAKLY-POWERED: 0/10 English-strength plants, fixed many-to-one table map dominates window chi2",
+  "prereg_commits": { "census": "c44081c", "prereg": "d478ca9", "prereg2_amendment": "60d2857" },
+  "corpus": {
+    "sha256": "9f5f14d434fd8e03442d33c8b6f935602f1798779b55aef415bc49588802483e",
+    "object": "unsolved stream book 0-49+51-55, L=12956",
+    "kill_gates": "G1 blob sha+len PASS; G2 image coverage 228/228 offsets >=12 classes (min 14); G3 L=12956 PASS"
+  },
+  "blob": {
+    "file": "sources/dukotah/liber-primus/analysis/pp49_51/canon_256.bin",
+    "sha256": "3b9b07d9a26e6d55c432d94d2661fdff3c2b348daed06821f2bdb23184a4b290",
+    "bytes": 256, "distinct": 161,
+    "note": "SHIPPED canon (0xc6 at idx 246 per dukotah#14 follow-up)"
+  },
+  "seeds": { "null": 20261201, "stream": "default_rng([seed, crc32(tag)%100000, draw])", "tags": ["PB1", "plant-PB1"] },
+  "statistics": {
+    "PB1_windowed_chi2_max": {
+      "window": "W=60 stride=30", "grid": "55 pages x 228 offsets x ~7 windows",
+      "obs": 253.20, "page_book": 35, "s": 26, "win": 210
+    }
+  },
+  "nulls": {
+    "method": "derive-from-shuffled (page values permuted; preserves all marginals exactly, destroys order)",
+    "D": 20, "median": 280.27, "p95": 304.24, "max": 318.93, "p": 1.0,
+    "escalation": "not fired (obs < median); D stays 20 as registered",
+    "note": "obs below median = real pages decode flatter than permutations of themselves; anti-signal inside noise, recorded not built on"
+  },
+  "power": {
+    "plants": "35-rune English-strength windows (p56/57 distribution restricted to offset image), 10 draws",
+    "result": "0/10 vs p95",
+    "verdict_modifier": "WEAKLY-POWERED negative; mechanism: fixed many-to-one table map (29 runes -> ~18 classes) puts structural chi2 ~280 (absorbed by null); English 35/60 shift < null spread (p95-median ~24); powered re-run needs class-conditional/order statistics (new registration; not recommended: table 7.17 bits/byte, all consumption readings negative)"
+  },
+  "amendment": {
+    "what": "PREREG2 replaced v1 statistic BEFORE any output: v1 page-marginal chi2 under value-independent keys is provably order-invariant -> registered null degenerate (null == obs identically)",
+    "v1_output": "none",
+    "disclosure": "v1 PREREG.md marked SUPERSEDED-BEFORE-RUN, not edited away"
+  },
+  "census": {
+    "stamp": "pixel-identical x6 (tops pp34-39, region 1029-1391 x 157-546, maxdiff 0) + p33 footer (bottom, y3050-3440); 7 components G1-G7; carries NO per-page information",
+    "machine_wedge_count": "FAILED, disclosed (erosion merges fused strokes; DT over-segments) -> oracle round #3 S1-S3",
+    "red_digits": "1@p36L6, 2@p37L1, 3@p37L5, 4@p37L10, 5@p38L4 (RED), 7@p10L8 (black) - values from docs/RED_CENSUS.md; wedge-vs-printed = owner round-2 F3",
+    "line_count_crosscheck": "krisyotam nonempty lines pp34-39 = [12,12,11,11,11,12] exact match dukotah T3"
+  },
+  "dup_check": {
+    "covered_before": ["blob->corpus index (dukotah C7 token_as_index)", "token mod29 self-gematria (C7)", "token->page additive pad (dukotah C2)", "stamp census+identity (dukotah R44-W2-B2)"],
+    "niche": "page runes -> blob selection (reverse) + placement-as-key sweep; both open in both ledgers before this campaign"
+  },
+  "runtime_measured": { "total_s": 0.23, "prereg_estimate": "<60s", "held": true },
+  "disclosed_reruns": [],
+  "disclosed_notes": ["PREREG2 pre-output amendment (see amendment block); no output under v1", "E1 nlines_page in results JSON counts trailing empty segment; non-empty counts in REPORT"],
+  "regen": "python3 sweeps/2026-11-sex60/f18.py ; python3 sweeps/2026-11-sex60/census_sex60.py",
+  "not_covered": [
+    "stamp glyph values as pad/selector (oracle S1/S2 pending)",
+    "red-digit value consumption (owner F3 pending)",
+    "blob->page affine a!=1 re-power (slot 6 F13)",
+    "transposition", "mod 28", "Beaufort sign", "non-English registers",
+    "p50 internals", "class-conditional/order statistics (see power)"
+  ]
+}
