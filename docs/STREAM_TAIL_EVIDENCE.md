@@ -325,12 +325,25 @@ from *unanimous* witness cells:
 | `0` vs `O` | 49 vs 70 | 69 | 0 | width split |
 
 **idx 246 (p51 r8c7)** — dukotah's fifth token-split cell: root+relikd
-`3i`, scream `3I`, resolved by decimal majority to `3i` (canonical 0xe0).
-The cell measures a bare bar w8×h67 top1 — the exact unanimous-`3I`
-signature, no dot, not `i` (h42+dot). We read **`3I`, i.e. canonical byte
-246 should be 0xc6, not 0xe0** — the only one of the five split cells the
-pixels overturn (45/50 confirmed the canonical `1l`/`0l`; 165/172 confirmed
-above). The owner's from-scratch read also wrote `3I`.
+`3i`, scream `3I`, resolved by decimal majority to `3i` in the CAMPAIGN-VII
+doc hex (`0xe0`). The cell measures a bare bar w8×h67 top1 — the exact
+unanimous-`3I` signature, no dot, not `i` (h42+dot). We read **`3I` — byte
+0xc6** — the only one of the five split cells the pixels overturn (45/50
+confirmed the canonical `1l`/`0l`; 165/172 confirmed above). The owner's
+from-scratch read also wrote `3I`.
+
+**Update 2026-11-15 (verified against the pinned dukotah tree):** dukotah's
+*shipped* `canon_256.bin` (and `canon_256.hex`) already carry **0xc6** at
+idx 246 — the published canonical now agrees with the pixels and the owner's
+read. The `0xe0` survives only in `canon_256_superseded.bin` and in the
+CAMPAIGN-VII-FINDINGS hex listing, which is stale against dukotah's own bin
+(doc vs bin differ at idx 45, 50, 246; re-running `canonicalize.py` on the
+pinned witness lineage reproduces the doc value 0xe0 at 246 — relikd `3i` +
+scream's decimal column `212` outvote scream's token `3I` 2-vs-1 — so the
+bin's 0xc6 postdates that procedure as pinned, i.e. a later witness refresh
+or a manual adoption of the adjudication). Net: our posted framing
+("canonical 0xe0, pixels overturn to 0xc6") described the doc hex; the
+shipped table already reads 0xc6.
 
 Owner's Roman-token pass on p51 rows 5–9: **40/40 pixel-confirmed** except
 one case slip (`0m` → `0M` at r8c5: measured w76×h72 cap M; the `m`
