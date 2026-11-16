@@ -2,6 +2,7 @@
 
 One row per campaign. A row is the citable unit: hypothesis | space | null | verdict |
 coverage caveats | link. This is what the community should reuse, not the raw CSVs.
+For the state of the search — known / unknown / eliminated / next — see [MAP.md](MAP.md).
 
 | # | date | hypothesis | space | null calibration | verdict | coverage / not covered | link |
 |---|------|-----------|-------|------------------|---------|------------------------|------|
