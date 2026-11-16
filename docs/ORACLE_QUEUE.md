@@ -155,3 +155,42 @@ Top: the pp36–38 margin digits. Middle: p10/p15 printed digits. Bottom:
 Twelve full-width bands (band 0 is ornament; stream lines follow — map
 them yourself): `img/oracle/p53_band00_full.png` … `p53_band09_full.png`.
 Which stream lines are entirely red? lines: __
+# Round #3 (2026-11-16) — the black "cuneiform" stamp on pp33–39
+
+Campaign #12 census finding: the "Babylonian sexagesimal art" of pp34–39
+is ONE black stamp repeated identically (pixel-verified, maxdiff 0) on the
+tops of pp34–39, plus a footer instance on p33. It brackets the pp33–39
+section. Its only information is (a) what its glyphs mean and (b) where it
+sits — and machine wedge-counting fails on it (strokes fused; see
+`sweeps/2026-11-sex60/CENSUS.md`). Your eye, please:
+
+![stamp](img/oracle/sex60_stamp_p34.png)
+![tiles](img/oracle/sex60_glyphs_p34.png)
+![ref](img/oracle/sex60_wedge_ref.png)
+
+G1–G7 are reading order (top row 4, bottom row 3). Tiles crop slightly into
+neighbours — read counts on the full stamp.
+
+**S1 — what is it?**
+☐ Babylonian **numbers** (then: digit values G1–G7 = __ __ __ __ __ __ __)
+☐ cuneiform **signs** (if you can transliterate: __)
+☐ ornament, not language
+☐ unclear
+
+**S2 — per-glyph tally** (vertical wedges = 1s, corner wedges = 10s;
+"bar" = horizontal wedge, not a number digit):
+
+| glyph | verticals | corners | bar? |
+|---|---|---|---|
+| G1 | __ | __ | ☐ |
+| G2 | __ | __ | ☐ |
+| G3 | __ | __ | ☐ |
+| G4 | __ | __ | ☐ |
+| G5 | __ | __ | ☐ |
+| G6 | __ | __ | ☐ |
+| G7 | __ | __ | ☐ |
+
+**S3 — p33 vs pp34–39** (same stamp, resampled — confirm visually):
+☐ same device ☐ visibly different: __
+
+![p33](img/oracle/sex60_stamp_p33.png)
