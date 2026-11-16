@@ -57,8 +57,12 @@ def main():
         for fam, d, v in p.imap_unordered(_one, jobs):
             got[fam][d] = v
             # flush only the contiguous prefix so the checkpoint stays in
-            # DRAW ORDER (the serial path resumes at index len(vals))
-            n = base[fam]
+            # DRAW ORDER (the serial path resumes at index len(vals)).
+            # NB: resume scan at len(done[fam]) - the flushed prefix is gone
+            # from got, so rescanning from base[fam] would stall forever
+            # (bug caught in the escalation run; values were recovered from
+            # the run log, which prints every draw).
+            n = len(done[fam])
             while n in got[fam]:
                 done[fam].append(got[fam].pop(n))
                 n += 1

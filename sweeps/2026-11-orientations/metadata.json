@@ -1,0 +1,180 @@
+{
+  "campaign": "2026-11-orientations",
+  "date_run": "2026-11-16",
+  "verdict": "NEGATIVE all families (O1 p=0.055 at 200 draws, O2 0.800, T1 0.950, T2 0.320); no GO prong satisfied; T2 weakly powered (disclosed)",
+  "prereg_commits": {
+    "prereg": "ab28743",
+    "code_and_labeled_corrections": "6b5d63d",
+    "note": "PREREG corrections (sum operand-order collapse falsified by registration pilot; idx-246 variant wording per shipped dukotah bin) made pre-output, committed with code before any results commit"
+  },
+  "corpus": {
+    "sha256": "9f5f14d434fd8e03442d33c8b6f935602f1798779b55aef415bc49588802483e",
+    "method": "sha256 of sorted concatenation of data/pages/lp2_*.txt",
+    "core_git_rev": "ab28743",
+    "targets": 55,
+    "notes": "book-page labels (post-relabel 2089fc2); p50 runeless (pad source only); instrument core/kernel.py UNCHANGED"
+  },
+  "seeds": {
+    "null": 20261126,
+    "power": 20261127,
+    "family_stream": "default_rng([seed, crc32(fam)%100000, draw])"
+  },
+  "windows": {
+    "total": 4459892,
+    "positions": 497493630,
+    "per_family_windows": {
+      "O1": 317416,
+      "O2": 2189160,
+      "T1": 8128,
+      "T2": 1945188
+    },
+    "rows_ge_floor": {
+      "O1": 20570,
+      "O2": 145637,
+      "T1": 447,
+      "T2": 125498
+    },
+    "prereg_estimate": "~3M",
+    "estimate_note": "O2 ordered-pair count was under-estimated at registration; measured figure reported as registered"
+  },
+  "space": {
+    "orientation_classes": 8,
+    "collapse": "16 combos -> 8 by r180-composition (chi2 reversal-invariance); pilot PASS exact on 3 real pairs, re-run before every obs pass",
+    "sum_order": "BOTH orders (tgt mask falsified the commute collapse at registration: 23/24 real-pair maxima differ)",
+    "mirror_pairs": 27,
+    "token_grid": "8 tokens/row, 1 byte/token (dukotah canonicalize.py; p51 r8c7 = idx 246 verified)"
+  },
+  "control_arm": {
+    "O2_vs_1": {
+      "obs": 81.08,
+      "campaign1_best_crosspage": 81.08,
+      "key": "4>20 diff o=-208 n=59",
+      "match": "bit-exact"
+    },
+    "O2_vs_2": {
+      "obs": 83.92,
+      "campaign2_sum_max": 83.92,
+      "key": "37>53 (old label 52) sum o=103 n=121",
+      "match": "bit-exact"
+    },
+    "verdict": "harness + corpus unchanged; O1 valid"
+  },
+  "observed_max": {
+    "O1": {
+      "chi2": 89.4118,
+      "key": "7-48|id.rl|sMN",
+      "offset": -66,
+      "n": 204,
+      "mask_both": {
+        "chi2": 86.3061,
+        "n": 196
+      }
+    },
+    "O2": {
+      "chi2": 83.9174,
+      "key": "37>53|s",
+      "offset": 103,
+      "n": 121
+    },
+    "T1": {
+      "chi2": 62.55,
+      "key": "canon:p51-p50|id.rl|diff",
+      "offset": -31,
+      "n": 69
+    },
+    "T2": {
+      "chi2": 94.7467,
+      "key": "canon:p49|a26|17",
+      "offset": 20,
+      "n": 75
+    }
+  },
+  "null": {
+    "O1": {
+      "draws": 200,
+      "min": 71.12,
+      "median": 80.37,
+      "p95": 90.44,
+      "max": 96.81,
+      "p_empirical": 0.055
+    },
+    "O2": {
+      "draws": 20,
+      "min": 80.54,
+      "median": 88.24,
+      "p95": 103.03,
+      "max": 106.76,
+      "p_empirical": 0.8
+    },
+    "T1": {
+      "draws": 20,
+      "min": 59.08,
+      "median": 66.94,
+      "p95": 71.64,
+      "max": 76.47,
+      "p_empirical": 0.95
+    },
+    "T2": {
+      "draws": 200,
+      "min": 80.76,
+      "median": 91.63,
+      "p95": 103.43,
+      "max": 110.97,
+      "p_empirical": 0.32
+    },
+    "escalation": "O1+T2 fired (obs >= 20-draw median); 200-draw verdicts held",
+    "disclosed_reruns": [
+      "run1: abs(hash(fam)) family offset (process-salted, non-reproducible) - discarded, crc32 substituted; work/orientations/null_*_salted_run1.json",
+      "run2: tok_read modeled tokens as 2-byte units (correct: 8 tokens/row, 1 byte/token) - T1 non-id orientations had the wrong grid; discarded, obs+null rerun; T2/O1/O2 unaffected (id-only)"
+    ],
+    "tooling_bug": "run_par checkpoint prefix-flush stalled during escalation (rescan started at pre-run length); all 360 values recovered from run log and verified against flushed prefix; fixed in code"
+  },
+  "go_prongs": {
+    "prong1": "FAIL all (best O1 89.41 < 1.1 x 96.81 = 106.5)",
+    "prong2": "top O1 window survives mask=both (86.31, n=196) - moot",
+    "prong3": "0 substantive hits, 80 leaders x fwd+rev vs 32 representable cribs (one 3-letter chance match WEB; expected FP ~0.5)",
+    "prong4": "id.rl class recurs in top O1 rows (7-48, 0-55, 8-47) - pattern only, no significant max",
+    "verdict": "no GO"
+  },
+  "power": {
+    "O1": "10/10 (hypothesis arm fully powered)",
+    "O2": "10/10",
+    "T1": "8/10 (2 orientation collisions in tiny space; 10/10 >= median)",
+    "T2": "3/10 registered criterion; 8/10 argmax - criterion structurally unreachable (planted windows <=72 tokens, chi2 67-82 vs family median 91.6; #7-Vs failure mode); T2 NEGATIVE weakly powered"
+  },
+  "idx246": {
+    "variants_scanned": [
+      "canon (shipped dukotah bin, byte 246 = 0xc6 = 3I)",
+      "e0 (dissenting witnesses root+relikd, 0xe0)"
+    ],
+    "drift": "CAMPAIGN-VII doc hex + canon_256_superseded.bin carry 0xe0; shipped bin/hex carry 0xc6; canonicalize.py on pinned lineage reproduces 0xe0 - dukotah doc/bin drift disclosed in docs/STREAM_TAIL_EVIDENCE.md; upstream #14 follow-up pending owner approval"
+  },
+  "crib_list": "core/cribs.py - versioned at campaign #9 (union of two transcript-recovered '25-crib house list' variants; 36 words, 32 representable); pre-#9 list was never committed (disclosed gap)",
+  "full_csv_sha256": {
+    "O1": "83d0e93cdbd0181a5990d1a613b1c202364337604a42b1ee1fa50e298229c2fb",
+    "O2": "8ca3e5a8747e2499341079ba11b894fe9d6f7fc44a97da4f2629bb33f90b7920",
+    "T1": "5ece15a166f896d770ecc97eaf62ce41e5e69e12e6c6515d4ae68912793a6b82",
+    "T2": "bfc81b09bf4ee3e4e95d4fd7e23b275db1bc246af1e6af8c28a52f02e0b867d5"
+  },
+  "tracked_truncation": "none - tracked results files complete (max 12 KB); full CSVs (8.2 MB) in gitignored work/orientations/",
+  "runtime_measured": {
+    "obs_s": 28,
+    "null_20_s": 490,
+    "escalation_360_s": 758,
+    "note": "PREREG cost section held (obs < 2 min; null local, no studio needed)"
+  },
+  "regen": {
+    "obs": "python3 sweeps/2026-11-orientations/run.py --phase obs",
+    "nulls": "python3 sweeps/2026-11-orientations/run.py --phase null --draws 200 --only O1,T2 (serial) or run_par.py equivalents",
+    "decode": "python3 sweeps/2026-11-orientations/decode_check.py",
+    "power": "python3 sweeps/2026-11-orientations/power.py"
+  },
+  "not_covered": [
+    "columnar/transposed reads; boustrophedon (dukotah red_team, English-only instrument)",
+    "triple products; position-dependent pad derivations; interleavings",
+    "literal word-sum U3 -> campaign #10 (divider-fidelity pending)",
+    "red-digit/red-matrix selection channels (owner double-check pending)",
+    "ornaments; LP1-as-target; p50 as target",
+    "T2 strong-signal regime (planted n<=72 cannot reach family median - power limit, not coverage)"
+  ]
+}

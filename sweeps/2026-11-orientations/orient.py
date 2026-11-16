@@ -98,9 +98,11 @@ def token_tab(variant="canon"):
 
 
 def tok_read(tab, o):
-    """Orientation at the TOKEN level on the 8-per-row grid (a token is a
-    2-byte unit; byte order within a token is never reversed), then flat."""
-    toks = tab.reshape(-1, 2)
+    """Orientation on the token grid: 8 tokens PER ROW, one byte per token
+    (byte = d0*60 + d1, dukotah canonicalize.py: "runs of consecutive
+    8-column token rows"; p51 r8c7 -> 184 + 7*8 + 6 = idx 246 checks out).
+    p49 = 10 rows, p50 = 13, p51 = 9."""
+    toks = np.asarray(tab)
     rows = [toks[i:i + 8] for i in range(0, len(toks), 8)]
     if o == "rl":
         rows = rows[::-1]
@@ -108,7 +110,7 @@ def tok_read(tab, o):
         rows = [r[::-1] for r in rows]
     elif o == "r180":
         rows = [r[::-1] for r in rows[::-1]]
-    return np.concatenate([r.reshape(-1) for r in rows])
+    return np.concatenate(rows)
 
 
 def tok_streams(tab):

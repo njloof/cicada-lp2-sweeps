@@ -1,0 +1,744 @@
+{
+  "seed": 20261127,
+  "crib_line": "PIGRIMWITNINTHETUNNEL",
+  "power": {
+    "O1": {
+      "plants": 10,
+      "recovered": 10,
+      "null_med": 80.365,
+      "detail": [
+        {
+          "ok": true,
+          "chi2": 249.58,
+          "planted": [
+            "id",
+            "rg",
+            "diff",
+            25
+          ],
+          "found": [
+            "id",
+            "rg",
+            "diff",
+            false,
+            25
+          ],
+          "n": 101,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 195.64,
+          "planted": [
+            "rl",
+            "rg",
+            "diff",
+            58
+          ],
+          "found": [
+            "rl",
+            "rg",
+            "diff",
+            false,
+            58
+          ],
+          "n": 78,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 211.23,
+          "planted": [
+            "id",
+            "rl",
+            "sum",
+            174
+          ],
+          "found": [
+            "id",
+            "rl",
+            "sum",
+            false,
+            174
+          ],
+          "n": 88,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 620.65,
+          "planted": [
+            "rl",
+            "rg",
+            "diff",
+            18
+          ],
+          "found": [
+            "rl",
+            "rg",
+            "diff",
+            false,
+            18
+          ],
+          "n": 249,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 266.21,
+          "planted": [
+            "id",
+            "rl",
+            "sum",
+            -161
+          ],
+          "found": [
+            "id",
+            "rl",
+            "sum",
+            false,
+            -161
+          ],
+          "n": 107,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 522.86,
+          "planted": [
+            "rg",
+            "id",
+            "diff",
+            -47
+          ],
+          "found": [
+            "rg",
+            "id",
+            "diff",
+            false,
+            -47
+          ],
+          "n": 208,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 560.06,
+          "planted": [
+            "id",
+            "rl",
+            "diff",
+            -39
+          ],
+          "found": [
+            "id",
+            "rl",
+            "diff",
+            false,
+            -39
+          ],
+          "n": 225,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 577.5,
+          "planted": [
+            "id",
+            "id",
+            "sum",
+            25
+          ],
+          "found": [
+            "id",
+            "id",
+            "sum",
+            false,
+            25
+          ],
+          "n": 234,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 473.19,
+          "planted": [
+            "rg",
+            "id",
+            "sum",
+            65
+          ],
+          "found": [
+            "rg",
+            "id",
+            "sum",
+            false,
+            65
+          ],
+          "n": 192,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 507.92,
+          "planted": [
+            "id",
+            "r180",
+            "sum",
+            58
+          ],
+          "found": [
+            "id",
+            "r180",
+            "sum",
+            false,
+            58
+          ],
+          "n": 204,
+          "ge_med": true
+        }
+      ]
+    },
+    "O2": {
+      "plants": 10,
+      "recovered": 10,
+      "null_med": 88.239,
+      "detail": [
+        {
+          "ok": true,
+          "chi2": 322.15,
+          "planted": [
+            "id",
+            "id",
+            "diff",
+            78
+          ],
+          "found": [
+            "id",
+            "id",
+            "diff",
+            false,
+            78
+          ],
+          "n": 131,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 211.23,
+          "planted": [
+            "id",
+            "id",
+            "diff",
+            -122
+          ],
+          "found": [
+            "id",
+            "id",
+            "diff",
+            false,
+            -122
+          ],
+          "n": 88,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 372.6,
+          "planted": [
+            "id",
+            "id",
+            "sum",
+            11
+          ],
+          "found": [
+            "id",
+            "id",
+            "sum",
+            false,
+            11
+          ],
+          "n": 153,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 303.45,
+          "planted": [
+            "id",
+            "id",
+            "diff",
+            143
+          ],
+          "found": [
+            "id",
+            "id",
+            "diff",
+            false,
+            143
+          ],
+          "n": 121,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 315.26,
+          "planted": [
+            "id",
+            "id",
+            "diff",
+            56
+          ],
+          "found": [
+            "id",
+            "id",
+            "diff",
+            false,
+            56
+          ],
+          "n": 130,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 326.1,
+          "planted": [
+            "id",
+            "id",
+            "diff",
+            15
+          ],
+          "found": [
+            "id",
+            "id",
+            "diff",
+            false,
+            15
+          ],
+          "n": 134,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 315.1,
+          "planted": [
+            "id",
+            "id",
+            "sum",
+            -141
+          ],
+          "found": [
+            "id",
+            "id",
+            "sum",
+            false,
+            -141
+          ],
+          "n": 125,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 516.32,
+          "planted": [
+            "id",
+            "id",
+            "sum",
+            -39
+          ],
+          "found": [
+            "id",
+            "id",
+            "sum",
+            false,
+            -39
+          ],
+          "n": 207,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 162.09,
+          "planted": [
+            "id",
+            "id",
+            "sum",
+            195
+          ],
+          "found": [
+            "id",
+            "id",
+            "sum",
+            false,
+            195
+          ],
+          "n": 65,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 359.88,
+          "planted": [
+            "id",
+            "id",
+            "diff",
+            -111
+          ],
+          "found": [
+            "id",
+            "id",
+            "diff",
+            false,
+            -111
+          ],
+          "n": 144,
+          "ge_med": true
+        }
+      ]
+    },
+    "T1": {
+      "plants": 10,
+      "recovered": 8,
+      "null_med": 66.941,
+      "detail": [
+        {
+          "ok": false,
+          "chi2": 163.66,
+          "planted": [
+            "rl",
+            "id",
+            "diff",
+            8
+          ],
+          "found": [
+            "id",
+            "rl",
+            "diff",
+            false,
+            0
+          ],
+          "n": 70,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 163.02,
+          "planted": [
+            "id",
+            "r180",
+            "diff",
+            17
+          ],
+          "found": [
+            "id",
+            "r180",
+            "diff",
+            true,
+            -17
+          ],
+          "n": 62,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 155.31,
+          "planted": [
+            "id",
+            "rl",
+            "sum",
+            -6
+          ],
+          "found": [
+            "id",
+            "rl",
+            "sum",
+            false,
+            -6
+          ],
+          "n": 64,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 155.31,
+          "planted": [
+            "rl",
+            "rg",
+            "sum",
+            14
+          ],
+          "found": [
+            "rl",
+            "rg",
+            "sum",
+            false,
+            14
+          ],
+          "n": 64,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 163.66,
+          "planted": [
+            "rl",
+            "id",
+            "diff",
+            1
+          ],
+          "found": [
+            "rl",
+            "id",
+            "diff",
+            false,
+            1
+          ],
+          "n": 70,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 158.77,
+          "planted": [
+            "id",
+            "rl",
+            "sum",
+            17
+          ],
+          "found": [
+            "id",
+            "rl",
+            "sum",
+            false,
+            17
+          ],
+          "n": 62,
+          "ge_med": true
+        },
+        {
+          "ok": false,
+          "chi2": 171.21,
+          "planted": [
+            "rg",
+            "id",
+            "diff",
+            8
+          ],
+          "found": [
+            "id",
+            "rg",
+            "diff",
+            false,
+            8
+          ],
+          "n": 71,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 158.16,
+          "planted": [
+            "rl",
+            "rg",
+            "diff",
+            17
+          ],
+          "found": [
+            "rl",
+            "rg",
+            "diff",
+            false,
+            17
+          ],
+          "n": 61,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 162.09,
+          "planted": [
+            "id",
+            "r180",
+            "diff",
+            -5
+          ],
+          "found": [
+            "id",
+            "r180",
+            "diff",
+            false,
+            -5
+          ],
+          "n": 65,
+          "ge_med": true
+        },
+        {
+          "ok": true,
+          "chi2": 163.66,
+          "planted": [
+            "rl",
+            "rg",
+            "sum",
+            -1
+          ],
+          "found": [
+            "rl",
+            "rg",
+            "sum",
+            false,
+            -1
+          ],
+          "n": 70,
+          "ge_med": true
+        }
+      ]
+    },
+    "T2": {
+      "plants": 10,
+      "recovered": 3,
+      "null_med": 91.635,
+      "detail": [
+        {
+          "ok": true,
+          "chi2": 187.78,
+          "planted": [
+            22,
+            70
+          ],
+          "found": [
+            22,
+            70
+          ],
+          "n": 74,
+          "ge_med": "True"
+        },
+        {
+          "ok": true,
+          "chi2": 151.77,
+          "planted": [
+            11,
+            26
+          ],
+          "found": [
+            11,
+            26
+          ],
+          "n": 78,
+          "ge_med": "True"
+        },
+        {
+          "ok": false,
+          "chi2": 78.9,
+          "planted": [
+            7,
+            -32
+          ],
+          "found": [
+            7,
+            -32
+          ],
+          "n": 71,
+          "ge_med": "False"
+        },
+        {
+          "ok": false,
+          "chi2": 82.46,
+          "planted": [
+            3,
+            102
+          ],
+          "found": [
+            3,
+            102
+          ],
+          "n": 70,
+          "ge_med": "False"
+        },
+        {
+          "ok": true,
+          "chi2": 247.54,
+          "planted": [
+            22,
+            49
+          ],
+          "found": [
+            22,
+            49
+          ],
+          "n": 99,
+          "ge_med": "True"
+        },
+        {
+          "ok": false,
+          "chi2": 73.0,
+          "planted": [
+            3,
+            -5
+          ],
+          "found": [
+            3,
+            -5
+          ],
+          "n": 72,
+          "ge_med": "False"
+        },
+        {
+          "ok": false,
+          "chi2": 73.71,
+          "planted": [
+            24,
+            -15
+          ],
+          "found": [
+            24,
+            -15
+          ],
+          "n": 63,
+          "ge_med": "False"
+        },
+        {
+          "ok": false,
+          "chi2": 68.31,
+          "planted": [
+            20,
+            128
+          ],
+          "found": [
+            20,
+            128
+          ],
+          "n": 98,
+          "ge_med": "False"
+        },
+        {
+          "ok": false,
+          "chi2": 81.67,
+          "planted": [
+            28,
+            145
+          ],
+          "found": [
+            25,
+            71
+          ],
+          "n": 102,
+          "ge_med": "False"
+        },
+        {
+          "ok": false,
+          "chi2": 67.74,
+          "planted": [
+            28,
+            112
+          ],
+          "found": [
+            2,
+            110
+          ],
+          "n": 78,
+          "ge_med": "False"
+        }
+      ]
+    }
+  }
+}

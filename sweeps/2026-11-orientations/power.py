@@ -20,17 +20,18 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 sys.path.insert(0, os.path.abspath(os.path.join(HERE, "..", "..")))
 import orient as OR                                   # noqa: E402
-from core.validate import R2I                         # noqa: E402
+from core.validate import TRANS                       # noqa: E402
 
 SEED = 20261127
 RES = os.path.join(HERE, "results")
+L2I = {t: i for i, t in TRANS.items()}   # latin -> rune index (dupes: last)
 CRIPLINE = "PIGRIMWITNINTHETUNNEL"        # crib-English letters, 29-alpha only
 # (PILGRIM/WITHIN/TUNNEL minus vowels that collide; hits checked via crib list)
 
 
 def plant_bytes(rng, k):
     """k target residues spelling crib letters (cycled crib line)."""
-    return np.array([R2I[CRIPLINE[i % len(CRIPLINE)]] for i in range(k)],
+    return np.array([L2I[CRIPLINE[i % len(CRIPLINE)]] for i in range(k)],
                     np.int8)
 
 
@@ -82,7 +83,10 @@ def do_plant(fam, rng, grids, null_med):
         oM, oN = OR.CLASSES[rng.integers(len(OR.CLASSES))] \
             if fam == "O1" else ("id", "id")
         op = ("diff", "sum")[rng.integers(2)]
-        flip = bool(rng.integers(2))
+        rng.integers(2)   # keep stream layout stable (flip is not a thing:
+        # a physical plant lights BOTH rows - (flip=False,+off) with D=res
+        # and (flip=True,-off) with D=-res; -res is a bin permutation of res
+        # -> identical chi2; only the tgt-mask side differs slightly)
         A = OR.read(*grids[M], oM)
         B_len = len(grids[N][0])
         m = len(A)
@@ -101,10 +105,14 @@ def do_plant(fam, rng, grids, null_med):
         plant_page(g, N, perm, jj, padres)
         classes = OR.CLASSES if fam == "O1" else [("id", "id")]
         c2, key = plant_scan_pair(g, M, N, classes)
-        ok = (key == (oM, oN, op, flip, off)) and c2 >= null_med
+        # physical plant = BOTH mirror rows: (False,+off) and (True,-off)
+        same = key[:3] == (oM, oN, op) and \
+            ((key[3], key[4]) == (False, off) or
+             (key[3], key[4]) == (True, -off))
+        ok = same and c2 >= null_med
         return {"ok": bool(ok), "chi2": round(float(c2), 2),
-                "planted": (oM, oN, op, flip, off), "found": key,
-                "n": k, "ge_med": c2 >= null_med}
+                "planted": (oM, oN, op, off), "found": key,
+                "n": k, "ge_med": bool(c2 >= null_med)}
     if fam in ("T1", "T2"):
         tab = OR.token_tab("canon")
         var = "canon"
@@ -124,11 +132,9 @@ def do_plant(fam, rng, grids, null_med):
             res = plant_bytes(rng, k)
             padres = ((A[ii] - res) % 29) if op == "diff" \
                 else ((res - A[ii]) % 29)
-            # streams are BYTE-level: oriented stream index jj (byte) ->
-            # token jj//2 under orientation oN -> raw byte 2*perm[jj//2]+jj%2
-            perm = OR.perm_of([8] * 9, oN)      # 72 tokens / 8 per row
-            jj = np.asarray(jj)
-            raws = 2 * np.asarray(perm)[jj // 2] + (jj % 2)
+            # token = 1 byte, 8 per row: oriented stream index jj -> raw
+            perm = OR.perm_of([8] * 9, oN)      # p51: 9 rows x 8
+            raws = np.asarray(perm)[np.asarray(jj)]
             tab2 = tab.copy()
             tab2[184 + raws] = padres.astype(np.uint8)
             S2 = OR.tok_streams(tab2)
@@ -141,16 +147,19 @@ def do_plant(fam, rng, grids, null_med):
                                 X, Y, mask="tgt", stat=o2):
                             if c2 > best[0]:
                                 best = (c2, (cM, cN, o2, flip, off2))
-            ok = best[1] == (oM, oN, op, False, off) and best[0] >= null_med
+            ok = (best[1][:3] == (oM, oN, op) and
+                  ((best[1][3], best[1][4]) == (False, off) or
+                   (best[1][3], best[1][4]) == (True, -off)) and
+                  best[0] >= null_med)
             return {"ok": bool(ok), "chi2": round(float(best[0]), 2),
-                    "planted": (oM, oN, op, False, off), "found": best[1],
-                    "n": k, "ge_med": best[0] >= null_med}
+                    "planted": (oM, oN, op, off), "found": best[1],
+                    "n": k, "ge_med": bool(best[0] >= null_med)}
         # T2: pick a, plant table residue so a*T hits the crib at page M
         a = int(rng.integers(2, 29))
         M = OR.UNSOLVED[rng.integers(len(OR.UNSOLVED))]
         A = grids[M][0]
         T = ("p49", "p50", "p51")[rng.integers(3)]
-        base_len = {"p49": 160, "p50": 208, "p51": 144}[T]   # BYTES
+        base_len = {"p49": 80, "p50": 104, "p51": 72}[T]     # tokens = bytes
         off = int(rng.integers(-(base_len - 60), len(A) - 60))
         ii, jj = window_positions(len(A), base_len, off)
         ii = [i for i in ii if A[i] != 0]

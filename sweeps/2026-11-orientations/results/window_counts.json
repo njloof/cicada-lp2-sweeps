@@ -1,0 +1,22 @@
+{
+  "O1": {
+    "windows": 317416,
+    "positions": 44244256,
+    "rows_ge_floor": 20570
+  },
+  "O2": {
+    "windows": 2189160,
+    "positions": 302575280,
+    "rows_ge_floor": 145637
+  },
+  "T1": {
+    "windows": 8128,
+    "positions": 520992,
+    "rows_ge_floor": 447
+  },
+  "T2": {
+    "windows": 1945188,
+    "positions": 150153102,
+    "rows_ge_floor": 125498
+  }
+}
