@@ -285,3 +285,18 @@ adjacency (ink left/right in the lattice's y-band): 10-dot = END,START,END,
 BOTH; 13-dot = END 8 / START 9 / BOTH 11 / ALONE 2 — no clean split.
 (Your S5 notes already answer half of this — "ends with 13-dot lattice" ×6 —
 so S6 is mainly about whether the 10-dot ones behave differently.)
+**S7 — black 4-dot diamonds: machine census verification** (added 2026-11-16
+after your S4/F2 answers revealed the class). Machine scan (black ink,
+4-dot clusters) found **169 clusters on 51/57 pages** — far more than the
+lines you happened to cite, so the key questions are false positives and
+misses. Red boxes = machine detections.
+
+| sheet | question |
+|---|---|
+| p8 ![s8](img/oracle/f7_S7_p08_marked.png) | your L3/L7/L11 all found ✓ — is the LEFT one (L6, x≈358) real or noise? any MISSED diamonds on the page? missed: __ |
+| p40 ![s40](img/oracle/f7_S7_p40_marked.png) | 6 found vs your 5 — the far-right pair on L5 (one at x≈1994, off-page-edge?): real or noise? missed: __ |
+| p48 ![s48](img/oracle/f7_S7_p48_marked.png) | 8 detections — do they look like the same 4-dot class, or woodcut/punctuation noise? real: __/8 |
+| p57 ![s57](img/oracle/f7_S7_p57_marked.png) | 13 detections, 10 clustered at bottom — same class, or ornament texture? real: __/13 |
+
+Also useful if you spot them: do any 4-dot diamonds appear at the END of
+red-head lines (would link this channel to the red section markers)?
