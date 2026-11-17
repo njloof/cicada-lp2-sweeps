@@ -50,8 +50,10 @@ readings may reflect reference noise; CONSISTENT is the weak direction.
 
 ## 2. Kill gates
 
-G1: 57 blocks parse; unsolved word count within ±5 % of campaign #11's
-2,928 (separator geometry cross-pin). G2: solved reference word list
+G1: 57 blocks parse; separator geometry EXACT vs campaign #11 (2,729
+`-`, 173 `.`). AMENDED pre-output (zero output had occurred): #11's
+2,928-word count predates the tail relabel (its page set lacked book 55),
+so the separator counts — which match bit-exactly — are the pin. G2: solved reference word list
 reproduces from the Plaintext blocks verbatim. G3: L = 12,956.
 
 ## 3. Runtime
