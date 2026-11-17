@@ -29,7 +29,7 @@ from core.validate import flat  # noqa: E402
 GROUPS = [
     ("Q1", [0, 1, 2], "vertical fence (mirrored + flipped) + small ∞ top/bottom on all three pages (owner r7)"),
     ("Q2", [3, 4, 5, 6, 7], "symmetric spiral-scrolls on ALL FIVE pages (owner r7 extends the family down to p3); p7-bottom 5-dot = vertical flip of p23-top — bracket opens here"),
-    ("Q3", list(range(8, 23)), "interior of the p7↔p23 bracket: branching drawings alternate L/R pp8–14 (L,R,L,R,L,R,L); p15 numbers separated from runes by large ∞; p22 horizontal fence + body lying in repose (closing marker candidate); pp16–21 carry no decoration note — see question 2"),
+    ("Q3", list(range(8, 23)), "interior of the p7↔p23 bracket — OWNER NESTED HYPOTHESIS (2026-11-17): segment-in-a-segment pp8–14 (alternating branch margins, dragonfly close, partial page: 7 lines, 1,729 runes) · AXIS p15 (decimal block 3278/3299red/3298/2838, large ∞, 8 rune lines below) · plain segment pp16–22 (no decorations, partial closer p22: 6 lines, fence + body in repose). Page symmetry EXACT 7|axis|7; core pp8–13 vs pp16–21 = 72 vs 72 lines; lengths NOT equal (1,729 vs 1,903 runes); LP1-style line-sum palindrome across axis REFUTED 0/72"),
     ("Q4", [23, 24, 25, 26], "p23 = HINGE: its top dots are simultaneously the flip-partner of p7-bottom and the mirror-partner of p56-bottom ('a beginning here, an ending on p56'); mirrored cicadas p24–26 (owner r7 adds p26; jbo mayfly group pp23–26, dukotah pp24–26)"),
     ("Q5", list(range(27, 33)), "gap; singletons only — p27 cicada wing at top, p32 blurry tree at bottom"),
     ("Q6", list(range(33, 40)), "owner r7: 'No scrolls; </Y patterns' on ALL SEVEN pages (independent of the machine finding: one pixel-identical black stamp ×7, campaign #12); 3-large-dot paragraph breaks at p33 and p39"),
@@ -79,10 +79,16 @@ def main():
         "should p23 belong solely to the cicada group (jbo's mayfly "
         "group is pp23–26; dukotah's is pp24–26; your literal note puts "
         "mirrored cicadas on p24, p25, p26)?\n"
-        "2. **pp16–21 carry no decoration note.** Are they plain interior "
-        "of the bracketed passage pp8–22, or do p15 (large ∞ under the "
-        "numbers) and p22 (fence + body in repose) delimit a sub-passage "
-        "pp8–14 / pp15–21 / p22?\n"
+        "2. **Q3 nesting (your 2026-11-17 hypothesis, measured):** "
+        "branch-segment pp8–14 | axis p15 (decimals + ∞) | plain segment "
+        "pp16–22. Page symmetry exact 7|axis|7, core line-counts 72↔72, "
+        "both closers partial (p14: 7 lines/dragonfly, p22: 6 lines/fence"
+        "+body) — but rune lengths unequal (1,729 vs 1,903) and the LP1 "
+        "line-sum palindrome across the axis is REFUTED (0/72). Note: all "
+        "four p15 decimals fall INSIDE the pre-axis segment's stream span "
+        "(1874–3602), and 1,729 is the Hardy–Ramanujan number — logged, "
+        "not evidence. Does the nesting stand as presentation (three "
+        "passages) or is Q3 one passage with internal furniture?\n"
         "3. **Q7 spans the base-60 token stream (pp49–51) and the "
         "runeless p50**, with the same mirrored scrolls throughout — one "
         "passage containing the tokens? If so the old P8/P9 split (my "
