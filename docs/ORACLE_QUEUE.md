@@ -89,6 +89,17 @@ Your read: ☐ ᚢ U ☐ ᛒ B ☐ neither: X (cropped too tight to see entire l
 se the chart above (stave count + right-side loops). This one is worth 
 posting upstream when settled — their ledger explicitly waits on a human. (I still can't read it -- it is cropped too short vertically to see the top of the large red glyph at margin 5!)
 
+**RE-ASKED 2026-11-16 (apologies — two confusions, both ours):**
+"margin 5" meant the classifier's CONFIDENCE margin (ᛒ trails ᚢ by 5
+points), not a location — and the target glyph is BLACK ink on line 4, not
+red. New crop with 190 px of headroom above the glyph (4× zoom), plus the
+line with the target boxed in red:
+
+![tall](img/oracle/p27_93_tall.png)
+![context](img/oracle/p27_93_context.png)
+
+One-line question: the boxed glyph, between ᚱ and ᚣ — ☐ ᚢ U ☐ ᛒ B ☐ neither: __
+
 ## Task 6 (larger, whenever convenient) — page readthroughs
 
 p49 / p51 / p55 strip checklists are ready in `work/audit/page_49|51|55/`
@@ -126,6 +137,10 @@ clear two-bulge) and ᛈ (@36, diamond). **Our read now: the target matches
 the three arch references — ᚢ confirmed.** Your call:
 ☐ agree ᚢ ☐ disagree: __
 ☐ the tick points at the right glyph ☐ wrong glyph: __ I don't understand the question, which is very wordy: what I see after ᛏᚱ is -ᚢᚣ-ᛟᛄᛉ-
+
+**ANSWERED, I think — just confirm:** your sequence puts **ᚢ** exactly
+where our tick is (right after ᛏᚱ, before ᚣ). That settles both parts —
+tick correct, glyph ᚢ. If yes, tick here: ☐ confirmed ᚢ ☐ no, I meant: __
 
 ## F2 — your "10 dots in red on L10" — found it
 
