@@ -1,0 +1,53 @@
+{
+  "campaign": "2026-11-targets",
+  "date_run": "2026-11-16",
+  "verdict": "F13 token-table-as-TARGET: R1 (T2 re-power: canon-only affine pad->page, W240/stride120) NEGATIVE p=0.905 POWERED 20/20; R2 (blob-minus-page-pad target scan, n=256, a1..28 x o0..255) NEGATIVE p=0.810 POWERED 20/20 - both obs below null median (anti-signal inside noise, recorded not built on); completes the token consumption direction map in both ledgers",
+  "prereg_commits": { "prereg": "31c38c3" },
+  "corpus": {
+    "sha256": "9f5f14d434fd8e03442d33c8b6f935602f1798779b55aef415bc49588802483e",
+    "object": "unsolved stream book 0-49+51-55, L=12956",
+    "kill_gates": "G1 blob sha+len+L PASS; G2 ladder rung W=240 held (35 pages >= 240); G3 R2 family 394240 exact"
+  },
+  "blob": {
+    "file": "sources/dukotah/liber-primus/analysis/pp49_51/canon_256.bin",
+    "sha256": "3b9b07d9a26e6d55c432d94d2661fdff3c2b348daed06821f2bdb23184a4b290",
+    "note": "same pin as campaign #12; canon-only by registration (e0/superseded witness-discounted)"
+  },
+  "seeds": { "null": 20261203, "stream": "default_rng([seed, crc32(tag)%100000, draw])", "tags": ["R1", "R2", "plant-R1", "plant-R2"] },
+  "alpha_per_family": 0.025,
+  "families": {
+    "R1_T2_repower": {
+      "stat": "max window chi2, D=(v - a*(pad mod29)) mod29, a 2..28, o 0..255, W=240 stride=120, canon-only",
+      "obs": 74.89, "argmax": "p25 a15 o55 win0", "family_size": 241920,
+      "null": { "D": 20, "median": 78.40, "p95": 92.62, "max": 94.23 },
+      "p": 0.905, "plants_vs_p95": "20/20",
+      "repower_vs_T2": "long windows (T2 plants n<=72 unreachable vs 1.9M-window median 91.6) + shrunk family (canon-only)"
+    },
+    "R2_blob_as_target": {
+      "stat": "chi2 of D[j]=(B[(j+o)%256] - a*v[j%Lp]) mod29, n=256 fixed, a 1..28 (sign folded: Beaufort = 29-a), o 0..255, 55 pages",
+      "obs": 76.82, "argmax": "p25 a2 o55", "family_size": 394240,
+      "null": { "D": 20, "median": 80.33, "p95": 87.29, "max": 88.15 },
+      "p": 0.810, "plants_vs_p95": "20/20",
+      "note": "both argmaxes p25 o=55 - below median in both families, noise; recorded against future over-reading"
+    }
+  },
+  "flags": [],
+  "dup_check": {
+    "verified_from_pinned_source": "dukotah keytest.py key_streams() = base+reversed only, no affine multiplier; directions blob->page additive (theirs), blob->page affine (ours T2), page->blob selection (ours PB1) all previously negative",
+    "niche": "blob-as-target subtraction + powered long-window affine regime - open in both ledgers before this campaign"
+  },
+  "runtime_measured": { "total_s": 920.8, "prereg_estimate": "<=25min", "held": true },
+  "disclosed_reruns": [],
+  "disclosed_notes": [
+    "smoke run --stage 1 pre-launch (D=1, verdict meaningless), output gitignored work/scratch/, unused; obs bit-identical to stage-20 (determinism check)",
+    "window cumsum off-by-one fixed pre-launch (first launch died at gate-pass; zero output under buggy code)",
+    "plant cribs: English freq over single-letter-TRANS-representable runes; K,Q,V,Z unrepresented (~1% renormalized)",
+    "PB1-affine a!=1 deliberately NOT registered (instrument lesson #2 blindness); disclosed in PREREG sec.0"
+  ],
+  "regen": "python3 sweeps/2026-11-targets/f13.py",
+  "not_covered": [
+    "PB1-affine selection a!=1 (knowingly-blind, declined)",
+    "p50 104-token stream as separate target (needs census)",
+    "mod 28", "transpositions", "non-English plants", "multi-page key chaining"
+  ]
+}
