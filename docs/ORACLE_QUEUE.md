@@ -87,7 +87,7 @@ stave-pair in `-ᛏᚱ-ᚢ-ᚣ-` (between ᛏᚱ and ᚣ):
 
 Your read: ☐ ᚢ U ☐ ᛒ B ☐ neither: X (cropped too tight to see entire large glyph) U
 se the chart above (stave count + right-side loops). This one is worth 
-posting upstream when settled — their ledger explicitly waits on a human.
+posting upstream when settled — their ledger explicitly waits on a human. (I still can't read it -- it is cropped too short vertically to see the top of the large red glyph at margin 5!)
 
 ## Task 6 (larger, whenever convenient) — page readthroughs
 
@@ -125,7 +125,7 @@ the classic rune, not this angular font), plus the ᛒ candidates (@26/@31,
 clear two-bulge) and ᛈ (@36, diamond). **Our read now: the target matches
 the three arch references — ᚢ confirmed.** Your call:
 ☐ agree ᚢ ☐ disagree: __
-☐ the tick points at the right glyph ☐ wrong glyph: __
+☐ the tick points at the right glyph ☐ wrong glyph: __ I don't understand the question, which is very wordy: what I see after ᛏᚱ is -ᚢᚣ-ᛟᛄᛉ-
 
 ## F2 — your "10 dots in red on L10" — found it
 
@@ -140,7 +140,7 @@ counted (10 dots):
 Red box = the 10-dot lattice; blue box = your confirmed `5*` (L4). The
 dark marks at the RIGHT edge of L10 are black, not red
 ([zoom](img/oracle/p38_l10_rightedge_v2.png)).
-☐ the red box is what you saw ☐ no, I meant something else: __
+☐ the red box is what you saw ☐ no, I meant something else: __ Unless you're counting the weird drawings at the very top as a "line", I see dark marks at the right edge of L3, L8, and L9 that are 4 dots in a diamond pattern in black.
 
 ## F3 — wedge vs printed digits, examples as requested
 
@@ -148,13 +148,26 @@ dark marks at the RIGHT edge of L10 are black, not red
 
 Top: the pp36–38 margin digits. Middle: p10/p15 printed digits. Bottom:
 **drawn schematic** (not a scan) of Babylonian wedge forms for 1–5 and 10.
-☐ margin digits look wedge ☐ printed ☐ neither/unclear: __
+☐ margin digits look wedge ☐ printed X neither/unclear: I do not see any appreciable difference between the margin digits, the printed digits, and the 7 that appears in the middle of the runes. None of them look like "wedges."
 
 ## F4 — p53 lines 7–9, full width this time
 
-Twelve full-width bands (band 0 is ornament; stream lines follow — map
-them yourself): `img/oracle/p53_band00_full.png` … `p53_band09_full.png`.
+Ten full-width bands (band 0 is ornament; stream lines follow — map
+them yourself). Inline as requested:
+
+![b0](img/oracle/p53_band00_full.png)
+![b1](img/oracle/p53_band01_full.png)
+![b2](img/oracle/p53_band02_full.png)
+![b3](img/oracle/p53_band03_full.png)
+![b4](img/oracle/p53_band04_full.png)
+![b5](img/oracle/p53_band05_full.png)
+![b6](img/oracle/p53_band06_full.png)
+![b7](img/oracle/p53_band07_full.png)
+![b8](img/oracle/p53_band08_full.png)
+![b9](img/oracle/p53_band09_full.png)
+
 Which stream lines are entirely red? lines: __
+
 # Round #3 (2026-11-16) — the black "cuneiform" stamp on pp33–39
 
 Campaign #12 census finding: the "Babylonian sexagesimal art" of pp34–39
@@ -175,20 +188,20 @@ neighbours — read counts on the full stamp.
 ☐ Babylonian **numbers** (then: digit values G1–G7 = __ __ __ __ __ __ __)
 ☐ cuneiform **signs** (if you can transliterate: __)
 ☐ ornament, not language
-☐ unclear
+X unclear
 
 **S2 — per-glyph tally** (vertical wedges = 1s, corner wedges = 10s;
 "bar" = horizontal wedge, not a number digit):
 
 | glyph | verticals | corners | bar? |
-|---|---|---|---|
-| G1 | __ | __ | ☐ |
-| G2 | __ | __ | ☐ |
-| G3 | __ | __ | ☐ |
-| G4 | __ | __ | ☐ |
-| G5 | __ | __ | ☐ |
-| G6 | __ | __ | ☐ |
-| G7 | __ | __ | ☐ |
+| ----- | --------- | ------- | ---- |
+| G1    | __        | __      | ☐    |
+| G2    | __        | __      | ☐    |
+| G3    | __        | __      | ☐    |
+| G4    | __        | __      | ☐    |
+| G5    | __        | __      | ☐    |
+| G6    | __        | __      | ☐    |
+| G7    | __        | __      | ☐    |
 
 **S3 — p33 vs pp34–39** (same stamp, resampled — confirm visually):
 ☐ same device ☐ visibly different: __
@@ -207,38 +220,44 @@ as anything, we must rule out census misses on both sides — your eye:
 Lattices are small red dot diamonds, 13-dot ≈ 84 px tall at full scan
 (~34 px here). One sheet per page; fill the line under each.
 
-**p8** — lattice present? ☐ yes ☐ no · if yes dots = __ · location __
+**p8** — lattice present? X yes ☐ no · if yes dots = _4_ · location _L3, L7, L11_
 ![p8](img/oracle/f7_S4_p08.png)
 
-**p37** — lattice present? ☐ yes ☐ no · if yes dots = __ · location __
-![p37](img/oracle/f7_S4_p37.png)
+**p37** — lattice present? X yes ☐ no · if yes dots = _4_ · location _end of L9 (just before the red 4 line)
 
-**p40** — lattice present? ☐ yes ☐ no · if yes dots = __ · location __
-![p40](img/oracle/f7_S4_p40.png)
+ ![p37](img/oracle/f7_S4_p37.png)
+
+**p40** — lattice present? X yes ☐ no · if yes dots = _4_ · location _L2, L4 just before ", L5, L8, L11_
+
+ ![p40](img/oracle/f7_S4_p40.png)
 
 **S5 — do these lattice-only pages hide a red head word** (red drop-cap /
 red opening word in the title band, like pp0/3/6/…)? One sheet per page.
 
-**p2** — red head word? ☐ yes ☐ no · if yes, the word __
+**p2** — red head word? ☐ yes X no · if yes, the word __
 ![p2](img/oracle/f7_S5_p02.png)
 
-**p14** — red head word? ☐ yes ☐ no · if yes, the word __
+**p14** — red head word? ☐ yes X no · if yes, the word __
+(but it does end with a 13 dot red lattice)
+
 ![p14](img/oracle/f7_S5_p14.png)
 
-**p22** — red head word? ☐ yes ☐ no · if yes, the word __
-![p22](img/oracle/f7_S5_p22.png)
+**p22** — red head word? ☐ yes X no · if yes, the word __
+(ends with 13 dot red lattice)![p22](img/oracle/f7_S5_p22.png)
 
-**p26** — red head word? ☐ yes ☐ no · if yes, the word __
+**p26** — red head word? ☐ yes X no · if yes, the word __
+(ends with 13 dot red lattice)
+
 ![p26](img/oracle/f7_S5_p26.png)
 
-**p32** — red head word? ☐ yes ☐ no · if yes, the word __
-![p32](img/oracle/f7_S5_p32.png)
+**p32** — red head word? ☐ yes X no · if yes, the word __
+(ends with 13 dot red lattice)![p32](img/oracle/f7_S5_p32.png)
 
-**p49** — red head word? ☐ yes ☐ no · if yes, the word __
-![p49](img/oracle/f7_S5_p49.png)
+**p49** — red head word? ☐ yes X no · if yes, the word __
+(glyphs end with 10 dot red lattice)![p49](img/oracle/f7_S5_p49.png)
 
-**p55** — red head word? ☐ yes ☐ no · if yes, the word __
-![p55](img/oracle/f7_S5_p55.png)
+**p55** — red head word? ☐ yes X no · if yes, the word __
+(ends with 13 dot red lattice)![p55](img/oracle/f7_S5_p55.png)
 
 Reading key: all "no" on S4 + all "no" on S5 ⇒ the two red features are
 independent-but-correlated section markers (flag stands as census fact).
@@ -264,3 +283,5 @@ lone 23-dot (end of book) are the exceptions — if the exceptions cluster in
 one function, dot-count becomes a typed marker (F7 follow-up). Machine
 adjacency (ink left/right in the lattice's y-band): 10-dot = END,START,END,
 BOTH; 13-dot = END 8 / START 9 / BOTH 11 / ALONE 2 — no clean split.
+(Your S5 notes already answer half of this — "ends with 13-dot lattice" ×6 —
+so S6 is mainly about whether the 10-dot ones behave differently.)
