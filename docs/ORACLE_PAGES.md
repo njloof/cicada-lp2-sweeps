@@ -17,10 +17,6 @@ Broad questions worth a thought as you flip (answer inline anywhere):
 - Do the 4-dot black diamonds and the red dot-matrices ever appear on the
   SAME page? Same line?
 - Anything that repeats visually across pages but is not in the Known list?
-- NEW (2026-11-17): krisyotam transcribes ornaments as standalone symbols —
-  `&` (18×), `$` (9×), `§` (1×, book end on p57). Which motif is each? `&`
-  and `$` often pair at section ends (pp2/7/15/22/26/32/39/55/56); `&` sits
-  where you saw terminating 13-dot lattices (p3 L7, p7 tail, p38 L10).
 
 ---
 
@@ -563,7 +559,6 @@ Known: red head word (line 1)
 
 **Notes: dots at top could be "decoration" or could be clue**
 
-
 ## p24 (unsolved)
 
 Known: —
@@ -975,7 +970,6 @@ Known: —
 
 **Notes: Apostrophe mid line 10**
 
-
 ## p42 (unsolved)
 
 Known: —
@@ -997,8 +991,7 @@ Known: —
     11  ᛉ-ᛠᚢᛠᛚ-ᚠᛝᛗᚻ-ᚦᛒᚩ-ᛗᛚ-ᚩᛠᛋᚦᛠ-ᛇ/
     12  ᛋᛉ-ᚠᛗᛒ-ᚫᛋᛇᚾᛡᚾ-ᚢᚫᚹ-ᛞᛠᚢᚾᛝᚠᚾᛖᚫ/
 
-**Notes:** double quotes lines 3,6 (twice)
-
+**Notes: double quotes lines 3,6 (twice)**
 
 ## p43 (unsolved)
 
@@ -1022,7 +1015,6 @@ Known: —
     12  ᛝᛉᛞᛁ-ᛗᛝᚣᚪᛝᚠᛉᛁᛟᚷᛚ-ᛇᚩ-ᚫᛡᛏ-ᛄᛏ/
 
 **Notes:double quotes line 1**
-
 
 ## p44 (unsolved)
 
@@ -1249,7 +1241,6 @@ Known: red head word (line 1); stream L7/L8/L9 entirely red + red arrow after L6
 
 **Notes:incorrect, red letters begin last letter of line 6 and continue to end. Also, double quote mid lines 3 and 6**
 
-
 ## p54 (unsolved)
 
 Known: red head **words** (line 1)
@@ -1313,7 +1304,16 @@ Known: SOLVED closing page
     464fdaf1672d7bef5e891c6e227
     4568926a49fb4f45132c2a8b4
 
-**Notes:**
+**Notes:** Not sure what "every clear-text F is an ᚠ to be skipped" means; I only just figured out that "th" is drawn as a single symbol in the runic plaintext (presumably 'thorn') which affects how we run cryptanalysis!
+
+**Machine reply:** (1) skip-F: on p56 every rune is shifted by the phi(prime)
+key EXCEPT the letter F — the encoder wrote plaintext F's unshifted as plain
+ᚠ, so when decoding you don't un-shift an ᚠ, you just read F. Visible in
+`ᚱᚠ` = OF (ᚱ un-shifts to O, ᚠ is already F). (2) Thorn: correct — ᚦ is ONE
+symbol = TH (it's value 2 in our core table; several other values are
+multi-letter too). Symbol counts ≠ English letter counts; our value streams
+already treat ᚦ as one glyph, so the corpus is safe, but any letter-frequency
+work must use the letter expansion, not raw symbol counts.
 
 ## p57 (solved)
 
@@ -1330,7 +1330,13 @@ Known: 23-dot lattice (book end) + RED inline matrix after red word (S8b CONFIRM
      5  ᛖ-ᛞᛁᚢᛁᚾᛁᛏᚣ-ᚹᛁᚦᛁᚾ-ᚪᚾᛞ-ᛖᛗᛖᚱᚷᛖ./
      6  §
 
-**Notes:**
+**Notes: So this is in runic plaintext!! Is this the only page we can read without decryption?**
+
+**Machine reply:** Effectively yes — p57 uses the DEFAULT gematria (no shift),
+so transliterating runes→letters reads straight as English; it's still a
+substitution, just the identity one. p56 is the same mapping + the phi(prime)
+shift + skip-F. No other page reads without an unbroken key (p50/p51 are
+readable Roman/Arabic tokens but they're key material, not English).
 
 ---
 
