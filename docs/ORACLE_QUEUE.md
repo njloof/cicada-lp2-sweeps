@@ -165,6 +165,15 @@ Top: the pp36–38 margin digits. Middle: p10/p15 printed digits. Bottom:
 **drawn schematic** (not a scan) of Babylonian wedge forms for 1–5 and 10.
 ☐ margin digits look wedge ☐ printed X neither/unclear: I do not see any appreciable difference between the margin digits, the printed digits, and the 7 that appears in the middle of the runes. None of them look like "wedges."
 
+> **Editor note (2026-11-16, owner: "I have no idea how to read Babylonian
+> numbers")** — you never needed to. This test is about **stroke shape**, not
+> legibility: cuneiform digits are built only from triangular wedge
+> impressions (vertical 𒁹 = 1, corner 𒌋 = 10 — e.g. 5 = five side-by-side
+> verticals, a comb-like block), while printed Arabic 1–5 have curved strokes.
+> Your shape-match against the known-printed p10/p15 digits is the complete
+> answer, and it is recorded as **printed** — F3 CLOSED, sexagesimal reading
+> of the margin digits dead. No further action needed from you here.
+
 ## F4 — p53 lines 7–9, full width this time
 
 Ten full-width bands (band 0 is ornament; stream lines follow — map
@@ -181,7 +190,7 @@ them yourself). Inline as requested:
 ![b8](img/oracle/p53_band08_full.png)
 ![b9](img/oracle/p53_band09_full.png)
 
-Which stream lines are entirely red? lines: __
+Which stream lines are entirely red? lines: _L7, L8, L9 are entirely red. Last symbol of L6 is red._
 
 # Round #3 (2026-11-16) — the black "cuneiform" stamp on pp33–39
 
@@ -206,7 +215,11 @@ neighbours — read counts on the full stamp.
 X unclear
 
 **S2 — per-glyph tally** (vertical wedges = 1s, corner wedges = 10s;
-"bar" = horizontal wedge, not a number digit):
+"bar" = horizontal wedge, not a number digit). No reading skill needed —
+just count stroke types: a vertical wedge is a downward triangle-head stroke
+(▼ with a tail), a corner wedge is a left-pointing angle (< with a thick
+head). Three verticals + one corner = 13, etc. Skip S2 entirely if S1 stays
+"unclear" — it only matters if the stamp really is numeric.
 
 | glyph | verticals | corners | bar? |
 | ----- | --------- | ------- | ---- |
@@ -285,13 +298,13 @@ adjacency says size ≠ position, so your eye: for each crop, does the lattice
 END a text line (text to its left), START one, sit in the margin clear of
 text, or interrupt mid-line?)
 
-| crop | dots | function |
-|---|---|---|
-| p36 band6 ![a](img/oracle/f7_S6_p36_b6.png) | 10 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
-| p38 band11 ![b](img/oracle/f7_S6_p38_b11.png) | 10 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
-| p49 band2 ![c](img/oracle/f7_S6_p49_b2.png) | 10 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
-| p56 band1 ![d](img/oracle/f7_S6_p56_b1.png) | 10 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
-| p57 band2 ![e](img/oracle/f7_S6_p57_b2.png) | 23 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+| crop                                          | dots | function                                                    |
+| --------------------------------------------- | ---- | ----------------------------------------------------------- |
+| p36 band6 ![a](img/oracle/f7_S6_p36_b6.png)   | 10   | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+| p38 band11 ![b](img/oracle/f7_S6_p38_b11.png) | 10   | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+| p49 band2 ![c](img/oracle/f7_S6_p49_b2.png)   | 10   | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+| p56 band1 ![d](img/oracle/f7_S6_p56_b1.png)   | 10   | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+| p57 band2 ![e](img/oracle/f7_S6_p57_b2.png)   | 23   | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
 
 Context: 13-dot is the default section ornament (30/35); 10-dot ×4 and the
 lone 23-dot (end of book) are the exceptions — if the exceptions cluster in
@@ -306,12 +319,12 @@ after your S4/F2 answers revealed the class). Machine scan (black ink,
 lines you happened to cite, so the key questions are false positives and
 misses. Red boxes = machine detections.
 
-| sheet | question |
-|---|---|
-| p8 ![s8](img/oracle/f7_S7_p08_marked.png) | your L3/L7/L11 all found ✓ — is the LEFT one (L6, x≈358) real or noise? any MISSED diamonds on the page? missed: __ |
+| sheet                                       | question                                                                                             |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| p8 ![s8](img/oracle/f7_S7_p08_marked.png)   | your L3/L7/L11 all found ✓ — is the LEFT one (L6, x≈358) real or noise? any MISSED diamonds on the page? missed: __ |
 | p40 ![s40](img/oracle/f7_S7_p40_marked.png) | 6 found vs your 5 — the far-right pair on L5 (one at x≈1994, off-page-edge?): real or noise? missed: __ |
-| p48 ![s48](img/oracle/f7_S7_p48_marked.png) | 8 detections — do they look like the same 4-dot class, or woodcut/punctuation noise? real: __/8 |
-| p57 ![s57](img/oracle/f7_S7_p57_marked.png) | 13 detections, 10 clustered at bottom — same class, or ornament texture? real: __/13 |
+| p48 ![s48](img/oracle/f7_S7_p48_marked.png) | 8 detections — do they look like the same 4-dot class, or woodcut/punctuation noise? real: __/8      |
+| p57 ![s57](img/oracle/f7_S7_p57_marked.png) | 13 detections, 10 clustered at bottom — same class, or ornament texture? real: __/13                 |
 
 Also useful if you spot them: do any 4-dot diamonds appear at the END of
 red-head lines (would link this channel to the red section markers)?
