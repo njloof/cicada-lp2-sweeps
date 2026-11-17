@@ -244,3 +244,23 @@ Reading key: all "no" on S4 + all "no" on S5 ⇒ the two red features are
 independent-but-correlated section markers (flag stands as census fact).
 S4 misses ⇒ flag weakens. S5 misses ⇒ heads are the complete marker and
 lattices the subset ⇒ worth a re-test with the corrected head list.
+
+**S6 — what FUNCTION does each non-13-dot lattice perform?** (added 2026-11-16
+after owner question: "is sentence-dot always the 10-dot pattern?" — machine
+adjacency says size ≠ position, so your eye: for each crop, does the lattice
+END a text line (text to its left), START one, sit in the margin clear of
+text, or interrupt mid-line?)
+
+| crop | dots | function |
+|---|---|---|
+| p36 band6 ![a](img/oracle/f7_S6_p36_b6.png) | 10 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+| p38 band11 ![b](img/oracle/f7_S6_p38_b11.png) | 10 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+| p49 band2 ![c](img/oracle/f7_S6_p49_b2.png) | 10 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+| p56 band1 ![d](img/oracle/f7_S6_p56_b1.png) | 10 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+| p57 band2 ![e](img/oracle/f7_S6_p57_b2.png) | 23 | ☐ line-ender ☐ line-starter ☐ margin ☐ mid-line ☐ other: __ |
+
+Context: 13-dot is the default section ornament (30/35); 10-dot ×4 and the
+lone 23-dot (end of book) are the exceptions — if the exceptions cluster in
+one function, dot-count becomes a typed marker (F7 follow-up). Machine
+adjacency (ink left/right in the lattice's y-band): 10-dot = END,START,END,
+BOTH; 13-dot = END 8 / START 9 / BOTH 11 / ALONE 2 — no clean split.
