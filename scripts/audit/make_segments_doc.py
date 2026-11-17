@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Generate docs/SEGMENTS.md — the 58 original pages laid out under their
-10 decoration-groups (owner request 2026-11-17: "double-check all this by
+decoration-groups, v2 = 7 unsolved + solved (owner request 2026-11-17: "double-check all this by
 preparing a document that shows the original pages divided into the 10
 groups").
 
@@ -9,8 +9,9 @@ written). Regenerate after any segmentation change:
 
     python3 scripts/audit/make_segments_doc.py
 
-Segmentation data = campaign #18 (sweeps/2026-11-segments/PREREG.md),
-owner-corrected 2026-11-17 (p0 joins the fence+inf family).
+Segmentation data = v2, owner round-7 decoration pass (see GROUPS
+below); v1 (10 groups, campaign #18, sweeps/2026-11-segments/) is
+sealed as run.
 """
 import os
 import sys
@@ -20,30 +21,39 @@ sys.path.insert(0, os.path.abspath(ROOT))
 sys.path.insert(0, os.path.join(ROOT, "scripts", "audit"))
 from core.validate import flat  # noqa: E402
 
+# v2 = owner round-7 full decoration pass (ORACLE_PAGES.md, committed
+# 396e2c2). Three boundaries moved vs the #18-registered 10 groups:
+# scrolls run pp3–7 (P2/P3 merge), cicadas include p26 (P5 extends),
+# 3/5-dot mirrored scrolls are continuous pp40–55 (P8/P9 merge).
+# #18 stays sealed as run; #19 re-test queued pending owner sign-off.
 GROUPS = [
-    ("P1", [0, 1, 2], "fence + ∞ top/bottom margin family on all three pages (owner correction 2026-11-17)"),
-    ("P2", [3, 4], "undecorated gap"),
-    ("P3", [5, 6, 7], "symmetric spiral-scrolls on all three pages"),
-    ("P4", list(range(8, 24)), "interior of the p7↔p23 bracket (p7-bottom 5-dot = vertical flip of p23-top). Owner round-7 notes: branching drawings alternate L/R across pp8–14 (split candidate); p23-top dots = mirror of p56-bottom dots, 'denote a beginning (here) and an ending (page 56)' — spanning-bracket candidate, see review notes below"),
-    ("P5", [24, 25], "mirrored cicadas in margins (owner round-7 confirms; jbo 'mayfly' group pp23–26 agrees)"),
-    ("P6", list(range(26, 33)), "gap between cicadas and stamp family (p27 cicada wing, p32 blurry tree — singletons)"),
-    ("P7", list(range(33, 40)), "owner round-7: 'No scrolls; </Y patterns' on ALL SEVEN pages — independent confirmation; plus one pixel-identical black stamp ×7 (machine-verified, campaign #12); 3-large-dot paragraph breaks on p33+p39"),
-    ("P8", list(range(40, 49)), "p40↔p48 margin-asymmetry bracket (S8c)"),
-    ("P9", list(range(49, 56)), "gap; contains the entire base-60 token stream (pp49–51); owner round-7: p55 tree outline center + cicada bottom"),
-    ("P10", [56, 57], "solved closing pages (different construction); p56-bottom 5-dot pattern (3+2) = mirror partner of p23-top per owner round-7"),
+    ("Q1", [0, 1, 2], "vertical fence (mirrored + flipped) + small ∞ top/bottom on all three pages (owner r7)"),
+    ("Q2", [3, 4, 5, 6, 7], "symmetric spiral-scrolls on ALL FIVE pages (owner r7 extends the family down to p3); p7-bottom 5-dot = vertical flip of p23-top — bracket opens here"),
+    ("Q3", list(range(8, 23)), "interior of the p7↔p23 bracket: branching drawings alternate L/R pp8–14 (L,R,L,R,L,R,L); p15 numbers separated from runes by large ∞; p22 horizontal fence + body lying in repose (closing marker candidate); pp16–21 carry no decoration note — see question 2"),
+    ("Q4", [23, 24, 25, 26], "p23 = HINGE: its top dots are simultaneously the flip-partner of p7-bottom and the mirror-partner of p56-bottom ('a beginning here, an ending on p56'); mirrored cicadas p24–26 (owner r7 adds p26; jbo mayfly group pp23–26, dukotah pp24–26)"),
+    ("Q5", list(range(27, 33)), "gap; singletons only — p27 cicada wing at top, p32 blurry tree at bottom"),
+    ("Q6", list(range(33, 40)), "owner r7: 'No scrolls; </Y patterns' on ALL SEVEN pages (independent of the machine finding: one pixel-identical black stamp ×7, campaign #12); 3-large-dot paragraph breaks at p33 and p39"),
+    ("Q7", list(range(40, 56)), "'3 dot / 5 dot mirrored scrolls' on sides, CONTINUOUS pp40–55 (owner r7; includes runeless p50 and the whole base-60 stream pp49–51); p55 adds tree outline center + cicada bottom; p40↔p48 margin asymmetry (S8c) now reads as a sub-feature, not a boundary"),
+    ("Q8", [56, 57], "solved closing pages; p56-bottom 5-dot pattern (groups of 3+2) = closing partner of the p23 hinge"),
 ]
 
 
 def main():
     out = [
-        "# SEGMENTS — LP2 divided into 10 decoration-groups\n",
-        "\nVisual double-check of the campaign #18 segmentation (owner "
-        "hypothesis: decorations delimit passages, not pages). Pages are "
-        "the original full-page scans (docs/img/oracle/pages/), in book "
-        "order within each group. Rune counts from core.validate; stream "
-        "positions over pp00–55 (p50 runeless, excluded).\n",
-        "\nEvidence and verdict panel: sweeps/2026-11-segments/. "
-        "Regenerate: `python3 scripts/audit/make_segments_doc.py`.\n",
+        "# SEGMENTS — LP2 divided into 7 decoration-groups (v2)\n",
+        "\n**v2 = owner round-7 full decoration pass (2026-11-17).** Three "
+        "boundaries moved vs the #18-registered 10 groups: spiral-scrolls "
+        "run pp3–7 (old P2+P3 merge), mirrored cicadas include p26, and "
+        "the 3/5-dot mirrored scrolls are continuous pp40–55 (old P8+P9 "
+        "merge). Campaign #18's verdict stands as run on its registered "
+        "segmentation; a #19 re-test on THIS partition is queued pending "
+        "your sign-off. Pages are the original full-page scans "
+        "(docs/img/oracle/pages/), book order within each group. Rune "
+        "counts from core.validate; stream positions over pp00–55 (p50 "
+        "runeless, excluded).\n",
+        "\nEvidence and verdict panel (v1, 10 groups): "
+        "sweeps/2026-11-segments/. Regenerate: "
+        "`python3 scripts/audit/make_segments_doc.py`.\n",
     ]
     pos = 0
     for gid, pages, ev in GROUPS:
@@ -62,24 +72,28 @@ def main():
             out.append(f"\n**p{p}**{tag}\n\n"
                        f"![p{p}](img/oracle/pages/p{p:02d}.jpg)\n")
     out.append(
-        "\n## Review notes — open questions from your round-7 notes\n"
-        "\n1. **p23-top ↔ p56-bottom mirror dots** ('a beginning here, an "
-        "ending on p56'): as written this brackets pp23–56, which cuts "
-        "across P4's end and P5–P9. Does it REPLACE the p7↔p23 bracket "
-        "(making pp8–22 the passage and pp23–55 a second one), or is it a "
-        "whole-book frame (p0-family opens, p56 closes) sitting above the "
-        "per-passage decorations?\n"
-        "2. **Branching drawings pp8–14 (alternating L/R)**: a family "
-        "inside P4. Is P4 really one passage (pp8–23), or does the "
-        "branching family delimit pp8–14 with a different decoration "
-        "taking over at p15?\n"
-        "3. **P2 / P6 / P9 are groups by ABSENCE of decoration** — the "
-        "weakest rows. Anything at their edges (p2/p3, p25/p26, p32/p33, "
-        "p48/p49) that should merge or split them?\n"
-        "4. **3-large-dot paragraph breaks on p33 and p39** (your note): "
-        "both sit at P7 edges — consistent with P7 as a passage; the same "
-        "large-dot class appears at p7's `$` position (diamond) and the "
-        "9 `$` pages (oracle round #6 S9).\n")
+        "\n## Review notes — what your round-7 notes left open\n"
+        "\n1. **p23 hinge**: its top dots are (per your notes) both the "
+        "flip-partner of p7-bottom AND the mirror-partner of p56-bottom. "
+        "Palindrome hinge (house style) — shared by two brackets — or "
+        "should p23 belong solely to the cicada group (jbo's mayfly "
+        "group is pp23–26; dukotah's is pp24–26; your literal note puts "
+        "mirrored cicadas on p24, p25, p26)?\n"
+        "2. **pp16–21 carry no decoration note.** Are they plain interior "
+        "of the bracketed passage pp8–22, or do p15 (large ∞ under the "
+        "numbers) and p22 (fence + body in repose) delimit a sub-passage "
+        "pp8–14 / pp15–21 / p22?\n"
+        "3. **Q7 spans the base-60 token stream (pp49–51) and the "
+        "runeless p50**, with the same mirrored scrolls throughout — one "
+        "passage containing the tokens? If so the old P8/P9 split (my "
+        "p40↔p48 margin-asymmetry bracket) is demoted to a sub-feature.\n"
+        "4. **Q5 is a group by ABSENCE** (only the p27 wing and p32 tree "
+        "singletons). Anything at its edges (p26/p27, p32/p33) that "
+        "should merge or split it?\n"
+        "5. **3-large-dot paragraph breaks on p33 and p39** (your note): "
+        "both at Q6 edges — consistent with Q6 as a passage; same "
+        "large-dot class as p7's `$` diamond and the 9 `$` pages (oracle "
+        "round #6 S9 still live).\n")
     with open(os.path.join(ROOT, "docs", "SEGMENTS.md"), "w") as f:
         f.write("".join(out))
     print("wrote docs/SEGMENTS.md")
