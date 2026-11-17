@@ -358,7 +358,10 @@ Is this what you meant for p57? X yes ☐ no, I meant a black 4-dot diamond: __
 
 **S8c — margin decoration (new channel you spotted).** Your 3-left/5-right
 asymmetry on p40 and p48. Left margin | right margin, p40 then p48:
-![s8c](img/oracle/f7_S8_p40_margins.png) ![s8d](img/oracle/f7_S8_p48_margins.png)
+RE-ASK 2026-11-17 (your note: cropped too closely) — full-height strips now,
+left margin | right margin, p40 then p48:
+![s8c2](img/oracle/f7_S8c_p40_margins_full.png) ![s8d2](img/oracle/f7_S8c_p48_margins_full.png)
+(old tight crops kept: ![s8c](img/oracle/f7_S8_p40_margins.png) ![s8d](img/oracle/f7_S8_p48_margins.png))
 Questions: is the asymmetry (fewer dot-trees left, more right) the SAME on
 both pages? ☐ same pattern both pages ☐ differs: __
 (Can't see, we have cropped them too closely.) And do these margin designs carry dot counts you can read reliably?
