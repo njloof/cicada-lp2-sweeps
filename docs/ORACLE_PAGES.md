@@ -40,11 +40,17 @@ containing them):
 Ornaments — two alphabets, keep them straight:
 
 - Krisyotam's own (in the Ciphertext lines): `&` (18×), `$` (9×), `§` (1×,
-  p57 book end) — standalone segments where you saw dot-lattices. Which
-  size is which is UNCONFIRMED (that's a question for you below).
-- Your pp0–7 pass suggests: `&` at section ends ↔ `◆13` (p2 L9–11, p3 L6–8,
-  p6 L4–6, p7 L9–13), and many `.` sentence dots are actually rendered
-  `◆4` black diamonds. Confirm/correct as you continue past p7.
+  p57 book end) — standalone segments where you saw dot-lattices.
+- **RESOLVED by your pass (campaign #16, 2026-11-17): `&` = red 13-dot
+  lattice (all 18 have an adjacent ◆13), `§` = red 23-dot (book end), and
+  the black `◆4` diamond IS the rendered `.` sentence separator (126/127
+  of your ◆4 replaced a krisyotam `.`).**
+- Still open: (a) `$` is NOT a large lattice (8/9 have no ◆ nearby) —
+  what does it actually look like in the image? (b) 19 `.` you left
+  unstarred as plain dots — genuinely small round dots, or unwalked
+  diamonds? (c) seven ◆13 marks carry no `*` (p0 L1, p3 L1/L6, p7 L9, p14
+  L7, p26 L12, p54 L1) — black 13-dots, or just unmarked red? (and your
+  ◆23 at p57 L5 is likewise unstarred though the book-end lattice is red)
 
 Broad questions worth a thought as you flip (answer inline anywhere):
 
@@ -1289,6 +1295,17 @@ Known: red only via dot-lattice (section terminator)
 13  2i 1J 3P 2v 1s 2O 0k 1M/
 ```
 
+**Machine reply:** your p49 token rows 4–13 are a NEW WITNESS of the
+base-60 payload: decoded (base60 = 0-9 A-Z a-x, byte = d0·60+d1) they match
+the canonical 256-byte payload's first 80 bytes at **79/80**; the lone diff
+is idx42 (r6c3) your `0s` vs canonical `0S` — the known S/s case-ambiguity
+class (pixel adjudication of similar cells previously upheld uppercase).
+And your continuous-stream hope is CONFIRMED: the payload = p49 (80) +
+p50 (104) + p51 (72) read as one 256-token stream — the arithmetic is
+pinned by idx246 = p51 r8c7 (`3I` = 0xc6). All analysis using it has
+always used the combined stream (dukotah `analysis/pp49_51/`, our
+campaigns #12/#14).
+
 **Notes:**
 
 ## p50 (solved)
@@ -1467,6 +1484,17 @@ d4618dee09a8425893dc7500b
 4568926a49fb4f45132c2a8b4
 ```
 
+**Plaintext** (phi(prime) shift + skip-F decode; community-verified,
+scream314 lineage; the image wraps mid-word at its column width — wraps
+shown as printed, `EUERY` = V-for-U spelling):
+
+```
+AN END
+WITHIN THE DEEP WEB THERE EXISTS A PAGE THAT HASHES TO
+[the five hex lines above — the hash target, not an address]
+IT IS THE DUTY OF EUERY PILGRIM TO SEEK OUT THIS PAGE
+```
+
 **Notes:** Not sure what "every clear-text F is an ᚠ to be skipped" means; I only just figured out that "th" is drawn as a single symbol in the runic plaintext (presumably 'thorn') which affects how we run cryptanalysis!
 
 **Machine reply:** (1) skip-F: on p56 every rune is shifted by the phi(prime)
@@ -1493,6 +1521,16 @@ Known: 23-dot lattice (book end) + RED inline matrix after red word (S8b CONFIRM
  4  ᛁᚱᚳᚢᛗᚠᛖᚱᛖᚾᚳᛖᛋ◆4ᚠᛁᚾᛞ-ᚦ/   = IRCUMFERENCES◆4FIND-TH/
  5  ᛖ-ᛞᛁᚢᛁᚾᛁᛏᚣ-ᚹᛁᚦᛁᚾ-ᚪᚾᛞ-ᛖᛗᛖᚱᚷᛖ◆23/   = E-DIUINITY-WITHIN-AND-EMERGE◆23/
  6  §
+```
+
+**Plaintext** (default gematria — no shift; read straight off the runes;
+community-verified, scream314 lineage; `◆13*` = the red inline matrix you
+confirmed at L1, sitting where the colon is):
+
+```
+Parable : like the instar tunneling to the surface.
+We must shed our own circumferences. Find the
+divinity within and emerge.
 ```
 
 **Notes: So this is in runic plaintext!! Is this the only page we can read without decryption?**
