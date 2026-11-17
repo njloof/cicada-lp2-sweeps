@@ -339,3 +339,30 @@ p57: ten clusters at bottom are decoration
 
 
 Also useful if you spot them: do any 4-dot diamonds appear at the END of red-head lines (would link this channel to the red section markers)? YES, p40 and p57, the opening sentence begins in red, and the 4-dot diamond appears at the end of both "sentences"
+
+# Round #5 (2026-11-16) — S8: pinning your "sentence-end diamond" link
+
+Thank you — your S7 answers were decisive. Two follow-ups to pin exactly
+what you saw, because we found TWO different motifs near red openings and
+want to know which one you meant (both are interesting):
+
+**S8a — p40.** Is THIS the diamond you meant? Red box marks a black 4-dot
+diamond sitting between two word-dots mid-line-2 — plausibly ENDING the
+sentence that BEGAN with the red opening word on line 1:
+![s8a](img/oracle/f7_S8_p40_sentence.png)
+☐ yes, this one ☐ no, I meant another: __
+
+**S8b — p57.** Immediately after the red opening word there is a RED
+dot-matrix (13 dots, diamond-shaped arrangement — the section-ornament
+motif used INLINE). Red box marks it:
+![s8b](img/oracle/f7_S8_p57_matrix.png)
+Is this what you meant for p57? ☐ yes ☐ no, I meant a black 4-dot diamond: __
+
+**S8c — margin decoration (new channel you spotted).** Your 3-left/5-right
+asymmetry on p40 and p48. Left margin | right margin, p40 then p48:
+![s8c](img/oracle/f7_S8_p40_margins.png) ![s8d](img/oracle/f7_S8_p48_margins.png)
+Questions: is the asymmetry (fewer dot-trees left, more right) the SAME on
+both pages? ☐ same pattern both pages ☐ differs: __
+And do these margin designs carry dot counts you can read reliably?
+counts L/R p40: __/__ p48: __/__ (decoration is fine as an answer — we just
+want to know whether to keep a machine census of them.)
