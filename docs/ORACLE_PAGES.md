@@ -71,7 +71,7 @@ lattice) · `*` red marker kept · everything else passed through.
 
 Broad questions worth a thought as you flip (answer inline anywhere):
 
-- Do word-separator dots (·) ever differ in size/shape from page to page?
+- Do word-separator dots (·) ever differ in size/shape from page to page? No
 - Any pages where the margin decoration differs from the usual scroll motif?
 - Do the 4-dot black diamonds and the red dot-matrices ever appear on the
   SAME page? Same line?
@@ -81,7 +81,7 @@ Broad questions worth a thought as you flip (answer inline anywhere):
 
 ## p0 (unsolved)
 
-Known: red head word (line 1) ** words, since they contain one - and terminated by red 13 dot lattice
+Known: red head word (line 1) ** words, since they contain one - and terminated by red 13 dot lattice; same fence + ∞ margin family as p1/p2 (owner correction 2026-11-17 — groups P1 = pp0–2)
 
 ![p0](img/oracle/pages/p00.jpg)
 
@@ -102,7 +102,7 @@ Known: red head word (line 1) ** words, since they contain one - and terminated 
 12  ᛏᛟᛝᚢᚱ-ᛋ-ᚠᚩᛖᚹᛠᛟᛚᚠᚫ-ᛗᚱᛝ-ᛞᚪᛗᚱ-ᚹ/   = TOENGUR S FOEWEAOELFAE MRNG DAMR W/
 ```
 
-**Notes:**
+**Notes: Small infinity symbol at top and bottom. Vertical fence pattern on left and right (mirrored and flipped vertically)**
 
 ## p1 (unsolved)
 
@@ -127,7 +127,7 @@ Known: —
 12  ᛋᛏ-ᛗᚠᛚᚠᛏ-ᚷᛁᚦ-ᚢᛚᚷ-ᛉᛠᛏᛋᛚᛄᛈ-ᛚᛉᛁ/   = ST MFLFT GITH ULG XEATSLJP LXI/
 ```
 
-**Notes:**
+**Notes:** Small infinity symbol at top and bottom. Vertical fence pattern on left and right (mirrored and flipped vertically)
 
 ## p2 (unsolved)
 
@@ -151,7 +151,7 @@ Known: red only via dot-lattice (13 dot section terminator)
 11  $
 ```
 
-**Notes:**
+**Notes:** Vertical fence pattern on left and right (mirrored and flipped vertically); walking cicada at bottom (most others are flying); small infinity symbol at top and bottom.
 
 ## p3 (unsolved)
 
@@ -176,7 +176,7 @@ Known: red head word (line 1); red inline dot-matrix ** 13 dot lattice ** after 
 12  ᛉᛠᛒᚩ-ᛉᛁᚣᚷᛋᛋᛒᛠ-ᚩᛁᛈ-ᛁᛄᛁᚩᛖ-ᚻᛠᚻ/   = XEABO XIYGSSBEA OIP IJIOE HEAH/
 ```
 
-**Notes: /// is large vertical break between sections**
+**Notes: /// is large vertical break between sections** ; Symmetric spiral-scrolls on left and right.
 
 ## p4 (unsolved)
 
@@ -201,7 +201,7 @@ Known: —
 12  ᛈᚪᛇᚷᛋᚳᚷᛞᛈᚣ-ᛡᛚᚦᚱ-ᚳᚢᚠᛇᚦ-ᛉᛖᛚ-ᚢ/   = PAEOGSCGDPY IALTHR CUFEOTH XEL U/
 ```
 
-**Notes: // is small vertical break between sets of lines, like a paragraph end/begin?**
+**Notes: // is small vertical break between sets of lines, like a paragraph end/begin?**. Symmetric spiral-scrolls on left and right.
 
 ## p5 (unsolved)
 
@@ -226,7 +226,7 @@ Known: —
 12  ᛝᚳᛖᛠ-ᛉᚪᚱᚣ-ᚪᚢᛏ-ᚳᛈᚳ-ᚩᛇᛟ-ᚫᛈ-ᛏ/   = NGCEEA XARY AUT CPC OEOOE AEP T/
 ```
 
-**Notes:** ◆3 with - on next line may just be a word wrapped ◆4; let's assume this for now for decryption purposes
+**Notes:** ◆3 with - on next line may just be a word wrapped ◆4; let's assume this for now for decryption purposes. Symmetric spiral-scrolls on left and right.
 
 ## p6 (unsolved)
 
@@ -250,7 +250,7 @@ Known: red head word (line 1) ** incorrect, red 13-dot lattice ends line 4, red 
 11  ᚢᚻ-ᛈᚹᛄᛚᚷᛒ-ᛗᚢᛄᛗ-ᛇᚾᛇ◆4"ᚫᛚᚪᛚᚷᚪ-ᛋ/   = UH PWJLGB MUJM EONEO."AELALGA S/
 ```
 
-**Notes:**
+**Notes:** Symmetric spiral-scrolls on left and right.
 
 ## p7 (unsolved)
 
@@ -276,7 +276,7 @@ Known: red head word (line 1) ** incorrect, red tail words line 10, begins and e
 13  $
 ```
 
-**Notes:**
+**Notes:** Symmetric spiral-scrolls on left and right. Five dots pattern at bottom looks like vertical flip of pattern at top of p23.
 
 ## p8 (unsolved)
 
@@ -301,7 +301,7 @@ Known: red head word (line 1); black 4-dot diamonds L3/L7/L11 (L6-left = noise p
 12  ᛟᛏ-ᚾᛞᛒᚩᚾᚦᛡᚻᛟ-ᚱᛈᚾᚠᛈᛞ-ᛋᚩᛁᛠᚣᚾ-ᛇ/   = OET NDBONTHIAHOE RPNFPD SOIEAYN EO/
 ```
 
-**Notes:**
+**Notes: Branching drawing on left. **
 
 ## p9 (unsolved)
 
@@ -326,7 +326,7 @@ Known: —
 12  ᚷ-ᚩ-ᚢᚦᛏ-ᛒᚷᚣᛝᚠᚣᛁᚻ-ᚹᛡᛠᚱᚫᚹᛡᛞᚪᚦ/   = G O UTHT BGYNGFYIH WIAEARAEWIADATH/
 ```
 
-**Notes:**
+**Notes: Branching drawing on right. **
 
 ## p10 (unsolved)
 
@@ -351,7 +351,7 @@ Known: black inline digit 7 (L8)
 12  ᛉ-ᚠᚱᚳᛒᚢᛄᚱᚫᛝ-ᛒᛋᛟᛠᛡᚪᛚ-ᛏᛟᚾᚫᛟᚪ-ᛁ-/   = X FRCBUJRAENG BSOEEAIAAL TOENAEOEA I /
 ```
 
-**Notes:**
+**Notes: Branching drawing on left. **
 
 ## p11 (unsolved)
 
@@ -376,7 +376,7 @@ Known: —
 12  -ᛈᚹᛞᚱᛄ-ᚪᛝᛞ-ᛁᚦᛏᚷᚢᚹᚳᚻᛖᚩᚪᛖ-ᛉᚪᚢ-/   =  PWDRJ ANGD ITHTGUWCHEOAE XAU /
 ```
 
-**Notes: same **◆3 / - construction as earlier probably meaning ◆4
+**Notes: same **◆3 / - construction as earlier probably meaning ◆4. Branching drawing on right.
 
 ## p12 (unsolved)
 
@@ -401,7 +401,7 @@ Known: —
 12  ᛄ-ᛒᛇᚱᚹᛏᛉᚾᛠᛖᛁ-ᚠᚾᛡᚳ◆4ᛋᛟᚹ-ᛈᚷᛝᛟ-/   = J BEORWTXNEAEI FNIAC.SOEW PGNGOE /
 ```
 
-**Notes:**
+**Notes: Branching drawing on left. **
 
 ## p13 (unsolved)
 
@@ -426,7 +426,7 @@ Known: —
 12  ᚢᚩᛠ-ᛚᛋᚣᛏ-ᛋᚪᛞᚫᚹᛄᛞ-ᛋᛈᛋᛄ-ᚪᛖᛁᛇᛒᛟ/   = UOEA LSYT SADAEWJD SPSJ AEIEOBOE/
 ```
 
-**Notes:**
+**Notes: Branching drawing on right. **
 
 ## p14 (unsolved)
 
@@ -447,7 +447,7 @@ Known: red only via dot-lattice (section terminator)
  8  &
 ```
 
-**Notes:**
+**Notes: Branching drawing on left, dragonfly at lower right.**
 
 ## p15 (unsolved)
 
@@ -470,7 +470,7 @@ Known: red head **words** (line 1); printed digit group 3278/3299*(red)/3298/283
 10  ᛡᛉᚣ-ᛒᚻᚫᛄᛡᛁ-ᚱᚦᛚᚠ-ᛠᚾᛝ-ᛉᛗᛒᚩᛠᛈ-/   = IAXY BHAEJIAI RTHLF EANNG XMBOEAP /
 ```
 
-**Notes:**
+**Notes: Numbers are separated from runes by a large infinity symbol. **
 
 ## p16 (unsolved)
 
@@ -641,7 +641,7 @@ Known: red only via dot-lattice (section terminator)
  8  $   red 13-dot lattice (section terminator)
 ```
 
-**Notes:**
+**Notes: Horizontal "fence" and a body lying in repose at the bottom. **
 
 ## p23 (unsolved)
 
@@ -664,7 +664,7 @@ Known: red head word (line 1)
 10  ᚢ-ᛞ-ᚳᚦᚢᚱᚢᛟ-ᛞᚻᚱ-ᚷᚹᛏᛈᛖᚠ-ᚪᚻᛠᚦ/   = U D CTHURUOE DHR GWTPEF AHEATH/
 ```
 
-**Notes: dots at top could be "decoration" or could be clue**
+**Notes: dots at top are a mirror image of the dots on page 56. They seem to denote a beginning (here) and an ending (page 56).**
 
 ## p24 (unsolved)
 
@@ -689,7 +689,7 @@ Known: —
 12  ᛋᛡᚹᚾᚾᛡᚹᛚ-ᚢᛖ-ᛏ-ᚱᛝᚳᚣ-ᚪᛉᛇᛝᛋᛖᛇᛁ/   = SIAWNNIAWL UE T RNGCY AXEONGSEEOI/
 ```
 
-**Notes:**
+**Notes:** Mirrored cicadas at left and right margins.
 
 ## p25 (unsolved)
 
@@ -714,7 +714,7 @@ Known: —
 12  ᚱ-ᛄᚠᚳᛋᛝᚳᛈ-ᚷᚻᛋᛗ-ᛇᛞᛇ-ᚣ-ᛡᛖᛏᛠᚢ/   = R JFCSNGCP GHSM EODEO Y IAETEAU/
 ```
 
-**Notes:**
+**Notes:** Mirrored cicadas at left and right margins.
 
 ## p26 (unsolved)
 
@@ -741,7 +741,7 @@ Known: red only via dot-lattice (section terminator)
 14  $
 ```
 
-**Notes:**
+**Notes: Mirrored cicadas at left and right margins.**
 
 ## p27 (unsolved)
 
@@ -765,7 +765,7 @@ Known: red head word (line 1) ** red words with red 13 dot lattice at end
 11  ᛈᛞᚠᛗᛝᚻ-ᛋᚩ-ᛞᛈᛉᚾ-ᛟᚱᛡᚾᚳᚳᛏ-ᚾᛈᚠ/   = PDFMNGH SO DPXN OERIANCCT NPF/
 ```
 
-**Notes:**
+**Notes: Cicada wing at top.**
 
 ## p28 (unsolved)
 
@@ -886,7 +886,7 @@ Known: red only via dot-lattice (section terminator)
  8  $   red 13-dot lattice (section terminator)
 ```
 
-**Notes:**
+**Notes: Blurry tree at bottom decoration.**
 
 ## p33 (unsolved)
 
@@ -911,7 +911,7 @@ Known: red head word (line 1) ** words, plus terminating red 13 dot lattice line
 12  ᛄ-ᛚᚷᚢᛡ-ᚾᛉᚠ-ᚱᚪᚣᛗᚠᚦᚻ-ᚱᚪᚱ-ᚫᚪᚷᛟᛞ-ᛒ/   = J LGUIA NXF RAYMFTHH RAR AEAGOED B/
 ```
 
-**Notes:**
+**Notes: **No scrolls; </Y patterns at *bottom*. 3 large black dots horizontally separate paragraph 1 from 2.
 
 ## p34 (unsolved)
 
@@ -936,7 +936,7 @@ Known: black stamp device (top; p33 footer) exact same as footer of p33
 12  ᛠᚩᛞᛠᚢᛟᛖ◆4ᛠᚹ-ᛉᚻᛡᚹᛞ-ᚪᛗ-ᚠᚦᛈ-/   = EAODEAUOEE.EAW XHIAWD AM FTHP /
 ```
 
-**Notes:**
+**Notes: **No scrolls; </Y patterns at top. 
 
 ## p35 (unsolved)
 
@@ -961,7 +961,7 @@ Known: black stamp device (top; p33 footer) same as p33 footer again
 12  ᛗᛒᚢ-ᛚᚱ-ᛏᛁᚢ-ᚷᚳᚠᛇ-ᛚᛇᚣᛏ-ᛏᚫᚢ-ᚫᛠᛇ/   = MBU LR TIU GCFEO LEOYT TAEU AEEAEO/
 ```
 
-**Notes:**
+**Notes:** No scrolls; </Y patterns at top. 
 
 ## p36 (unsolved)
 
@@ -985,7 +985,7 @@ Known: black stamp device **same as p33 footer** (top; p33 footer); red digit 1 
 11  ᚾᛁᚱᚷ-ᛄᛇᚫ-ᚻᚪ-ᚱᛉᛉ-ᚩᛚᚾᚫ-ᛞᚣᛒᚾᚪ◆4/   = NIRG JEOAE HA RXX OLNAE DYBNA./
 ```
 
-**Notes:**
+**Notes: **No scrolls; </Y patterns at top. 
 
 ## p37 (unsolved)
 
@@ -1009,7 +1009,7 @@ Known: red head word (line 1); black stamp device (top; p33 footer); red digits 
 11  ᛠᛉᚻ-ᛞᛖ-ᚹᛖᚦ-ᚢᚳ-ᛉᛗᚪᚣᛠ-ᚹᚫᚪᚳ-/   = EAXH DE WETH UC XMAYEA WAEAC /
 ```
 
-**Notes:**
+**Notes:** No scrolls; </Y patterns at top. 
 
 ## p38 (unsolved)
 
@@ -1034,7 +1034,7 @@ Known: black stamp device (top; p33 footer); red digit 5 (L4) + black diamonds r
 12  ᛠᛚᚠᛖᛡᚢ-ᛉᚻ-ᚪᚩᛡᛒᛠᚢᚷ-ᚻᛏᛠᚪᛞ-/   = EALFEIAU XH AOIABEAUG HTEAAD /
 ```
 
-**Notes:**
+**Notes: No scrolls; </Y patterns at top. **
 
 ## p39 (unsolved)
 
@@ -1062,7 +1062,7 @@ Known: red head word (line 1 **line 7 not 1** ); black stamp device (top; p33 fo
 15  $
 ```
 
-**Notes:**
+**Notes: No scrolls; </Y patterns at top. Three large black dots horizontally separate the 1st and 2nd paragraph.**
 
 ## p40 (unsolved)
 
@@ -1086,7 +1086,7 @@ Known: red head word (line 1) **words**; red-opening sentence ENDED by mid-line-
 11  ᚠᛉᚠᛏ-ᚳᛋᛉᛟ-ᚷᚠᛉᚾᛞ-ᛒᛏᛠᛡ"◆4ᛈᛡ/   = FXFT CSXOE GFXND BTEAIA".PIA/
 ```
 
-**Notes:**
+**Notes: **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p41 (unsolved)
 
@@ -1111,7 +1111,7 @@ Known: —
 12  ᛉᛄᛚᛈᚪᛁ-ᛟᚹᚱᛁᚱᚦᛖᛉ-ᚪᚾ-ᛞᛄᚷ-ᛟᛟᚳᛏᛄ/   = XJLPAI OEWRIRTHEX AN DJG OEOECTJ/
 ```
 
-**Notes: Apostrophe mid line 10**
+**Notes: Apostrophe mid line 10** 3 dot / 5 dot mirrored scrolls on sides.
 
 ## p42 (unsolved)
 
@@ -1136,7 +1136,7 @@ Known: —
 12  ᛋᛉ-ᚠᛗᛒ-ᚫᛋᛇᚾᛡᚾ-ᚢᚫᚹ-ᛞᛠᚢᚾᛝᚠᚾᛖᚫ/   = SX FMB AESEONIAN UAEW DEAUNNGFNEAE/
 ```
 
-**Notes: double quotes lines 3,6 (twice)**
+**Notes: double quotes lines 3,6 (twice) **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p43 (unsolved)
 
@@ -1161,7 +1161,7 @@ Known: —
 12  ᛝᛉᛞᛁ-ᛗᛝᚣᚪᛝᚠᛉᛁᛟᚷᛚ-ᛇᚩ-ᚫᛡᛏ-ᛄᛏ/   = NGXDI MNGYANGFXIOEGL EOO AEIAT JT/
 ```
 
-**Notes:double quotes line 1**
+**Notes:double quotes line 1; **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p44 (unsolved)
 
@@ -1186,7 +1186,7 @@ Known: —
 12  ᛠᛄᚫ-ᛉᚪᚷᚻᚣᛏᛖᛝ-ᛉᛉᛗᚾᚫᛋ-ᚱᛗᛞᛋ/   = EAJAE XAGHYTENG XXMNAES RMDS/
 ```
 
-**Notes:**
+**Notes: **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p45 (unsolved)
 
@@ -1211,7 +1211,7 @@ Known: —
 12  ᛞᚠᛟ-ᚢᛁ-ᛖᛇᚦ-ᚫᛞ-ᚳᛄ-ᚷᚢᚻᚣᚻᛁᛒᛉᚾ-ᚹᛝ/   = DFOE UI EEOTH AED CJ GUHYHIBXN WNG/
 ```
 
-**Notes:**
+**Notes: **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p46 (unsolved)
 
@@ -1236,7 +1236,7 @@ Known: —
 12  ᛗᚹ-ᛇᚪᚩᚾᛄᚳᛚᛒᛉ-ᚣᛠᚦᚹ-ᛝᛚᛗᚳᛡᛇᚠᚫ/   = MW EOAONJCLBX YEATHW NGLMCIAEOFAE/
 ```
 
-**Notes:**
+**Notes: **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p47 (unsolved)
 
@@ -1261,7 +1261,7 @@ Known: —
 12  ᚷᚩᚷ-ᛇᛁᛖ-ᛠᛄᛇᛁᚾᛄᚩᛗᚱᛡᛉ-ᚠᚻᚳ-ᚪᚩᚪᚫ/   = GOG EOIE EAJEOINJOMRIAX FHC AOAAE/
 ```
 
-**Notes:**
+**Notes: **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p48 (unsolved)
 
@@ -1286,7 +1286,7 @@ Known: margin decoration asymmetry (S8c/d)
 12  ᚫᛏᛟ-ᚻᛖᚾ-ᚳᛇᚩ-ᛋᚻᚫᛇ-ᛝᛁᛟ-ᛇᚠᚢᛞᚣᚪᛚᚠ/   = AETOE HEN CEOO SHAEEO NGIOE EOFUDYALF/
 ```
 
-**Notes:**
+**Notes: **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p49 (unsolved)
 
@@ -1323,7 +1323,7 @@ pinned by idx246 = p51 r8c7 (`3I` = 0xc6). All analysis using it has
 always used the combined stream (dukotah `analysis/pp49_51/`, our
 campaigns #12/#14).
 
-**Notes: r6c3 was error; corrected to 0S. **
+**Notes: r6c3 was error; corrected to 0S. 3 dot / 5 dot mirrored scrolls on sides.**
 
 ## p50 (solved)
 
@@ -1349,7 +1349,7 @@ Known: token table page (0 runes)
 3t 2B 2k 2t 2O 0e 2l 1L
 ```
 
-**Notes:**
+**Notes: **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p51 (unsolved)
 
@@ -1380,7 +1380,7 @@ Printed token table on this page (Roman/Arabic, omitted by krisyotam; idx246 = r
 1r 2c 2q 3o 30 0a 39 1K
 ```
 
-**Notes:**
+**Notes: **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p52 (unsolved)
 
@@ -1405,7 +1405,7 @@ Known: —
 12  ᛠᚩᛈ-ᛗᛏᚱᚫᚢᚻᛁᛝ-ᛇᚳᚠ-ᛄᚾᚱᚷ-ᛟᚷᚻᚣᚻ/   = EAOP MTRAEUHING EOCF JNRG OEGHYH/
 ```
 
-**Notes:**
+**Notes: **3 dot / 5 dot mirrored scrolls on sides.
 
 ## p53 (unsolved)
 
@@ -1428,7 +1428,7 @@ Known: red head word (line 1); stream L7/L8/L9 entirely red + red arrow after L6
 10  &
 ```
 
-**Notes:incorrect, red letters begin last letter of line 6 and continue to end. Also, double quote mid lines 3 and 6**
+**Notes:incorrect, red letters begin last letter of line 6 and continue to end. Also, double quote mid lines 3 and 6. **3 dot / 5 dot mirrored scrolls on sides. Cicada at bottom.
 
 ## p54 (unsolved)
 
@@ -1452,7 +1452,7 @@ Known: red head **words** (line 1)
 11  ᛠᚪᚳᛁᛗᛉᛄᛗᛖ-ᛗᛚ-ᚷᚩᛏᚦᛉᛖᛠᚱᚷᚣ/   = EAACIMXJME ML GOTTHXEEARGY/
 ```
 
-**Notes:**
+**Notes: 3 dot / 5 dot mirrored scrolls on sides.**
 
 ## p55 (unsolved)
 
@@ -1471,7 +1471,7 @@ Known: red only via dot-lattice (section terminator)
  6  $  
 ```
 
-**Notes:**
+**Notes: 3 dot / 5 dot mirrored scrolls on sides; tree outline in center; cicada at bottom. **
 
 ## p56 (solved)
 
@@ -1523,6 +1523,8 @@ multi-letter too). Symbol counts ≠ English letter counts; our value streams
 already treat ᚦ as one glyph, so the corpus is safe, but any letter-frequency
 work must use the letter expansion, not raw symbol counts.
 
+Notes: pattern at bottom of five dots, seemingly organized into groups of 3 and 2.
+
 ## p57 (solved)
 
 Known: 23-dot lattice (book end) + RED inline matrix after red word (S8b CONFIRMED) + bottom decoration; SOLVED closing page
@@ -1557,6 +1559,8 @@ so transliterating runes→letters reads straight as English; it's still a
 substitution, just the identity one. p56 is the same mapping + the phi(prime)
 shift + skip-F. No other page reads without an unbroken key (p50/p51 are
 readable Roman/Arabic tokens but they're key material, not English).
+
+Notes: Pointillist cicada decoration at bottom
 
 ---
 
