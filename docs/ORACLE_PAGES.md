@@ -426,6 +426,13 @@ Known: token table page (0 runes)
 
 ![p50](img/oracle/pages/p50.jpg)
 
+**Solution (what "solved" means here):** the page is a 13×8 table of 104
+mixed Roman/Arabic tokens; each token = 2 bytes of the 256-byte
+`canon_256.bin` (sha256 3b9b07d9…4b290) — the pad used in the pp49–51
+campaigns. There is no English plaintext; the page IS the key material.
+Row/column token values are pixel-verified in
+`sweeps/2026-11-targets/` (idx246 = 0xc6 confirmed).
+
 **Notes:**
 
 ## p51 (unsolved)
@@ -474,6 +481,25 @@ Known: SOLVED closing page
 
 ![p56](img/oracle/pages/p56.jpg)
 
+**Solution** (key: phi(prime)-shifted forward Gematria; every clear-text F
+is an ᚠ to be skipped; source: scream314 compilation via pinned dukotah
+clone — community-known since 2014, verified against our corpus conventions):
+
+    AN END
+
+    WITHIN THE DEEP WEB TH
+    ERE EXISTS A PAGE THAT HA
+    SHES TO
+
+    [5 hex lines — the onion address, left as printed]
+
+    IT IS THE DUTY OF EUERY PILGR
+    IM TO SEEK OUT THIS PAGE
+
+Note for pattern work: line breaks fall MID-WORD (TH|ERE, HA|SHES,
+PILGR|IM) — the solved pages show the line-wrap convention directly, and
+"EUERY" shows V-for-U. Word separators render as •.
+
 **Notes:**
 
 ## p57 (solved)
@@ -481,6 +507,17 @@ Known: SOLVED closing page
 Known: 23-dot lattice (book end) + RED inline matrix after red word (S8b CONFIRMED) + bottom decoration; SOLVED closing page
 
 ![p57](img/oracle/pages/p57.jpg)
+
+**Solution** (key: plain substitution, default Gematria; same source):
+
+    Parable : like the instar tunneling to the surface.
+    We must shed our own circumferences. Find the
+    divinity within and emerge.
+
+Note: this page's transcription in our corpus is the PARABLE (pos-80 ᚣ
+adjudication lives in data/SOURCES.md); punctuation here includes the
+colon after "Parable" — compare with the double-quote channel you spotted
+on pp42/43/53.
 
 **Notes:**
 
