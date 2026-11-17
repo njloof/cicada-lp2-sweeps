@@ -204,29 +204,42 @@ dot-lattice (independence expects 5.4; p = 0.0007). Before we interpret that
 as anything, we must rule out census misses on both sides — your eye:
 
 **S4 — do these three red-head pages hide a lattice we missed?**
-(full-page sheets; lattices are small red dot diamonds, 13-dot ≈ 84 px tall
-at full scan size, ~34 px here)
+Lattices are small red dot diamonds, 13-dot ≈ 84 px tall at full scan
+(~34 px here). One sheet per page; fill the line under each.
 
-| page | lattice present? | if yes: dots = __ |
-|---|---|---|
-| p8  | ☐ yes ☐ no ![p8](img/oracle/f7_S4_p08.png) |
-| p37 | ☐ yes ☐ no ![p37](img/oracle/f7_S4_p37.png) |
-| p40 | ☐ yes ☐ no ![p40](img/oracle/f7_S4_p40.png) |
+**p8** — lattice present? ☐ yes ☐ no · if yes dots = __ · location __
+![p8](img/oracle/f7_S4_p08.png)
+
+**p37** — lattice present? ☐ yes ☐ no · if yes dots = __ · location __
+![p37](img/oracle/f7_S4_p37.png)
+
+**p40** — lattice present? ☐ yes ☐ no · if yes dots = __ · location __
+![p40](img/oracle/f7_S4_p40.png)
 
 **S5 — do these lattice-only pages hide a red head word** (red drop-cap /
-red opening word in the title band, like pp0/3/6/…)?
+red opening word in the title band, like pp0/3/6/…)? One sheet per page.
 
-| page | red head word? |
-|---|---|
-| p2  | ☐ yes ☐ no |
-| p14 | ☐ yes ☐ no |
-| p22 | ☐ yes ☐ no |
-| p26 | ☐ yes ☐ no |
-| p32 | ☐ yes ☐ no |
-| p49 | ☐ yes ☐ no |
-| p55 | ☐ yes ☐ no |
+**p2** — red head word? ☐ yes ☐ no · if yes, the word __
+![p2](img/oracle/f7_S5_p02.png)
 
-Sheets: `img/oracle/f7_S5_p{02,14,22,26,32,49,55}.png` (720×1080).
+**p14** — red head word? ☐ yes ☐ no · if yes, the word __
+![p14](img/oracle/f7_S5_p14.png)
+
+**p22** — red head word? ☐ yes ☐ no · if yes, the word __
+![p22](img/oracle/f7_S5_p22.png)
+
+**p26** — red head word? ☐ yes ☐ no · if yes, the word __
+![p26](img/oracle/f7_S5_p26.png)
+
+**p32** — red head word? ☐ yes ☐ no · if yes, the word __
+![p32](img/oracle/f7_S5_p32.png)
+
+**p49** — red head word? ☐ yes ☐ no · if yes, the word __
+![p49](img/oracle/f7_S5_p49.png)
+
+**p55** — red head word? ☐ yes ☐ no · if yes, the word __
+![p55](img/oracle/f7_S5_p55.png)
+
 Reading key: all "no" on S4 + all "no" on S5 ⇒ the two red features are
 independent-but-correlated section markers (flag stands as census fact).
 S4 misses ⇒ flag weakens. S5 misses ⇒ heads are the complete marker and
