@@ -22,14 +22,29 @@ Transcription symbols (krisyotam): `-` word dot · `.` sentence dot · `/`
 line end · `*` after a rune = red ink · `⟦'⟧` `⟦"⟧` = apostrophe / double
 quote seen in the image but ABSENT from the transcription.
 
+Owner annotation symbols (adopted 2026-11-17, pp0–7 pass — you fill these
+directly into the Ciphertext lines; the generator never overwrites a line
+containing them):
+
+- `◆N` = dot-lattice/diamond of N dots rendered at that position (replaces
+  krisyotam's `.` or `&` there). `◆4` black 4-dot diamond · `◆10` red 10-dot
+  · `◆13` red 13-dot · `◆23` red 23-dot (book end). `◆3` = 3-dot, assumed a
+  line-wrapped `◆4` for decryption purposes (your p5 note).
+- `*` after `◆` = red lattice (same red-ink convention).
+- `//` = small vertical break (paragraph-style) · `///` = large vertical
+  break (section boundary).
+- Line numbers stay **krisyotam's** (his `&`/`$`/`§` blank lines count as
+  numbered lines — every campaign index uses his numbering), so a page's
+  numbering can exceed the visible text lines.
+
 Ornaments — two alphabets, keep them straight:
 
 - Krisyotam's own (in the Ciphertext lines): `&` (18×), `$` (9×), `§` (1×,
   p57 book end) — standalone segments where you saw dot-lattices. Which
   size is which is UNCONFIRMED (that's a question for you below).
-- For YOUR notes / our censuses, proposed display glyphs (say the word and
-  we adopt them everywhere): `◆4` black 4-dot diamond · `◆10` red 10-dot
-  lattice · `◆13` red 13-dot lattice · `◆23` red 23-dot (book end).
+- Your pp0–7 pass suggests: `&` at section ends ↔ `◆13` (p2 L9–11, p3 L6–8,
+  p6 L4–6, p7 L9–13), and many `.` sentence dots are actually rendered
+  `◆4` black diamonds. Confirm/correct as you continue past p7.
 
 Broad questions worth a thought as you flip (answer inline anywhere):
 
@@ -50,14 +65,14 @@ Known: red head word (line 1) ** words, since they contain one - and terminated 
 **Ciphertext** (krisyotam verbatim; `-` word separator, `.` = sentence dot (see p56 L1 `END.`), `/` = line end; standalone `&` (18×) / `$` (9×) / `§` (1×, book end p57) are krisyotam's transcription of the red dot-matrix ornaments — cipher-stream content, size mapping unconfirmed; `*` = red ink on owner-confirmed spans; `⟦'⟧`/`⟦"⟧` = image-only punctuation absent from the transcription, ≈word slot estimated. Line numbers = krisyotam lines (≠ image lines on solved pages, which wrap mid-word); printed Roman/Arabic content is omitted by krisyotam and appended below where known):
 
 ```
- 1  ᛋ*ᚻ*ᛖ*ᚩ*ᚷ*ᛗ*ᛡ*ᚠ*-ᛋᚣᛖᛝᚳ.ᚦᛄᚷᚫ-ᚠᛄᛟ-/   red 13-dot lattice
+ 1  ᛋ*ᚻ*ᛖ*ᚩ*ᚷ*ᛗ*ᛡ*ᚠ*-*ᛋ*ᚣ*ᛖ*ᛝ*ᚳ*◆13ᚦᛄᚷᚫ-ᚠᛄᛟ-/   red 13-dot lattice
  2  ᚩᚾᚦ-ᚾᛖᚹᛒᚪᛋᛟᛇᛁᛝᚢ-ᚾᚫᚷᛁᚦ-ᚻᛒᚾᛡ-/
  3  ᛈᛒᚾ-ᛇᛄᚦ-ᚪᛝᚣᛉ-ᛒᛞᛈ-ᛖᛡᚠᛉᚷᚠ-/
  4  ᛋᛈᛏᚠᛈᚢᛝᚣᛝᛉᛡ-ᚣᚻ-ᛒᚢ-ᚷᚩᛈ-ᛝᚫᚦ-ᛁ/
  5  ᚫᚻᛉᚦᛈᚷ-ᚣᚠᛝᚳᛄ-ᚦᚪᛗᛁᛝᛁᛡᚣ-ᚻᛇ-ᛏᚻᚫ/
  6  ᛡ-ᛉᚣ-ᛖᚢᛝ-ᚳᚠᚾ-ᛇᚦᛄᛁᚦ-ᚦᛈ-ᚣᛝᛠ-ᚣᚾ/
  7  ᛖᚣ-ᛞᛉᛝᚹ-ᛒᚳᛉᛞᛒᚠ-ᛗᛏᚾᛖ-ᛠᛄᚾᛚᚷ/
- 8  ᛒ-ᛉᚷᚦ.ᚣᛁᛞᚪ-ᛝᚷᛗᛄᚱᚩᛚᛇ-ᚣᛏᛈᛁᚦᛞᛄ-/
+ 8  ᛒ-ᛉᚷᚦ◆4ᚣᛁᛞᚪ-ᛝᚷᛗᛄᚱᚩᛚᛇ-ᚣᛏᛈᛁᚦᛞᛄ-/
  9  ᛟᚻᛚ-ᛠ-ᚠᛉᚫᛈᚷᛉ-ᚠᛚᚹᛇᛏᚫ-ᚠᚷᚾ-ᛗᛇᛚᚾ-/
 10  ᛝᛗᚠᚱᛡ-ᚪᛋ-ᛠᛗᛝᛉᛉᛇᛞᛒ-ᛟᛞᛗᚩ-ᛠ/
 11  ᛇᚻ-ᛞᛝᚷ-ᛟᛝᛚᚢᚱᚾᛏ-ᚫᛋᚣᚢᚻᚱᛏ-ᚻᚳ-ᛋᛟ/
@@ -75,14 +90,14 @@ Known: —
 **Ciphertext** (krisyotam verbatim; `-` word separator, `.` = sentence dot (see p56 L1 `END.`), `/` = line end; standalone `&` (18×) / `$` (9×) / `§` (1×, book end p57) are krisyotam's transcription of the red dot-matrix ornaments — cipher-stream content, size mapping unconfirmed; `*` = red ink on owner-confirmed spans; `⟦'⟧`/`⟦"⟧` = image-only punctuation absent from the transcription, ≈word slot estimated. Line numbers = krisyotam lines (≠ image lines on solved pages, which wrap mid-word); printed Roman/Arabic content is omitted by krisyotam and appended below where known):
 
 ```
- 1  ᚪᛁᛗᛋᚾ-ᛋᛟᚱᚢᚹᛋᛚᛡ.ᛟᚪᚫᛝᛋᛞᛈᛏ-ᚳᚱᚦ/
- 2  ᛡ-ᚱᛒᚩᛞᚦᚠ-ᚣᛉᛁᛏ.ᛟᛁ-ᚠᛚᚩ-ᚠᛠ-ᚱᚩᛟᛗᚻ/
+ 1  ᚪᛁᛗᛋᚾ-ᛋᛟᚱᚢᚹᛋᛚᛡ◆4ᛟᚪᚫᛝᛋᛞᛈᛏ-ᚳᚱᚦ/
+ 2  ᛡ-ᚱᛒᚩᛞᚦᚠ-ᚣᛉᛁᛏ◆4ᛟᛁ-ᚠᛚᚩ-ᚠᛠ-ᚱᚩᛟᛗᚻ/
  3  ᛗᚷᛈᚻ-ᚫᚻᚾᚩᚻᚣ-ᛟᛋᛚ-ᚾᚷ-ᚫᚣ-ᛟᚳᛒᛚᛄ-ᛝ/
- 4  ᛚᛟ-ᚫᛄᛠᚹ-ᛠᚦᚩ-ᛒᛟᚣ-ᚳᚠᚳᛄ-ᛚᚫ.ᚾ-ᚦᛈ-/
+ 4  ᛚᛟ-ᚫᛄᛠᚹ-ᛠᚦᚩ-ᛒᛟᚣ-ᚳᚠᚳᛄ-ᛚᚫ◆4ᚾ-ᚦᛈ-/
  5  ᚢᛉ-ᛟᛉᚷ-ᛈᚠᛋᛇᚫᛟ-ᛝᛈᛇᚩᛖᚪ-ᚷᚫᛡᛝᚦᚩ/
- 6  -ᛈᚪᛟᚦᚱᛝᚫ-ᚳᛋᛒᛇᚣᚻ-ᛏᛉᛖᛚᚱ.ᚷᚹᚣ-ᛄᚠ/
+ 6  -ᛈᚪᛟᚦᚱᛝᚫ-ᚳᛋᛒᛇᚣᚻ-ᛏᛉᛖᛚᚱ◆4ᚷᚹᚣ-ᛄᚠ/
  7  ᛁᚾᛡᚳᚣᛠᛁᛡ-ᚩᚦ-ᛖᚳᚫᚳᛉᛡᛠ-ᚩᛚᚳ-ᚠᚱ/
- 8  ᛞᛝᛖᚢ-ᛞᚳᛚᛠᛋᛉᚳᚷᛡ.ᚹᛋᚦ-ᚠᛞᛝ-ᛁᛡ/
+ 8  ᛞᛝᛖᚢ-ᛞᚳᛚᛠᛋᛉᚳᚷᛡ◆4ᚹᛋᚦ-ᚠᛞᛝ-ᛁᛡ/
  9  ᛗᚪᚫᚷ-ᚹᛋ-ᚾᛞ-ᚳᛈᚦᛉᛈᛠᛠ-ᚹᚢ-ᛠᚹ-ᚠᚹ/
 10  ᛄᚣ-ᛉᛞᚹᚳᚷᚳᛟ-ᛞᛉᛟ-ᚱᛡᚷ-ᚾᛈᚪᚣᛈ-ᚳ/
 11  ᚣᚻ-ᚠᛖᛄᛠᚾ-ᛟᚫ-ᚢᚪ-ᚻᚱ-ᛖᛠᚦᚠᛄᚪ-ᛚᛉ/
@@ -100,7 +115,7 @@ Known: red only via dot-lattice (13 dot section terminator)
 **Ciphertext** (krisyotam verbatim; `-` word separator, `.` = sentence dot (see p56 L1 `END.`), `/` = line end; standalone `&` (18×) / `$` (9×) / `§` (1×, book end p57) are krisyotam's transcription of the red dot-matrix ornaments — cipher-stream content, size mapping unconfirmed; `*` = red ink on owner-confirmed spans; `⟦'⟧`/`⟦"⟧` = image-only punctuation absent from the transcription, ≈word slot estimated. Line numbers = krisyotam lines (≠ image lines on solved pages, which wrap mid-word); printed Roman/Arabic content is omitted by krisyotam and appended below where known):
 
 ```
- 1  ᛟᛗ-ᚢ.ᚻᛏ-ᛒᛇᛚᛞᚻᛒᛗ-ᛠᚱᛒ-ᚾᚻᛒᛖᚷᛇ-/
+ 1  ᛟᛗ-ᚢ◆4ᚻᛏ-ᛒᛇᛚᛞᚻᛒᛗ-ᛠᚱᛒ-ᚾᚻᛒᛖᚷᛇ-/
  2  ᛞᛚᚹᛇᛡᛈᚩ-ᚻᛖᛠ-ᚹᛁᚱᛁᚻ-ᚢᚦᚻᚣ-ᚾᛉᛒᚷᛄ/
  3  ᛈᚢ-ᛝᛠᚠᚾᛁᛖᛞᛡᛝᚱ-ᛞᛒᛄᛡᛟᛗᛁ-ᚠᛏ-ᛄ/
  4  ᛞᛁᚦᚱᛚᛋ-ᛖᛇᚩᚷᛒᛏᛞ-ᚦᚪᚾᚳᚣ-ᛡᛋᚦᛞ-ᛝᚠᛚ/
@@ -108,9 +123,9 @@ Known: red only via dot-lattice (13 dot section terminator)
  6  ᚳ-ᚠ-ᛈᚪᛚᚢᛠᚾᛚᛄ-ᛄᚳᛚᚹᛠᛞᚢᛞᛇ-ᛠᛉ/
  7  ᛞᚹᚻᛠ-ᚦᛡᚫᚳᛚᛏᚹᛖᛁᚳ-ᛈᛟᛞᚳ-ᚾᚻᚪ-ᚱᛁᚷ/
  8  ᚦᛠᛖᛏᚷ-ᚦᚻᚩᛡᚹᚫᛄᛖ-ᛝᛠᛞ-ᚩᚫ-ᚪᛚ-ᛒᛄ/
- 9  ᚳᚢᛉᛏᚪᛒᛄᛈ-ᚠᛠ-ᚻᛞᚾᛡᚢᛈᛋᚢᚹ./
+ 9  ᚳᚢᛉᛏᚪᛒᛄᛈ-ᚠᛠ-ᚻᛞᚾᛡᚢᛈᛋᚢᚹ◆13*/
 10  &
-11  $   red 13-dot lattice (section terminator)
+11  $
 ```
 
 **Notes:**
@@ -124,21 +139,21 @@ Known: red head word (line 1); red inline dot-matrix ** 13 dot lattice ** after 
 **Ciphertext** (krisyotam verbatim; `-` word separator, `.` = sentence dot (see p56 L1 `END.`), `/` = line end; standalone `&` (18×) / `$` (9×) / `§` (1×, book end p57) are krisyotam's transcription of the red dot-matrix ornaments — cipher-stream content, size mapping unconfirmed; `*` = red ink on owner-confirmed spans; `⟦'⟧`/`⟦"⟧` = image-only punctuation absent from the transcription, ≈word slot estimated. Line numbers = krisyotam lines (≠ image lines on solved pages, which wrap mid-word); printed Roman/Arabic content is omitted by krisyotam and appended below where known):
 
 ```
- 1  ᛚ*ᛄ*-ᛇᚻᛝᚳᚦᛏᚫᛄᛏᛉᚻ-ᛏᚢᛟ.ᛋᛈᚱᚷ/   red inline dot-matrix
+ 1  ᛚ*ᛄ*-*ᛇ*ᚻ*ᛝ*ᚳ*ᚦ*ᛏ*ᚫ*ᛄ*ᛏ*ᛉ*ᚻ*-*ᛏ*ᚢ*ᛟ*◆13ᛋᛈᚱᚷ/   red inline dot-matrix
  2  -ᚣᚾᚪᚷᛇᛝᚾ-ᚹᚠᚣᚾᛒᛠᛡ-ᛈᚾᚣᚪᛋᛗ/
  3  ᛒ-ᛡᛠᛡᛁ-ᚩᛒᚱᚾᛚᛠ-ᚱᛚᛚᛖᛒᚹᚾᚻᛗᚠ/
  4  ᛟᛒ-ᛝ-ᚱᚪᛡᚷᛟᛇᛏᛗᛉ-ᛞᛇ-ᛗᚣᚻᛠ-ᛁᛚᛋ-ᚾ/
  5  ᚹᚳᚠᛈᛗᛈᛚ-ᛠᛋᚦᚠᛟᛡ-ᚦᛖᚣ-ᚳᛄᛚᚳᛡᛗ-/
- 6  ᛒᛞᚳᛇ-ᛄᛁᛏᛟ-ᛞᛠᛖᛡᚾᛏ./
- 7  &   red 13-dot lattice
- 8  ᛈᛞᚦ.ᛇᛞᛇ-ᚫᛚᚳ-ᛡᛇ-ᛠᚻ-ᚹᛗᚣᚦ/
+ 6  ᛒᛞᚳᛇ-ᛄᛁᛏᛟ-ᛞᛠᛖᛡᚾᛏ◆13///  
+ 7  &
+ 8  ᛈ*ᛞ*ᚦ*◆13*ᛇᛞᛇ-ᚫᛚᚳ-ᛡᛇ-ᛠᚻ-ᚹᛗᚣᚦ/
  9  ᚢ-ᚻᛏᚦᚱᚻᛝ-ᛚᛝᛋ-ᚾᚫᛠᚷᛋᛚ-ᛋᛉ/
 10  ᚩᚻᚹᛞᛗᛖᛗᚪᚠ-ᚳᚣᚳᚫᚾ-ᛏᚦᚷ-ᛁᛄᛁ/
 11  -ᚳᛞᛡᛉ-ᚻᚫᚫᛠᚷ-ᛠᛝ-ᚠᛏᚩᚱᛞᚳᛇ-ᚠᚢ/
 12  ᛉᛠᛒᚩ-ᛉᛁᚣᚷᛋᛋᛒᛠ-ᚩᛁᛈ-ᛁᛄᛁᚩᛖ-ᚻᛠᚻ/
 ```
 
-**Notes:**
+**Notes: /// is large vertical break between sections**
 
 ## p4 (unsolved)
 
@@ -152,18 +167,18 @@ Known: —
  1  ᛚᛡ-ᚣᛈᛉᛁᚹᛗᚳᛁ-ᛚᚷᚠᚾᛡᚳᛉ-ᛈᚩᚱᛡ-ᚻ-ᛄ/
  2  ᛗ-ᛟᛉᛝ-ᚢᛗᛇᛠᚷᛝ-ᛝᚹᚳ-ᛚᛝᚢ-ᛉᛄᚠᛟ/
  3  ᚢ-ᚷᛠ-ᛗᛉ-ᚪᚹ-ᛚᚢᛉᚫ-ᛗᛞᛝᚻᚱᚣ-ᚻᚪ-ᚷᛁ/
- 4  ᚠᚷᚳ-ᚫᛝᛄᛇᛉᛡ-ᚾᚦᛒᚢᛄᚱ.ᚹ-ᚷᛚᛟᚷ-ᚦᛇᚠ-/
- 5  ᚦᛠᛁ-ᛋᚷ-ᚷᚣ-ᛠᛡᛈ-ᛡᚫᛚ.ᚦᛠᛉᚫ-ᛖᛗ/
- 6  ᛖᛏᛟᛏ-ᛠᚳᚠ-ᚳᛠᚷ-ᚦ-ᛈᛁᚳᚾ.ᛇᚣᛝᛄᛝ/
+ 4  ᚠᚷᚳ-ᚫᛝᛄᛇᛉᛡ-ᚾᚦᛒᚢᛄᚱ◆4ᚹ-ᚷᛚᛟᚷ-ᚦᛇᚠ-/
+ 5  ᚦᛠᛁ-ᛋᚷ-ᚷᚣ-ᛠᛡᛈ-ᛡᚫᛚ◆4ᚦᛠᛉᚫ-ᛖᛗ/
+ 6  ᛖᛏᛟᛏ-ᛠᚳᚠ-ᚳᛠᚷ-ᚦ-ᛈᛁᚳᚾ◆4ᛇᚣᛝᛄᛝ/
  7  ᛗᚹᚳᚾ-ᛒᚣᛠ-ᚩᛟᚷᚱ-ᛗᚱᛗᛈᛡᚹ-ᚫᛟᚦᛟ-ᛈ/
- 8  ᛉᛄᛚ-ᚱᛚᚱᛒᚪᛈᛏᛉᛚᛏ-ᛗᛉᛁᚹ.ᛄᛋᛟᛗᚾᚱ/
+ 8  ᛉᛄᛚ-ᚱᛚᚱᛒᚪᛈᛏᛉᛚᛏ-ᛗᛉᛁᚹ◆4ᛄᛋᛟᛗᚾᚱ//
  9  ᛖᛒᛋ-ᚳᛏᛚᛟ-ᛋᛒᚠᛉᚦᚪᛠᚢ-ᛇᛉ-ᚱᚷᛏᛇᛠ/
 10  ᛁᛄᛒᛟ-ᛉᚷᛄᛝ-ᛠᚦ-ᚱᛝᛒ-ᚾᚢᚪᛝᛒᛈᛋᛠ-ᛈ/
 11  ᚹᚩᚻᛖ-ᚫᛇᚷᚾᚫᛋᛇ-ᚩᛈᛗ-ᛖᛉᛡᛒᚹ-ᚢᛖᛁᛞ-/
 12  ᛈᚪᛇᚷᛋᚳᚷᛞᛈᚣ-ᛡᛚᚦᚱ-ᚳᚢᚠᛇᚦ-ᛉᛖᛚ-ᚢ/
 ```
 
-**Notes:**
+**Notes: // is small vertical break between sets of lines, like a paragraph end/begin?**
 
 ## p5 (unsolved)
 
@@ -177,18 +192,18 @@ Known: —
  1  ᚱᚫ-ᛉᚻᛄᚫᛗᛚᚠ-ᚳᛝᛞ-ᛁᛝᚩ-ᚳᛋᛟᛖᚣᛟᚻᚢ-/
  2  ᚷᛞᚹᚪ-ᛖᛋᚷᛝᚠᛉ-ᛞᛉᛄ-ᛠᚻᛁ-ᚦᛈᛉᚣ-ᛡ-/
  3  ᛇᛞᛇᛝᛇᛝ-ᛖᛠᛞᚱ-ᛚᛇᛏ-ᛉᛏᚣ-ᚱᛇ-ᛈᛝᛇ/
- 4  ᛈᚩᛁᛚᛖᚠ-ᛇᚫᚪ-ᚣᛝᚠᚣ-ᚠᛞᚾᛚ-ᛉᛏᚾᚫᛋ.ᛁᚩ/
- 5  ᚳᚢ-ᚣᛠᚾᛏᚷᚳᚪ-ᛉᛡᛇ-ᚦᛄᚣᛄᛚᛟᛖᛚ-ᚣ./
- 6  ᛈᛡ-ᛖᚹᛟ-ᛇᚾᚪ-ᚻᛞᛇᛋ-ᚦᚣᛇᚦᛄᚦᚱᚢ-ᚳᛠ/
+ 4  ᛈᚩᛁᛚᛖᚠ-ᛇᚫᚪ-ᚣᛝᚠᚣ-ᚠᛞᚾᛚ-ᛉᛏᚾᚫᛋ◆4ᛁᚩ/
+ 5  ᚳᚢ-ᚣᛠᚾᛏᚷᚳᚪ-ᛉᛡᛇ-ᚦᛄᚣᛄᛚᛟᛖᛚ-ᚣ◆3/
+ 6  -ᛈᛡ-ᛖᚹᛟ-ᛇᚾᚪ-ᚻᛞᛇᛋ-ᚦᚣᛇᚦᛄᚦᚱᚢ-ᚳᛠ/
  7  ᚪ-ᚢᛄᛡᛈ-ᚣᚫᛇᛋ-ᚻᛠᛏᚣᛞᚣᚫᚠᚻᚩ-ᛟᛗ/
  8  ᛉᛟᛄᚷ-ᚢᛡᚱᛡᚳ-ᛁᚠᛟ-ᛁᛄᛈᛒ-ᛖᛝᚣᚦᚩᚫᚣ-/
  9  ᛠᛉᛡᛖᛚ-ᛁᚱᚣᛞᛠᛄ-ᚫᚳ-ᛗᚷᛁᚫᚢᚪᚫ-ᛄᚪ/
 10  ᚻᛈ-ᚠᛞᛚᛁᛠᛈᛟᚣᚩ-ᚢᛒᚷᛝᛟᚢᛝᛋᚢᚳ-ᛏ/
-11  ᛞ.ᚫᛈᚩᛄ-ᛒᚻᚱᛁᚷᚻᛄ-ᚣᚹᛗᛇᚾᚫ-ᛞᛝᛇ-ᛟᛄ/
+11  ᛞ◆4ᚫᛈᚩᛄ-ᛒᚻᚱᛁᚷᚻᛄ-ᚣᚹᛗᛇᚾᚫ-ᛞᛝᛇ-ᛟᛄ/
 12  ᛝᚳᛖᛠ-ᛉᚪᚱᚣ-ᚪᚢᛏ-ᚳᛈᚳ-ᚩᛇᛟ-ᚫᛈ-ᛏ/
 ```
 
-**Notes:**
+**Notes:** ◆3 with - on next line may just be a word wrapped ◆4; let's assume this for now for decryption purposes
 
 ## p6 (unsolved)
 
@@ -202,14 +217,14 @@ Known: red head word (line 1) ** incorrect, red 13-dot lattice ends line 4, red 
  1  ᛉᚳᛏᚻᛞᛇ-ᛉᛒᛠ-ᚫᚾᛄ-ᛠᚪᛒ-ᛖᛠᚹ-ᛡᛚ-/
  2  ᚹᛁᛡᛋᛈᛚᚦᚪᛋᛄ-ᛡᛞᚣᚱᛞᛟ-ᚦᚱᛉᛟᚹ-ᚣᛞᛏ-/
  3  ᚷᛚᛡᚻᚹᛗᚱ-ᛝᚠᚳ-ᚱᚫᛁᛒᚷᛈᚣ-ᛞᚪᚱᚪᛉᛟ-ᚢ/
- 4  ᚩᛁᛠ./   red 13-dot lattice ends L4
- 5  &   terminating red 13-dot lattice
- 6  ᚪᛏᛉᛒ-ᛗ-ᚷᛡᛋᛒ-ᛉᛇ.ᚷᚾᛠᚫᚷᛝᛞ-/
+ 4  ᚩᛁᛠ◆13*///
+ 5  &
+ 6  ᚪ*ᛏ*ᛉ*ᛒ*-*ᛗ*-*ᚷ*ᛡ*ᛋ*ᛒ*-*ᛉ*ᛇ*◆13*ᚷᚾᛠᚫᚷᛝᛞ-/
  7  ᛉᛖᛏᚩᚷᛡ-ᛝᚻᛏ-ᚳᛁᚣ-ᛄᛏ-ᛟᚩᚻᚱᛄ-/
  8  ᚳᛖᛡᚩ-ᛞᚪᛏᚣᚢᚾᚱᛇ-ᚫᚫᛁᛖᚠᛝᚦᚻ-/
  9  ᛉᛁᛟᛋᛁ-ᛗᚪ-ᚢᛄᚳᛋᚹᚾᚣ-ᚩᛈᛉᚱ-ᛚᚫᛟᛏᛡ-ᛄ/
 10  ᛈᛗ-ᛞᛋᚠᛗ-ᛟᚹ-ᛞᛚᛏ-ᚷᚱ-ᚩᚢᛋᚻᚪ-ᚣᛇᛡᛚ/
-11  ᚢᚻ-ᛈᚹᛄᛚᚷᛒ-ᛗᚢᛄᛗ-ᛇᚾᛇ.ᚫᛚᚪᛚᚷᚪ-ᛋ/
+11  ᚢᚻ-ᛈᚹᛄᛚᚷᛒ-ᛗᚢᛄᛗ-ᛇᚾᛇ◆4"ᚫᛚᚪᛚᚷᚪ-ᛋ/
 ```
 
 **Notes:**
@@ -223,7 +238,7 @@ Known: red head word (line 1) ** incorrect, red tail words line 10, begins and e
 **Ciphertext** (krisyotam verbatim; `-` word separator, `.` = sentence dot (see p56 L1 `END.`), `/` = line end; standalone `&` (18×) / `$` (9×) / `§` (1×, book end p57) are krisyotam's transcription of the red dot-matrix ornaments — cipher-stream content, size mapping unconfirmed; `*` = red ink on owner-confirmed spans; `⟦'⟧`/`⟦"⟧` = image-only punctuation absent from the transcription, ≈word slot estimated. Line numbers = krisyotam lines (≠ image lines on solved pages, which wrap mid-word); printed Roman/Arabic content is omitted by krisyotam and appended below where known):
 
 ```
- 1  ᚻᛝ-ᛚᚦᛒ-ᛋᚳᚢᚳᚩᛡ-ᛚᚳᛄ-ᛉᚪᚾᛇᛉ.ᛠ/
+ 1  ᚻᛝ-ᛚᚦᛒ-ᛋᚳᚢᚳᚩᛡ"-ᛚᚳᛄ-ᛉᚪᚾᛇᛉ◆4ᛠ/
  2  ᛗᛈᚢ-ᛗᚠᛚᛠᛝ-ᛒᛉᛁ-ᛚᚦᚱ-ᛠᛡᛁᚳ-ᚩᛉᛖ/
  3  ᛞᛡ-ᛏᛋᛗᛠᛄᛈ-ᛠᛟ-ᛡᚫᚦᚹᚻᛈᛇᚪᚷᛈᚻ/
  4  ᛠ-ᚳᛚᛠᛈ-ᛡᚣᚾᛁ-ᛚᛡᛁᚳ-ᚫᛇᚾ-ᚫᚳᛡᚱᛡᛚ/
@@ -231,9 +246,9 @@ Known: red head word (line 1) ** incorrect, red tail words line 10, begins and e
  6  -ᚦᛈᚪ-ᛡᛚᛟᚹᛡᛈ-ᛄᛗ-ᚷᛒᛈᛋᚾᛇ-ᛏᚩᚷᚢᚾᚫ/
  7  ᛖ-ᚾᚣᛁᛖ-ᛞᛝ-ᛞᛝ-ᛚᚢᛚᛉ-ᚪᚾᛝ-ᛇᚪᛄ-ᚻ-ᛞ/
  8  ᚹᛈᚫᚹᚫ-ᛇᛁᛚᛝ-ᚦᚾᚳ.ᛒᛁᛏ-ᛠᚳᚩᛇᛖᛝ-ᚳᚻ/
- 9  ᛟᚻᚫᛄ-ᛟᛉ-ᛁᚳᛖᛏᛋᚹᛖᚾᛡᚣᛄᛗ-ᛖᚳᚪ./
-10  &   red 13-dot lattices bracket this line
-11  ᛞᚩ-ᛟᛏᚦᚫ.ᚳᚹᛄ-ᛉᛠ-ᚷᛠᛗ./
+ 9  ᛟᚻᚫᛄ-ᛟᛉ-ᛁᚳᛖᛏᛋᚹᛖᚾᛡᚣᛄᛗ-ᛖᚳᚪ◆13///
+10  &
+11  ◆13*ᛞ*ᚩ*-*ᛟ*ᛏ*ᚦ*ᚫ*◆4*ᚳ*ᚹ*ᛄ*-*ᛉ*ᛠ*-*ᚷ*ᛠ*ᛗ*◆13*/
 12  &
 13  $
 ```

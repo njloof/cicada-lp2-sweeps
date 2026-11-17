@@ -234,6 +234,11 @@ def main():
             print("missing Notes", p)
             continue
         seg = md[i + len(img):j]
+        if "◆" in seg or "///" in seg:
+            # owner-annotated block (diamond lattices / break marks):
+            # never regenerate — owner edits are ground truth here
+            print("skipping owner-annotated p", p)
+            continue
         new_seg = "\n\n" + blk + "\n"
         if "**Ciphertext**" in seg:
             k = seg.find("**Ciphertext**")
