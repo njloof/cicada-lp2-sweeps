@@ -371,3 +371,37 @@ want to know whether to keep a machine census of them.)
 S8c RESOLVED 2026-11-17: same pattern both pages; ~3 left / ~5 right, exact
 counts not reliably readable → margin decoration CLOSED, no machine census of
 margins. (The "(can't see)" line above was my re-ask preamble, now moot.)
+
+# Round #6 (2026-11-17) — FULL PAGES ONLY (your policy, adopted)
+
+Per your note: audits now use full pages — no more crops. Generate the
+marked pages yourself (bulk images are yours to run):
+
+    python3 scripts/audit/mark_full_pages.py
+
+→ docs/img/oracle/audit/pNN_marked.png (+ pNN_markers.txt sidecar giving
+marker coordinates). Cyan **D** circles = machine 4-dot-diamond census;
+orange **L** boxes = red-lattice census (label = dot count).
+
+**S9 — what does krisyotam's `$` sit on?** (9 pages: 2, 7, 15, 22, 26,
+32, 39, 55, 56 — every `$` follows an `&` immediately.) Early read of
+marked p2/p7/p15: at the `$` position we see LARGE graphics, not red
+lattices — p2: mayfly woodcut + small ∞ loops (top and bottom); p15: a
+∞ (lemniscus) loop directly under the digit block; p7: a scattered
+diamond of LARGE black dots (~5–6, much bigger than word-dots) under the
+red line. For each `$` page, what do you see there?
+shape p2: __ p7: __ p15: __ p22: __ p26: __ p32: __ p39: __ p55: __ p56: __
+(mayfly / ∞ loop / large-dot diamond / other: __ — "decoration, no
+consistent shape" is a valid answer; it retires $ as a symbol.)
+
+**S10 — the 19 plain dots you left unstarred** (pages 7, 10, 17, 20, 26,
+27, 29, 30, 34, 40, 41, 44, 47, 48, 52 — the sidecar names the krisyotam
+line each sits on). On each marked page, is one of the cyan D circles
+exactly that dot? If yes note its D-number; if none matches, say "not
+circled" and we add a detector miss to the v2 list.
+p7 (line 8, mid-line): D__ / not circled ☐   p10 (L9): D__ / ☐
+p17 (L3): D__ / ☐   p20 (L6): D__ / ☐   p26 (L9): D__ / ☐
+p27 (L7): D__ / ☐   p27 (L8): D__ / ☐   p29 (L5): D__ / ☐   p29 (L6): D__ / ☐
+p30 (L9): D__ / ☐   p34 (L7): D__ / ☐   p40 (L2): D__ / ☐   p41 (L1): D__ / ☐
+p41 (L4): D__ / ☐   p41 (L9): D__ / ☐   p44 (L8): D__ / ☐   p47 (L3): D__ / ☐
+p48 (L1): D__ / ☐   p52 (L4): D__ / ☐

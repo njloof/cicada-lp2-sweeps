@@ -1,18 +1,23 @@
 #!/usr/bin/env python3
 """Append per-line Romanization to ORACLE_PAGES ciphertext blocks.
 
-OWNER-REQUESTED 2026-11-17, **DEFERRED**: run ONLY after the owner
-announces their full annotation pass on all 58 pages is complete. Until
-then this script must not be run against docs/ORACLE_PAGES.md.
+OWNER-REQUESTED 2026-11-17; pass complete, ACTIVE — re-run after any
+owner edit to the rune side (the roman segment is derived; owner edits
+belong in the rune body).
 
 For every numbered line inside the first fenced block after each
 "**Ciphertext**" header that contains at least one runic codepoint,
 append `   = ROM` where ROM is the line with each rune replaced by its
-Gematria letter (core.validate TRANS) and every non-runic symbol
-(`-` `.` `/` `*` `&` `$` `§` `◆N` `//` `///` quotes) passed through
-unchanged. Idempotent: an existing trailing `= ...` roman segment is
-stripped and recomputed, so re-running after later edits keeps lines
-and romanization in sync (owner sync requirement).
+Gematria letter (core.validate TRANS) plus the owner-agreed symbol
+convention (2026-11-17): `-` -> space (word separator), ◆3/◆4 -> `.`
+(diamond = rendered sentence dot, campaign #16 T1), ◆10 -> `†` (dagger,
+inline red ornament), ◆13 -> `¶` (pilcrow, section terminator),
+◆23 -> `§` (section sign — matches krisyotam's own `§` for the 23-dot
+book end). The red marker `*` and everything else (`.` `/` `&` `$` `§`
+`//` `///` quotes digits) pass through unchanged. Idempotent: an
+existing trailing `= ...` roman segment is stripped and recomputed, so
+re-running after later edits keeps lines and romanization in sync
+(owner sync requirement).
 
 Romanization is per PHYSICAL line (wrapped continuations romanize
 separately, mirroring the wrap). Token/hex table fences and &/$/§
@@ -32,13 +37,20 @@ MD = os.path.join(ROOT, "docs", "ORACLE_PAGES.md")
 
 R2T = {r: t for r, t, _ in GEMATRIA}  # authoritative rune -> letter map
 
+# owner-agreed roman symbol convention (2026-11-17)
+ROMSYM = {"3": ".", "4": ".", "10": "†", "13": "¶", "23": "§"}
+
 
 def _rune(c):
     return c in R2T
 
 
 def roman(s):
-    return "".join(R2T.get(c, c) if _rune(c) else c for c in s)
+    s = re.sub(r"◆(\d+)(\*?)",
+               lambda m: ROMSYM.get(m.group(1), f"◆{m.group(1)}") + m.group(2),
+               s)
+    s = "".join(R2T.get(c, c) for c in s)
+    return s.replace("-", " ")
 
 
 def main():
