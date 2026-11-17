@@ -325,6 +325,17 @@ misses. Red boxes = machine detections.
 | p40 ![s40](img/oracle/f7_S7_p40_marked.png) | 6 found vs your 5 — the far-right pair on L5 (one at x≈1994, off-page-edge?): real or noise? missed: __ |
 | p48 ![s48](img/oracle/f7_S7_p48_marked.png) | 8 detections — do they look like the same 4-dot class, or woodcut/punctuation noise? real: __/8      |
 | p57 ![s57](img/oracle/f7_S7_p57_marked.png) | 13 detections, 10 clustered at bottom — same class, or ornament texture? real: __/13                 |
+|                                             |                                                                                                      |
 
-Also useful if you spot them: do any 4-dot diamonds appear at the END of
-red-head lines (would link this channel to the red section markers)?
+p8:
+left one is noise, none missed.
+
+p40: far right is "decoration" not body text -- but interestingly an *asymmetry* between the designs on the left and right margins -- 3 dots on the left, where you have identified 5 dots on the right.
+
+p48: same observation as p40. so in both cases, false positive for body text "4 dot diamond", but an interesting observation.
+
+p57: ten clusters at bottom are decoration
+
+
+
+Also useful if you spot them: do any 4-dot diamonds appear at the END of red-head lines (would link this channel to the red section markers)? YES, p40 and p57, the opening sentence begins in red, and the 4-dot diamond appears at the end of both "sentences"
