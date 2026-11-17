@@ -180,7 +180,22 @@ def block(p, segs):
             pos = f"≈w{word_slot(seg, xf)}" if xf is not None else "pos TBD"
             ann.append(f"⟦{sym}⟧{pos}")
         ann += latt.get(i, [])
-        out.append(f"    {i:>2}  {s}" + (("   " + "; ".join(ann)) if ann else ""))
+        # wrap at dash-word boundaries for readability (owner request);
+        # continuation lines align under the first rune
+        head = f"    {i:>2}  "
+        indent = " " * len(head)
+        parts = s.split("-")
+        rows, cur = [], ""
+        for j, w in enumerate(parts):
+            piece = w + ("-" if j < len(parts) - 1 else "")
+            if cur and len(cur) + len(piece) > 72:
+                rows.append(cur)
+                cur = piece
+            else:
+                cur += piece
+        rows.append(cur)
+        out.append(head + rows[0] + (("   " + "; ".join(ann)) if ann else ""))
+        out.extend(indent + r for r in rows[1:])
     if p == 51:
         out.append("\n  Printed token table on this page (Roman/Arabic, omitted by "
                    "krisyotam; idx246 = r8c7 `3I` pixel-confirmed 0xc6; community "
