@@ -13,6 +13,17 @@ Sources:
 - p50 table: scream314 compilation (via pinned dukotah clone)
 
 Usage: python3 scripts/audit/insert_transcriptions.py
+
+QUEUED (owner request 2026-11-17, DEFERRED until owner completes the full
+annotation pass on all 58 pages): append to each runic line in the fenced
+block its Romanization using the corpus Gematria table (core.validate TRANS:
+0:F 1:U 2:TH 3:O 4:R 5:C 6:G 7:W 8:H 9:N 10:I 11:J 12:EO 13:P 14:X 15:S
+16:T 17:B 18:E 19:M 20:L 21:NG 22:OE 23:D 24:A 25:AE 26:Y 27:IA 28:EA),
+e.g. as a trailing "  = U TH ..." after the runes; non-runic symbols
+(`-` `.` `/` `*` `◆N` `//` `///` quotes) pass through unchanged. Sync rule:
+Romanization is derived from the rune text, so it must be regenerated
+whenever a line changes — annotate-protected (◆) pages included, but only
+the trailing roman segment may be rewritten, never the owner's runes/notes.
 """
 import json
 import os
