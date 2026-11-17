@@ -1,0 +1,62 @@
+{
+  "campaign": "2026-11-redselect",
+  "date_run": "2026-11-16",
+  "verdict": "F2/F9 red digits 1-5 as selectors: D1 position-in-line, D2 line-index, D3 word-index ALL NEGATIVE p=1.000, all powered (min-achievable-p < alpha); every registered reading selects five mutually distinct runes (obs=0=null median)",
+  "prereg_commits": { "prereg": "2931ab0" },
+  "corpus": {
+    "sha256": "9f5f14d434fd8e03442d33c8b6f935602f1798779b55aef415bc49588802483e",
+    "object": "krisyotam pp36-38 lines + full unsolved stream, L=12956",
+    "kill_gates": "G1 57 blocks + line lens [25,23,20,19,23] exact PASS; G2 stream lines 11/11/11 PASS; G3 L + per-page bit-identical PASS"
+  },
+  "seeds": { "mc": 20261204, "stream": "default_rng([seed, crc32(tag)%100000, draw])", "tags": ["D1", "D2", "D3"] },
+  "alpha_per_family": 0.016666666666666666,
+  "statistic": "coincidence pairs sum_r C(n_r,2) over 5 selected rune values (language-agnostic)",
+  "families": {
+    "D1_position_in_line": {
+      "reading": "digit d -> line[L][d-1], 1-based",
+      "selected": ["T", "S", "Y", "D", "O"],
+      "obs": 0, "null": { "D": 20000, "median": 0, "mean": 0.3262, "p95": 1, "max": 6 },
+      "p": 1.0, "ceiling_p_exact": 0.0, "min_achievable_p": 0.00025, "verdict": "NEGATIVE"
+    },
+    "D2_line_index": {
+      "reading": "digit d -> last rune of line #d (1-based) on own page",
+      "selected": ["X", "R", "A", "B", "M"],
+      "obs": 0, "null": { "D": 20000, "median": 0, "mean": 0.6501, "p95": 3, "max": 10 },
+      "p": 1.0, "ceiling_p_exact": 0.0001055566249200564, "min_achievable_p": 0.00030, "verdict": "NEGATIVE"
+    },
+    "D3_word_index": {
+      "reading": "digit d -> first rune of dash-word #d (1-based) in own line",
+      "selected": ["T", "C", "NG", "U", "H"],
+      "obs": 0, "null": { "D": 20000, "median": 0, "mean": 0.2397, "p95": 1, "max": 2 },
+      "p": 1.0, "ceiling_p_exact": 0.0, "min_achievable_p": 0.01385, "verdict": "NEGATIVE"
+    }
+  },
+  "enumeration_only": {
+    "D1_secondary_0based": ["Y", "R", "EO", "E", "I"],
+    "note": "p15 group + black 7 untouched per PREREG sec.0/5; p53 F4 owner answer folded into PREREG (meaning untested)"
+  },
+  "flags": [],
+  "dup_check": {
+    "prior_negatives": "campaign #7 killed digits as additive keys (Vp/Vs/R_D); campaign #12 E1 enumerated selected lines without scoring a selection reading; dukotah R44-P1 is census only - selection testing open in both ledgers",
+    "niche": "first scored selection test of the red-digit channel"
+  },
+  "runtime_measured": { "total_s": 8.56, "prereg_estimate": "<60s", "held": true },
+  "disclosed_reruns": [],
+  "disclosed_notes": [
+    "pre-launch: first launch died at G3 (12949!=12956) - krisyotam block index != book page for >=51 (p50 slot dropped, tail +1 shift); zero output under buggy code",
+    "pre-launch: garbled D3 family-assembly line fixed in review before any verdict printed",
+    "registered ceiling 10 unreachable for D1/D3 (exact ceiling_p = 0, no value shared by all five populations); verdict rule NOT changed - min-achievable-p added as descriptive power statement; all families pass it",
+    "D3: five lines contain no '.' so '-' split == campaign #11 full split on object under test; trailing empty words (p37L10 w7, p38L4 w6) excluded from null populations (observed selections unaffected)",
+    "stage-5 smoke pre-launch, output gitignored work/scratch/, unused"
+  ],
+  "regen": "python3 sweeps/2026-11-redselect/f2.py",
+  "not_covered": [
+    "p15 4-digit groups (no anchor; cumulative-count rejected pre-campaign, disclosed in PREREG)",
+    "p53 all-red lines + arrow semantics",
+    "30-bit red-dot stream (below floor)",
+    "black 7 joint-channel variants",
+    "word-internal selections beyond first rune",
+    "cross-page position readings",
+    "two-digit combinations as 2-digit indices (e.g. 1-2 -> 12)"
+  ]
+}
