@@ -140,10 +140,17 @@ def word_slot(seg, xfrac):
     return max(1, min(len(seg.split("-")), int(xfrac * len(seg)) + 1))
 
 
+def fence(table):
+    """Dedent a 4-space-indented table constant into a fenced code block."""
+    body = "\n".join(l[4:] if l.startswith("    ") else l
+                     for l in table.splitlines())
+    return "```\n" + body + "\n```"
+
+
 def block(p, segs):
     if p == 50:
         return ("**Ciphertext** (token page — 0 runes; the page IS key material; "
-                "tokens as printed, community base60 reading):\n\n" + P50_TABLE + "\n")
+                "tokens as printed, community base60 reading):\n\n" + fence(P50_TABLE) + "\n")
     if not segs:
         return None
     heads = dict((l, n) for l, n in HEADS.get(p, []))
@@ -166,7 +173,7 @@ def block(p, segs):
            "transcription, ≈word slot estimated. Line numbers = krisyotam "
            "lines (≠ image lines on solved pages, which wrap mid-word); printed "
            "Roman/Arabic content is omitted by krisyotam and appended below "
-           "where known):\n"]
+           "where known):", "", "```"]
     for i, seg in enumerate(segs, 1):
         s = seg
         if i in heads:
@@ -182,7 +189,7 @@ def block(p, segs):
         ann += latt.get(i, [])
         # wrap at dash-word boundaries for readability (owner request);
         # continuation lines align under the first rune
-        head = f"    {i:>2}  "
+        head = f"{i:>2}  "
         indent = " " * len(head)
         parts = s.split("-")
         rows, cur = [], ""
@@ -196,13 +203,14 @@ def block(p, segs):
         rows.append(cur)
         out.append(head + rows[0] + (("   " + "; ".join(ann)) if ann else ""))
         out.extend(indent + r for r in rows[1:])
+    out.append("```")
     if p == 51:
-        out.append("\n  Printed token table on this page (Roman/Arabic, omitted by "
+        out.append("\nPrinted token table on this page (Roman/Arabic, omitted by "
                    "krisyotam; idx246 = r8c7 `3I` pixel-confirmed 0xc6; community "
-                   "base60 reading):\n\n" + P51_TABLE)
+                   "base60 reading):\n\n" + fence(P51_TABLE))
     if p == 56:
-        out.append("\n  Printed hex lines (omitted by krisyotam — runes-only "
-                   "extraction; the onion address):\n\n" + P56_HEX)
+        out.append("\nPrinted hex lines (omitted by krisyotam — runes-only "
+                   "extraction; the onion address):\n\n" + fence(P56_HEX))
     return "\n".join(out) + "\n"
 
 
