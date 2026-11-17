@@ -29,11 +29,11 @@ from core.validate import flat  # noqa: E402
 GROUPS = [
     ("Q1", [0, 1, 2], "vertical fence (mirrored + flipped) + small ∞ top/bottom on all three pages (owner r7)"),
     ("Q2", [3, 4, 5, 6, 7], "symmetric spiral-scrolls on ALL FIVE pages (owner r7 extends the family down to p3); p7-bottom 5-dot = vertical flip of p23-top — bracket opens here"),
-    ("Q3", list(range(8, 23)), "interior of the p7↔p23 bracket — OWNER NESTED HYPOTHESIS (2026-11-17): segment-in-a-segment pp8–14 (alternating branch margins, dragonfly close, partial page: 7 lines, 1,729 runes) · AXIS p15 (decimal block 3278/3299red/3298/2838, large ∞, 8 rune lines below) · plain segment pp16–22 (no decorations, partial closer p22: 6 lines, fence + body in repose). Page symmetry EXACT 7|axis|7; core pp8–13 vs pp16–21 = 72 vs 72 lines; lengths NOT equal (1,729 vs 1,903 runes); LP1-style line-sum palindrome across axis REFUTED 0/72"),
-    ("Q4", [23, 24, 25, 26], "p23 = HINGE: its top dots are simultaneously the flip-partner of p7-bottom and the mirror-partner of p56-bottom ('a beginning here, an ending on p56'); mirrored cicadas p24–26 (owner r7 adds p26; jbo mayfly group pp23–26, dukotah pp24–26)"),
+    ("Q3", list(range(8, 23)), "TERMINATOR CHANNEL CONFIRMS THE OWNER NESTING: p14 ENDS WITH & (branch segment pp8–14 = complete section, dragonfly close, partial page 7 lines / 1,729 runes) · AXIS p15 (& + $ sit MID-PAGE right after the decimal block — $ = the large ∞ graphic) · plain segment pp16–22 closes with $ (partial page 6 lines, fence + body in repose). Page symmetry 7|axis|7; core lines 72↔72; runes unequal (1,729 vs 1,903); LP1 line-sum palindrome REFUTED 0/72"),
+    ("Q4", [23, 24, 25, 26], "p23 = MEMBER (owner r8): p23 carries NO page-end terminator (last line is runes) — it flows into the cicadas; the section closes only at p26's &/$. p23-top dots remain the flip/mirror partner of p7-bottom/p56-bottom (hinge decoration, but the text runs through it)"),
     ("Q5", list(range(27, 33)), "gap; singletons only — p27 cicada wing at top, p32 blurry tree at bottom"),
     ("Q6", list(range(33, 40)), "owner r7: 'No scrolls; </Y patterns' on ALL SEVEN pages (independent of the machine finding: one pixel-identical black stamp ×7, campaign #12); 3-large-dot paragraph breaks at p33 and p39"),
-    ("Q7", list(range(40, 56)), "'3 dot / 5 dot mirrored scrolls' on sides, CONTINUOUS pp40–55 (owner r7; includes runeless p50 and the whole base-60 stream pp49–51); p55 adds tree outline center + cicada bottom; p40↔p48 margin asymmetry (S8c) now reads as a sub-feature, not a boundary"),
+    ("Q7", list(range(40, 56)), "'3 dot / 5 dot mirrored scrolls' CONTINUOUS pp40–55 (owner r7), BUT terminators split it into three: [pp40–49]& (token page ENDS its section — & on p49's last line) · [pp50–53]& (p53's & sits right after the red-text block) · [pp54–55]$ (owner r8 nested unit: cicada after p53's red block → cicada at p55 bottom; boundary = p53's &). p55 tree center + cicada bottom; p40↔p48 asymmetry = sub-feature"),
     ("Q8", [56, 57], "solved closing pages; p56-bottom 5-dot pattern (groups of 3+2) = closing partner of the p23 hinge"),
 ]
 
@@ -73,12 +73,11 @@ def main():
                        f"![p{p}](img/oracle/pages/p{p:02d}.jpg)\n")
     out.append(
         "\n## Review notes — what your round-7 notes left open\n"
-        "\n1. **p23 hinge**: its top dots are (per your notes) both the "
-        "flip-partner of p7-bottom AND the mirror-partner of p56-bottom. "
-        "Palindrome hinge (house style) — shared by two brackets — or "
-        "should p23 belong solely to the cicada group (jbo's mayfly "
-        "group is pp23–26; dukotah's is pp24–26; your literal note puts "
-        "mirrored cicadas on p24, p25, p26)?\n"
+        "\n1. **p23 hinge — RESOLVED by your r8 note + terminators:** p23 "
+        "carries NO page-end terminator (last line is runes), so the text "
+        "runs through it into the cicadas; the section closes only at "
+        "p26's &/$. The hinge dots stay a decoration spanning two "
+        "brackets; textually p23 ∈ Q4.\n"
         "2. **Q3 nesting (your 2026-11-17 hypothesis, measured):** "
         "branch-segment pp8–14 | axis p15 (decimals + ∞) | plain segment "
         "pp16–22. Page symmetry exact 7|axis|7, core line-counts 72↔72, "
@@ -87,8 +86,9 @@ def main():
         "line-sum palindrome across the axis is REFUTED (0/72). Note: all "
         "four p15 decimals fall INSIDE the pre-axis segment's stream span "
         "(1874–3602), and 1,729 is the Hardy–Ramanujan number — logged, "
-        "not evidence. Does the nesting stand as presentation (three "
-        "passages) or is Q3 one passage with internal furniture?\n"
+        "not evidence. UPDATE: terminators CONFIRM the nesting — p14 ends "
+        "& (branch segment = closed section), p15's &+$ sit mid-page after "
+        "the decimals, p22 closes $ — three units, not one passage.\n"
         "3. **Q7 spans the base-60 token stream (pp49–51) and the "
         "runeless p50**, with the same mirrored scrolls throughout — one "
         "passage containing the tokens? If so the old P8/P9 split (my "

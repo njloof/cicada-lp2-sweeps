@@ -46,7 +46,7 @@ Evidence and verdict panel (v1, 10 groups): sweeps/2026-11-segments/. Regenerate
 
 ## Q3 — pp08–22 (15 pages, 3632 runes, stream pos 1874–5505)
 
-*interior of the p7↔p23 bracket — OWNER NESTED HYPOTHESIS (2026-11-17): segment-in-a-segment pp8–14 (alternating branch margins, dragonfly close, partial page: 7 lines, 1,729 runes) · AXIS p15 (decimal block 3278/3299red/3298/2838, large ∞, 8 rune lines below) · plain segment pp16–22 (no decorations, partial closer p22: 6 lines, fence + body in repose). Page symmetry EXACT 7|axis|7; core pp8–13 vs pp16–21 = 72 vs 72 lines; lengths NOT equal (1,729 vs 1,903 runes); LP1-style line-sum palindrome across axis REFUTED 0/72*
+*TERMINATOR CHANNEL CONFIRMS THE OWNER NESTING: p14 ENDS WITH & (branch segment pp8–14 = complete section, dragonfly close, partial page 7 lines / 1,729 runes) · AXIS p15 (& + $ sit MID-PAGE right after the decimal block — $ = the large ∞ graphic) · plain segment pp16–22 closes with $ (partial page 6 lines, fence + body in repose). Page symmetry 7|axis|7; core lines 72↔72; runes unequal (1,729 vs 1,903); LP1 line-sum palindrome REFUTED 0/72*
 
 **p8** *(255 runes)*
 
@@ -110,7 +110,7 @@ Evidence and verdict panel (v1, 10 groups): sweeps/2026-11-segments/. Regenerate
 
 ## Q4 — pp23–26 (4 pages, 1021 runes, stream pos 5506–6526)
 
-*p23 = HINGE: its top dots are simultaneously the flip-partner of p7-bottom and the mirror-partner of p56-bottom ('a beginning here, an ending on p56'); mirrored cicadas p24–26 (owner r7 adds p26; jbo mayfly group pp23–26, dukotah pp24–26)*
+*p23 = MEMBER (owner r8): p23 carries NO page-end terminator (last line is runes) — it flows into the cicadas; the section closes only at p26's &/$. p23-top dots remain the flip/mirror partner of p7-bottom/p56-bottom (hinge decoration, but the text runs through it)*
 
 **p23** *(213 runes)*
 
@@ -190,7 +190,7 @@ Evidence and verdict panel (v1, 10 groups): sweeps/2026-11-segments/. Regenerate
 
 ## Q7 — pp40–55 (16 pages, 3316 runes, stream pos 9640–12955)
 
-*'3 dot / 5 dot mirrored scrolls' on sides, CONTINUOUS pp40–55 (owner r7; includes runeless p50 and the whole base-60 stream pp49–51); p55 adds tree outline center + cicada bottom; p40↔p48 margin asymmetry (S8c) now reads as a sub-feature, not a boundary*
+*'3 dot / 5 dot mirrored scrolls' CONTINUOUS pp40–55 (owner r7), BUT terminators split it into three: [pp40–49]& (token page ENDS its section — & on p49's last line) · [pp50–53]& (p53's & sits right after the red-text block) · [pp54–55]$ (owner r8 nested unit: cicada after p53's red block → cicada at p55 bottom; boundary = p53's &). p55 tree center + cicada bottom; p40↔p48 asymmetry = sub-feature*
 
 **p40** *(231 runes)*
 
@@ -270,8 +270,8 @@ Evidence and verdict panel (v1, 10 groups): sweeps/2026-11-segments/. Regenerate
 
 ## Review notes — what your round-7 notes left open
 
-1. **p23 hinge**: its top dots are (per your notes) both the flip-partner of p7-bottom AND the mirror-partner of p56-bottom. Palindrome hinge (house style) — shared by two brackets — or should p23 belong solely to the cicada group (jbo's mayfly group is pp23–26; dukotah's is pp24–26; your literal note puts mirrored cicadas on p24, p25, p26)?
-2. **Q3 nesting (your 2026-11-17 hypothesis, measured):** branch-segment pp8–14 | axis p15 (decimals + ∞) | plain segment pp16–22. Page symmetry exact 7|axis|7, core line-counts 72↔72, both closers partial (p14: 7 lines/dragonfly, p22: 6 lines/fence+body) — but rune lengths unequal (1,729 vs 1,903) and the LP1 line-sum palindrome across the axis is REFUTED (0/72). Note: all four p15 decimals fall INSIDE the pre-axis segment's stream span (1874–3602), and 1,729 is the Hardy–Ramanujan number — logged, not evidence. Does the nesting stand as presentation (three passages) or is Q3 one passage with internal furniture?
+1. **p23 hinge — RESOLVED by your r8 note + terminators:** p23 carries NO page-end terminator (last line is runes), so the text runs through it into the cicadas; the section closes only at p26's &/$. The hinge dots stay a decoration spanning two brackets; textually p23 ∈ Q4.
+2. **Q3 nesting (your 2026-11-17 hypothesis, measured):** branch-segment pp8–14 | axis p15 (decimals + ∞) | plain segment pp16–22. Page symmetry exact 7|axis|7, core line-counts 72↔72, both closers partial (p14: 7 lines/dragonfly, p22: 6 lines/fence+body) — but rune lengths unequal (1,729 vs 1,903) and the LP1 line-sum palindrome across the axis is REFUTED (0/72). Note: all four p15 decimals fall INSIDE the pre-axis segment's stream span (1874–3602), and 1,729 is the Hardy–Ramanujan number — logged, not evidence. UPDATE: terminators CONFIRM the nesting — p14 ends & (branch segment = closed section), p15's &+$ sit mid-page after the decimals, p22 closes $ — three units, not one passage.
 3. **Q7 spans the base-60 token stream (pp49–51) and the runeless p50**, with the same mirrored scrolls throughout — one passage containing the tokens? If so the old P8/P9 split (my p40↔p48 margin-asymmetry bracket) is demoted to a sub-feature.
 4. **Q5 is a group by ABSENCE** (only the p27 wing and p32 tree singletons). Anything at its edges (p26/p27, p32/p33) that should merge or split it?
 5. **3-large-dot paragraph breaks on p33 and p39** (your note): both at Q6 edges — consistent with Q6 as a passage; same large-dot class as p7's `$` diamond and the 9 `$` pages (oracle round #6 S9 still live).
