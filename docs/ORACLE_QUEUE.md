@@ -194,3 +194,40 @@ neighbours — read counts on the full stamp.
 ☐ same device ☐ visibly different: __
 
 ![p33](img/oracle/sex60_stamp_p33.png)
+
+---
+
+# Round #4 (2026-11-16) — lattice ↔ red-head alignment (campaign #13, O1 FLAG)
+
+Campaign #13 measured it: 11 of your 14 red-word head pages also carry a red
+dot-lattice (independence expects 5.4; p = 0.0007). Before we interpret that
+as anything, we must rule out census misses on both sides — your eye:
+
+**S4 — do these three red-head pages hide a lattice we missed?**
+(full-page sheets; lattices are small red dot diamonds, 13-dot ≈ 84 px tall
+at full scan size, ~34 px here)
+
+| page | lattice present? | if yes: dots = __ |
+|---|---|---|
+| p8  | ☐ yes ☐ no ![p8](img/oracle/f7_S4_p08.png) |
+| p37 | ☐ yes ☐ no ![p37](img/oracle/f7_S4_p37.png) |
+| p40 | ☐ yes ☐ no ![p40](img/oracle/f7_S4_p40.png) |
+
+**S5 — do these lattice-only pages hide a red head word** (red drop-cap /
+red opening word in the title band, like pp0/3/6/…)?
+
+| page | red head word? |
+|---|---|
+| p2  | ☐ yes ☐ no |
+| p14 | ☐ yes ☐ no |
+| p22 | ☐ yes ☐ no |
+| p26 | ☐ yes ☐ no |
+| p32 | ☐ yes ☐ no |
+| p49 | ☐ yes ☐ no |
+| p55 | ☐ yes ☐ no |
+
+Sheets: `img/oracle/f7_S5_p{02,14,22,26,32,49,55}.png` (720×1080).
+Reading key: all "no" on S4 + all "no" on S5 ⇒ the two red features are
+independent-but-correlated section markers (flag stands as census fact).
+S4 misses ⇒ flag weakens. S5 misses ⇒ heads are the complete marker and
+lattices the subset ⇒ worth a re-test with the corrected head list.

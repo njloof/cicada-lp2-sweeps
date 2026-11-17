@@ -1,0 +1,72 @@
+{
+  "campaign": "2026-11-ornaments",
+  "date_run": "2026-11-16",
+  "verdict": "F7 dot-lattices: O1 head-alignment FLAG p=0.00065 (overlap 11 vs expected 5.4; structural - shared section-marking system, routed to oracle S4/S5 before interpretation); O2 count-vs-gap NEGATIVE powered 20/20 (p=0.385); O3 counts-as-selectors NEGATIVE powered by exhaustive ceiling (exact p=0.447); O4 descriptive",
+  "prereg_commits": { "prereg_and_table": "db6f467" },
+  "corpus": {
+    "sha256": "9f5f14d434fd8e03442d33c8b6f935602f1798779b55aef415bc49588802483e",
+    "object": "unsolved stream book 0-49+51-55, L=12956",
+    "kill_gates": "G1 lattices.csv 35 rows + Counter{13:30,10:4,23:1} PASS; G2 L=12956 PASS; G3 heads 14 distinct in 57-page universe PASS"
+  },
+  "input_table": {
+    "file": "lattices.csv (tracked copy of gitignored work/red_census/census.csv kind=matrix rows)",
+    "rows": 35, "pages": 22,
+    "provenance": "machine cluster census 2026-11-15, owner round-1 confirmed sizes"
+  },
+  "seeds": { "null": 20261202, "stream": "default_rng([seed, crc32(tag)%100000, draw])", "tags": ["O2", "plant-O2"] },
+  "alpha_per_family": 0.01667,
+  "families": {
+    "O1_head_alignment": {
+      "stat": "overlap(lattice pages, red-head pages), one-sided hypergeometric, N=57 K=22 n=14",
+      "obs": 11, "expected": 5.4, "p": 0.000652, "min_detectable_overlap": 10,
+      "heads_without_lattice": [8, 37, 40],
+      "lattice_only_unsolved": [2, 14, 22, 26, 32, 49, 55],
+      "verdict": "FLAG - structural (both features mark section openings); oracle round #4 S4/S5 registered before interpretation"
+    },
+    "O2_count_vs_gap": {
+      "stat": "|Spearman rho| dots vs following-gap (image anchors page*3600+y0, 34 gaps, left-lattice pairing)",
+      "obs": 0.1582, "null_median": 0.121, "null_p95": 0.335, "p": 0.385, "D": 10000,
+      "effective_multiset": { "13": 30, "10": 4 },
+      "power": "20/20 monotone-rearrangement plants > p95 (ceiling |rho|~0.56, plant p~0.0001)",
+      "verdict": "NEGATIVE (powered)"
+    },
+    "O3_counts_as_selectors": {
+      "stat": "coincidence pairs of stream[page_start+dots-1], 30 stream lattices (5 solved-page lattices excluded as registered)",
+      "obs": 26, "null_median": 25.0, "null_p95": 30, "null_max": 40,
+      "null": "EXHAUSTIVE over C(30,3)=4060 placements of the three 10-counts (registered MC D=10000 > null set size; exact enumeration of identical null)",
+      "p_exact": 0.447,
+      "power": "ceiling plant = argmax over all 4060 = 40, p=0.00049 -> powered",
+      "forced_coincidences": "8 of 26 obs pairs are same-page-same-count (structurally forced); null prices them ~0.81*8, reflected in p",
+      "selected_letters": "C EA H H H EA EA C C EA N N N Y T N I W F F F O E U U U NG O NG D",
+      "verdict": "NEGATIVE (powered)"
+    },
+    "O4_descriptive": {
+      "distinct_y": 24, "uniform_188_pitch": "REFUTED (188 occurs once in 23 consecutive diffs); shared discrete y-grid instead",
+      "height_by_size": { "13": [83, 84, 85], "10": [57, 59], "23": [84] },
+      "band0_lattices": 8
+    }
+  },
+  "flags": ["O1"],
+  "flag_followup": "oracle round #4 (S4: missed lattices on pp8/37/40; S5: missed red heads on pp2/14/22/26/32/49/55); sheets docs/img/oracle/f7_S{4,5}_p*.png; no interpretation of O1 until answered",
+  "dup_check": {
+    "covered_before": ["bands physical classification + runic scan (dukotah L3, A-06/B-12)", "bands English register (R19, self-declared underpowered)"],
+    "niche": "lattice (page, position, count) triplets vs run-structure nulls - open in both ledgers; R19 own not_covered lists English underpower as reopen ground"
+  },
+  "runtime_measured": { "total_s": 0.63, "prereg_estimate": "<30s", "held": true },
+  "disclosed_reruns": ["O2 plant construction bug (v1 scored random assignment in permuted space, 0/20); fixed, rerun; obs/null seed-pinned and bit-identical (p 0.38506 unchanged); plant 20/20 after fix"],
+  "disclosed_notes": [
+    "O3 MC replaced by exhaustive enumeration of the identical finite null (4,060 < registered D=10,000) - exact p; statistic and null unchanged",
+    "PREREG O4 predicted band-0 count 4; measured 8 (band numbering page-relative; p54/p56/p57 instances) - descriptive family, no verdict effect",
+    "PREREG O2 multiset listed as full 35-item; statistic pairs gaps with left lattice so effective multiset {13x30,10x4} (23-dot is last lattice, no following gap)",
+    "O1 both lists derive from the red census but lattices and heads are distinct image features; association never quantified before"
+  ],
+  "regen": "python3 sweeps/2026-11-ornaments/f7.py ; python3 sweeps/2026-11-ornaments/sheets.py",
+  "not_covered": [
+    "line-index-anchored selection (band!=line trap, p27)",
+    "ornament BAND glyph internals (this campaign = the 35 lattices)",
+    "alternative anchors (page_end, band-relative, mod line length)",
+    "non-consecutive gap structure / cross-page ordering",
+    "census completeness on pp8/37/40 + lattice-only pages (oracle S4/S5 pending)",
+    "any encoding claim beyond shared section-marking function (O1)"
+  ]
+}
