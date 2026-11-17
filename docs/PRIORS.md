@@ -65,8 +65,8 @@ External verification adds two load-bearing facts [H]:
   constant 1033 = emirp reverse of 3301.
 - **Symmetry as house style**: page-level 180° palindromes (line sums
   341,1015,562,1015,341) [OURS]; owner's p7↔p23 flipped-5-dot bracket and
-  p40↔p48 margin bracket FIT this habit — supports the 11-group
-  segmentation reading (docs/MAP.md 6d).
+  p40↔p48 margin bracket FIT this habit — supports the 10-group
+  segmentation reading (docs/MAP.md 6d; 11→10 after owner p0 correction).
 - **PGP 7A35090F** is the sole authenticity gate; every genuine artifact
   signed; last signed Apr 2017.
 - Anti-collaboration ethos ("We want the best, not the followers");
