@@ -10,6 +10,27 @@ pp56–57 = solved closing pages). Red ink uses `*` per red glyph. "Known"
 lists what the machine census + your previous answers already account for —
 anything NOT in that list is news to us.
 
+### Legend — copy/paste runes & symbols
+
+Runes (value = our corpus code, letter = Gematria reading):
+
+    ᚠ F  ᚢ U  ᚦ TH  ᚩ O  ᚱ R  ᚳ C  ᚷ G  ᚹ W  ᚻ H  ᚾ N  ᛁ I  ᛄ J  ᛇ EO
+    ᛈ P  ᛉ X  ᛋ S  ᛏ T  ᛒ B  ᛖ E  ᛗ M  ᛚ L  ᛝ NG  ᛟ OE  ᛞ D  ᚪ A  ᚫ AE
+    ᚣ Y  ᛡ IA  ᛠ EA
+
+Transcription symbols (krisyotam): `-` word dot · `.` sentence dot · `/`
+line end · `*` after a rune = red ink · `⟦'⟧` `⟦"⟧` = apostrophe / double
+quote seen in the image but ABSENT from the transcription.
+
+Ornaments — two alphabets, keep them straight:
+
+- Krisyotam's own (in the Ciphertext lines): `&` (18×), `$` (9×), `§` (1×,
+  p57 book end) — standalone segments where you saw dot-lattices. Which
+  size is which is UNCONFIRMED (that's a question for you below).
+- For YOUR notes / our censuses, proposed display glyphs (say the word and
+  we adopt them everywhere): `◆4` black 4-dot diamond · `◆10` red 10-dot
+  lattice · `◆13` red 13-dot lattice · `◆23` red 23-dot (book end).
+
 Broad questions worth a thought as you flip (answer inline anywhere):
 
 - Do word-separator dots (·) ever differ in size/shape from page to page?
