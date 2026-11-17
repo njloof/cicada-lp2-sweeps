@@ -363,7 +363,11 @@ left margin | right margin, p40 then p48:
 ![s8c2](img/oracle/f7_S8c_p40_margins_full.png) ![s8d2](img/oracle/f7_S8c_p48_margins_full.png)
 (old tight crops kept: ![s8c](img/oracle/f7_S8_p40_margins.png) ![s8d](img/oracle/f7_S8_p48_margins.png))
 Questions: is the asymmetry (fewer dot-trees left, more right) the SAME on
-both pages? ☐ same pattern both pages ☐ differs: __
+both pages? X same pattern both pages ☐ differs: __
 (Can't see, we have cropped them too closely.) And do these margin designs carry dot counts you can read reliably?
-counts L/R p40: __/__ p48: __/__ (decoration is fine as an answer — we just
+counts L/R p40: 3__/5__ p48: 3__/5__ (decoration is fine as an answer — we just
 want to know whether to keep a machine census of them.)
+
+S8c RESOLVED 2026-11-17: same pattern both pages; ~3 left / ~5 right, exact
+counts not reliably readable → margin decoration CLOSED, no machine census of
+margins. (The "(can't see)" line above was my re-ask preamble, now moot.)
