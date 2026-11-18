@@ -85,3 +85,17 @@ G3 grid rows == recorded witnesses (exact 16-number match).
 - #20's frozen confirmation already closed the containment reading as
   one-off; nothing here reopens it.
 - Runtime: MC 20k x 16 windows x 36 cribs, < 60 s local, no studio.
+
+---
+
+## POST-REGISTRATION CORRECTIONS (appended 2026-11-18; sealed text above untouched)
+
+1. FIRST COMPLETED RUN INVALID (disclosed per discipline): the S2 MC
+   early-break capped `beats` at 101/20000 when obs=0, producing
+   p=0.0050 and a spurious GRID-SELECTS verdict. With obs=0 the null
+   total is >= 0 with probability 1, so p=1.0 by construction. Fixed
+   (MC skipped when obs=0) and re-run; no numbers from the invalid run
+   were used.
+2. Instrument lesson: never early-break an MC on a beats cap without
+   first handling the obs=0 degenerate case (#21 lesson family:
+   boundary conditions of the statistic itself).
