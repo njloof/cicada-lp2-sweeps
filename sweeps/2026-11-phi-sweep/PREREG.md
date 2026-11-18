@@ -81,3 +81,30 @@ hypothesis (disclosed limitation).
   p56's shifted PILGRIM).
 - Runtime: 499,604 decodes + null 55x1000x200 crib scans; estimated
   < 10 min local single machine; no studio (RNG stream seeded here).
+
+---
+
+## POST-REGISTRATION CORRECTIONS (appended 2026-11-18; sealed text above untouched)
+
+1. POWER-PLANT DEFECT (first run): the seeded 3-page draw over all 55
+   pages hit pages with no raw>0 candidate text (50/55 pages have none),
+   so the plants were skipped and the registered power step was
+   unfulfilled. Redrawn restricted to the 5 pages WITH candidate text
+   (p20/p39/p43/p48/p51), same seed. The observed statistic and the
+   null were untouched; checkpoint/resume added with per-replicate
+   substreams Random(f"{SEED}:{d}") so null draws are bit-identical
+   across chunked runs.
+2. BACKBONE DOMINANCE (interpretive, disclosed): non-F runes decode
+   identically across null-combos, so crib windows are either in the
+   fixed page backbone (inherited by most combos — p43: 43,008 raw>0)
+   or unreachable for the entire page (p0: 0/32,768). Effective
+   independent search = per-page backbones, far fewer than 499,604
+   tests. Consequence: the letter-shuffle null is CONSERVATIVE (it
+   breaks bigram/digraph structure and inflates the null), and M=1
+   sits at its median anyway.
+3. POWER QUANTIFIED post-run: null-max histogram {1:124, 2:75, 3:1} ->
+   HIT bar (p<0.05) requires >=3 legal cribs on one page; a single
+   planted crib reaches 2 (p=0.383). Sweep is blind to single-crib
+   signals by construction; a true full-page decode would put many
+   cribs legally, so the bar suits the hypothesis.
+4. Measured runtime 112 s (prereg estimate <10 min, met).
