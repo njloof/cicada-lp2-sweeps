@@ -93,9 +93,15 @@ def main():
                 continue
             if not any(0x16A0 <= ord(c) <= 0x16FF for c in s):
                 continue  # annotation/decimal-block lines, no runes
-            # quote marks (owner-confirmed image-only, ⟦⟧-wrapped)
-            quotes = re.findall(r"⟦(['\"])⟧", s)
-            s = re.sub(r"⟦['\"]⟧", "'", s)     # normalize to ' for position
+            # quote marks: BARE " and ' in the rune segment (owner p53
+            # example 2026-11-17: bare marks on p6/7/21/22/35/40/41/42/43/53)
+            # plus legacy ⟦⟧-wrapped ones; drop ⟦⟧ ANNOTATIONS (followed by
+            # Latin letters, e.g. p42 '⟦"⟧pos TBD' which duplicates the
+            # bare mark on the same line), then strip Latin annotation text.
+            s = re.sub(r"⟦['\"]⟧(?=\s*[A-Za-z])", "", s)
+            s = re.sub(r"⟦(['\"])⟧", r"\1", s)
+            s = re.sub(r"[A-Za-z]+", "", s)
+            quotes = re.findall(r"['\"]", s)
             plain_dots[p] += s.count(".")        # krisyotam verbatim dots
             latt = Counter(re.findall(r"◆(\d+)", s))
             # roman-layer mapping (ORACLE note): ◆4->'.' (#16 T1),
@@ -111,10 +117,11 @@ def main():
                 continue
             words = s.split("-")
             for w in words:
-                clean = w.replace(".", "").replace("'", "")
+                clean = re.sub(r"[.'\"0-9]", "", w)
                 if clean:
                     wlen[len(clean)] += 1
-            for mark, cnt in ((".", s.count(".")), ("'", len(quotes))):
+            for mark, cnt in ((".", s.count(".")), ("'", s.count("'")),
+                              ('"', s.count('"'))):
                 if not cnt:
                     continue
                 for c in classify(words, mark):
