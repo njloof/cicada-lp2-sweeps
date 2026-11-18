@@ -65,3 +65,52 @@ For the state of the search — known / unknown / eliminated / next — see [MAP
   transcribed all along.**
 - PARABLE pos-80 adjudication (ᚣ Y over scream314's ᛖ E) — data/SOURCES.md.
 - Doublet count reproduced exactly: 86 across LP2 0–54.
+
+## Corrections (post-output; appended, never silently fixed)
+
+External review 2026-11-18, checked against our pinned corpus before adoption
+(response doc: `work/LP2_review_response.md`). Rows above are preserved as
+written; these notes supersede them.
+
+- **C1 — row 10 wording: "doublet-free span" is wrong.** The span 2739–4388
+  contains doublets at 2740/3140/3852 (0-based, second rune of pair); correct
+  wording: *three consecutive large gaps 400/712/537 against a corpus-typical
+  ~150*. The T7 anomaly itself (gap ac1 +0.380, p=0.0006) stands unchanged.
+  "REPLICATE" is also better read as *reproduced*: same 86 sites — this
+  validates our null calibration, not the observation's forking-paths risk.
+- **C2 — rows 19/20/22: the p15 decimal grid has a closed form** (external
+  review; verified 16/16 against the recorded owner grid; now regression-gated
+  in `core/validate.py` gate 6): `value = |3301 − prime(F+1)|` over distinct
+  Fibonacci F = 0…987; Fibonacci order is a square spiral from the red
+  3299 = 3301 − prime(1). Consequences — row 20 containment p=3.3e-7
+  **RETRACTED** (the eleven small-F cells lie in 2838–3299 by construction and
+  the void window covers that band; the null treated values as free draws);
+  row 22 pointer reading **dead** (values are a known object, not pointers);
+  row 19 axis **demoted to recorded-only** (the grid needs no axis). New
+  positive: first complete read of a printed LP2 object, and a correction to
+  dukotah round44 (they report 14/16 using the signed difference; absolute
+  value gives 16/16 — 1206 = prime(611)−3301, 4516 = prime(988)−3301).
+  Upstream post pending owner approval.
+- **C3 — row 25 residual "03/04/14 (non-simple layers)": 03 and 14 are
+  publicly solved** (2017 wave, scream314 lineage): LP1 03 = Vigenère
+  DIVINITY (+7 F-interrupters), LP1 14 = Vigenère FIRFUMFERENFE (+2). Our own
+  validate gate already decoded 03 in CI — the known-solutions-regression
+  failure mode the review names is ours. validate.py is now a full
+  known-solutions suite (LP1 01/03/05/06/14 + p56/p57 + grid closed form) and
+  must pass before any campaign launch. Briefing open lead #1 **retired**;
+  LP1 04 remains open (no credible solve in dukotah's set; the review's claim
+  that 04 is solved is unsourced — source requested).
+- **C4 — the doublet deficit is the corpus headline, not a §3.6 footnote.**
+  86 observed vs ~445 expected (~17σ; suppression 0.81 / leak 0.19). Solved
+  pages are NOT homogeneous with unsolved (p56 2.38%, p57 1.06%, small-n
+  caveat; unsolved 0.66%). The anti-doublet filter is the defining
+  machine-applied artifact of the unsolved bulk; it leads MAP/briefing and
+  Track A (mechanism: leak fingerprint, key-consumption question) from here.
+  Gate 4 always knew ("anti-doublet leak check").
+- **C5 — review claims that did NOT reproduce** (recorded so we don't adopt
+  them): "single-rune words almost all A/I" — we measure 70 singles in 2,766
+  words, spread uniformly over all 29 runes (A=1, I=3; max rune 5): no
+  language-light leak at single-rune words (their census likely mixed in
+  plaintext material; recipe requested). "Public since 2014" — 2017 wave.
+  "doublet-free propagated into dukotah PICKUP-HERE/OPEN-LANES" — grep
+  negative in our pinned snapshot (live upstream may differ; check queued).

@@ -12,14 +12,32 @@ Gates:
   3. Duplicate trap: no page is a prefix/substring of another (the page_27/page_44
      phantom-key-reuse trap that burned the community).
   4. Doublet count across the unsolved corpus ~= 86 (anti-doublet leak check).
-  5. Smoke decodes (the rig must reproduce known text):
+     This is the corpus's HEADLINE feature, not a footnote: 86 observed vs
+     ~445 expected under flat unigrams (deficit ~17 sigma; suppression ~0.81,
+     leak ~0.19). Solved pages sit at 1-2.4% doublets, unsolved at 0.66% —
+     the filter is the defining machine artifact of the unsolved bulk.
+  5. Known-solution regression suite (the rig must reproduce every solved text;
+     extended 2026-11-18 after the external review — see docs/LEDGER.md
+     Corrections; this gate must pass BEFORE any campaign launch):
        A WARNING (LP1)  atbash                       -> BELIEVE/FROM THIS/TRUE
+       SOME WISDOM(LP1) identity (standard futhark)  -> PRIMES/TOTIENT/ENCRYPTED
+       A KOAN     (LP1) atbash+shift+3               -> COAN/MASTER/STUDENT
        WELCOME  (LP1)   Vigenere DIVINITY, subtract  -> WELCOME/PILGRIM/JOURNEY
+       CIRCUMF. (LP1)   Vigenere FIRFUMFERENFE       -> LESSON/MASTER/EXPLAINED/STUDENT
        AN END   (LP2 56) phi(prime) shift-down       -> DEEPWEB/PILGRIM/HASHESTO
        PARABLE  (LP2 57) direct transliteration      -> DIUINITY/EMERGE
      F-interrupter pages: only ciphertext-F positions are ambiguous (non-F cannot
      be null), so we brute-force the 2^(#F) null/non-null assignments and require
      the expected words in the best candidate.
+     LP1 pages 03/14 were listed as open leads until 2026-11-18; both solved in
+     the 2017 public wave (scream314 lineage) — the regression-suite failure mode
+     the review flagged is exactly this: a decode in this file not connected to
+     the open-lead list.
+  6. p15 decimal grid closed form: the 16 recorded cells equal
+     {|3301 - prime(F+1)| : F distinct Fibonacci 0..987}; Fibonacci order is a
+     square spiral from the red 3299 = 3301 - prime(1). Grid containment and
+     pointer readings are RETRACTED (values cluster in 2838-3299 by
+     construction; see LEDGER Corrections C2).
 Run: python3 validate.py
 """
 import json, os, re, sys, hashlib, itertools
@@ -206,6 +224,52 @@ def main():
     ok = "DIUINITY" in txt and "EMERGE" in txt
     print(f"{'PASS' if ok else 'FAIL'}  PARABLE translit: {txt[:58]}...")
     if not ok: fails.append("PARABLE")
+
+    # SOME WISDOM: identity under standard futhark (dukotah method "shift+0")
+    txt = translit(scream_runes("05.jpg"))
+    ok = all(w in txt for w in ("THEPRIMESARESACRED", "TOTIENT", "ENCRYPTED"))
+    print(f"{'PASS' if ok else 'FAIL'}  SOME WISDOM identity: {txt[:58]}...")
+    if not ok: fails.append("WISDOM")
+
+    # A KOAN (master/student): atbash + shift+3 (dukotah method string; plain
+    # mod-29 atbash alone yields garbage — the +3 is real)
+    txt = translit([(N - 1 - c + 3) % N for c in scream_runes("06.jpg")])
+    ok = all(w in txt for w in ("ACOAN", "MASTER", "STUDENT"))
+    print(f"{'PASS' if ok else 'FAIL'}  A KOAN atbash+3: {txt[:58]}...")
+    if not ok: fails.append("KOAN06")
+
+    # CIRCUMFERENCE KOAN: Vigenere FIRFUMFERENFE, interrupter search
+    # (public since 2017; listed as an open lead until 2026-11-18 — never again)
+    ci = scream_runes("14.jpg")
+    res = brute_interrupters(ci, keyword_stream("FIRFUMFERENFE", len(ci)),
+                             ["LESSON", "MASTER", "EXPLAINED", "STUDENT"])
+    ok = res and res[1] == 4
+    print(f"{'PASS' if ok else 'FAIL'}  CIRCUMFERENCE vigenere FIRFUMFERENFE "
+          f"({res[2]}, {res[3]} null-F): {res[0][:58]}...")
+    if not ok: fails.append("CIRCUMF")
+
+    # ---- Gate 6: p15 decimal grid closed form (external review 2026-11-18) ----
+    # Recorded owner pass, 3 witnesses (docs/RED_CENSUS.md, docs/ORACLE_QUEUE.md):
+    # 4x4 layout, 3299 red at row 2 col 2. Values = |3301 - prime(F+1)| over
+    # distinct Fibonacci F; Fibonacci order = square spiral from the red cell
+    # ((1,1)->(1,2)->(2,2)->(2,1)->(2,0)->(1,0)->(0,0)->...->(3,0)).
+    # dukotah round44 reported 14/16 (signed difference); |.| gives 16/16:
+    # 1206 = prime(611)-3301, 4516 = prime(988)-3301. Containment/pointer
+    # readings RETRACTED — the 11 small-F cells land in 2838..3299 by
+    # construction, so void-window containment was a construction artifact.
+    GRID = [3258, 3222, 3152, 3038, 3278, 3299, 3298, 2838,
+            3288, 3294, 3296, 2472, 4516, 1206, 708, 1820]
+    FIBS = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
+    def nth_prime(k):
+        n, c = 1, 0
+        while c < k:
+            n += 1
+            if is_prime(n): c += 1
+        return n
+    formula = sorted(abs(3301 - nth_prime(f + 1)) for f in FIBS)
+    ok = formula == sorted(GRID) and 3301 - nth_prime(1) == 3299
+    print(f"{'PASS' if ok else 'FAIL'}  p15 grid = |3301-prime(Fib+1)| 16/16, origin 3299")
+    if not ok: fails.append("grid16")
 
     print()
     if fails:

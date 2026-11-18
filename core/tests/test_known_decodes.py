@@ -26,6 +26,49 @@ def test_welcome_vigenere():
                                ["WELCOME", "PILGRIM", "JOURNEY"])
     assert res and res[1] == 3, res
 
+def test_wisdom_identity():
+    sc = open(f"{V.SRC}/scream314/liber_primus.md", encoding="utf-8").read()
+    sec = [s for s in sc.split("\n## ") if s.startswith("05.jpg")][0]
+    ct = [V.R2I[c] for c in sec.split("---")[0] if c in V.R2I]
+    txt = TRANS(ct)                              # standard futhark, no layer
+    for w in ("THEPRIMESARESACRED", "TOTIENT", "ENCRYPTED"):
+        assert w in txt
+
+def test_koan_atbash_shift3():
+    sc = open(f"{V.SRC}/scream314/liber_primus.md", encoding="utf-8").read()
+    sec = [s for s in sc.split("\n## ") if s.startswith("06.jpg")][0]
+    ct = [V.R2I[c] for c in sec.split("---")[0] if c in V.R2I]
+    txt = TRANS([(29 - 1 - c + 3) % 29 for c in ct])   # dukotah "atbash+shift+3"
+    for w in ("ACOAN", "MASTER", "STUDENT"):
+        assert w in txt
+
+def test_circumference_vigenere():
+    # public since 2017; mislabeled an open lead until the 2026-11-18 review
+    sc = open(f"{V.SRC}/scream314/liber_primus.md", encoding="utf-8").read()
+    sec = [s for s in sc.split("\n## ") if s.startswith("14.jpg")][0]
+    ct = [V.R2I[c] for c in sec.split("---")[0] if c in V.R2I]
+    res = V.brute_interrupters(ct, V.keyword_stream("FIRFUMFERENFE", len(ct)),
+                               ["LESSON", "MASTER", "EXPLAINED", "STUDENT"])
+    assert res and res[1] == 4, res
+
+def test_p15_grid_closed_form():
+    # external review 2026-11-18: recorded grid = |3301 - prime(F+1)| over
+    # distinct Fibonacci F (16/16; dukotah round44's 14/16 missed the sign
+    # flips 1206 = prime(611)-3301, 4516 = prime(988)-3301). Fibonacci order
+    # is a square spiral from the red 3299. Containment readings retracted.
+    def nth_prime(k):
+        n, c = 1, 0
+        while c < k:
+            n += 1
+            if V.is_prime(n):
+                c += 1
+        return n
+    fibs = [0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]
+    grid = [3258, 3222, 3152, 3038, 3278, 3299, 3298, 2838,
+            3288, 3294, 3296, 2472, 4516, 1206, 708, 1820]
+    assert sorted(abs(3301 - nth_prime(f + 1)) for f in fibs) == sorted(grid)
+    assert 3301 - nth_prime(1) == 3299           # spiral origin = the red cell
+
 def test_anend_phi_prime():
     ct = V.flat(56)
     res = V.brute_interrupters(ct, V.phi_prime_stream(len(ct)),

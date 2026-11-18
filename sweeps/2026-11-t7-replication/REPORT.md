@@ -89,3 +89,16 @@ intent/message existence. Plant samplers are documented proxies
 A replication this cheap and this sharp is worth posting to
 Dukotah/cicada3301 (their T7 row + the void-plant suggestion for R45).
 Public action — requires explicit owner approval, drafted on request.
+
+---
+
+## Corrections (appended 2026-11-18, external review; LEDGER C1)
+
+- "doublet-free span" (body + R45 paragraph) is WRONG: the span 2739–4388
+  contains doublets at 2740/3140/3852 (0-based, second rune of pair). Read:
+  *three consecutive large gaps 400/712/537 against a corpus-typical ~150*.
+  The R45 void-plant suggestion stands (a planted large-gap region is still
+  the right plant); the ac1 +0.380 anomaly is unchanged.
+- "Replication" is better read as *reproduction*: same 86 sites as dukotah.
+  Our independent null designs validate the statistic's calibration, not the
+  observation's forking-paths risk.

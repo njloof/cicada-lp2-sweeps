@@ -99,3 +99,11 @@ G3 grid rows == recorded witnesses (exact 16-number match).
 2. Instrument lesson: never early-break an MC on a beats cap without
    first handling the obs=0 degenerate case (#21 lesson family:
    boundary conditions of the statistic itself).
+
+3. (2026-11-18, external review; LEDGER C2) The grid has a CLOSED FORM:
+   |3301 − prime(F+1)| over distinct Fibonacci F = 0…987, square spiral from
+   the red 3299 (16/16 vs the recorded 4×4; regression-gated in
+   core/validate.py gate 6). The pointer reading tested here is DEAD — the
+   values are a known object, not pointers — and the containment premise
+   inherited from #20 is RETRACTED (eleven small-F cells lie in 2838–3299 by
+   construction). The 0/16 measurements stand; the interpretive framing is void.

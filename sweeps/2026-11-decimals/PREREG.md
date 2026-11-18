@@ -51,3 +51,20 @@ G1 N=12,956; G2 grid rows == owner/krisyotam record (3278/3299*/3298/
 ## 4. Runtime
 
 MC 200k + analytic: < 30 s local. No studio.
+
+---
+
+## POST-REGISTRATION CORRECTIONS (appended 2026-11-18; sealed text above untouched)
+
+1. (external review; LEDGER C2) The containment statistic is RETRACTED. The
+   grid has a closed form — |3301 − prime(F+1)| over distinct Fibonacci
+   F = 0…987, square spiral from the red 3299 (16/16 vs the recorded 4×4;
+   validate gate 6 + pytest). The eleven small-F cells lie in 2838–3299 by
+   construction and the void/pre-axis windows cover that band, so
+   p = 3.3e-7 / 3.3e-8 measured a construction artifact against a null that
+   treated the values as free draws. DECIMALS-STRUCTURED is superseded by
+   STRUCTURED-BY-CLOSED-FORM; the round-#7 oracle measurements (S11/S12/S13)
+   stand as recorded; the 3299 ink anchor survives reinterpreted as the
+   spiral origin. Contributes a correction to dukotah round44 (14/16 → 16/16,
+   signed vs absolute difference on 1206/4516) — upstream post needs owner
+   approval.
