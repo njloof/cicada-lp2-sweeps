@@ -8,45 +8,67 @@ from core import kernel as sweep
 
 TRANS = V.translit
 
-# ---------- known decodes ----------
+# ---------- known decodes (scream314 sections via V.scream_runes, content-pinned) ----------
+
+def test_scream_content_pins():
+    # solved status is welded to rune content, not page number (external review
+    # round 2, 2026-11-18): scream314 folds 11/12 into the 10 block, 15 into 14
+    import hashlib
+    for label, (npin, hpin) in V.SCREAM_PINS.items():
+        ct = V.scream_runes(label)
+        got = hashlib.sha256("".join(map(str, ct)).encode()).hexdigest()[:16]
+        assert (len(ct), got) == (npin, hpin), label
 
 def test_atbash_a_warning():
-    sc = open(f"{V.SRC}/scream314/liber_primus.md", encoding="utf-8").read()
-    sec = [s for s in sc.split("\n## ") if s.startswith("Runes - 01.jpg")][0]
-    ct = [V.R2I[c] for c in sec.split("---")[0] if c in V.R2I]
-    txt = TRANS([(29 - 1 - c) % 29 for c in ct])
+    txt = TRANS([(29 - 1 - c) % 29 for c in V.scream_runes("Runes - 01.jpg")])
     for w in ("BELIEUE", "FROMTHIS", "TRUE"):     # V->U: runes alphabet has no V
         assert w in txt
 
-def test_welcome_vigenere():
-    sc = open(f"{V.SRC}/scream314/liber_primus.md", encoding="utf-8").read()
-    sec = [s for s in sc.split("\n## ") if s.startswith("03.jpg")][0]
-    ct = [V.R2I[c] for c in sec.split("---")[0] if c in V.R2I]
-    res = V.brute_interrupters(ct, V.keyword_stream("DIVINITY", len(ct)),
-                               ["WELCOME", "PILGRIM", "JOURNEY"])
-    assert res and res[1] == 3, res
+def test_welcome_continued():
+    # 03+04 as ONE continuous DIVINITY stream; 11 wiki F-skips consume no key,
+    # so 04 starts at phase 387 mod 8 = 3. Page-restarted key fails => this
+    # pins key continuity across the page break (review round-2 recipe).
+    both = V.scream_runes("03.jpg") + V.scream_runes("04.jpg")
+    skips = {48, 74, 84, 132, 159, 160, 250, 421, 443, 465, 514}
+    assert len(both) == 515 and all(both[t] == 0 for t in skips)
+    pt = V.decode_skipnull(both, V.keyword_stream("DIVINITY", len(both)),
+                           [t in skips for t in range(len(both))])
+    txt = TRANS(pt)
+    assert len(pt) == 504
+    for w in ("WELCOME", "PILGRIM", "JOURNEY",
+              "BENGUNTOYOURSEL", "INTELLIGENCEISHOLY", "COMMANDYOUROWNSEL"):
+        assert w in txt
 
 def test_wisdom_identity():
-    sc = open(f"{V.SRC}/scream314/liber_primus.md", encoding="utf-8").read()
-    sec = [s for s in sc.split("\n## ") if s.startswith("05.jpg")][0]
-    ct = [V.R2I[c] for c in sec.split("---")[0] if c in V.R2I]
-    txt = TRANS(ct)                              # standard futhark, no layer
+    txt = TRANS(V.scream_runes("05.jpg"))          # standard futhark, no layer
     for w in ("THEPRIMESARESACRED", "TOTIENT", "ENCRYPTED"):
         assert w in txt
 
 def test_koan_atbash_shift3():
-    sc = open(f"{V.SRC}/scream314/liber_primus.md", encoding="utf-8").read()
-    sec = [s for s in sc.split("\n## ") if s.startswith("06.jpg")][0]
-    ct = [V.R2I[c] for c in sec.split("---")[0] if c in V.R2I]
+    ct = V.scream_runes("06.jpg")
     txt = TRANS([(29 - 1 - c + 3) % 29 for c in ct])   # dukotah "atbash+shift+3"
     for w in ("ACOAN", "MASTER", "STUDENT"):
         assert w in txt
 
+def test_instruction_09_atbash_shift3():
+    # same transform as 06 (review round-2 recipe, 2026-11-18)
+    txt = TRANS([(29 - 1 - c + 3) % 29 for c in V.scream_runes("09.jpg")])
+    for w in ("INSTRUCTIAND", "UNREASONABLE", "EACHDAY"):
+        assert w in txt
+
+@pytest.mark.parametrize("label,cribs", [
+    ("10.jpg", ("THELOSSOFDIUINITY", "CIRCUMFERENCE", "BEHAUIARSWHICH")),
+    ("13.jpg", ("SOMEWISDOM", "GREATWEALTH", "BEPREPARED")),
+    ("16.jpg", ("WESTIAN", "DISCOUERTRUTH", "FOLLOWYOURTRUT")),
+])
+def test_identity_pages(label, cribs):
+    txt = TRANS(V.scream_runes(label))
+    for w in cribs:
+        assert w in txt
+
 def test_circumference_vigenere():
-    # public since 2017; mislabeled an open lead until the 2026-11-18 review
-    sc = open(f"{V.SRC}/scream314/liber_primus.md", encoding="utf-8").read()
-    sec = [s for s in sc.split("\n## ") if s.startswith("14.jpg")][0]
-    ct = [V.R2I[c] for c in sec.split("---")[0] if c in V.R2I]
+    # public since the 2014 wave; mislabeled an open lead until 2026-11-18
+    ct = V.scream_runes("14.jpg")
     res = V.brute_interrupters(ct, V.keyword_stream("FIRFUMFERENFE", len(ct)),
                                ["LESSON", "MASTER", "EXPLAINED", "STUDENT"])
     assert res and res[1] == 4, res

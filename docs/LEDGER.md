@@ -114,3 +114,37 @@ written; these notes supersede them.
   plaintext material; recipe requested). "Public since 2014" — 2017 wave.
   "doublet-free propagated into dukotah PICKUP-HERE/OPEN-LANES" — grep
   negative in our pinned snapshot (live upstream may differ; check queued).
+  *Two of these three rejections were our own bugs — superseded by C6; the
+  A/I uniformity stands.*
+- **C6 — review round 2 (2026-11-18): we were wrong on three C5/C3 items.**
+  (a) **LP1 04 IS solved** (C3 superseded): reviewer supplied the source —
+  same DIVINITY key, CONTINUOUS across the 03/04 break (03 consumes 394−7=387
+  key chars, 387 mod 8 = 3, so 04 starts at phase 3; 4 interrupters at in-page
+  27/49/71/120; the 2014 wiki numbers these "page 4 and 5"). Verified in our
+  rig: `WIDSOM YOU ARE A BENGUN TO YOURSEL … INTELLIGENCE IS HOLY … COMMAND
+  YOUR OWN SEL`. Now regression-gated (deterministic 11-skip continuous-key
+  decode over the 515-rune join).
+  (b) **The public wave is 2014, not 2017** (C5 item retracted): wiki
+  "CICADA 3301 2014 PUZZLE FACTS PART 4", 12 Jan 2014.
+  (c) **"doublet-free" HAS propagated upstream** (C5 item retracted): dukotah
+  commit `6b94529` (2026-11-17, *after* our pin) — OPEN-LANES.md L12,
+  PICKUP-HERE.md L8, CROSS-LEDGER.md L26 (credits njloof #10; also says
+  "replicated", should read "reproduced"). Our grep was against the stale
+  pinned snapshot. Upstream correction pending owner approval.
+  (d) **Our word-census rebuttal had a no-op dot rule** (C5 count corrected):
+  we split words on U+00B7 `·`, but the transcriptions use ASCII `.` — the
+  rule deleted nothing. Correct figure = reviewer's: 2,896 words / 83 singles
+  (reproduced exactly). The A/I *skew* claim still fails: singles spread
+  uniformly over all 29 runes at the corrected count too (A=2, I=5). The ~83
+  single-rune positions are kept as a scoring tool (full-stream A/I
+  adjudicator, ~320 bits), not as evidence of skew.
+  (e) **Phantom-rune parser bug, root cause of the "1 null-F" the reviewer
+  flagged** (reply §6): `scream_runes` used to harvest runes from whole
+  sections, picking up the ᚠ in the note "Every clear text F is an ᚠ (F)" —
+  03 read as 395 runes, the phantom absorbed as a null. Fixed (indented-block
+  parsing only); solved sections are now **content-pinned** (rune count +
+  sha256[:16]) because per-JPEG triage mis-files pages (11/12 folded into the
+  10 block, 15 into 14). The old presence-based WELCOME gate passed on cribs
+  that all sit before the first interrupter; it is replaced by the exact-skip
+  deterministic decode. Grid null re-measured with the reviewer's arithmetic:
+  p ≈ 0.105–0.13 — do NOT re-register the grid lane.

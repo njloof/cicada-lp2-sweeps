@@ -16,13 +16,21 @@ Gates:
      ~445 expected under flat unigrams (deficit ~17 sigma; suppression ~0.81,
      leak ~0.19). Solved pages sit at 1-2.4% doublets, unsolved at 0.66% —
      the filter is the defining machine artifact of the unsolved bulk.
-  5. Known-solution regression suite (the rig must reproduce every solved text;
+  5. Known-solutions regression suite (the rig must reproduce every solved text;
      extended 2026-11-18 after the external review — see docs/LEDGER.md
      Corrections; this gate must pass BEFORE any campaign launch):
+       every solved section is first content-pinned (SCREAM_PINS: rune count +
+       sha256[:16]) — solved status is welded to the rune string, not the page
+       number, because scream314 folds 11/12 into the 10 block and 15 into 14.
        A WARNING (LP1)  atbash                       -> BELIEVE/FROM THIS/TRUE
        SOME WISDOM(LP1) identity (standard futhark)  -> PRIMES/TOTIENT/ENCRYPTED
        A KOAN     (LP1) atbash+shift+3               -> COAN/MASTER/STUDENT
-       WELCOME  (LP1)   Vigenere DIVINITY, subtract  -> WELCOME/PILGRIM/JOURNEY
+       WELCOME-CONT LP1 03+04 as ONE stream: Vigenere DIVINITY, 11 wiki
+                      F-skips (no key consumption), continuous key across the
+                      page break (04 starts at phase 387 mod 8 = 3)
+                      -> WELCOME/PILGRIM/JOURNEY + INTELLIGENCE/COMMAND
+       INSTRUCTN  (LP1) atbash+shift+3               -> UNREASONABLE/EACH DAY
+       10/13/16   (LP1) identity                     -> koan text (see gates)
        CIRCUMF. (LP1)   Vigenere FIRFUMFERENFE       -> LESSON/MASTER/EXPLAINED/STUDENT
        AN END   (LP2 56) phi(prime) shift-down       -> DEEPWEB/PILGRIM/HASHESTO
        PARABLE  (LP2 57) direct transliteration      -> DIUINITY/EMERGE
@@ -30,9 +38,10 @@ Gates:
      be null), so we brute-force the 2^(#F) null/non-null assignments and require
      the expected words in the best candidate.
      LP1 pages 03/14 were listed as open leads until 2026-11-18; both solved in
-     the 2017 public wave (scream314 lineage) — the regression-suite failure mode
-     the review flagged is exactly this: a decode in this file not connected to
-     the open-lead list.
+     the 2014 public wave (wiki "CICADA 3301 2014 PUZZLE FACTS PART 4", 12 Jan
+     2014; scream314 lineage) — the regression-suite failure mode the review
+     flagged is exactly this: a decode in this file not connected to the
+     open-lead list.
   6. p15 decimal grid closed form: the 16 recorded cells equal
      {|3301 - prime(F+1)| : F distinct Fibonacci 0..987}; Fibonacci order is a
      square spiral from the red 3299 = 3301 - prime(1). Grid containment and
@@ -90,6 +99,54 @@ def phi_prime_stream(length):
 def keyword_stream(key, length):
     k = [LATIN2IDX[c] for c in key]
     return [k[t % len(k)] for t in range(length)]
+
+SCREAM = f"{SRC}/scream314/liber_primus.md"
+
+# Content pins: (n_runes, sha256-hex[:16] of the concatenated index string) for
+# every solved LP1 rune section. Pages are pinned BY CONTENT, not by number:
+# scream314 folds the 11/12 text into the 10.jpg block and the 15 text into
+# 14.jpg, and the 2014 wiki numbers the Welcome pages as "page 4 and 5" —
+# per-JPEG triage mis-files pages, so a solved status must be welded to the
+# exact rune string. Verified 2026-11-18 (rig + external review round 2).
+SCREAM_PINS = {
+    "Runes - 01.jpg": (184, "e4999b527224a631"),
+    "03.jpg":         (394, "fe093a0ccac7eb59"),
+    "04.jpg":         (121, "5ad8e046ce854f2f"),
+    "05.jpg":         (157, "3090d71764e5eb53"),
+    "06.jpg":         (742, "a8d7c9315a38b95d"),
+    "09.jpg":         (38,  "8691617cc1d8ac94"),
+    "10.jpg":         (629, "9021da2d7d507f9c"),   # block carries 11/12 text too
+    "13.jpg":         (125, "07c1525452f7e568"),
+    "14.jpg":         (319, "7860ffacbbd44124"),   # block ends with the 15.jpg text
+    "16.jpg":         (89,  "ab2523cd4d8ce007"),
+}
+
+def scream_runes(label, sc=None):
+    """Runes of a scream314 section = the indented block after the 'Runes:'
+    marker. NOT the whole section: 03/04 carry the note 'Every clear text F is
+    an ᚠ (F)', whose stray rune used to LEAD the extraction by one — that
+    phantom is why the old WELCOME gate reported '1 null-F' (external review
+    reply §6 flagged the count; fixed 2026-11-18). Sections without the marker
+    (only 01) fall back to the pre-'---' extraction, content-pinned below.
+    Indented prose (the garbled 'translate to' blocks) is excluded."""
+    if sc is None:
+        sc = open(SCREAM, encoding="utf-8").read()
+    sec = [s for s in re.split(r"^## ", sc, flags=re.M) if s.startswith(label)][0]
+    lines = sec.split("\n")
+    marks = [j for j, l in enumerate(lines) if l.strip() == "Runes:"]
+    if not marks:                                    # legacy fallback (01)
+        return [R2I[c] for c in sec.split("---")[0] if c in R2I]
+    out = []
+    for l in lines[marks[0] + 1:]:
+        if not l.startswith("    "):
+            if l.strip():
+                break
+            continue
+        cs = [c for c in l if c in R2I]
+        if not cs and l.strip():
+            break                                    # indented prose block
+        out += [R2I[c] for c in cs]
+    return out
 
 def decode_skipnull(ct, stream, null_mask):
     """P[t] = (C[t] - K[t']) where K advances only on non-null positions;
@@ -186,29 +243,50 @@ def main():
     print(f"{'PASS' if ok else 'FAIL'}  doublets = {dbl} (expect ~86, accept 60-120)")
     if not ok: fails.append("doublets")
 
-    # ---- Gate 5: smoke decodes ----
+    # ---- Gate 5: known-solutions regression suite ----
     # LP1 pages come from the scream314 transcription (independent of krisyotam stream)
-    sc = open(f"{SRC}/scream314/liber_primus.md", encoding="utf-8").read()
-    def scream_runes(label):
-        sec = [s for s in re.split(r"^## ", sc, flags=re.M) if s.startswith(label)][0]
-        return [R2I[c] for c in sec.split("---")[0] if c in R2I]
+    sc = open(SCREAM, encoding="utf-8").read()
+
+    # 5a: content pins — every solved section must be byte-identical to the
+    # rune string the decodes were verified against (numbering is not trusted)
+    for label, (npin, hpin) in SCREAM_PINS.items():
+        ct = scream_runes(label, sc)
+        got = hashlib.sha256("".join(map(str, ct)).encode()).hexdigest()[:16]
+        ok = (len(ct), got) == (npin, hpin)
+        print(f"{'PASS' if ok else 'FAIL'}  pin {label}: {len(ct)} runes {got} (want {npin} {hpin})")
+        if not ok: fails.append(f"pin {label}")
 
     # A WARNING: atbash, no interrupters
-    aw = scream_runes("Runes - 01.jpg")
+    aw = scream_runes("Runes - 01.jpg", sc)
     txt = translit([(N - 1 - c) % N for c in aw])
     exp = ["BELIEUE", "FROMTHIS", "TRUE"]  # BELIEVE: V->U in runes
     ok = all(w in txt for w in exp)
     print(f"{'PASS' if ok else 'FAIL'}  A WARNING atbash: {txt[:58]}...")
     if not ok: fails.append("AWARNING")
 
-    # WELCOME: Vigenere DIVINITY subtract, with interrupter search
-    we = scream_runes("03.jpg")
-    res = brute_interrupters(we, keyword_stream("DIVINITY", len(we)),
-                             ["WELCOME", "PILGRIM", "JOURNEY"])
-    ok = res and res[1] == 3
-    print(f"{'PASS' if ok else 'FAIL'}  WELCOME vigenere DIVINITY ({res[2]}, {res[3]} null-F): "
-          f"{res[0][:58]}...")
-    if not ok: fails.append("WELCOME")
+    # WELCOME + WELCOME CONTINUED (scream314 03+04; the 2014 wiki numbers these
+    # "page 4 and 5"): ONE continuous DIVINITY stream across the page break.
+    # The wiki lists 11 F-interrupters over the 515-rune join (7 in 03, 4 in 04
+    # at in-page 27/49/71/120); interrupters do NOT consume key, so 04 starts
+    # at phase (394-7) mod 8 = 3 — decoding 04 with a page-restarted key fails,
+    # which is exactly what this gate pins (key continuity). Deterministic
+    # exact-skip decode, no search: the old presence-based search early-exited
+    # on cribs that all sit before the first interrupter and reported a
+    # meaningless null count ("1 null-F" was a phantom note-rune, then "0").
+    # Recipe: external review round 2, 2026-11-18.
+    we, fo = scream_runes("03.jpg", sc), scream_runes("04.jpg", sc)
+    both = we + fo
+    SKIPS = [48, 74, 84, 132, 159, 160, 250, 421, 443, 465, 514]
+    pt = decode_skipnull(both, keyword_stream("DIVINITY", len(both)),
+                         [t in set(SKIPS) for t in range(len(both))])
+    txt = translit(pt)
+    ok = (len(both) == 515 and all(both[t] == 0 for t in SKIPS) and len(pt) == 504
+          and all(w in txt for w in ("WELCOME", "PILGRIM", "JOURNEY",
+                                     "BENGUNTOYOURSEL", "INTELLIGENCEISHOLY",
+                                     "COMMANDYOUROWNSEL")))
+    print(f"{'PASS' if ok else 'FAIL'}  WELCOME-CONTINUED 03+04 vigenere DIVINITY, "
+          f"11 wiki skips, continuous key: {txt[:58]}...")
+    if not ok: fails.append("WELCOME0304")
 
     # AN END: phi(prime) shift-down, from our corpus
     ae = flat(56)
@@ -226,27 +304,44 @@ def main():
     if not ok: fails.append("PARABLE")
 
     # SOME WISDOM: identity under standard futhark (dukotah method "shift+0")
-    txt = translit(scream_runes("05.jpg"))
+    txt = translit(scream_runes("05.jpg", sc))
     ok = all(w in txt for w in ("THEPRIMESARESACRED", "TOTIENT", "ENCRYPTED"))
     print(f"{'PASS' if ok else 'FAIL'}  SOME WISDOM identity: {txt[:58]}...")
     if not ok: fails.append("WISDOM")
 
     # A KOAN (master/student): atbash + shift+3 (dukotah method string; plain
     # mod-29 atbash alone yields garbage — the +3 is real)
-    txt = translit([(N - 1 - c + 3) % N for c in scream_runes("06.jpg")])
+    txt = translit([(N - 1 - c + 3) % N for c in scream_runes("06.jpg", sc)])
     ok = all(w in txt for w in ("ACOAN", "MASTER", "STUDENT"))
     print(f"{'PASS' if ok else 'FAIL'}  A KOAN atbash+3: {txt[:58]}...")
     if not ok: fails.append("KOAN06")
 
     # CIRCUMFERENCE KOAN: Vigenere FIRFUMFERENFE, interrupter search
-    # (public since 2017; listed as an open lead until 2026-11-18 — never again)
-    ci = scream_runes("14.jpg")
+    # (public since the 2014 wave; listed as an open lead until 2026-11-18 —
+    # never again)
+    ci = scream_runes("14.jpg", sc)
     res = brute_interrupters(ci, keyword_stream("FIRFUMFERENFE", len(ci)),
                              ["LESSON", "MASTER", "EXPLAINED", "STUDENT"])
     ok = res and res[1] == 4
     print(f"{'PASS' if ok else 'FAIL'}  CIRCUMFERENCE vigenere FIRFUMFERENFE "
           f"({res[2]}, {res[3]} null-F): {res[0][:58]}...")
     if not ok: fails.append("CIRCUMF")
+
+    # AN INSTRUCTION (09): atbash+shift+3, same transform as 06
+    txt = translit([(N - 1 - c + 3) % N for c in scream_runes("09.jpg", sc)])
+    ok = all(w in txt for w in ("INSTRUCTIAND", "UNREASONABLE", "EACHDAY"))
+    print(f"{'PASS' if ok else 'FAIL'}  INSTRUCTION atbash+3: {txt[:58]}...")
+    if not ok: fails.append("INSTR09")
+
+    # 10/13/16: identity (plain transliteration). The 10.jpg block carries the
+    # 11/12 continuation and 14.jpg carries 15 — pins above weld the folds.
+    for label, cribs in (("10.jpg", ("THELOSSOFDIUINITY", "CIRCUMFERENCE", "BEHAUIARSWHICH")),
+                         ("13.jpg", ("SOMEWISDOM", "GREATWEALTH", "BEPREPARED")),
+                         ("16.jpg", ("WESTIAN", "DISCOUERTRUTH", "FOLLOWYOURTRUT"))):
+        txt = translit(scream_runes(label, sc))
+        ok = all(w in txt for w in cribs)
+        print(f"{'PASS' if ok else 'FAIL'}  {label} identity: {txt[:58]}...")
+        if not ok: fails.append(f"IDENT{label}")
 
     # ---- Gate 6: p15 decimal grid closed form (external review 2026-11-18) ----
     # Recorded owner pass, 3 witnesses (docs/RED_CENSUS.md, docs/ORACLE_QUEUE.md):
