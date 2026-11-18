@@ -110,6 +110,14 @@ External verification adds two load-bearing facts [H]:
   totient, Fibonacci, running-key, short Vigenère — all yield 2.9–3.4%).
   ⇒ A crib cannot be applied additively to LP2; "find the right keytext"
   is not the game.
+- **Solved-page controls (2026-11-17, machine):** p57 CT (transliteration
+  = plaintext) reads IoC 0.0627, 22/29 symbols — plaintext-in-runes is
+  VISIBLY non-flat; p56 CT (totient keystream) reads IoC 0.0325, 29/29.
+  All 11 unsolved segmentation units: IoC 0.0335–0.0360, 29/29 — every
+  unit is keystream-class, none transliteration-class; but doublets
+  0.66% is below the additive class's 2.9–3.4%. Escape hatch tested and
+  rejected: koan PLAINTEXTS are not uniformly doublet-poor (p57 PT 1.0%
+  n=101 vs p56 PT 4.7% n=129 — 5× spread, p57 within small-sample luck).
 - Autokey positively refuted at mechanism level (flat difference-diagonal
   cv=0.061 vs autokey-required ~1.0) [DUKOTAH].
 - ~200 thematic keytexts (Cicada prose, Mabinogion, Blake, Book of the
