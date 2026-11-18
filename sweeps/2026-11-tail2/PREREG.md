@@ -98,3 +98,35 @@ residual.
   ~4.2e5 survivor decodes + same null shape). Lane E < 10 min studio
   including nulls (~2.9M quadgram scorings). All on studio.local per
   standing rule; local smoke tests only.
+
+---
+
+## POST-REGISTRATION CORRECTIONS (appended 2026-11-18 at implementation,
+## BEFORE any campaign output; sealed text above untouched)
+
+1. Lane E tested-statistic family: full affine (812 labelings x 2 dirs)
+   x S=1,000 shuffles x D=200 x 9 pages prices at ~2.9e9 decode-scorings
+   — infeasible. TESTED statistic = Caesar + atbash x fwd/rev (60
+   decodes), matched on both observed and null sides. Full affine stays
+   as a REPORTED observed secondary (best affine decode per page, not
+   tested). Rationale: the premise is printer-layer readability
+   (identity/Caesar/atbash), not a cipher layer; disclosed.
+
+2. Lane E post-output script corrections (verdict and flag set
+   unchanged; report regenerated from the CACHED null — RNG stream
+   untouched): (a) power plant defect — the planted Caesar-s=13 PT was
+   scored at identity instead of through the tested family (shifted text
+   cannot match English quadgrams; the registered probe "planted page
+   under an affine cell must be detected" requires the family scan).
+   Fixed: plant now runs family_X; expected recovery at a=1 s=16 fwd.
+   (b) Holm implementation used running min; correct adjusted p is
+   running max_{j<=i} (m-j+1) p_j. Rejection set identical (6 pages);
+   reported values corrected (flagged pages 0.0448; p=1.0 pages 1.0000,
+   not the misleading 0.0199). (c) per-page p=0.0050 is the floor
+   1/(D+1)=1/201 (0/200 beats) — per the #24 p-floor lesson the report
+   now discloses the floor and prints each page's null-max margin.
+   (d) best-family decode excerpts added to the report (owner flag
+   must be readable).
+3. Lane D runtime disclosure "runtime 1 s" is the final budget-chunk's
+   wall time only; true total across chunks ~482 s (sweep+plants+200
+   null draws) on studio. Report line annotated in place.
