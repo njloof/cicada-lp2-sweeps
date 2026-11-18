@@ -125,3 +125,22 @@ verdicts; a lane may finish while another runs.
 - Runtime estimates at registration: A ~5 min; B ~30 min parallel
   local (priced from measured 139k win/s loop, 1,072 pair/s vector);
   C minutes (F-capped). Total same-day, no studio unless B stalls.
+
+---
+
+## POST-REGISTRATION CORRECTIONS (appended 2026-11-18; sealed text above untouched)
+
+1. Lane A canon length: PREREG said 13,141 (12,956+85+100) — arithmetic
+   slip, p57 is 95 runes. Measured 13,136, EXACTLY dukotah's canon
+   length: the disclosed lineage difference does not exist; gate A-G1
+   asserts 13,136.
+2. Lane A page starts: 57, not 58 — p50 is the runeless hole and is not
+   in the book list; no alignment is lost (0-rune page start coincides
+   with its successor).
+3. Tooling (disclosed): studio.sh SYNC_PATHS extended with `docs`
+   (docs/img excluded — 14 MB owner crops) and the single file
+   sources/dukotah/liber-primus/data/english_quadgrams.txt, so
+   core/skeleton works on the Studio. Owner steer 2026-11-18: run on
+   studio.local. Lane A ran there (564 s); RNG streams untouched
+   (letter-shuffle substreams seeded per replicate; identical either
+   host).

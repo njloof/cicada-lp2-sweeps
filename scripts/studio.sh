@@ -21,7 +21,7 @@ HOST="studio.local"
 REMOTE_HOME="cicada-c7"                      # relative to remote $HOME
 VENV_PY="~/cicada-venv/bin/python"
 # Fixed sync list (repo-relative). Keep this minimal and auditable.
-SYNC_PATHS="core data/pages sources/scream314/liber_primus.md sweeps"
+SYNC_PATHS="core data/pages docs sources/scream314/liber_primus.md sources/dukotah/liber-primus/data/english_quadgrams.txt sweeps"
 
 die() { echo "studio.sh: $*" >&2; exit 2; }
 
@@ -33,7 +33,7 @@ case "${1:-}" in
     [ "$#" -eq 1 ] || die "sync takes no arguments"
     # -R recreates the repo-relative structure under REMOTE_HOME
     # shellcheck disable=SC2086
-    rsync -aR --exclude __pycache__ --exclude results/null_*checkpoint* $SYNC_PATHS "$HOST:$REMOTE_HOME/"
+    rsync -aR --exclude __pycache__ --exclude results/null_*checkpoint* --exclude docs/img $SYNC_PATHS "$HOST:$REMOTE_HOME/"
     ;;
   run)
     [ "$#" -ge 2 ] || die "run needs a script"
