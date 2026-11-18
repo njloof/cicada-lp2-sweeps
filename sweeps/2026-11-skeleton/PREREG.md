@@ -114,3 +114,35 @@ so it may be adopted as crib constraints for future decodes.
 - LP2-native koan corpus is 2 pages; V3 is descriptive by construction.
 
 Runtime: seconds, single machine (no studio). Deterministic + one seed.
+
+---
+
+## POST-REGISTRATION CORRECTIONS (appended 2026-11-17, after first
+completed run; sealed text above untouched)
+
+1. **First completed run was INVALID** and is not retained as campaign
+   output: (a) the canonical extractor's `find("AN END")` anchor matched
+   the LP1 WELCOME text "…FIND AN END TO ALL STRUGGLE…" and swallowed a
+   4,727-letter blob; (b) `hyper_p` summed the LOWER tail, contradicting
+   the registered statistic Σ_{i≥k} (returned p=1.0 for k=n=15);
+   (c) the relikd cross-check cut at the `⁘` hash marker, discarding the
+   second-half CT lines (spurious "disagreements" everywhere). All three
+   fixed before the valid run; no result numbers from the invalid run
+   were used.
+2. **Arithmetic correction to G3 context note**: "canonical 91 > stream
+   85 runes ⇒ stream cannot encode canonical" was a rune-vs-letter error.
+   TH/NG/EO romanize to 2 letters from 1 rune, so 85 runes (84 non-null)
+   decode to exactly 91 letters — the lengths MATCH. The mid-tail
+   divergence (HASHESTO vs HASHES-TO region, TOSEECOUT vs SEEK) is real
+   and the verified-region instrument stands as registered, but for the
+   divergence, not a capacity shortfall. G3's "PT length 84" means 84
+   non-null RUNES (91 letters).
+3. **Instrument detail added post-registration**: the signed file wraps
+   MID-WORD without hyphens (TH|ERE, HA|SHES, PILGR|IM) and also wraps
+   at word boundaries (the|divinity). Space-joining the lines created
+   spurious word starts at letters 23/43/72 (23 = the single block-vs-
+   relikd disagreement). Wrap repair: merge iff the joined fragment is
+   an English word or either fragment alone is not (/usr/share/dict/
+   words); verified on all four body wraps of the two sections. This
+   changed B 22->19 (the three spurious starts were all inside verified
+   gaps); k, n, G unchanged; p 3.9e-11 (pre-fix segmentation) -> 8.9e-13.
