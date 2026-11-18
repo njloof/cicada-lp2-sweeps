@@ -55,6 +55,23 @@ class TestSkeleton(unittest.TestCase):
         self.assertEqual(S.crib_placements("HASHESTO", 56, nulls={47}),
                          n56 - len("HASHESTO") + 1)
 
+    def test_interrupter_sweep_finds_true_decode_p56(self):
+        top, allc = S.interrupter_sweep(
+            56, ["DEEPWEB", "PILGRIM", "HASHESTO"])
+        # the CI decode diverges from the TRUE plaintext mid-tail (#21),
+        # so PILGRIM sits shifted and reads as straddling boundary 67:
+        # legal=2 not 3 for the true combo. The skeleton lives in true-
+        # plaintext letter space — penalizing shifted decodes is the
+        # constraint working, on unsolved pages a correct decode aligns.
+        true_c = [c for c in allc if c[2:] == ("skip", (47,))]
+        self.assertEqual(len(true_c), 1)
+        self.assertEqual(true_c[0][:2], (2, 3))
+        self.assertIn(true_c[0], top)
+        # pruning never invents hits and strictly reduces false positives
+        self.assertTrue(all(l <= r for l, r, *_ in allc))
+        self.assertLess(sum(l for l, *_ in allc),
+                        sum(r for _, r, *_ in allc))
+
     def test_score_ranks_true_text(self):
         import core.validate as V
         pt57 = V.translit(V.flat(57)).upper()

@@ -226,6 +226,70 @@ def skeleton_penalty(candidate, page, nulls=(), skel=None):
     return ill / tot if tot else 0.0
 
 
+def legal_occurrence(crib, candidate, page, nulls=(), skel=None):
+    """True iff `crib` occurs in `candidate` at >=1 skeleton-legal
+    placement (phrase cribs exempt — always legal)."""
+    skel = skel or skeleton(page)
+    c = candidate.upper().translate(MERGE)
+    k = crib.upper().translate(MERGE)
+    if k in MULTIWORD:
+        return k in c
+    st = 0
+    while True:
+        o = c.find(k, st)
+        if o < 0:
+            return False
+        if not any(o <= b < o + len(k) - 1
+                   for b in _bad(page, nulls, skel)):
+            return True
+        st = o + 1
+
+
+@functools.lru_cache(maxsize=None)
+def _bad_cached(page, nulls):
+    skel = skeleton(page)
+    bounds, wraps = letter_boundaries(skel, page, nulls)
+    return frozenset(bounds - wraps)
+
+
+def _bad(page, nulls, skel=None):
+    return _bad_cached(page, tuple(sorted(nulls)))
+
+
+def interrupter_sweep(page, expect, top=5):
+    """Skeleton-pruned mirror of core.validate.brute_interrupters:
+    enumerate null-combos x conventions, but rank candidates by crib
+    hits counted ONLY at legal placements (legal_hits), then raw hits,
+    then quadgram score. Returns ranked tuples
+    (legal_hits, raw_hits, conv, nulls, text)."""
+    import itertools
+    import core.validate as V2
+    ct = V2.flat(page)
+    stream = V2.phi_prime_stream(len(ct))
+    fpos = [t for t, c in enumerate(ct) if c == 0]
+    skel = skeleton(page)
+    out = []
+    for r in range(len(fpos) + 1):
+        for combo in itertools.combinations(fpos, r):
+            cs = set(combo)
+            for conv, fn in (("skip", V2.decode_skipnull),
+                             ("hold", V2.decode_holdnull)):
+                txt = V2.translit(
+                    fn(ct, stream, [t in cs for t in range(len(ct))]))
+                raw = sum(w in txt for w in expect)
+                if raw == 0:
+                    continue
+                # hold convention emits a letter at nulls -> letter
+                # space spans ALL runes (no skipped positions)
+                eff = cs if conv == "skip" else ()
+                legal = sum(
+                    1 for w in expect
+                    if legal_occurrence(w, txt, page, eff, skel))
+                out.append((legal, raw, conv, tuple(sorted(cs)), txt))
+    out.sort(key=lambda x: (-x[0], -x[1], -score_text(x[4])))
+    return out[:top], out
+
+
 def payoff(pages=None, out_csv=None):
     """Report-only: crib-placement search space, unconstrained vs
     skeleton-constrained, per crib x page. Returns median shrinkage."""
