@@ -144,3 +144,36 @@ verdicts; a lane may finish while another runs.
    studio.local. Lane A ran there (564 s); RNG streams untouched
    (letter-shuffle substreams seeded per replicate; identical either
    host).
+
+4. Lane B target set: 55 unsolved pages including p55 (#6's harness used
+   n<=54, predating the p55 census); G1 asserts N=12,956 over the scan
+   targets.
+5. B-G1 result: COMPLETE mid-range alignment coverage at the registered
+   k = ceil(L/(L-49)) for every source — k-boost rule never invoked
+   (kmap.json values 2-4 are all k0). Pads 25,400 (PREREG estimate
+   26,250 predated the self-pair audit).
+6. Lane B first-run defect (disclosed): the shuffle stream was built with
+   a nested dict comprehension {str(d): {str(M): ...} for d, for M} that
+   collapsed each draw's inner dict to its last target. Caught at the
+   first null draw (KeyError) BEFORE any null value was produced; stream
+   redrawn with a fixed sequential loop — same seed, same draw order,
+   bit-identical prefix, banked nulls unaffected.
+7. Escalation EXECUTED per the registered rule (obs 131.0 >= null
+   median): null extended 20 -> 200 draws (same seed, sequential stream;
+   first 20 bit-identical to banked). Extended null max 136.1 EXCEEDS
+   obs; p=0.0149 (3/200 beats); all three GO prongs fail (obs < 1.1 x
+   nullmax; top cell mask=both n=49 < floor 50; 0 cribs). NEGATIVE.
+   The 20-draw "beats all 20" was the p-floor artifact (1/21 = 0.0476
+   is the minimum reportable p) — exactly what the escalation rule
+   guards against.
+8. Studio mirror hygiene (disclosed): a stale pre-hole lp2_50.txt lingers
+   on the studio mirror (rsync does not delete removed files) — the
+   script now drops p50 defensively; data/solved_plaintexts.json added
+   to SYNC_PATHS (silently absent before: plaintext pad sources were
+   missing from the first synced run's family).
+9. Lane C plant defect (disclosed): first-run plants masked ciphertext
+   positions where the enciphered PLAINTEXT carried genuine F-runes,
+   deleting planted letters (raw 1). Fixed to the true cell
+   (empty combo, skip convention); rerun: plant raw 9, p = 0.005 —
+   scorer sees a planted signal. F-truncation observed as predicted:
+   06.jpg F=24 -> first 20 positions (registered cap).
