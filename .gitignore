@@ -11,3 +11,6 @@ __pycache__/
 
 # Claude Code personal settings (never committed; git permissions rules etc.)
 .claude/settings.local.json
+
+# null-run resume scratch — regenerable from recorded seeds (policy: work/)
+sweeps/*/results/*_checkpoint.json
