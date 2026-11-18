@@ -63,7 +63,7 @@ class TestSkeleton(unittest.TestCase):
         # legal=2 not 3 for the true combo. The skeleton lives in true-
         # plaintext letter space — penalizing shifted decodes is the
         # constraint working, on unsolved pages a correct decode aligns.
-        true_c = [c for c in allc if c[2:] == ("skip", (47,))]
+        true_c = [c for c in allc if c[2:4] == ("skip", (47,))]
         self.assertEqual(len(true_c), 1)
         self.assertEqual(true_c[0][:2], (2, 3))
         self.assertIn(true_c[0], top)
