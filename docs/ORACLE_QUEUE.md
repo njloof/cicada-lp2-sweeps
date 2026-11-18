@@ -405,3 +405,53 @@ p27 (L7): D__ / ☐   p27 (L8): D__ / ☐   p29 (L5): D__ / ☐   p29 (L6): D__ 
 p30 (L9): D__ / ☐   p34 (L7): D__ / ☐   p40 (L2): D__ / ☐   p41 (L1): D__ / ☐
 p41 (L4): D__ / ☐   p41 (L9): D__ / ☐   p44 (L8): D__ / ☐   p47 (L3): D__ / ☐
 p48 (L1): D__ / ☐   p52 (L4): D__ / ☐
+
+---
+
+# Round #7 (2026-11-17) — campaign #20 confirmation, owner-performable
+
+Where #20 stands (refresher): p15's printed digit grid **3278 / 3299(red)
+/ 3298 / 2838**. Machine found three things — all four values fall inside
+the T7 rune void [2740,4389] (p=2.6e-4); all four inside the pre-axis span
+[1874,3602] (p=3.2e-4); digit sums {20,21,22,23} consecutive (p=0.0039);
+Holm survives all. BUT I saw all three during the design pass (post-hoc),
+so by our own rule they FLAG, they don't ADOPT. What adoption needs: a
+prediction written down BEFORE the data, about data the design never
+touched. The three predictions below were committed before your answer —
+that is what makes them confirmation-grade. Full pages, your policy.
+
+**S11 — recurrence sweep (PRIMARY).** A channel that occurs exactly once
+cannot be confirmed: it is either a channel (recurs) or a one-off device.
+PREDICTION (frozen): somewhere in the book OTHER than p15 there is at
+least one more printed Arabic-decimal digit group. krisyotam is lossy for
+non-rune content (p56's hex lines and p51's Roman numerals reached us only
+through the images), so more could exist image-side only. Task: sweep all
+58 full pages for printed Arabic decimal digits other than p15. Report
+page + the digits — do NOT interpret them; the void/span/digit-sum
+battery on the new group is then the registered confirmation test.
+Found: page ___ digits ______  (or: "none — all pages checked" → that
+retires the channel reading: decimals = one-off device, adoption stays
+blocked, no hard feelings, the p-values stand as a curiosity)
+
+**S12 — grid geometry + red anchor.** PREDICTION (frozen): the red 3299
+sits at one END of the grid's physical reading order (first or last
+position), i.e. red marks an anchor/terminator, consistent with our
+terminator convention. Task, no interpretation: record the grid's
+geometry — how many rows/columns, exact digits per row, which digits are
+red, relative sizes/spacing, ink tone.
+Geometry notes: ____________________  3299 position: first / last / middle ☐
+
+**S13 — axis through the digit block.** You already saw the ∞ (lemniscus)
+loop directly under the digit block (your S9 lead). PREDICTION (frozen):
+the vertical line through the ∞ loop's centre passes THROUGH the digit
+block (not beside it) and lands on or immediately adjacent to the red
+3299 column. Task: on the full p15, sight along that axis; say where it
+lands relative to the grid.
+Axis lands: through 3299 / other column / beside block / no alignment ☐
+
+Scoring (pre-registered): S11 found → I run the FROZEN battery (same
+nulls as #20: void C(1650,4)/C(12956,4), span, digit-sum MC) on the NEW
+group — survives Holm → DECIMALS-CONFIRMED, adopted; fails → one-off
+device. S11 none → one-off device, closed. S12/S13 corroborating only
+(4 objects = low power): agreement strengthens, disagreement weakens but
+does not refute. S11 alone can decide.
