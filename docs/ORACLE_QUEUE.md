@@ -429,9 +429,11 @@ through the images), so more could exist image-side only. Task: sweep all
 58 full pages for printed Arabic decimal digits other than p15. Report
 page + the digits — do NOT interpret them; the void/span/digit-sum
 battery on the new group is then the registered confirmation test.
-Found: page ___ digits ______  (or: "none — all pages checked" → that
-retires the channel reading: decimals = one-off device, adoption stays
-blocked, no hard feelings, the p-values stand as a curiosity)
+Found: page ___ digits   (or: "none — all pages checked" → that retir
+es the channel reading: decimals = one-off device, adoption stays bloc
+ked, no hard feelings, the p-values stand as a curiosity)
+
+Page 10 has that "7" in the middle of the runes. And there are the red numbers that appear at the beginning of consecutive paragraphs from p36-38 (1, 2, 3, 4, 5). And of course the sexagesimal numbers from p49-51 contain many Arabic numerals (and Roman letters). And the presumed hexadecimal on p56. That's all I see.
 
 **S12 — grid geometry + red anchor.** PREDICTION (frozen): the red 3299
 sits at one END of the grid's physical reading order (first or last
@@ -439,7 +441,9 @@ position), i.e. red marks an anchor/terminator, consistent with our
 terminator convention. Task, no interpretation: record the grid's
 geometry — how many rows/columns, exact digits per row, which digits are
 red, relative sizes/spacing, ink tone.
-Geometry notes: ____________________  3299 position: first / last / middle ☐
+Geometry notes: __  3299 position: first / last / middle ☐
+
+This is already recorded: 3258 3222 3152 3038/ 3278 3*2*9*9* 3298 2838/ 3288 3294 3296 2472/ 4516 1206 708 1820/. So 4 rows, 4 columns, 3299 is row 2, column 2. 
 
 **S13 — axis through the digit block.** You already saw the ∞ (lemniscus)
 loop directly under the digit block (your S9 lead). PREDICTION (frozen):
@@ -447,7 +451,7 @@ the vertical line through the ∞ loop's centre passes THROUGH the digit
 block (not beside it) and lands on or immediately adjacent to the red
 3299 column. Task: on the full p15, sight along that axis; say where it
 lands relative to the grid.
-Axis lands: through 3299 / other column / beside block / no alignment ☐
+Axis lands: through 3299 / other column / beside block / no alignment ☐ The loop's center cuts the 4 columns in half.
 
 Scoring (pre-registered): S11 found → I run the FROZEN battery (same
 nulls as #20: void C(1650,4)/C(12956,4), span, digit-sum MC) on the NEW
