@@ -82,6 +82,7 @@ def main():
     latt_page = Counter()
     wlen = Counter()
     for p in BOOK:
+        pending_d3 = False
         for ln, raw in enumerate(blocks[p].splitlines()):
             if not raw.strip():
                 continue
@@ -103,6 +104,17 @@ def main():
             s = re.sub(r"[A-Za-z]+", "", s)
             quotes = re.findall(r"['\"]", s)
             plain_dots[p] += s.count(".")        # krisyotam verbatim dots
+            # OWNER STIPULATION 2026-11-17 (clarified): line-final ◆3 + the
+            # NEXT line's initial '-' TOGETHER render one ◆4: BOTH marks
+            # are removed and replaced by a single sentence dot. (p5 L5->L6,
+            # p11 L11->L12; roman already shows '.'). Stipulated, not
+            # measured.
+            if pending_d3:
+                s = s[1:] if s.startswith("-") else s
+                pending_d3 = False
+            if "◆3" in s:
+                s = s.replace("◆3", "◆4")
+                pending_d3 = True
             latt = Counter(re.findall(r"◆(\d+)", s))
             # roman-layer mapping (ORACLE note): ◆4->'.' (#16 T1),
             # ◆13->¶, ◆23->§; other ◆N keep their own class
