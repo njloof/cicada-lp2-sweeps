@@ -127,6 +127,24 @@ simulation runs locally: minutes). REPORT.md carries verdicts, calibrated
 p's, k-profile figure, and the retired-or-qualified outcome verbatim against
 the stopping rule.
 
+## Addendum (2026-11-19, pre-output — no real-data statistic touched yet): G4 restated
+
+As written ("DP recovers planted changepoints exactly"), G4 fails by
+construction, not by fitter bug: on random Bernoulli sequences the MLE
+changepoint has inherent location jitter of tens of runes (observed ±15–45 at
+rates 0.05/0.005) — "exact" is not a meaningful demand for the estimator.
+G4 is restated as the two claims that ARE meaningful, and stronger than the
+original in the part that matters:
+- **G4a (optimizer exactness):** DP == exhaustive brute force (all cut
+  combinations) on 3 small sequences (N=200, k=1..3, random rates) — the DP
+  is exactly optimal, no heuristic.
+- **G4b (recovery within registered resolution):** on the 4 synthetic
+  sequences (N=20,000, k=1..4, rates 0.05/0.005), every fitted changepoint
+  within ±150 of planted — the same resolution the registered location clause
+  P3 uses. Exact-match is reported descriptively.
+
+Everything else (P1–P3, null calibration, CV, power, stopping rule) unchanged.
+
 ## What this campaign does NOT do
 
 No crib/English scoring anywhere (language-free lane). No re-registration of
