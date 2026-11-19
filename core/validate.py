@@ -29,6 +29,9 @@ Gates:
                       F-skips (no key consumption), continuous key across the
                       page break (04 starts at phase 387 mod 8 = 3)
                       -> WELCOME/PILGRIM/JOURNEY + INTELLIGENCE/COMMAND
+                      Interrupters are plaintext F IN THE CLEAR (YOURSELF, FOR,
+                      SELF): the pin text keeps them — hold convention, 515
+                      chars (review round 3; the old skip pin hashed F-less text)
        INSTRUCTN  (LP1) atbash+shift+3               -> UNREASONABLE/EACH DAY
        10/13/16   (LP1) identity                     -> koan text (see gates)
        CIRCUMF. (LP1)   Vigenere FIRFUMFERENFE       -> LESSON/MASTER/EXPLAINED/STUDENT
@@ -178,7 +181,10 @@ def brute_interrupters(ct, stream, expect, max_f=20, rmax=None):
     for r in range((rmax or len(fpos)) + 1):
         for combo in itertools.combinations(fpos, r):
             cs = set(combo)
-            for conv, fn in (("skip", decode_skipnull), ("hold", decode_holdnull)):
+            for conv, fn in (("hold", decode_holdnull), ("skip", decode_skipnull)):
+                # hold FIRST: the true plaintext keeps interrupter F's (they are
+                # letters in the clear); skip yields the F-stripped text and used
+                # to win ties, pinning 4 deleted letters on 04 (review round 3)
                 part = fn(ct[:head], stream, [t in cs for t in range(head)])
                 if crib0 not in translit(part): continue
                 txt = translit(fn(ct, stream, [t in cs for t in range(len(ct))]))
@@ -280,17 +286,19 @@ def main():
     # exact-skip decode, no search: the old presence-based search early-exited
     # on cribs that all sit before the first interrupter and reported a
     # meaningless null count ("1 null-F" was a phantom note-rune, then "0").
-    # Recipe: external review round 2, 2026-11-18.
+    # Recipe: external review round 2, 2026-11-18. Round 3 (same day): pin the
+    # TRUE plaintext — interrupters are plaintext F in the clear (YOURSELF, FOR,
+    # SELF), so HOLD decode (F emitted, key held), 515 chars, F-bearing cribs.
     we, fo = scream_runes("03.jpg", sc), scream_runes("04.jpg", sc)
     both = we + fo
     SKIPS = [48, 74, 84, 132, 159, 160, 250, 421, 443, 465, 514]
-    pt = decode_skipnull(both, keyword_stream("DIVINITY", len(both)),
+    pt = decode_holdnull(both, keyword_stream("DIVINITY", len(both)),
                          [t in set(SKIPS) for t in range(len(both))])
     txt = translit(pt)
-    ok = (len(both) == 515 and all(both[t] == 0 for t in SKIPS) and len(pt) == 504
+    ok = (len(both) == 515 and all(both[t] == 0 for t in SKIPS) and len(pt) == 515
           and all(w in txt for w in ("WELCOME", "PILGRIM", "JOURNEY",
-                                     "BENGUNTOYOURSEL", "INTELLIGENCEISHOLY",
-                                     "COMMANDYOUROWNSEL")))
+                                     "BENGUNTOYOURSELF", "INTELLIGENCEISHOLYFORALL",
+                                     "COMMANDYOUROWNSELF")))
     print(f"{'PASS' if ok else 'FAIL'}  WELCOME-CONTINUED 03+04 vigenere DIVINITY, "
           f"11 wiki skips, continuous key: {txt[:58]}...")
     if not ok: fails.append("WELCOME0304")
