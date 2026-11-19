@@ -8,6 +8,8 @@ engine in-tree and launches lane workers (seed-range partition).
     python3 drive.py --corpus              # write corpus.bin (pinned unsolved stream)
     python3 drive.py --bench N             # per-lane throughput (synthetic timing)
     python3 drive.py --launch lane NWORK   # partition [0,2^32) and run workers (studio)
+    python3 drive.py --kill                # kill engine workers (pre-resume; avoids double-scan)
+    python3 drive.py --runall              # supervisor: lanes A,B,C sequentially, 28 workers each (studio)
 """
 import json, os, subprocess, sys, time, zlib
 import numpy as np
@@ -118,6 +120,54 @@ def launch(lane, nwork):
     print(f"launched {nwork} workers lane {lane}; pids {[p.pid for p in procs]}")
     return procs
 
+def ps():
+    # read-only: engine workers + runall supervisor
+    r = sh("ps", "-axo", "pid=,etime=,command=")
+    for line in r.stdout.splitlines():
+        if "seedspace_engine" in line or "runall" in line:
+            print(line.strip())
+
+def kill():
+    # Kill engine workers. MUST precede any relaunch: two workers on the same
+    # seed range would double-count hist/top at merge time. Checkpoints are
+    # atomic (state file every 2M seeds), so at most one chunk is re-scanned.
+    ps = sh("ps", "-axo", "pid=,comm=").stdout.splitlines()
+    n = 0
+    for line in ps:
+        parts = line.split()
+        if len(parts) == 2 and parts[1].endswith("seedspace_engine"):
+            try:
+                os.kill(int(parts[0]), 15)
+                n += 1
+            except ProcessLookupError:
+                pass
+    print(f"killed {n} engine workers")
+
+def runall(nwork=28):
+    # PREREG execution section: 28 worker processes, lanes run SEQUENTIALLY
+    # (measured 2026-11-18: 3 concurrent lanes = 84 workers on 28 cores
+    # degrades per-worker rate ~7x for B/C; CPU-bound, no I/O to overlap).
+    # Resume semantics: workers read their atomic state file and continue.
+    for lane in "ABC":
+        procs = launch(lane, nwork)
+        print(f"lane {lane}: {nwork} workers running", flush=True)
+        for p in procs:
+            p.wait()
+        print(f"lane {lane}: DONE", flush=True)
+
+def status(nwork=28):
+    for lane in "ABC":
+        tot = 0
+        for i in range(nwork):
+            p = os.path.join(HERE, "results", f"w_{lane}_{i}", f"state_{lane}.txt")
+            if os.path.exists(p):
+                with open(p) as f:
+                    for line in f:
+                        if line.startswith("CURSOR "):
+                            tot += int(line.split()[1]) - i * (SPACE // nwork)
+                            break
+        print(f"lane {lane}: {tot}/{SPACE} seeds ({100.0*tot/SPACE:.2f}%)")
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     if not a:
@@ -131,4 +181,13 @@ if __name__ == "__main__":
         bench(int(a[1])); sys.exit(0)
     if a[0] == "--launch":
         launch(a[1], int(a[2])); sys.exit(0)
+    if a[0] == "--ps":
+        ps(); sys.exit(0)
+    if a[0] == "--kill":
+        kill(); sys.exit(0)
+    if a[0] == "--runall":
+        if not os.path.exists(ENG): build()
+        runall(int(a[1]) if len(a) > 1 else 28); sys.exit(0)
+    if a[0] == "--status":
+        status(int(a[1]) if len(a) > 1 else 28); sys.exit(0)
     print("unknown arg"); sys.exit(2)

@@ -1,7 +1,7 @@
 {
  "campaign": 28,
  "seed": 20261228,
- "prereg_commit": "THIS_COMMIT",
+ "prereg_commit": "f1ab025408512798e90991ed0b38fdd56e967178",
  "core_rev": "1a6f27cbabdd938bba5418d5cc89cbbe6c3c4c2a",
  "validation_files": {
   "vectors.json": "sources/dukotah/liber-primus/analysis/round27/P0-spec/vectors.json",
