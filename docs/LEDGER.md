@@ -90,7 +90,8 @@ written; these notes supersede them.
   positive: first complete read of a printed LP2 object, and a correction to
   dukotah round44 (they report 14/16 using the signed difference; absolute
   value gives 16/16 — 1206 = prime(611)−3301, 4516 = prime(988)−3301).
-  Upstream post pending owner approval.
+  Upstream POSTED 2026-11-18 (owner ran): Dukotah/cicada3301 issue #14,
+  comment 6995323383.
 - **C3 — row 25 residual "03/04/14 (non-simple layers)": 03 and 14 are
   publicly solved** (2017 wave, scream314 lineage): LP1 03 = Vigenère
   DIVINITY (+7 F-interrupters), LP1 14 = Vigenère FIRFUMFERENFE (+2). Our own
@@ -130,7 +131,9 @@ written; these notes supersede them.
   commit `6b94529` (2026-11-17, *after* our pin) — OPEN-LANES.md L12,
   PICKUP-HERE.md L8, CROSS-LEDGER.md L26 (credits njloof #10; also says
   "replicated", should read "reproduced"). Our grep was against the stale
-  pinned snapshot. Upstream correction pending owner approval.
+  pinned snapshot. Upstream correction POSTED 2026-11-18 (owner ran):
+  Dukotah/cicada3301 issue #13, comment 6995327465 (three live lines +
+  replicated→reproduced; replacement text supplied).
   (d) **Our word-census rebuttal had a no-op dot rule** (C5 count corrected):
   we split words on U+00B7 `·`, but the transcriptions use ASCII `.` — the
   rule deleted nothing. Correct figure = reviewer's: 2,896 words / 83 singles
