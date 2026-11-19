@@ -81,7 +81,7 @@ def main():
               f"plant_min={pmin:.2f} B={B:.2f} gate={'PASS' if gate else 'FAIL'} "
               f"-> {verdict}")
         np.savetxt(os.path.join(RES, f"hist_{lane}.txt"),
-                   np.c_[np.arange(1400) * 0.5 - 500.0, hist], fmt="%.1f\t%llu")
+                   np.c_[np.arange(1400) * 0.5 - 500.0, hist], fmt="%.1f\t%d")
         with open(os.path.join(RES, f"top_{lane}.tsv"), "w") as f:
             for s, sd, sg, rd in cands[:1024]:
                 f.write(f"{s:.4f}\t{sd}\t{sg}\t{rd}\n")
