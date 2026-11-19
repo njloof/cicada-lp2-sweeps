@@ -14,3 +14,10 @@ __pycache__/
 
 # null-run resume scratch — regenerable from recorded seeds (policy: work/)
 sweeps/*/results/*_checkpoint.json
+
+# campaign #28 seedspace — regenerable (drive.py --corpus; plants.py; cc engine.c)
+sweeps/2026-11-seedspace/corpus.bin
+sweeps/2026-11-seedspace/seedspace_engine
+sweeps/2026-11-seedspace/results/plant_*.bin
+sweeps/2026-11-seedspace/results/worker_*.log
+sweeps/2026-11-seedspace/results/w_*/

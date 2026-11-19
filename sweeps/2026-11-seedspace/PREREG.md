@@ -154,3 +154,31 @@ dukotah's heavier grind27 pipeline measured 130.4k seeds/s aggregate on
     python3 sweeps/2026-11-seedspace/plants.py                # plant ladders
     scripts/studio.sh run sweeps/2026-11-seedspace/drive.py --lane A --budget 480   # etc.
     # artifacts: results/seedspace_*.json, histograms, REPORT.md
+
+## Addendum (2026-11-19, after engine build + plants, BEFORE any corpus sweep)
+
+1. **Screen implementation registered.** The PREREG's "Viterbi over key
+   consumption" is exact only if the letter context is in the DP state
+   (state space 13 x 26^3 — infeasible at 2^32 seeds). The registered
+   primary statistic is the DETERMINISTIC RELAXATION implemented in
+   `engine.c::screen()`: DP over the 13 extra-consumption states, each
+   state carrying its best score AND its letter context (best per state),
+   advances 1..3, cap 12, penalty 3.0 nats, head 120, initial context THE.
+   Hypotheses, flag rule (B = plant_min − 2.0), power gate (20/20 plants ≥
+   null_max + 2.0), verdict wording, and all coverage claims are UNCHANGED;
+   the plants below measure the power of THIS statistic.
+2. **Validation gates PASSED** (engine re-validated on this host):
+   V1 64/64 seeds vs pinned vectors.json; V2 32/32 streams
+   (8 seeds x {mt,php} x {scale,mod} x 2000 draws) vs pinned gen28.py;
+   V3 core.validate; V4 L=12,956, doublets=86; both sha pins match.
+3. **Power plants RUN (synthetic only — no corpus statistic touched).**
+   60 plants (20/lane), house seeding as registered. Plant primary scores:
+   lane A min −268.75 / median −242.82; lane B min −282.74 / median −258.19;
+   lane C min −275.15 / median −248.89. Reference: best primary score over
+   30,000 consecutive seeds of the REAL corpus head (bench, per lane) is
+   ≈ −394 to −403 — the plant ladder sits ~110–150 nats above, so the
+   2.0-nat gate is not expected to bind; the formal gate is still computed
+   post-sweep against the full-space null_max.
+4. **Throughput measured** (this host, 1 core, -O3): lane A 17.2k seeds/s,
+   lanes B/C ≈ 9.7k seeds/s. Studio 28-core projection ≈ 2–4 h per lane,
+   ~10 h total — reported to the owner before full launch as registered.
