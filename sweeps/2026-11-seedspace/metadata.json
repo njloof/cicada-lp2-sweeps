@@ -1,0 +1,20 @@
+{
+ "campaign": 28,
+ "seed": 20261228,
+ "prereg_commit": "THIS_COMMIT",
+ "core_rev": "1a6f27cbabdd938bba5418d5cc89cbbe6c3c4c2a",
+ "validation_files": {
+  "vectors.json": "sources/dukotah/liber-primus/analysis/round27/P0-spec/vectors.json",
+  "vectors_sha256": "d4ff48ea7882c55fb3603da424d11cdc4497f5edd9b17c97722611d34cddf779",
+  "gen28.py": "sources/dukotah/liber-primus/analysis/round28/L4/gen28.py",
+  "gen28_sha256": "04a98ba0710c02957c2a6e76c83162fc6d8b0879a43686642eff4c3f377e592f",
+  "genval_receipt_sha256": "87229e9c6237a30a288fac7f7eb6725499b9e9354467afbc7cafff1f335cef55"
+ },
+ "corpus_pins": {
+  "L": 12956,
+  "doublets": 86
+ },
+ "margin_gate_nats": 2.0,
+ "plants_per_cell": 20,
+ "topK": 1024
+}
