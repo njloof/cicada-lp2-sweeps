@@ -1,0 +1,37 @@
+{
+ "seed": 20261227,
+ "variants": {
+  "V1_solvedLP": {
+   "Z": 0.23931136609646664,
+   "p_normal": 0.4054320762827784,
+   "p_bootstrap": 0.3972602739726027,
+   "alpha_hat": 0.005685960291163598,
+   "alpha_sd": 0.02375967503721316,
+   "piE_diffs_used": 2716
+  },
+  "V2_quadgram": {
+   "Z": 1.4609380189540018,
+   "p_normal": 0.07201622589036065,
+   "p_bootstrap": 0.07529247075292471,
+   "alpha_hat": 0.03372474479864098,
+   "alpha_sd": 0.0230843090953216,
+   "piE_diffs_used": 12541
+  }
+ },
+ "power": {
+  "V1_solvedLP": {
+   "detected": 6,
+   "draws": 20,
+   "bar": 19,
+   "pass": false
+  },
+  "V2_quadgram": {
+   "detected": 9,
+   "draws": 20,
+   "bar": 19,
+   "pass": false
+  }
+ },
+ "VERDICT": "UNINFORMATIVE",
+ "flag_alpha": 0.025
+}
