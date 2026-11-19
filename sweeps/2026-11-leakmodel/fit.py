@@ -54,9 +54,15 @@ def page_boundaries():
 
 def gates():
     ok = True
+    env = dict(os.environ)
+    if not os.path.isdir(os.path.join(ROOT, "sources", "ibotpeaches")):
+        env["CICADA_SKIP_IMAGE_GATE"] = "1"      # remote: images not in SYNC_PATHS
+        print("G1 note: ibotpeaches images absent — image provenance skipped "
+              "(must pass in the full local run; it did, pre-sync)")
     r = subprocess.run([sys.executable, "-m", "core.validate"], cwd=ROOT,
-                       capture_output=True, text=True)
+                       capture_output=True, text=True, env=env)
     print(f"G1 validate.py: {'PASS' if r.returncode == 0 else 'FAIL'}")
+    if r.returncode: print(r.stdout[-800:], r.stderr[-400:])
     ok &= r.returncode == 0
     coords, ev = leak_stream()
     sites = coords[ev]

@@ -193,11 +193,18 @@ def main():
     man = json.load(open(f"{DATA}/manifest.json"))
 
     # ---- Gate 1: integrity + image provenance ----
+    # Remote (studio) runs set CICADA_SKIP_IMAGE_GATE=1: the 211 MB image set
+    # is deliberately not in studio.sh SYNC_PATHS; provenance is pinned and
+    # MUST pass in the full local run before any sync (CI runs it here).
+    skip_img = os.environ.get("CICADA_SKIP_IMAGE_GATE") == "1"
+    if skip_img:
+        print("SKIP  image provenance (CICADA_SKIP_IMAGE_GATE=1; full suite "
+              "must pass locally before sync)")
     for n in range(58):
         m = man[str(n)]
         # image provenance is checked even for the runeless p50 (file is None):
         # the image is the evidence that page exists and is what we say it is
-        if m.get("published_image_sha1"):
+        if m.get("published_image_sha1") and not skip_img:
             img = f"{SRC}/ibotpeaches/liber_primus/{n+17:02d}.jpg"
             got = hashlib.sha1(open(img, "rb").read()).hexdigest()
             ok = got == m["published_image_sha1"]
