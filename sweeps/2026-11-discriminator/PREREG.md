@@ -94,3 +94,16 @@ and this test uses the known direction.
     python3 -m core.validate
     python3 sweeps/2026-11-discriminator/scan.py        # seconds, local
     # artifacts: results/discriminator.json, REPORT.md
+
+## Addendum (2026-11-19, after first scan run, before verdict): registered SD formula corrected
+
+The registered sd = sqrt(N·Σ u·w²) is WRONG: it omits the multinomial
+covariance. Correct: Var(T) = N·Σ w²/u (the covariance term collapses since
+Σw = 0) — the registered sd was 28× too small. The bootstrap (registered as
+the exact-null calibration) exposed it immediately (Z_normal=40.9 vs
+p_boot=0.075 on V2), and the registered α̂ standard error already used the
+correct variance — the file was internally inconsistent. First run therefore
+produced no verdict beyond the bootstrap; corrected run governs, seeds
+unchanged. Hypotheses, direction, variants, flag level, power bar, and
+verdict wording are UNCHANGED; the bootstrap p's from the first run are
+bit-reproducible and stand as computed.
