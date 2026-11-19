@@ -151,3 +151,18 @@ No crib/English scoring anywhere (language-free lane). No re-registration of
 the grid lane (LEDGER C6). No upstream claims without owner approval. A
 FLAG-level outcome still never auto-certifies a mechanism — QUALIFIES means
 "model comparison favors sessions", the strongest word statistics allow here.
+
+## Addendum (2026-11-19, after observed fit + null, before any power output): power clause restated plant-relative
+
+The power paragraph registers "detection = P1∧P3" at 10 RANDOM plant
+positions, but P3 as defined names the FIXED void windows {2740±150,
+4389±150}. Read literally, detection is identically zero for every plant off
+the void and the 8/10 bar cannot pass — the paragraph is internally
+inconsistent. Restated (the only coherent reading, clause structure
+unchanged): for a plant window starting at w, the location clause uses
+w±150 and (w+1649)±150, middle rate below both outers. The PRIMARY T7
+prediction (P1–P3 with fixed windows), the null calibration, the CV and the
+stopping rule are UNCHANGED; the observed fit and the 10,000-draw null were
+computed before this addendum and are untouched by it. The power lane
+produced NO output before the fix (it crashed: the same fixed-window clause
+plus a slice-arithmetic bug at plants below the void).

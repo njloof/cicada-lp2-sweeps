@@ -200,8 +200,14 @@ def loc_clause(bounds, rates):
 
 # --------------------------------------------------------------------- Lane A2
 
+_BOOT = None            # per-worker state; set by _boot_init (spawn does NOT inherit globals)
+
+def _boot_init(state):
+    global _BOOT
+    _BOOT = state
+
 def _boot1(d):
-    coords, _ = _BOOT["coords"], None
+    coords = _BOOT["coords"]
     N = _BOOT["N"]; p0 = _BOOT["p0"]
     ev = rng_for("boot", d).random(N) < p0
     f = dp_fit(coords, ev, 2)
@@ -219,7 +225,8 @@ def a2_null(coords, ev, dbic_obs):
     _BOOT = {"coords": coords, "N": len(coords), "p0": ev.sum() / len(coords)}
     todo = [d for d in range(D_BOOT) if d not in set(done)]
     t0 = time.time()
-    with Pool(min(28, os.cpu_count() or 4)) as pool:
+    with Pool(min(28, os.cpu_count() or 4), initializer=_boot_init,
+              initargs=(_BOOT,)) as pool:
         for i, (db, lc) in enumerate(pool.imap_unordered(_boot1, todo, chunksize=25)):
             done.append(todo[i]); dbics.append(float(db)); locs.append(bool(lc))
             if len(done) % 500 == 0:
@@ -301,18 +308,29 @@ def _plant1(args):
     coords, N, p0 = _BOOT["coords"], _BOOT["N"], _BOOT["p0"]
     w = _BOOT["plants"][w_i]
     ev = rng_for(f"plant{w_i}", d).random(N) < p0
-    lo, hi = w - EDGES[0], w - EDGES[0] + 1648                      # same length as void
+    lo, hi = w - 1, w - 1 + 1648                                     # coords w..w+1648
     ev[lo:hi + 1] &= rng_for(f"thin{w_i}", d).random(hi - lo + 1) < 0.5
     f = dp_fit(coords, ev, 2)
     f2 = f["fits"].get(2) or {"bounds": [], "rates": []}
-    return w_i, f["dbic"].get(2, 0.0), bool(loc_clause(f2["bounds"], f2["rates"]))
+    return w_i, f["dbic"].get(2, 0.0), bool(plant_loc(f2["bounds"], f2["rates"], w))
+
+def plant_loc(bounds, rates, w):
+    """Power-lane location clause: same structure as the registered P3 but
+    PLANT-RELATIVE (windows w±WIN and w+1649±WIN). Fixed-void windows are
+    identically zero at off-void positions — see PREREG addendum 2026-11-19."""
+    if len(bounds) != 2 or len(rates) != 3:
+        return False
+    b = sorted(bounds)
+    return (abs(b[0] - w) <= WIN and abs(b[1] - (w + 1649)) <= WIN
+            and rates[1] < rates[0] and rates[1] < rates[2])
 
 def a2_power(coords):
     rng = np.random.default_rng([SEED, zlib.crc32(b"plantpos") % 100000, 0])
     plants = sorted(int(x) for x in rng.choice(np.arange(300, 11_000, 800), NPLANT, replace=False))
     global _BOOT
     _BOOT = {"coords": coords, "N": len(coords), "p0": 86 / len(coords), "plants": plants}
-    with Pool(min(28, os.cpu_count() or 4)) as pool:
+    with Pool(min(28, os.cpu_count() or 4), initializer=_boot_init,
+              initargs=(_BOOT,)) as pool:
         res = pool.map(_plant1, [(i, d) for i in range(NPLANT) for d in range(D_PLANT)])
     det = {}
     for w_i, db, lc in res:
