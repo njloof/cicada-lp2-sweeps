@@ -419,7 +419,7 @@ def a1():
         ptwo = erfc(abs(t) / sqrt(2))
         res[nm] = {"ks": float(ks), "p_ks": float(min(max(p, 0.0), 1.0)),
                    "t": float(t), "p_t": float(ptwo)}
-    worst = max(min(r["p_ks"], r["p_t"]) for r in res.values())
+    worst = min(min(r["p_ks"], r["p_t"]) for r in res.values())  # registered rule: MIN p (PREREG L47)
     bonf = 8
     equiv = worst * bonf > 0.05                                    # no separation after Bonferroni
     out = {"N_per_idiom": N, "L": L, "per_stream_stats": res,

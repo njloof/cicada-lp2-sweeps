@@ -21,7 +21,7 @@ HOST="studio.local"
 REMOTE_HOME="cicada-c7"                      # relative to remote $HOME
 VENV_PY="~/cicada-venv/bin/python"
 # Fixed sync list (repo-relative). Keep this minimal and auditable.
-SYNC_PATHS="core data/pages data/manifest.json data/solved_plaintexts.json docs sources/scream314/liber_primus.md sources/dukotah/liber-primus/data/english_quadgrams.txt sources/dukotah/liber-primus/data/keys/armada18/lp1_runes_as_key.json sweeps"
+SYNC_PATHS="core data/pages data/manifest.json data/solved_plaintexts.json docs sources/scream314/liber_primus.md sources/dukotah/liber-primus/data/english_quadgrams.txt sources/dukotah/liber-primus/data/krisyotam_runes.txt sources/dukotah/liber-primus/data/keys/armada18/lp1_runes_as_key.json sweeps"
 
 die() { echo "studio.sh: $*" >&2; exit 2; }
 
