@@ -147,7 +147,23 @@ def runall(nwork=28):
     # PREREG execution section: 28 worker processes, lanes run SEQUENTIALLY
     # (measured 2026-11-18: 3 concurrent lanes = 84 workers on 28 cores
     # degrades per-worker rate ~7x for B/C; CPU-bound, no I/O to overlap).
-    # Resume semantics: workers read their atomic state file and continue.
+    # Resume semantics: workers read their atomic state file and continue;
+    # completed ranges exit immediately (no rescan).
+    # Learned 2026-11-19: an ssh-tethered supervisor died after lane A
+    # completed and never launched B. Self-daemonize (double-fork + setsid)
+    # so lane sequencing survives any session teardown; log to results/.
+    os.makedirs(os.path.join(HERE, "results"), exist_ok=True)
+    if os.fork():
+        sys.exit(0)
+    os.setsid()
+    if os.fork():
+        os._exit(0)
+    log = open(os.path.join(HERE, "results", "runall.log"), "a", buffering=1)
+    os.dup2(log.fileno(), 1)
+    os.dup2(log.fileno(), 2)
+    devnull = os.open(os.devnull, os.O_RDONLY)
+    os.dup2(devnull, 0)
+    print(f"\n=== supervisor pid {os.getpid()} start {time.strftime('%F %T')}", flush=True)
     for lane in "ABC":
         procs = launch(lane, nwork)
         print(f"lane {lane}: {nwork} workers running", flush=True)
