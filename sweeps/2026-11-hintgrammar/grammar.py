@@ -320,20 +320,26 @@ def encode_k1(P, seed, sign, L):
     w = len(seed)
     return bytes((P[t] + sign * (seed[t] if t < w else P[t - w])) % N for t in range(L))
 
-def encode_k2(P, w, sign, L):
+def encode_k2(P, w, sign, L, fs=0):
     """ciphertext-autokey, keyskip1 with causality leak (addendum 3): rejects
-    consume key c[t-w+e] while e < w; when the causal key window is exhausted
-    the doublet is emitted (leak). Decoder DP cap min(12, w-1) matches this
-    policy exactly. t<w emitted with key 0 (untested region)."""
-    c = []; prev = -1
+    consume key k[t-w+e] while e < w; when the causal key window is exhausted
+    the doublet is emitted (leak). Key stream k = c (fs=0) or the nonzero
+    values of c — the F-skip variant, LP1 rule; the decoder screens the same
+    stream over the full corpus (ciphertext is known). t<w emitted with key 0
+    (untested region). Decoder DP cap min(12, w-1) matches this policy."""
+    c = []; nz = []; prev = -1
     for t in range(L):
         if t < w:
             cc = P[t] % N
         else:
             e = 0
             while True:
-                cc = (P[t] + sign * c[t - w + e]) % N
+                ki = t - w + e
+                k = (nz if fs else c)[ki] if ki < len(nz if fs else c) else 0
+                cc = (P[t] + sign * k) % N
                 if cc != prev or e + 1 >= w: break   # leak when causality exhausted
                 e += 1
-        c.append(cc); prev = cc
+        c.append(cc)
+        if cc: nz.append(cc)
+        prev = cc
     return bytes(c)

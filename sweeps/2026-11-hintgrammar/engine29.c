@@ -139,9 +139,9 @@ int main(int argc, char **argv) {
         read_corpus(argv[2]); load_quad(argv[3]);
         FILE *f = fopen(argv[4], "rb"); if (!f) { fprintf(stderr, "hints\n"); return 2; }
         static uint8_t hints[65536]; int hl = (int)fread(hints, 1, 65536, f); fclose(f);
-        int lens[16], nh = 0, base[16], acc = 0;
+        int lens[64], nh = 0, base[64], acc = 0;
         char *ls = strdup(argv[5]), *tk = strtok(ls, ",");
-        while (tk && nh < 16) { lens[nh] = atoi(tk); base[nh] = acc; acc += lens[nh]; nh++; tk = strtok(0, ","); }
+        while (tk && nh < 64) { lens[nh] = atoi(tk); base[nh] = acc; acc += lens[nh]; nh++; tk = strtok(0, ","); }
         if (acc != hl) { fprintf(stderr, "engine29: hint lens %d != bytes %d\n", acc, hl); return 2; }
         int wmin = atoi(argv[6]), wmax = atoi(argv[7]);
         for (int w = 0; w < 65; w++) bw[w] = NEG;

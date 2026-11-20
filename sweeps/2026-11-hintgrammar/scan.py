@@ -110,7 +110,7 @@ def plants():
         rng = G.rng_for("plant-K2", d)
         w = int(rng.integers(2, 65)); sign = 1 if rng.random() < 0.5 else -1; fs = int(rng.random() < 0.5)
         P = G.sampler(Q, rng, 400)
-        c = G.encode_k2(P, w, sign, 200)
+        c = G.encode_k2(P, w, sign, 200, fs)
         ks = c if not fs else bytes(v for v in c if v)
         sc.append(G.screen(ks, c[w:w + 120], sign, cap=min(12, w - 1)))
     out["K2"] = [round(x, 4) for x in sc]; print(f"K2: min={min(sc):.1f} med={sorted(sc)[10]:.1f}", flush=True)
@@ -239,7 +239,14 @@ def _null_task(arg):
     raise ValueError(cell)
 
 def nulls():
+    """Draw-level resume (studio ssh doctrine): progress checkpointed per draw
+    batch into results/null_partial.json; completed draws are skipped."""
     os.makedirs(RES, exist_ok=True)
+    PP = os.path.join(RES, "null_partial.json")
+    try:
+        prog = json.load(open(PP))
+    except Exception:
+        prog = {}
     D = {"K1": 20, "K2": 200, "K3": 200, "K4": 200}
     try:
         k1obs = json.load(open(os.path.join(RES, "scan.json")))["K1"]["max"]
@@ -249,18 +256,27 @@ def nulls():
     with Pool(28) as pool:
         for cell in ("K1", "K2", "K3", "K4"):
             t0 = time.time()
-            rows = pool.map(_null_task, [(cell, d) for d in range(D[cell])])
+            done = prog.setdefault(cell, {})
+            todo = [d for d in range(D[cell]) if str(d) not in done]
+            for i in range(0, len(todo), 28):
+                batch = todo[i:i + 28]
+                for d, sc in zip(batch, pool.map(_null_task, [(cell, d) for d in batch])):
+                    done[str(d)] = round(sc, 4)
+                json.dump(prog, open(PP, "w"))
+                print(f"{cell}: {len(done)}/{D[cell]}", flush=True)
+            rows = [done[str(d)] for d in range(D[cell])]
             esc = 0
             if cell == "K1" and k1obs is not None and k1obs >= float(np.median(rows)):
                 print("K1 escalation: observed >= null median -> +30 draws", flush=True)
-                rows += pool.map(_null_task, [(cell, 1000 + d) for d in range(30)])
+                extra = pool.map(_null_task, [(cell, 1000 + d) for d in range(30)])
+                rows += extra
                 esc = 30
             out[cell] = {"D": len(rows), "null_max": round(max(rows), 4),
                          "median": round(float(np.median(rows)), 4),
-                         "draws": [round(x, 4) for x in rows], "escalated": esc,
+                         "draws": rows, "escalated": esc,
                          "seconds": round(time.time() - t0, 1)}
             print(cell, out[cell]["null_max"], f"({out[cell]['seconds']}s)", flush=True)
-    json.dump(out, open(os.path.join(RES, "nulls.json"), "w"), indent=1)
+            json.dump(out, open(os.path.join(RES, "nulls.json"), "w"), indent=1)
     return 0
 
 # ---------------------------------------------------------------- verdict
