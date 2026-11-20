@@ -116,3 +116,29 @@ Pure Python is sufficient (≈10^6 decodes of ≤13k runes: minutes–hours on
 studio 28 procs). `scripts/studio.sh` per standing steer; ETA reported at
 launch. Artifacts: `results/{scan,nulls,plants,verdict}.json` (tracked,
 small); REPORT.md with coverage × power per cell.
+
+## Addendum (2026-11-19, after build, BEFORE any corpus statistic — same mechanism as #28's addendum)
+
+1. **Statistic refined.** The skeleton (core.skeleton) exists only for
+   scream314-pinned SOLVED pages; the 54 unsolved pages have no separator
+   skeleton (that is part of why they are unsolved). Registered statistic:
+   **per-page count of distinct house-crib hits in letter space** (substring
+   over the transliterated decode; the #24 Lane C "raw crib" convention),
+   summed over the decodable region; "legal" = letter-space substring hit.
+   Skeleton-legality refinement applies at adjudication for covered solved
+   pages (p56/p57). Flag rule unchanged: any page with ≥ 2 distinct hits →
+   flag-for-oracle, never auto-certified. Margin gate 2.0 is in units of the
+   primary statistic (crib hits), formula unchanged: closure requires 20/20
+   plants ≥ null_max + 2.0.
+2. **K3 hint list concretized (all sha-pinned in metadata.json):**
+   `armfwd`/`armrev` = armada18 lp1_english_{forward,reversed}.txt;
+   `scream` = scream314 LP1 rune index stream (f14 parser, 2,798);
+   `anend`/`parable` = solved plaintext texts (validate pins). Emerson is
+   used ONLY in plants (machinery proof), never as a scan hint.
+3. **K4 streams concretized:** primes(n) mod 29, fib(n) mod 29,
+   phi(prime) (validate.phi_prime_stream — G2 target), decimal expansion of
+   1033/3301 (3,000 digits), π/e/√2 (2,000 digits each, stdlib decimal),
+   p56 printed hex lines (ORACLE_PAGES L1494–1500, 165 hex digits, values
+   = digit mod 29).
+4. **Letter map = core.validate.LATIN2IDX** (V→U, K→C, Q→C, Z→S collapses;
+   G3 round-trip gate).
