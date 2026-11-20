@@ -182,3 +182,11 @@ dukotah's heavier grind27 pipeline measured 130.4k seeds/s aggregate on
 4. **Throughput measured** (this host, 1 core, -O3): lane A 17.2k seeds/s,
    lanes B/C ≈ 9.7k seeds/s. Studio 28-core projection ≈ 2–4 h per lane,
    ~10 h total — reported to the owner before full launch as registered.
+
+## Addendum (2026-11-19, post-completion, engineering record only)
+
+Reproduction commands as actually built (the Execution-section `--lane/--budget`
+sketch was superseded by): `drive.py --runall 28` (daemonizing sequential-lane
+supervisor, resume-from-cursor) and `verdict.py` (merge + registered rules).
+Full execution disclosures in REPORT.md. No registered quantity, gate, or
+verdict rule changed after registration.
