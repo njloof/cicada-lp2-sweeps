@@ -142,3 +142,24 @@ small); REPORT.md with coverage × power per cell.
    = digit mod 29).
 4. **Letter map = core.validate.LATIN2IDX** (V→U, K→C, Q→C, Z→S collapses;
    G3 round-trip gate).
+
+## Addendum 2 (2026-11-19, pre-output): K1 mechanics corrected before any statistic
+
+1. **K1 seed semantics.** Plain-text autokey propagates the unknown seed
+   along every residue chain mod w (p_t = c_t − p_{t−w} ⇒ chain offset
+   ±p_{t mod w}), so "direct recursion with body-only statistic" is not
+   well-defined. Corrected K1: **seeds are hint substrings** (the
+   hint-grammar hypothesis itself: seed announced in book vocabulary).
+   Grid: seed = hint[off:off+w], w ∈ [2..24], all off, both signs. Chain
+   decode is exact (vectorized alternating cumsum per residue).
+   K1 F-skip variant evaluated as {off} only (key stream is the unknown
+   plaintext — pointer-skip not vectorizable); disclosed as L7.
+2. **Null draws per cell:** D = 200 for K2/K3/K4; **D = 20 for K1**
+   (each draw already aggregates a 1.3e6-candidate grid; escalation rule
+   as #24: if observed max ≥ null median, extend to 50, disclosed).
+3. **Flag bar (mirrors #28 verbatim):** B_cell = plant_min − 2.0;
+   FLAGGED if any real-corpus candidate ≥ B_cell → adjudication, and
+   oracle certification still requires ≥ 2 distinct crib hits on one page.
+   null_max in the plant gate is the family-matched MC surrogate max over
+   the full grid. CLOSED-NO-GRAMMAR iff no candidate ≥ B and 20/20 plants
+   ≥ null_max + 2.0; else UNPOWERED-NULL.
