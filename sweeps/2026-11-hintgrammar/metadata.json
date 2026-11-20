@@ -1,16 +1,32 @@
 {
  "campaign": 29,
  "seed": 20261229,
- "prereg_commit": "THIS_COMMIT",
+ "prereg_commit": "b8c779aa1675f156560949511b6a73c198b8f219",
  "margin_gate_nats": 2.0,
  "plants_per_cell": 20,
- "null_draws": 200,
+ "null_draws": {
+  "K1": 20,
+  "K2": 200,
+  "K3": 200,
+  "K4": 200
+ },
  "hint_pins_sha256_16": {
   "lp1_english_forward.txt": "bb13afc6b21d5973",
   "lp1_english_reversed.txt": "d1ddd5a996b10881",
   "scream314_liber_primus.md": "0f7545d470f2056b",
   "solved_plaintexts.json": "5b99ab37ba66d8dd"
  },
- "corpus_pins": {"L": 12956, "doublets": 86},
- "bounds": {"autokey_lag_max": 64, "k3_prefix_min": 200, "k4_index_max": 999}
+ "corpus_pins": {
+  "L": 12956,
+  "doublets": 86
+ },
+ "bounds": {
+  "autokey_lag_max": 64,
+  "k3_prefix_min": 200,
+  "k4_index_max": 999
+ },
+ "addenda_commits": [
+  "fbdde20",
+  "8b32cc1"
+ ]
 }

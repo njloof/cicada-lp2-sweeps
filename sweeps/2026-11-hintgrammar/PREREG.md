@@ -163,3 +163,39 @@ small); REPORT.md with coverage × power per cell.
    null_max in the plant gate is the family-matched MC surrogate max over
    the full grid. CLOSED-NO-GRAMMAR iff no candidate ≥ B and 20/20 plants
    ≥ null_max + 2.0; else UNPOWERED-NULL.
+
+## Addendum 3 (2026-11-19, after build, BEFORE any corpus statistic): emission mechanics made sound
+
+1. **Primary statistic, all cells:** the #28 registered skip-tolerant head
+   screen — 120-rune window, 13 extra-consumption states each carrying its
+   own best score + letter context (the #28 deterministic relaxation), key
+   advance 1..3 per rune, 3.0 nats/extra, initial context THE, quadgram
+   log-probs with unigram fallback (engine load_quad semantics mirrored).
+   The PREREG's "OR direct" branch is RETIRED for K2/K3/K4: under keyskip1
+   the anti-doublet rejection loop shifts key alignment INVISIBLY (expected
+   first rejection ~rune 29 < 120), so a direct decode of the registered
+   emission model is not well-defined. Candidates need >= 132 key values.
+2. **K1 structural finding (pre-output).** Plaintext-autokey under keyskip1
+   is NOT causally decodable: the key index t+e-w runs ahead of the emission
+   once cumulative rejects e >= w (the encoder itself cannot proceed).
+   Registered: **K1 emission = keyskip0** (exact recursion, no reject loop);
+   closure conditional L9: "the true plaintext-autokey emission, if any, was
+   produced WITHOUT the anti-doublet filter." K1 tolerance DP retained with
+   causality cap min(12, w-1) (no-op under keyskip0; superset otherwise).
+3. **K2 emission = keyskip1 with causality leak:** rejects consume key
+   c[t-w+e] while e < w; when the causal key window is exhausted the doublet
+   is emitted (leak). Decoder cap min(12, w-1) matches this policy exactly.
+   Other filter policies for ciphertext-autokey are not covered (L10).
+4. **K1 per-lag verdicts:** 23 subcells w in [2..24], 20 plants each (seeds =
+   Emerson substrings, held-out hint), B_w = plant_min_w - 2.0; the global
+   K1 null_max is applied per-w (conservative). Cell = CLOSED-NO-GRAMMAR
+   only if every w closes; per-w table reported.
+5. **K3 short hints:** anend (85) / parable (95) yield < 132 key values -> no
+   full 120-rune head -> excluded from K3 by construction (L11); their key
+   class is covered only as K1 seed substrings.
+6. **Correction of record:** addendum 1 item 3 said p56 hex = 165 digits;
+   the printed block measures **128** hex digits (measured at build).
+   Offsets are bounded by stream length: off <= min(999, |S|-140).
+   scream mapped stream = 2,801 values (2,798 was dukotah's parse count).
+7. **Plants:** K2 lags in-grid [2..64]; K3 key = Emerson; K4 held-out stream
+   = sqrt(3) digits; plant corpora L=200 (head+cap region only).

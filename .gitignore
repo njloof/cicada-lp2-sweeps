@@ -21,3 +21,7 @@ sweeps/2026-11-seedspace/seedspace_engine
 sweeps/2026-11-seedspace/results/plant_*.bin
 sweeps/2026-11-seedspace/results/worker_*.log
 sweeps/2026-11-seedspace/results/w_*/
+
+# campaign #29 hintgrammar — regenerable (scan.py; cc -O2 engine29.c)
+sweeps/2026-11-hintgrammar/engine29
+sweeps/2026-11-hintgrammar/__pycache__/
