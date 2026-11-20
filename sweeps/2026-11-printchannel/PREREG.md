@@ -40,11 +40,49 @@ Wave 2 (deferred, needs wave-1 asset): line-break residual model.
   Within-line z-scores used in tests (kills page/line position
   confounds).
 
+## 1b. Calibrated extraction rules (ADDENDUM 2026-11-19, PRE-OUTPUT)
+
+Calibration `calib32*.py` v1–v8 ran on sample pages (0, 7, 15, 26, 40)
+touching ONLY line rune-COUNTS, never rune values — no statistic and no
+value ever entered the engineering loop. Findings and registered rules:
+
+- y-projection bands FAIL (inter-line ink bridges; ornaments split).
+  Dilation-merge FAILS (kerning ≈ fragment gaps). Registered instead:
+- **RUNE component**: 90 ≤ h ≤ 135, area ≥ 350, w ≤ 120, and
+  (w ≥ 12 OR solid bar area/(h·w) ≥ 0.7). The solid-bar clause admits
+  narrow stave glyphs (calib32f: count arithmetic proves they are
+  standalone runes, not fragments).
+- **Line clustering**: sort rune-component cy, split at gap > 90,
+  clusters ≥ 3 comps; a cluster whose cy-spread > 80 is split once at
+  its largest cy gap (merged two-line clusters).
+- **"Split-by-vertical-projection once"** (§1) is implemented as: if
+  per-line component count ≠ transcription count, re-segment the line
+  band by pixel x-projection (zero-ink columns, width ≥ 3); keep
+  segments with h ≥ 60, area ≥ 350, and density > 0.25 when w ≥ 60
+  (edge marginalia are wide AND sparse); if the segment count then
+  equals the transcription count, the line is CLEAN-by-segments, else
+  EXCLUDED. Metrics for segment-mode lines use segment pixel sets
+  (fragments included).
+- **G1 escalation (registered pre-output; the registered verdict rule
+  had no G1-fail branch)**: coverage ≥ 95% → normal verdicts.
+  70% ≤ coverage < 95% → tests still run (the within-line permutation
+  null is valid on any aligned subset, and plants are calibrated on
+  the SAME subset), but the verdict string gains the prefix
+  `PARTIAL-COVERAGE-`. Coverage < 70% → **INSTRUMENT-FAIL**, no test
+  verdict. Per-page coverage is disclosed either way.
+
 ## 2. Registered tests (both language-agnostic)
 
 - **T1 value↔metric association.** For each metric m: eta-squared of
   within-line z(m) grouped by rune value (29 groups), summed over lines.
-  T1 = max over the 8 metrics. **Null: permute rune-value labels within
+  Exact registered form (pre-output): pooled —
+  T1_m = Σ_v (Σ_i z_i·[val_i=v])² / n_v ÷ Σ_i z_i², sums over ALL
+  aligned runes of unsolved pages (within-line z-scoring kills
+  page/line effects; "summed over lines" = the value-group sums
+  accumulate across lines). T1 = max over the 8 metrics.
+  Plant (i) metric = the argmax metric of T1_obs (disclosed: chosen
+  from observed data; the plant only has to show the machinery can
+  flag a value→metric coupling of calibrated strength). **Null: permute rune-value labels within
   each line** (D = 2,000; preserves ALL spatial structure — component
   order, spacing, geometry — and destroys only value↔geometry coupling;
   this is the exact null for "does the print encode the value").
