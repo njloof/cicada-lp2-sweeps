@@ -1,0 +1,171 @@
+{
+ "rules": "B=plant_min-2.0; CLOSED iff no cand>=B and 20/20 plants>=null_max+2.0",
+ "K2": {
+  "plant_min": -298.53,
+  "B": -300.53,
+  "obs_max": -418.1707,
+  "null_max": -408.1552,
+  "plant_gate": true,
+  "verdict": "CLOSED-NO-GRAMMAR"
+ },
+ "K3": {
+  "plant_min": -289.26,
+  "B": -291.26,
+  "obs_max": -403.211,
+  "null_max": -387.0758,
+  "plant_gate": true,
+  "verdict": "CLOSED-NO-GRAMMAR"
+ },
+ "K4": {
+  "plant_min": -302.96,
+  "B": -304.96,
+  "obs_max": -405.0448,
+  "null_max": -391.1076,
+  "plant_gate": true,
+  "verdict": "CLOSED-NO-GRAMMAR"
+ },
+ "K1": {
+  "null_max": -387.0383,
+  "perw": {
+   "2": {
+    "plant_min": -271.26,
+    "B": -273.26,
+    "obs": -434.5313,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "3": {
+    "plant_min": -265.85,
+    "B": -267.85,
+    "obs": -431.5608,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "4": {
+    "plant_min": -258.15,
+    "B": -260.15,
+    "obs": -423.9848,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "5": {
+    "plant_min": -264.39,
+    "B": -266.39,
+    "obs": -414.971,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "6": {
+    "plant_min": -256.35,
+    "B": -258.35,
+    "obs": -414.0148,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "7": {
+    "plant_min": -258.02,
+    "B": -260.02,
+    "obs": -412.113,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "8": {
+    "plant_min": -253.57,
+    "B": -255.57,
+    "obs": -406.0318,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "9": {
+    "plant_min": -271.02,
+    "B": -273.02,
+    "obs": -406.4662,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "10": {
+    "plant_min": -262.45,
+    "B": -264.45,
+    "obs": -405.4948,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "11": {
+    "plant_min": -266.45,
+    "B": -268.45,
+    "obs": -403.0533,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "12": {
+    "plant_min": -246.78,
+    "B": -248.78,
+    "obs": -408.9002,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "13": {
+    "plant_min": -266.56,
+    "B": -268.56,
+    "obs": -401.6496,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "14": {
+    "plant_min": -261.61,
+    "B": -263.61,
+    "obs": -401.1824,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "15": {
+    "plant_min": -275.72,
+    "B": -277.72,
+    "obs": -404.0005,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "16": {
+    "plant_min": -256.92,
+    "B": -258.92,
+    "obs": -401.6314,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "17": {
+    "plant_min": -251.81,
+    "B": -253.81,
+    "obs": -400.4227,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "18": {
+    "plant_min": -265.86,
+    "B": -267.86,
+    "obs": -404.5823,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "19": {
+    "plant_min": -257.95,
+    "B": -259.95,
+    "obs": -404.2915,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "20": {
+    "plant_min": -257.79,
+    "B": -259.79,
+    "obs": -404.4242,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "21": {
+    "plant_min": -259.11,
+    "B": -261.11,
+    "obs": -406.9062,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "22": {
+    "plant_min": -265.69,
+    "B": -267.69,
+    "obs": -402.0387,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "23": {
+    "plant_min": -273.49,
+    "B": -275.49,
+    "obs": -402.7975,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   },
+   "24": {
+    "plant_min": -255.03,
+    "B": -257.03,
+    "obs": -400.006,
+    "verdict": "CLOSED-NO-GRAMMAR"
+   }
+  },
+  "verdict": "CLOSED-NO-GRAMMAR"
+ }
+}

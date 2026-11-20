@@ -27,6 +27,19 @@
  },
  "addenda_commits": [
   "fbdde20",
-  "8b32cc1"
- ]
+  "8b32cc1",
+  "f63d29e"
+ ],
+ "verdicts": {
+  "K1": "CLOSED-NO-GRAMMAR (23/23 lags)",
+  "K2": "CLOSED-NO-GRAMMAR",
+  "K3": "CLOSED-NO-GRAMMAR",
+  "K4": "CLOSED-NO-GRAMMAR"
+ },
+ "grid_candidates": {
+  "K1": 427202,
+  "K2": 252,
+  "K3": 137120,
+  "K4": 28000
+ }
 }
