@@ -103,7 +103,7 @@ def main():
     nulls = np.zeros(D_NULL)
     rng = rng_for(1)
     for d in range(D_NULL):
-        nulls[d] = _null_draw(line_start, bounds, V, Z, M, rng)
+        nulls[d] = _null_draw(V, L, Z, M, rng)
         if (d + 1) % 500 == 0: print(f"null {d+1}/{D_NULL} "
                                      f"({time.time()-t0:.0f}s)", flush=True)
     # ---- T_obs
