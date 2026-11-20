@@ -99,3 +99,18 @@ Full table: studio `work/table32.jsonl`, sha256
 regeneration: `scripts/studio.sh run
 sweeps/2026-11-printchannel/table32.py && scripts/studio.sh run
 sweeps/2026-11-printchannel/tests32.py` (seed 20261232).
+
+## 8. OWNER DECISION — 2026-11-20: (A) ARTIFACT
+
+Owner verbatim: "Honestly, if that's part of the code I'd rather not
+pursue it; let me choose (A)."
+
+Consequences as registered in §6(A): wave 1 closes as
+**no-geometry-channel**; the flag is adjudicated as the
+glyph-morphology main effect; value-association use of the size
+morphometrics (area/w/h/density) is retired; the table ships to wave 2
+(line-break residuals) unchanged. Wave-1b is NOT commissioned (declined
+with the same sentence). Relay to Track B remains owner-gated and was
+not requested: nothing sent. The registered verdict string of the
+campaign remains PARTIAL-COVERAGE-FLAGGED; this section is the oracle
+adjudication it called for.

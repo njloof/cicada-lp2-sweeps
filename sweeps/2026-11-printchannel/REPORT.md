@@ -140,3 +140,14 @@ page (p15), off-by-one merged/extra-mark lines, and genuinely faded
 runs (p40 l0, p49/p53 tails). Adjudication ask + figures:
 ADJUDICATION.md. Figures regenerate via `mk_adj_fig32.py` (full pages,
 never crops, owner policy 2026-11-17).
+
+## 9. ADDENDUM 2026-11-20 — ORACLE ADJUDICATION: (A) ARTIFACT
+
+Owner: "Honestly, if that's part of the code I'd rather not pursue it;
+let me choose (A)." Flag adjudicated as glyph-morphology main effect;
+wave 1 closes as no-geometry-channel; size morphometrics retired for
+value-association; wave-1b declined; relay not requested (nothing
+sent). Registered verdict string stands (PARTIAL-COVERAGE-FLAGGED);
+this addendum records the adjudication it called for. Open question
+left to owner: whether wave 2 (line-break residuals — a different
+hypothesis: word segmentation, not value-geometry) shares the decline.
