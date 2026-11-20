@@ -127,3 +127,16 @@ exactly this).
    (coverage32.json, tests32.json) — repo-hygiene rule. Regeneration:
    `scripts/studio.sh run sweeps/2026-11-printchannel/table32.py` then
    `...tests32.py` (seed 20261232, host-independent streams).
+
+## 8. ADDENDUM 2026-11-20 (owner adjudication package)
+
+Full-page rendering (figs/p0_coverage.jpg) corrected one coverage
+attribution: **p0 l0 and p15 l0 are RED-INK printed headers**, excluded
+by the registered red-ink rule (redness < 45) — a policy cost, not
+faded-ink loss; p15 l1 is a red/black MIXED line (red glyphs dropped →
+undercount → gate fail). Revised failure taxonomy for the 25.6%
+unaligned: red-ink/mixed lines (policy), ornament-contaminated grid
+page (p15), off-by-one merged/extra-mark lines, and genuinely faded
+runs (p40 l0, p49/p53 tails). Adjudication ask + figures:
+ADJUDICATION.md. Figures regenerate via `mk_adj_fig32.py` (full pages,
+never crops, owner policy 2026-11-17).
