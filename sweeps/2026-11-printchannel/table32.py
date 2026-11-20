@@ -2,8 +2,9 @@
 """#32 table32: extract per-rune print metrics for all unsolved pages.
 Registered rules: PREREG.md sections 1 + 1b (RUNE component rule, cy-gap
 clustering with sanity split, comp-count gate, one projection-split
-attempt with marginalia filter, per-line EXCLUDE). Gates G1 (coverage),
-G2 (brute-force machinery), G3 run separately (core.validate).
+attempt with marginalia filter, FRAGMENT merge into overlapping rune,
+per-line EXCLUDE). Gates G1 (coverage), G2 (brute-force machinery,
+tol 1e-6), G3 run separately (core.validate).
 Full table -> work/table32.jsonl (studio, never git); summary ->
 results/coverage32.json (small)."""
 import json, os, sys
@@ -16,7 +17,6 @@ ROOT = os.path.dirname(os.path.dirname(HERE))
 IMG = os.path.join(ROOT, "work", "images")
 UNSOLVED = [p for p in range(56) if p != 50 and os.path.exists(
     f"{ROOT}/data/pages/lp2_{p:02d}.txt")]
-METRICS = ("fx", "fy", "cx", "cy", "w", "h", "area", "gap")
 
 def lines_of(page):
     f = f"{ROOT}/data/pages/lp2_{page:02d}.txt"
@@ -57,21 +57,15 @@ def cluster_cy(cy):
         out.append(np.sort(p))
     return [c for c in out if len(c) >= 3]
 
-def seg_metrics(ink, lo, hi, sx, ex, lab=None, lid=0):
-    sub = ink[lo:hi, sx:ex]
-    if lab is not None:
-        sub = lab[lo:hi, sx:ex] == lid
-    ys, xs = np.nonzero(sub)
-    if len(ys) == 0: return None
-    return dict(area=float(len(ys)),
-                cx=float(xs.mean() + sx), cy=float(ys.mean() + lo),
+def metrics_from(ys, xs, lid, x0b, x1b, y0b, y1b, blo, bhi):
+    return dict(area=float(len(ys)), cx=float(xs.mean()), cy=float(ys.mean()),
                 w=float(xs.max() - xs.min() + 1),
                 h=float(ys.max() - ys.min() + 1),
-                x0=float(xs.min() + sx), x1=float(xs.max() + sx + 1))
+                x0=float(xs.min()), x1=float(xs.max() + 1),
+                lid=lid, x0b=x0b, x1b=x1b, y0b=y0b, y1b=y1b,
+                blo=blo, bhi=bhi)
 
 def extract_page(page):
-    """returns (rows, want_total). rows: dicts with page/line/pos/value +
-    metrics + mode."""
     ink = ink_and_mask(page)
     lab, n = ndimage.label(ink, structure=np.ones((3, 3)))
     if n == 0: return [], 0
@@ -84,9 +78,11 @@ def extract_page(page):
     dens = areas / np.maximum(hs * ws, 1)
     rune = ((hs >= 90) & (hs <= 135) & (areas >= 350) & (ws <= 120)
             & ((ws >= 12) | (dens >= 0.7)))
+    frag = (hs >= 25) & (hs < 90) & (ws <= 30) & (areas >= 150)
     tl = lines_of(page)
     want = [len(ln) for ln in tl]
     gidx = np.where(rune)[0]
+    fidx = np.where(frag)[0]
     cl = cluster_cy(cys[rune])
     rows = []
     for i, c in enumerate(cl):
@@ -100,9 +96,25 @@ def extract_page(page):
             units = []
             for j in g:
                 o = objs[j]
-                m = seg_metrics(ink, o[0].start, o[0].stop,
-                                o[1].start, o[1].stop, lab=lab, lid=j + 1)
-                if m: units.append(m)
+                y0, y1, x0, x1 = (o[0].start, o[0].stop,
+                                  o[1].start, o[1].stop)
+                ys, xs = np.nonzero(lab[y0:y1, x0:x1] == j + 1)
+                ys = ys + y0; xs = xs + x0
+                if len(ys) == 0: continue
+                # registered FRAGMENT merge: frags whose bbox intersects
+                # the band and whose x-range overlaps the rune bbox >=50%
+                for fj in fidx:
+                    fo = objs[fj]
+                    fy0, fy1 = fo[0].start, fo[0].stop
+                    fx0, fx1 = fo[1].start, fo[1].stop
+                    if fy1 <= lo or fy0 >= hi: continue
+                    if min(fx1, x1) - max(fx0, x0) < 0.5 * (fx1 - fx0):
+                        continue
+                    a2, b2 = np.nonzero(lab[fy0:fy1, fx0:fx1] == fj + 1)
+                    ys = np.concatenate([ys, a2 + fy0])
+                    xs = np.concatenate([xs, b2 + fx0])
+                units.append(metrics_from(ys, xs, int(j) + 1, x0, x1, y0, y1,
+                                          lo, hi))
         else:                                               # segment mode
             core = ink[lo:hi]
             col = core.sum(0)
@@ -114,8 +126,13 @@ def extract_page(page):
                     inb = False
             keep = []
             for (sx, ex) in segs:
-                m = seg_metrics(ink, lo, hi, sx, ex)
-                if m is None or m["h"] < 60 or m["area"] < 350: continue
+                ys, xs = np.nonzero(ink[lo:hi, sx:ex])
+                if len(ys) == 0: continue
+                ys = ys + lo; xs = xs + sx
+                m = metrics_from(ys, xs, 0, int(xs.min()),
+                                 int(xs.max() + 1), int(ys.min()),
+                                 int(ys.max() + 1), lo, hi)
+                if m["h"] < 60 or m["area"] < 350: continue
                 if m["w"] >= 60 and m["area"] / (m["w"] * m["h"]) <= 0.25:
                     continue                                # marginalia
                 keep.append(m)
@@ -131,7 +148,9 @@ def extract_page(page):
                              mode=mode, cx=m["cx"], cy=m["cy"],
                              fx=m["cx"] % 1.0, fy=m["cy"] % 1.0,
                              w=m["w"], h=m["h"], area=m["area"],
-                             gap=float(gap)))
+                             gap=float(gap), lid=m["lid"],
+                             x0b=m["x0b"], x1b=m["x1b"], y0b=m["y0b"],
+                             y1b=m["y1b"], blo=m["blo"], bhi=m["bhi"]))
     return rows, sum(want)
 
 def main():
@@ -153,7 +172,9 @@ def main():
     g1 = aligned / tot >= 0.95
     print(f"G1: coverage {aligned}/{tot} = {100*aligned/tot:.2f}% "
           f"{'PASS' if g1 else 'FAIL (see escalation)'}")
-    # ---- G2: brute-force machinery check on 3 random clean lines
+    # ---- G2: brute-force machinery (naive pixel loops, registered tol
+    # 1e-6) on 3 random clean lines; re-implements the fragment rule
+    # independently of the vectorized pipeline.
     rng = np.random.default_rng(20261232)
     byl = {}
     for k, r in enumerate(all_rows):
@@ -166,32 +187,46 @@ def main():
         lab, n = ndimage.label(ink, structure=np.ones((3, 3)))
         for k in byl[(pg, ln, mode)]:
             r = all_rows[k]
-            cy0, cx0 = int(round(r["cy"])), int(round(r["cx"]))
+            x0, x1 = r["x0b"], r["x1b"]
+            y0, y1 = r["y0b"], r["y1b"]
+            sx = 0; sy = 0; cnt = 0
             if mode == "comp":
-                # brute force: component id at centroid (5x5 fallback),
-                # pixel loop over its mask
-                lid = 0
-                for dy in range(-3, 4):
-                    for dx in range(-3, 4):
-                        lid = lab[cy0 + dy, cx0 + dx]
-                        if lid: break
-                    if lid: break
-                assert lid, f"G2: no ink near centroid p{pg} l{ln}"
-                ys, xs = np.nonzero(lab == lid)
+                # scan base bbox + fragment reach; naive loop per pixel
+                pix = {}
+                for y in range(max(y0 - 90, 0), min(y1 + 90, lab.shape[0])):
+                    for x in range(max(x0 - 40, 0),
+                                   min(x1 + 40, lab.shape[1])):
+                        v = int(lab[y, x])
+                        if v: pix.setdefault(v, []).append((y, x))
+                sel = list(pix.get(r["lid"], []))
+                for v, px in pix.items():
+                    if v == r["lid"]: continue
+                    fy = [p[0] for p in px]; fx = [p[1] for p in px]
+                    fh = max(fy) - min(fy) + 1
+                    fw = max(fx) - min(fx) + 1
+                    if not (25 <= fh < 90 and fw <= 30 and len(px) >= 150):
+                        continue
+                    if max(fy) + 1 <= r["blo"] or min(fy) >= r["bhi"]:
+                        continue
+                    ov = min(max(fx) + 1, x1) - max(min(fx), x0)
+                    if ov >= 0.5 * fw: sel.extend(px)
             else:
-                x0 = int(np.floor(r["cx"] - r["w"] / 2)) - 2
-                x1 = int(np.ceil(r["cx"] + r["w"] / 2)) + 3
-                y0 = int(np.floor(r["cy"] - r["h"] / 2)) - 2
-                y1 = int(np.ceil(r["cy"] + r["h"] / 2)) + 3
-                sub = ink[y0:y1, x0:x1]
-                ys, xs = np.nonzero(sub)
-                xs = xs + x0; ys = ys + y0
-            e = max(abs(xs.mean() - r["cx"]), abs(ys.mean() - r["cy"]),
-                    abs(len(ys) - r["area"]))
+                sel = [(y, x) for y in range(y0, y1)
+                       for x in range(x0, x1) if ink[y, x]]
+            if not sel:
+                worst = float("inf"); continue
+            for (y, x) in sel:
+                sy += y; sx += x; cnt += 1
+            e = max(abs(sx / cnt - r["cx"]), abs(sy / cnt - r["cy"]),
+                    abs(cnt - r["area"]))
+            if e > 1e-6:
+                print(f"  G2 dev p{pg} l{ln} {mode} k{k} "
+                      f"stored(a={r['area']:.0f},cx={r['cx']:.4f},"
+                      f"cy={r['cy']:.4f}) brute(a={cnt},cx={sx/cnt:.4f},"
+                      f"cy={sy/cnt:.4f}) e={e:.3g}")
             worst = max(worst, e); n_checked += 1
-    print(f"G2: {n_checked} runes checked on 3 lines; worst deviation "
-          f"{worst:.2e} {'PASS' if worst < 0.5 else 'FAIL'} "
-          f"(tol 0.5 px centroid / exact px count)")
+    print(f"G2: {n_checked} runes on 3 lines; worst deviation {worst:.3g} "
+          f"{'PASS' if worst <= 1e-6 else 'FAIL'} (registered tol 1e-6)")
 
 if __name__ == "__main__":
     os.makedirs(os.path.join(HERE, "results"), exist_ok=True)
